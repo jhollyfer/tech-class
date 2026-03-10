@@ -2,20 +2,52 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+:root {
+  --c-primary: oklch(0.55 0.24 262);
+  --c-primary-hover: oklch(0.48 0.26 262);
+  --c-primary-foreground: #ffffff;
+  --c-accent: oklch(0.68 0.14 200);
+  --c-background: oklch(0.985 0 0);
+  --c-surface: #ffffff;
+  --c-foreground: oklch(0.145 0.015 265);
+  --c-muted: oklch(0.556 0.01 265);
+  --c-border: oklch(0.915 0.005 265);
+  --c-success: oklch(0.64 0.17 160);
+  --c-error: oklch(0.58 0.22 25);
+  --c-warning: oklch(0.75 0.14 75);
+  --c-code-bg: oklch(0.97 0.003 265);
+}
+
+.dark {
+  --c-primary: oklch(0.68 0.20 262);
+  --c-primary-hover: oklch(0.62 0.22 262);
+  --c-primary-foreground: #ffffff;
+  --c-accent: oklch(0.68 0.14 200);
+  --c-background: oklch(0.12 0.02 265);
+  --c-surface: oklch(0.16 0.02 265);
+  --c-foreground: oklch(0.94 0.005 265);
+  --c-muted: oklch(0.60 0.01 265);
+  --c-border: oklch(0.23 0.015 265);
+  --c-success: oklch(0.72 0.15 160);
+  --c-error: oklch(0.70 0.18 25);
+  --c-warning: oklch(0.78 0.12 75);
+  --c-code-bg: oklch(0.10 0.02 265);
+}
+
 @theme inline {
-  --color-primary: oklch(0.55 0.18 264);
-  --color-primary-hover: oklch(0.48 0.20 264);
-  --color-primary-foreground: #ffffff;
-  --color-accent: oklch(0.72 0.16 160);
-  --color-background: oklch(0.985 0.002 240);
-  --color-surface: #ffffff;
-  --color-foreground: oklch(0.20 0.02 260);
-  --color-muted: oklch(0.55 0.02 260);
-  --color-border: oklch(0.90 0.01 260);
-  --color-success: oklch(0.62 0.17 155);
-  --color-error: oklch(0.58 0.20 18);
-  --color-warning: oklch(0.72 0.15 70);
-  --color-code-bg: oklch(0.96 0.005 260);
+  --color-primary: var(--c-primary);
+  --color-primary-hover: var(--c-primary-hover);
+  --color-primary-foreground: var(--c-primary-foreground);
+  --color-accent: var(--c-accent);
+  --color-background: var(--c-background);
+  --color-surface: var(--c-surface);
+  --color-foreground: var(--c-foreground);
+  --color-muted: var(--c-muted);
+  --color-border: var(--c-border);
+  --color-success: var(--c-success);
+  --color-error: var(--c-error);
+  --color-warning: var(--c-warning);
+  --color-code-bg: var(--c-code-bg);
   --font-sans: var(--font-nunito), system-ui, sans-serif;
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;
@@ -33,20 +65,6 @@ body {
   font-family: var(--font-sans);
   background-color: var(--color-background);
   color: var(--color-foreground);
-}
-
-.dark {
-  --color-primary: oklch(0.70 0.16 264);
-  --color-primary-hover: oklch(0.64 0.18 264);
-  --color-background: oklch(0.14 0.015 260);
-  --color-surface: oklch(0.18 0.015 260);
-  --color-foreground: oklch(0.92 0.01 260);
-  --color-muted: oklch(0.58 0.02 260);
-  --color-border: oklch(0.25 0.015 260);
-  --color-success: oklch(0.72 0.17 155);
-  --color-error: oklch(0.68 0.18 18);
-  --color-warning: oklch(0.78 0.14 70);
-  --color-code-bg: oklch(0.12 0.015 260);
 }
 
 .hide-scrollbar::-webkit-scrollbar {
@@ -75,8 +93,8 @@ body {
   position: fixed;
   inset: 0;
   background-image:
-    linear-gradient(oklch(0.55 0.18 264 / 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, oklch(0.55 0.18 264 / 0.03) 1px, transparent 1px);
+    linear-gradient(oklch(0.55 0.24 262 / 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.55 0.24 262 / 0.03) 1px, transparent 1px);
   background-size: 48px 48px;
   pointer-events: none;
   z-index: 0;
@@ -84,6 +102,6 @@ body {
 
 .dark .grid-bg::before {
   background-image:
-    linear-gradient(oklch(0.70 0.16 264 / 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, oklch(0.70 0.16 264 / 0.04) 1px, transparent 1px);
+    linear-gradient(oklch(0.68 0.20 262 / 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.68 0.20 262 / 0.04) 1px, transparent 1px);
 }
