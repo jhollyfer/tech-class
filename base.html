@@ -1,0 +1,766 @@
+<!doctype html>
+
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>PatinhasSalvas - Cada patinha merece um lar</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1B4332",
+              accent: "#F59E0B",
+              "background-light": "#FAFAF8",
+              "background-dark": "#151d1a",
+              "neutral-soft": "#f1f3f2",
+            },
+            fontFamily: {
+              display: ["Public Sans", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              "2xl": "1rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Public Sans", sans-serif;
+      }
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100"
+  >
+    <!-- Navbar -->
+    <nav
+      class="sticky top-0 z-50 w-full bg-white/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-primary/10"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-3xl"
+              >pets</span
+            >
+            <span class="text-primary text-xl font-bold tracking-tight"
+              >PatinhasSalvas</span
+            >
+          </div>
+          <div class="hidden md:flex items-center gap-8">
+            <a
+              class="text-sm font-medium hover:text-primary transition-colors"
+              href="#"
+              >Adotar</a
+            >
+            <a
+              class="text-sm font-medium hover:text-primary transition-colors"
+              href="#"
+              >Denunciar</a
+            >
+            <a
+              class="text-sm font-medium hover:text-primary transition-colors"
+              href="#"
+              >Vaquinhas</a
+            >
+            <a
+              class="text-sm font-medium hover:text-primary transition-colors"
+              href="#"
+              >Sobre</a
+            >
+            <button
+              class="bg-primary text-white px-5 py-2 rounded-lg text-sm font-bold hover:bg-primary/90 transition-all shadow-md"
+            >
+              Cadastrar ONG
+            </button>
+          </div>
+          <div class="md:hidden flex items-center">
+            <span class="material-symbols-outlined text-slate-700">menu</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Hero Section -->
+    <section
+      class="relative w-full min-h-[600px] flex items-center overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 bg-cover bg-center z-0"
+        data-alt="Cachorro feliz sendo abraçado por uma pessoa em um campo"
+        style="
+          background-image:
+            linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
+            url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDQSmGWGmQqDdR7IvnfwK2_bEWZx26XonElXaqIzWt3druwT6cQgsay0U4AgdMLvK5D1flakmiewc6vjxBTZGELZEthKkWFAZ4xltdgELdcqeolIyyR3evt6DbAHCwgovWVq2yt2sn9DcyJ8bpSc4WtYYY6x2NIcfJbCA4E7c2oKMf812DgbFg68K5Gekzw7A3Xy8pjEVUkWIjw9kW7mCGyN9bvGv5tvgqQb9ClkYSoyvl8XxQcDFq2xsrJCrhmFtOdgs8uHXveVxx7&quot;);
+        "
+      ></div>
+      <div
+        class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-white"
+      >
+        <div class="max-w-2xl">
+          <h1 class="text-5xl md:text-6xl font-black leading-tight mb-6">
+            Cada patinha merece um lar.
+          </h1>
+          <p
+            class="text-lg md:text-xl font-medium opacity-90 mb-8 leading-relaxed"
+          >
+            Adote, denuncie maus-tratos e apoie vaquinhas de animais em todo o
+            Brasil. Juntos podemos transformar vidas.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <button
+              class="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl transition-transform hover:-translate-y-1"
+            >
+              Quero Adotar
+            </button>
+            <button
+              class="bg-white/20 backdrop-blur-md hover:bg-white/30 text-white border border-white/30 px-8 py-4 rounded-xl font-bold text-lg transition-all"
+            >
+              Ver Vaquinhas
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Stats Bar -->
+    <section class="bg-primary/5 py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          <div class="p-6">
+            <p class="text-4xl font-black text-primary mb-2">1.240</p>
+            <p
+              class="text-slate-600 dark:text-slate-400 font-medium uppercase tracking-wide text-sm"
+            >
+              Animais adotados
+            </p>
+          </div>
+          <div class="p-6 border-y md:border-y-0 md:border-x border-primary/10">
+            <p class="text-4xl font-black text-primary mb-2">3.800</p>
+            <p
+              class="text-slate-600 dark:text-slate-400 font-medium uppercase tracking-wide text-sm"
+            >
+              Denúncias registradas
+            </p>
+          </div>
+          <div class="p-6">
+            <p class="text-4xl font-black text-primary mb-2">R$ 280 mil</p>
+            <p
+              class="text-slate-600 dark:text-slate-400 font-medium uppercase tracking-wide text-sm"
+            >
+              Arrecadados em vaquinhas
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Features -->
+    <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-black text-slate-900 dark:text-white mb-4">
+          Como ajudamos os animais
+        </h2>
+        <p class="text-slate-600 dark:text-slate-400 max-w-xl mx-auto">
+          Nossa plataforma conecta quem quer ajudar com quem precisa de auxílio,
+          garantindo transparência e segurança.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div
+          class="bg-white dark:bg-background-dark p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-shadow group"
+        >
+          <div
+            class="w-14 h-14 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors"
+          >
+            <span class="material-symbols-outlined text-3xl">pets</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Adoção Responsável</h3>
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+            Conectamos você a ONGs verificadas e animais que esperam por um novo
+            lar cheio de amor.
+          </p>
+        </div>
+        <div
+          class="bg-white dark:bg-background-dark p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-shadow group"
+        >
+          <div
+            class="w-14 h-14 bg-accent/10 text-accent rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent group-hover:text-white transition-colors"
+          >
+            <span class="material-symbols-outlined text-3xl">shield</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Denúncia Protegida</h3>
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+            Um canal seguro para reportar casos de maus-tratos diretamente às
+            autoridades e protetores locais.
+          </p>
+        </div>
+        <div
+          class="bg-white dark:bg-background-dark p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-shadow group"
+        >
+          <div
+            class="w-14 h-14 bg-red-100 text-red-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-red-600 group-hover:text-white transition-colors"
+          >
+            <span class="material-symbols-outlined text-3xl">favorite</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Vaquinhas Solidárias</h3>
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+            Ajude a custear tratamentos, cirurgias e ração para animais
+            resgatados que ainda não têm um lar.
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- Featured Animals (Carousel) -->
+    <section
+      class="py-20 bg-slate-50 dark:bg-background-dark/50 overflow-hidden"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 flex justify-between items-end"
+      >
+        <div>
+          <h2 class="text-3xl font-black text-slate-900 dark:text-white">
+            Amigos à espera de um lar
+          </h2>
+          <p class="text-slate-600 dark:text-slate-400 mt-2">
+            Conheça alguns dos nossos pequenos que buscam uma família.
+          </p>
+        </div>
+        <div class="flex gap-2">
+          <button
+            class="w-10 h-10 rounded-full border border-slate-300 flex items-center justify-center hover:bg-white transition-colors"
+          >
+            <span class="material-symbols-outlined">chevron_left</span>
+          </button>
+          <button
+            class="w-10 h-10 rounded-full border border-slate-300 flex items-center justify-center hover:bg-white transition-colors"
+          >
+            <span class="material-symbols-outlined">chevron_right</span>
+          </button>
+        </div>
+      </div>
+      <div class="flex gap-6 overflow-x-auto px-4 md:px-20 hide-scrollbar pb-8">
+        <!-- Card 1 -->
+        <div
+          class="min-w-[300px] bg-white dark:bg-background-dark rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all"
+        >
+          <div
+            class="h-64 bg-cover bg-center"
+            data-alt="Cachorro beagle filhote sentado"
+            style="
+              background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCWeNxoS-SL0RZtXQC-adMDruWnLf43dzzNJzzQP43nbddwQoK20ZbYkOYhIYUiBukIAcl-ZYjlvMpvEf_6PyQMoivhUwi7luqaABmktQBhPFLfadX7YQUIg9fF2h8Tx3AqgeaXIOF0-mDqnkYL52Gkt33tlzaRG7srkPp2_X72RJbdicX3d1RGZzWyAfEo380tyBl2ZyQQzUwB_8oJnz5NCcNxkl18QPjzD8mgv2OTpK207PhpnZ-4BwtPnnCOYNLxqlu9bX24Y65a&quot;);
+            "
+          ></div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h4 class="text-xl font-bold">Max</h4>
+              <span
+                class="bg-primary/10 text-primary text-xs font-bold px-2 py-1 rounded"
+                >Cachorro</span
+              >
+            </div>
+            <div class="flex items-center text-slate-500 text-sm mb-4">
+              <span class="material-symbols-outlined text-sm mr-1"
+                >location_on</span
+              >
+              São Paulo, SP
+            </div>
+            <button
+              class="w-full py-3 border border-primary text-primary font-bold rounded-xl hover:bg-primary hover:text-white transition-all"
+            >
+              Conhecer Max
+            </button>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div
+          class="min-w-[300px] bg-white dark:bg-background-dark rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all"
+        >
+          <div
+            class="h-64 bg-cover bg-center"
+            data-alt="Gato preto e branco deitado"
+            style="
+              background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuAG_45YH2ibpFSvjzRMwGC9Jss5c5a6PrhEHBNA0tvrJR5yMcSz60TUUvYQnWN5bVF8QRQqUbGb8Nnu5InzJm8iLZSx4HS4RuvEXjQS-p5EXRQKB9T7GIF5EKow4tzpKbSn6iH-VODDRqbCvzY6QsJ5qckrGyFf4D3XPy0BIFTC-7hXcH9sVaDcDsoNQF2DgW0LQGN6OmFMyF-bkk34XSyARTZ1BlmCFi_SYwGSdAspvvg91e5acr0IRs3ElAQ_eNNtCdtl6ijfIuIm&quot;);
+            "
+          ></div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h4 class="text-xl font-bold">Luna</h4>
+              <span
+                class="bg-primary/10 text-primary text-xs font-bold px-2 py-1 rounded"
+                >Gato</span
+              >
+            </div>
+            <div class="flex items-center text-slate-500 text-sm mb-4">
+              <span class="material-symbols-outlined text-sm mr-1"
+                >location_on</span
+              >
+              Curitiba, PR
+            </div>
+            <button
+              class="w-full py-3 border border-primary text-primary font-bold rounded-xl hover:bg-primary hover:text-white transition-all"
+            >
+              Conhecer Luna
+            </button>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div
+          class="min-w-[300px] bg-white dark:bg-background-dark rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all"
+        >
+          <div
+            class="h-64 bg-cover bg-center"
+            data-alt="Cachorro vira-lata caramelo sorridente"
+            style="
+              background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDPKCln_RMQjVuxkN-CIVVgeXyjuUHpqLxFVxEzZ4JbLM5ipoefLa3r11egf1xHiQaDcFuNnSv0tWRw75hFWCGYQBLWAF3j5Xe29x4nJdcVGvD-FMKQX2AM3PoQNU0z1NYHx9WLt73YQPvDFBIuoyJ-TzGmWMzjjff_GFPsn-KaQ5UBzkIRpynBl7KY48ov75i0AwWRzt3pCYv1sNvgYk-sXh4IuCCb2WuDLjiPaoy59Y9__vna2TZkO5LOnDfEgGJkClImPG-GQ1Xx&quot;);
+            "
+          ></div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h4 class="text-xl font-bold">Pipoca</h4>
+              <span
+                class="bg-primary/10 text-primary text-xs font-bold px-2 py-1 rounded"
+                >Cachorro</span
+              >
+            </div>
+            <div class="flex items-center text-slate-500 text-sm mb-4">
+              <span class="material-symbols-outlined text-sm mr-1"
+                >location_on</span
+              >
+              Rio de Janeiro, RJ
+            </div>
+            <button
+              class="w-full py-3 border border-primary text-primary font-bold rounded-xl hover:bg-primary hover:text-white transition-all"
+            >
+              Conhecer Pipoca
+            </button>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div
+          class="min-w-[300px] bg-white dark:bg-background-dark rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all"
+        >
+          <div
+            class="h-64 bg-cover bg-center"
+            data-alt="Gato persa cinza olhando fixamente"
+            style="
+              background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuArd6WgV1tsZVQBbJP9av62xeo0oOK3ZwOBYfYJuaFQ7jqGBsuScxrrJR3mtHuQCl1F8KgUclWyaCWRiIutUTNABAVIAN04hUS1QlGoAiLNkYzFmHureglRWYTGLEOzW3fQRKNVKU84UyfVyjwKF1TsWslaL1Ig2UvhoPn3BARrKTzb025jVuNh-tYm45nP5eFazAOfeuU1r3eXCnChHj3bHqpmaN77xhRW72QGrRR6GNG8als3LCUmfo2fvyS49sUa3StCL6-UlnKR&quot;);
+            "
+          ></div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h4 class="text-xl font-bold">Oliver</h4>
+              <span
+                class="bg-primary/10 text-primary text-xs font-bold px-2 py-1 rounded"
+                >Gato</span
+              >
+            </div>
+            <div class="flex items-center text-slate-500 text-sm mb-4">
+              <span class="material-symbols-outlined text-sm mr-1"
+                >location_on</span
+              >
+              Belo Horizonte, MG
+            </div>
+            <button
+              class="w-full py-3 border border-primary text-primary font-bold rounded-xl hover:bg-primary hover:text-white transition-all"
+            >
+              Conhecer Oliver
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Campaigns Section -->
+    <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-black text-slate-900 dark:text-white mb-4">
+          Vaquinhas em Destaque
+        </h2>
+        <p class="text-slate-600 dark:text-slate-400 max-w-xl mx-auto">
+          Sua contribuição salva vidas. Ajude a financiar o tratamento de
+          animais resgatados.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Campaign Card 1 -->
+        <div
+          class="bg-white dark:bg-background-dark rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-800 shadow-sm"
+        >
+          <div
+            class="h-48 bg-cover bg-center"
+            data-alt="Cachorro com pata enfaixada recebendo carinho"
+            style="
+              background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDxLXKwWUgnHJMEKOYKNrRmVefHRUMMp0KnJgID5OdD1VKUUEeYZ_DP5YwklHTroA0Z4pIJ1-9oRhPZ7DRuN2rTfNJjhrYBvAo3DFpNlOSwcv9DLfR4UYuR4L3lS14two03-sYrHifeJd8j12BGPqnsi4gPKkMngy3Txt9MrvmopkeV3nKEZBChJtTWdrm0mo86JkjuslCIh1gG8TRWg2N4j4CqkmggQu_ZYSghD2pDXpCpi_OkDr5VHEmBhjgoyHXpdFWjJk8kNh71&quot;);
+            "
+          ></div>
+          <div class="p-6">
+            <h4 class="text-lg font-bold mb-4 line-clamp-2">
+              Cirurgia de Emergência para o Thor
+            </h4>
+            <div class="mb-4">
+              <div class="flex justify-between text-sm mb-1">
+                <span class="font-bold text-primary">R$ 1.200 arrecadados</span>
+                <span class="text-slate-500">60%</span>
+              </div>
+              <div class="w-full bg-slate-100 rounded-full h-2">
+                <div
+                  class="bg-accent h-2 rounded-full"
+                  style="width: 60%"
+                ></div>
+              </div>
+            </div>
+            <div class="flex justify-between text-xs text-slate-500 mb-6">
+              <span>Meta: R$ 2.000</span>
+              <span>4 dias restantes</span>
+            </div>
+            <button
+              class="w-full py-3 bg-accent text-white font-bold rounded-xl hover:bg-accent/90 transition-all"
+            >
+              Contribuir agora
+            </button>
+          </div>
+        </div>
+        <!-- Campaign Card 2 -->
+        <div
+          class="bg-white dark:bg-background-dark rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-800 shadow-sm"
+        >
+          <div
+            class="h-48 bg-cover bg-center"
+            data-alt="Vários gatinhos comendo juntos"
+            style="
+              background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBP2RHO5d-ocbtfIyxhtMm2LH7HkCvqRx7q-G7oXIn20aijvSM6NDYlBSMrkGxu1fbxWQsJqCrZG9Ww1SXCCUlgRWCc8JN_QYU8gIkDRTgHOJaaXI8in8Tsv9Q3PNO7BeBTXUGyle3L9yu7BEo5ZzmiQ05RZpeXMkG02dG5nu_PlfzKNJ2eMVezwFoN3vd2hnzArLaFxnkUviXgLuXmpFd9kS0UdcbRhZoa72lj5QN4Fo2_fw_PWhB2vPvUORcWRXDw__uh7lDzX78t&quot;);
+            "
+          ></div>
+          <div class="p-6">
+            <h4 class="text-lg font-bold mb-4 line-clamp-2">
+              Ração para 50 Gatos da ONG Patas Livres
+            </h4>
+            <div class="mb-4">
+              <div class="flex justify-between text-sm mb-1">
+                <span class="font-bold text-primary">R$ 3.450 arrecadados</span>
+                <span class="text-slate-500">86%</span>
+              </div>
+              <div class="w-full bg-slate-100 rounded-full h-2">
+                <div
+                  class="bg-accent h-2 rounded-full"
+                  style="width: 86%"
+                ></div>
+              </div>
+            </div>
+            <div class="flex justify-between text-xs text-slate-500 mb-6">
+              <span>Meta: R$ 4.000</span>
+              <span>12 dias restantes</span>
+            </div>
+            <button
+              class="w-full py-3 bg-accent text-white font-bold rounded-xl hover:bg-accent/90 transition-all"
+            >
+              Contribuir agora
+            </button>
+          </div>
+        </div>
+        <!-- Campaign Card 3 -->
+        <div
+          class="bg-white dark:bg-background-dark rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-800 shadow-sm"
+        >
+          <div
+            class="h-48 bg-cover bg-center"
+            data-alt="Gato idoso olhando pela janela"
+            style="
+              background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDaXC5orBnntRbpiDc-ycnlo4hEyNwzf3RMH17swjnFnYNMm9s3xUNbEozIVLnzmJn9EqiPQs2Xj5Bz6Ji8nCoD0mkAsZPUk5LFdKWszsBWQPpZEKyDM02Cl-WZ2wVoygq-2LCiqUlPwDrny1TF6X0G6hNZ-fWJAMqvLHrRcuPQGlnmNxQlINOPxwU7fB86Y6n1Q--ulFjproC6xVdSJWeLl06njdPEV5oxYhO_OybUxynXp83he-74FkQPJ8OmOOb-7LZzvjX0mZk5&quot;);
+            "
+          ></div>
+          <div class="p-6">
+            <h4 class="text-lg font-bold mb-4 line-clamp-2">
+              Tratamento de Doença Renal do Mel
+            </h4>
+            <div class="mb-4">
+              <div class="flex justify-between text-sm mb-1">
+                <span class="font-bold text-primary">R$ 450 arrecadados</span>
+                <span class="text-slate-500">30%</span>
+              </div>
+              <div class="w-full bg-slate-100 rounded-full h-2">
+                <div
+                  class="bg-accent h-2 rounded-full"
+                  style="width: 30%"
+                ></div>
+              </div>
+            </div>
+            <div class="flex justify-between text-xs text-slate-500 mb-6">
+              <span>Meta: R$ 1.500</span>
+              <span>20 dias restantes</span>
+            </div>
+            <button
+              class="w-full py-3 bg-accent text-white font-bold rounded-xl hover:bg-accent/90 transition-all"
+            >
+              Contribuir agora
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- How it Works -->
+    <section class="py-24 bg-primary text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-black mb-4">
+            Como funciona o processo de adoção?
+          </h2>
+          <p class="text-primary/20 text-white/70 max-w-xl mx-auto">
+            Adotar é um ato de amor, mas também de responsabilidade. Veja os
+            passos:
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+          <div
+            class="hidden md:block absolute top-10 left-0 w-full h-0.5 border-t-2 border-dashed border-white/20 z-0"
+          ></div>
+          <div class="relative z-10 text-center">
+            <div
+              class="w-20 h-20 bg-accent text-white rounded-full flex items-center justify-center text-3xl font-black mx-auto mb-6 shadow-xl"
+            >
+              1
+            </div>
+            <h3 class="text-xl font-bold mb-4">Escolha seu amigo</h3>
+            <p class="text-white/70">
+              Navegue pelos perfis e encontre o animal que mais combina com seu
+              estilo de vida.
+            </p>
+          </div>
+          <div class="relative z-10 text-center">
+            <div
+              class="w-20 h-20 bg-accent text-white rounded-full flex items-center justify-center text-3xl font-black mx-auto mb-6 shadow-xl"
+            >
+              2
+            </div>
+            <h3 class="text-xl font-bold mb-4">Fale com a ONG</h3>
+            <p class="text-white/70">
+              A ONG responsável fará uma entrevista para garantir que você e o
+              pet sejam o par perfeito.
+            </p>
+          </div>
+          <div class="relative z-10 text-center">
+            <div
+              class="w-20 h-20 bg-accent text-white rounded-full flex items-center justify-center text-3xl font-black mx-auto mb-6 shadow-xl"
+            >
+              3
+            </div>
+            <h3 class="text-xl font-bold mb-4">Finalize a Adoção</h3>
+            <p class="text-white/70">
+              Após a aprovação, assine o termo de responsabilidade e prepare-se
+              para receber muito amor!
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Testimonials -->
+    <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-black text-center mb-16">
+        Histórias de Sucesso
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div
+          class="bg-white dark:bg-background-dark p-8 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-800 italic relative"
+        >
+          <span
+            class="material-symbols-outlined absolute top-6 right-8 text-primary/20 text-6xl"
+            >format_quote</span
+          >
+          <p
+            class="text-lg text-slate-700 dark:text-slate-300 leading-relaxed mb-8"
+          >
+            "Encontrar o Tobias pelo PatinhasSalvas foi a melhor coisa que
+            aconteceu na minha vida. O processo foi super transparente e hoje
+            não imagino minha rotina sem ele!"
+          </p>
+          <div class="flex items-center gap-4 not-italic">
+            <div
+              class="w-12 h-12 rounded-full bg-cover bg-center"
+              data-alt="Avatar de uma mulher sorridente"
+              style="
+                background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDfIpKknlACdnZwQvg45Tkq2_zcrH1MRc9w2_g5Xeaml1Gw2PhSSCwu1vgbtEPa5vQHh3N4v3LqZp_AEoMWD_mbCFL-VDEtD1QcIVuirCMSn9l2sAzdnXe7PTtp3TgFVDRSMIiXlCpW64wR1Du8TVuLDFhKBPFCNeEmFKlmpr3bAu2soNAcemXk_DJ9cuw7wazMf7nu_wJ2S2U06LAThCBWG4Lf-610rAo4jxxqYs7Vv-D9-OdaeAh-EZUySn63qcj5M5u6Af4fHVEE&quot;);
+              "
+            ></div>
+            <div>
+              <p class="font-bold">Mariana Silva</p>
+              <p class="text-sm text-slate-500">Adotou o Tobias em SP</p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="bg-white dark:bg-background-dark p-8 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-800 italic relative"
+        >
+          <span
+            class="material-symbols-outlined absolute top-6 right-8 text-primary/20 text-6xl"
+            >format_quote</span
+          >
+          <p
+            class="text-lg text-slate-700 dark:text-slate-300 leading-relaxed mb-8"
+          >
+            "Como ONG, ter um espaço para divulgar nossos animais e gerenciar
+            vaquinhas de forma segura mudou nosso impacto. Já conseguimos tratar
+            mais de 20 animais este mês."
+          </p>
+          <div class="flex items-center gap-4 not-italic">
+            <div
+              class="w-12 h-12 rounded-full bg-cover bg-center"
+              data-alt="Avatar de um homem com óculos"
+              style="
+                background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuC012zQOvaPocHDCi4NykvlAOw-CcX2Sk1VI5oppzGndc24e0OSbhE1nYR3j3nLfuiq5JiObj6rWD0XHfmddtAxS-rEXBinCGwqpAshQGhw24StPULdjbqNvXbK_DSOMWPOL_s9RBPOba9tdkShcdddClvTCZ7Qi8-1XSL3m433fjvntbcfhtgwj_u355M5kHGg90OxwyU7Pr95ZO7G3biZnFuszVjhbsD8DzXfHGQx-vbysBfrtmK1YpEtoMjb2DlZV6uJOjlcpjuM&quot;);
+              "
+            ></div>
+            <div>
+              <p class="font-bold">Ricardo Alencar</p>
+              <p class="text-sm text-slate-500">Diretor da ONG Patas Amigas</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- NGO Call to Action -->
+    <section class="py-20 bg-accent/10 border-y border-accent/20">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-black text-slate-900 mb-6">
+          Representa uma ONG ou Protetor Independente?
+        </h2>
+        <p class="text-slate-700 text-lg mb-8">
+          Cadastre-se gratuitamente para publicar animais para adoção e criar
+          vaquinhas verificadas para seus resgatados.
+        </p>
+        <button
+          class="bg-primary text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-primary/90 transition-all shadow-lg"
+        >
+          Cadastrar Minha Instituição
+        </button>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer
+      class="bg-white dark:bg-background-dark pt-16 pb-8 border-t border-slate-100 dark:border-slate-800"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+          <div class="col-span-1 md:col-span-1">
+            <div class="flex items-center gap-2 mb-6">
+              <span class="material-symbols-outlined text-primary text-3xl"
+                >pets</span
+              >
+              <span class="text-primary text-xl font-bold tracking-tight"
+                >PatinhasSalvas</span
+              >
+            </div>
+            <p class="text-slate-500 text-sm leading-relaxed">
+              Transformando a realidade do bem-estar animal no Brasil através da
+              tecnologia e solidariedade.
+            </p>
+          </div>
+          <div>
+            <h5 class="font-bold mb-6">Plataforma</h5>
+            <ul class="space-y-4 text-sm text-slate-500">
+              <li>
+                <a class="hover:text-primary transition-colors" href="#"
+                  >Encontrar Pet</a
+                >
+              </li>
+              <li>
+                <a class="hover:text-primary transition-colors" href="#"
+                  >Criar Vaquinha</a
+                >
+              </li>
+              <li>
+                <a class="hover:text-primary transition-colors" href="#"
+                  >Denunciar Maus-tratos</a
+                >
+              </li>
+              <li>
+                <a class="hover:text-primary transition-colors" href="#"
+                  >ONGs Parceiras</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="font-bold mb-6">Institucional</h5>
+            <ul class="space-y-4 text-sm text-slate-500">
+              <li>
+                <a class="hover:text-primary transition-colors" href="#"
+                  >Sobre Nós</a
+                >
+              </li>
+              <li>
+                <a class="hover:text-primary transition-colors" href="#"
+                  >Transparência</a
+                >
+              </li>
+              <li>
+                <a class="hover:text-primary transition-colors" href="#"
+                  >Termos de Uso</a
+                >
+              </li>
+              <li>
+                <a class="hover:text-primary transition-colors" href="#"
+                  >Contato</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="font-bold mb-6">Siga-nos</h5>
+            <div class="flex gap-4">
+              <a
+                class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all"
+                href="#"
+              >
+                <span class="material-symbols-outlined">share</span>
+              </a>
+              <a
+                class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all"
+                href="#"
+              >
+                <span class="material-symbols-outlined">photo_camera</span>
+              </a>
+              <a
+                class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all"
+                href="#"
+              >
+                <span class="material-symbols-outlined">video_library</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="pt-8 border-t border-slate-100 dark:border-slate-800 text-center text-slate-400 text-xs"
+        >
+          <p>
+            © 2024 PatinhasSalvas. Todos os direitos reservados. Feito com amor
+            pelos animais.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

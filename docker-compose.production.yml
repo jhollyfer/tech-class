@@ -1,0 +1,37 @@
+name: tech-class
+
+services:
+  app:
+    image: ${DOCKER_USERNAME}/tech-class-app:latest
+    restart: unless-stopped
+    networks:
+      - traefik-network
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:3000 || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+    deploy:
+      resources:
+        limits:
+          memory: 128M
+          cpus: "0.25"
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.tech-class-app.rule=Host(`tech-class.maiyu.com.br`) || Host(`www.tech-class.maiyu.com.br`)"
+      - "traefik.http.routers.tech-class-app.entrypoints=websecure"
+      - "traefik.http.routers.tech-class-app.tls.certresolver=myresolver"
+      - "traefik.http.services.tech-class-app.loadbalancer.server.port=3000"
+      - "traefik.http.routers.tech-class-app-http.rule=Host(`tech-class.maiyu.com.br`) || Host(`www.tech-class.maiyu.com.br`)"
+      - "traefik.http.routers.tech-class-app-http.entrypoints=web"
+      - "traefik.http.routers.tech-class-app-http.middlewares=https-only@file"
+
+networks:
+  traefik-network:
+    external: true
