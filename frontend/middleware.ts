@@ -6,10 +6,10 @@ export function middleware(request: NextRequest) {
   if (hostname.startsWith("tech-class.")) {
     const path = request.nextUrl.pathname;
     if (path === "/") {
-      return NextResponse.rewrite(new URL("/aulas", request.url));
+      return NextResponse.rewrite(new URL("/lessons", request.url));
     }
-    if (!path.startsWith("/aulas")) {
-      return NextResponse.redirect(new URL("/aulas", request.url));
+    if (!path.startsWith("/lessons")) {
+      return NextResponse.redirect(new URL("/lessons", request.url));
     }
   }
 

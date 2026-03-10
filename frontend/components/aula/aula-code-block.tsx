@@ -10,15 +10,15 @@ interface AulaCodeBlockProps {
 
 const tokenColors: Record<string, string> = {
   keyword: "text-[var(--color-primary)]",
-  string: "text-[var(--color-aula-success)]",
-  number: "text-[var(--color-aula-highlight)]",
+  string: "text-[var(--color-success)]",
+  number: "text-[var(--color-warning)]",
   comment: "text-[var(--color-muted)] italic",
-  operator: "text-[var(--color-aula-error)]",
+  operator: "text-[var(--color-error)]",
 };
 
 export function AulaCodeBlock({ tokens, language }: AulaCodeBlockProps) {
   return (
-    <div className="relative rounded-lg border border-[var(--color-border)] bg-[#0d0d14] overflow-x-auto my-4">
+    <div className="relative rounded-lg border border-[var(--color-border)] bg-[var(--color-code-bg)] overflow-x-auto my-4">
       {language && (
         <div className="px-4 py-1.5 text-xs font-mono text-[var(--color-muted)] border-b border-[var(--color-border)]">
           {language}

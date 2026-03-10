@@ -44,10 +44,11 @@ export default async function AulaPage({ params }: PageProps) {
     <main className="min-h-screen pb-16">
       <AulaProgressBar />
 
-      <nav className="sticky top-0 z-40 bg-[var(--color-background)]/80 backdrop-blur-sm border-b border-[var(--color-border)] px-6 py-3">
+      {/* Breadcrumb + counter (no sticky nav — global navbar handles that) */}
+      <div className="border-b border-[var(--color-border)] px-6 py-3">
         <div className="max-w-3xl mx-auto flex items-center justify-between">
           <Link
-            href="/aulas"
+            href="/lessons"
             className="text-sm font-mono text-[var(--color-muted)] hover:text-[var(--color-primary)] transition-colors"
           >
             ← Todas as aulas
@@ -56,7 +57,7 @@ export default async function AulaPage({ params }: PageProps) {
             {String(currentIndex + 1).padStart(2, "0")}/{String(aulas.length).padStart(2, "0")}
           </span>
         </div>
-      </nav>
+      </div>
 
       <AulaHeader
         modulo={aula.modulo}
@@ -92,7 +93,7 @@ export default async function AulaPage({ params }: PageProps) {
         <div className="flex justify-between gap-4">
           {prevAula ? (
             <Link
-              href={`/aulas/${prevAula.slug}`}
+              href={`/lessons/${prevAula.slug}`}
               className="flex-1 p-4 rounded-lg border border-[var(--color-border)] hover:border-[var(--color-primary)]/40 transition-colors text-left"
             >
               <span className="text-xs font-mono text-[var(--color-muted)]">← Anterior</span>
@@ -101,7 +102,7 @@ export default async function AulaPage({ params }: PageProps) {
           ) : <div className="flex-1" />}
           {nextAula ? (
             <Link
-              href={`/aulas/${nextAula.slug}`}
+              href={`/lessons/${nextAula.slug}`}
               className="flex-1 p-4 rounded-lg border border-[var(--color-border)] hover:border-[var(--color-primary)]/40 transition-colors text-right"
             >
               <span className="text-xs font-mono text-[var(--color-muted)]">Próxima →</span>

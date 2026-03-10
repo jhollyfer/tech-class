@@ -18,7 +18,7 @@ export function AulaCodeToggle({ errado, correto, explicacao }: AulaCodeTogglePr
           onClick={() => setMostrarCorreto(false)}
           className={`flex-1 px-4 py-2.5 text-xs font-mono font-semibold transition-colors cursor-pointer ${
             !mostrarCorreto
-              ? "bg-[var(--color-aula-error)]/10 text-[var(--color-aula-error)]"
+              ? "bg-[var(--color-error)]/10 text-[var(--color-error)]"
               : "text-[var(--color-muted)] hover:text-[var(--color-foreground)]"
           }`}
         >
@@ -28,7 +28,7 @@ export function AulaCodeToggle({ errado, correto, explicacao }: AulaCodeTogglePr
           onClick={() => setMostrarCorreto(true)}
           className={`flex-1 px-4 py-2.5 text-xs font-mono font-semibold transition-colors cursor-pointer ${
             mostrarCorreto
-              ? "bg-[var(--color-aula-success)]/10 text-[var(--color-aula-success)]"
+              ? "bg-[var(--color-success)]/10 text-[var(--color-success)]"
               : "text-[var(--color-muted)] hover:text-[var(--color-foreground)]"
           }`}
         >
@@ -42,7 +42,7 @@ export function AulaCodeToggle({ errado, correto, explicacao }: AulaCodeTogglePr
 
       {mostrarCorreto && (
         <div className="px-4 pb-4">
-          <p className="text-xs text-[var(--color-aula-success)]/80 leading-relaxed">
+          <p className="text-xs text-[var(--color-success)]/80 leading-relaxed">
             {explicacao}
           </p>
         </div>

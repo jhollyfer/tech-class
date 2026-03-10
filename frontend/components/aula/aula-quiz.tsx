@@ -68,8 +68,8 @@ export function AulaQuiz({ questoes }: AulaQuizProps) {
               className={`rounded-lg border p-5 transition-colors ${
                 respondida
                   ? acertou
-                    ? "border-[var(--color-aula-success)]/40 bg-[var(--color-aula-success)]/5"
-                    : "border-[var(--color-aula-error)]/40 bg-[var(--color-aula-error)]/5"
+                    ? "border-[var(--color-success)]/40 bg-[var(--color-success)]/5"
+                    : "border-[var(--color-error)]/40 bg-[var(--color-error)]/5"
                   : "border-[var(--color-border)] bg-[var(--color-surface)]"
               }`}
             >
@@ -89,13 +89,13 @@ export function AulaQuiz({ questoes }: AulaQuizProps) {
                     className={`text-left px-4 py-2.5 rounded-md text-sm font-mono transition-colors cursor-pointer ${
                       respondida
                         ? oi === q.correta
-                          ? "bg-[var(--color-aula-success)]/15 text-[var(--color-aula-success)]"
+                          ? "bg-[var(--color-success)]/15 text-[var(--color-success)]"
                           : oi === state.respostas[qi]
-                            ? "bg-[var(--color-aula-error)]/15 text-[var(--color-aula-error)]"
+                            ? "bg-[var(--color-error)]/15 text-[var(--color-error)]"
                             : "bg-[var(--color-surface)] text-[var(--color-muted)]"
                         : "bg-[var(--color-surface)] hover:bg-[var(--color-primary)]/10 hover:text-[var(--color-primary)]"
                     } disabled:cursor-default border border-transparent ${
-                      respondida && oi === q.correta ? "border-[var(--color-aula-success)]/30" : ""
+                      respondida && oi === q.correta ? "border-[var(--color-success)]/30" : ""
                     }`}
                     aria-label={`Opção ${oi + 1}: ${opcao}`}
                   >
@@ -107,9 +107,9 @@ export function AulaQuiz({ questoes }: AulaQuizProps) {
               {respondida && (
                 <p className="mt-3 text-sm leading-relaxed">
                   {acertou ? (
-                    <span className="text-[var(--color-aula-success)]">{q.explicacao}</span>
+                    <span className="text-[var(--color-success)]">{q.explicacao}</span>
                   ) : (
-                    <span className="text-[var(--color-aula-error)]">{q.explicacaoErrada}</span>
+                    <span className="text-[var(--color-error)]">{q.explicacaoErrada}</span>
                   )}
                 </p>
               )}

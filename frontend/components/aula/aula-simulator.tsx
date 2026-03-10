@@ -55,8 +55,8 @@ export function AulaSimulator({
         <div
           className={`mt-3 px-4 py-2.5 rounded-md text-sm font-mono ${
             resultado.correto
-              ? "bg-[var(--color-aula-success)]/10 text-[var(--color-aula-success)]"
-              : "bg-[var(--color-aula-error)]/10 text-[var(--color-aula-error)]"
+              ? "bg-[var(--color-success)]/10 text-[var(--color-success)]"
+              : "bg-[var(--color-error)]/10 text-[var(--color-error)]"
           }`}
         >
           {resultado.correto ? "✓" : "✗"} {resultado.mensagem}

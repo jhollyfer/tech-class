@@ -28,9 +28,9 @@ export function AulaFlipBits({ quantidade, label }: AulaFlipBitsProps) {
             onClick={() => toggleBit(i)}
             className="relative w-14 h-14 rounded-lg font-mono text-xl font-bold transition-all duration-300 cursor-pointer select-none"
             style={{
-              backgroundColor: bit === 1 ? "var(--color-aula-success)" : "var(--color-surface)",
-              color: bit === 1 ? "#0a0a0f" : "var(--color-foreground)",
-              border: `2px solid ${bit === 1 ? "var(--color-aula-success)" : "var(--color-border)"}`,
+              backgroundColor: bit === 1 ? "var(--color-success)" : "var(--color-surface)",
+              color: bit === 1 ? "var(--color-background)" : "var(--color-foreground)",
+              border: `2px solid ${bit === 1 ? "var(--color-success)" : "var(--color-border)"}`,
               transform: bit === 1 ? "rotateY(180deg)" : "rotateY(0deg)",
               transformStyle: "preserve-3d",
             }}
@@ -46,7 +46,7 @@ export function AulaFlipBits({ quantidade, label }: AulaFlipBitsProps) {
           {bits.join("")}
         </span>
         <span className="font-mono text-sm text-[var(--color-muted)] ml-4">Decimal: </span>
-        <span className="font-mono text-sm font-bold text-[var(--color-aula-highlight)]">
+        <span className="font-mono text-sm font-bold text-[var(--color-warning)]">
           {decimal}
         </span>
       </div>

@@ -5,8 +5,8 @@ interface AulaCalloutProps {
 
 const estilos = {
   info: "border-[var(--color-primary)] bg-[var(--color-primary)]/5",
-  sucesso: "border-[var(--color-aula-success)] bg-[var(--color-aula-success)]/5",
-  alerta: "border-[var(--color-aula-highlight)] bg-[var(--color-aula-highlight)]/5",
+  sucesso: "border-[var(--color-success)] bg-[var(--color-success)]/5",
+  alerta: "border-[var(--color-warning)] bg-[var(--color-warning)]/5",
 };
 
 export function AulaCallout({ children, tipo = "info" }: AulaCalloutProps) {

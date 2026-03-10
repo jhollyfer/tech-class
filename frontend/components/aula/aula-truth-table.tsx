@@ -22,11 +22,11 @@ export function AulaTruthTable({ headers, rows }: AulaTruthTableProps) {
               {row.map((cell, j) => (
                 <td key={j} className="px-4 py-2.5">
                   {cell === "V" || cell === "1" ? (
-                    <span className="inline-block px-2 py-0.5 rounded text-xs font-bold bg-[var(--color-aula-success)]/15 text-[var(--color-aula-success)]">
+                    <span className="inline-block px-2 py-0.5 rounded text-xs font-bold bg-[var(--color-success)]/15 text-[var(--color-success)]">
                       {cell}
                     </span>
                   ) : cell === "F" || cell === "0" ? (
-                    <span className="inline-block px-2 py-0.5 rounded text-xs font-bold bg-[var(--color-aula-error)]/15 text-[var(--color-aula-error)]">
+                    <span className="inline-block px-2 py-0.5 rounded text-xs font-bold bg-[var(--color-error)]/15 text-[var(--color-error)]">
                       {cell}
                     </span>
                   ) : (

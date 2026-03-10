@@ -3,20 +3,19 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
-  --color-primary: oklch(0.36 0.08 163);
+  --color-primary: oklch(0.55 0.18 264);
+  --color-primary-hover: oklch(0.48 0.20 264);
   --color-primary-foreground: #ffffff;
-  --color-accent: oklch(0.75 0.18 75);
-  --color-accent-foreground: #ffffff;
-  --color-background: #fafaf8;
-  --color-background-dark: #151d1a;
+  --color-accent: oklch(0.72 0.16 160);
+  --color-background: oklch(0.985 0.002 240);
   --color-surface: #ffffff;
-  --color-surface-dark: #1a2621;
-  --color-foreground: #0f172a;
-  --color-foreground-dark: #f1f5f9;
-  --color-muted: #64748b;
-  --color-muted-dark: #94a3b8;
-  --color-border: #e2e8f0;
-  --color-border-dark: #1e293b;
+  --color-foreground: oklch(0.20 0.02 260);
+  --color-muted: oklch(0.55 0.02 260);
+  --color-border: oklch(0.90 0.01 260);
+  --color-success: oklch(0.62 0.17 155);
+  --color-error: oklch(0.58 0.20 18);
+  --color-warning: oklch(0.72 0.15 70);
+  --color-code-bg: oklch(0.96 0.005 260);
   --font-sans: var(--font-nunito), system-ui, sans-serif;
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;
@@ -36,9 +35,18 @@ body {
   color: var(--color-foreground);
 }
 
-.dark body {
-  background-color: var(--color-background-dark);
-  color: var(--color-foreground-dark);
+.dark {
+  --color-primary: oklch(0.70 0.16 264);
+  --color-primary-hover: oklch(0.64 0.18 264);
+  --color-background: oklch(0.14 0.015 260);
+  --color-surface: oklch(0.18 0.015 260);
+  --color-foreground: oklch(0.92 0.01 260);
+  --color-muted: oklch(0.58 0.02 260);
+  --color-border: oklch(0.25 0.015 260);
+  --color-success: oklch(0.72 0.17 155);
+  --color-error: oklch(0.68 0.18 18);
+  --color-warning: oklch(0.78 0.14 70);
+  --color-code-bg: oklch(0.12 0.015 260);
 }
 
 .hide-scrollbar::-webkit-scrollbar {
@@ -61,28 +69,21 @@ body {
   }
 }
 
-/* Aula theme — dark code aesthetic */
-.aula-theme {
-  --color-background: #0a0a0f;
-  --color-surface: #111118;
-  --color-border: #1e1e2e;
-  --color-foreground: #e8e8f0;
-  --color-muted: #6b6b8a;
-  --color-primary: #6c63ff;
-  --color-primary-foreground: #ffffff;
-  --color-aula-success: #00ff9d;
-  --color-aula-error: #ff4d6d;
-  --color-aula-highlight: #ffb347;
-}
-
-.aula-theme .aula-grid-bg::before {
+/* Subtle grid background */
+.grid-bg::before {
   content: "";
   position: fixed;
   inset: 0;
   background-image:
-    linear-gradient(rgba(108, 99, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(108, 99, 255, 0.04) 1px, transparent 1px);
+    linear-gradient(oklch(0.55 0.18 264 / 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.55 0.18 264 / 0.03) 1px, transparent 1px);
   background-size: 48px 48px;
   pointer-events: none;
   z-index: 0;
+}
+
+.dark .grid-bg::before {
+  background-image:
+    linear-gradient(oklch(0.70 0.16 264 / 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.70 0.16 264 / 0.04) 1px, transparent 1px);
 }
