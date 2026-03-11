@@ -7,7 +7,7 @@ export function AulaProgressBar() {
 
   return (
     <div
-      className="fixed top-0 left-0 right-0 h-1 z-50"
+      className="fixed top-0 left-0 right-0 h-1.5 bg-[var(--color-border)] z-50"
       role="progressbar"
       aria-valuenow={progress}
       aria-valuemin={0}

@@ -2,6 +2,7 @@ import { getAllLessons } from "@/lib/lessons";
 import type { Lesson } from "@/lib/lessons";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BookOpen, Layers } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Tech Class — Lógica de Programação",
@@ -24,18 +25,31 @@ export default function AulasPage() {
   let aulaIndex = 0;
 
   return (
-    <main className="min-h-screen">
-      <header className="pt-16 pb-12 px-6 text-center">
+    <main className="min-h-screen grid-bg relative">
+      <header className="pt-16 pb-12 px-6 text-center relative z-10">
         <span className="inline-block px-3 py-1 text-xs font-mono font-bold tracking-widest uppercase rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] border border-[var(--color-primary)]/20 mb-6">
           Lógica de Programação
         </span>
         <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">Aulas</h1>
-        <p className="text-[var(--color-muted)] text-lg max-w-xl mx-auto">
+        <p className="text-[var(--color-muted)] text-lg max-w-xl mx-auto mb-8">
           {lessons.length} aulas interativas com quizzes e exercícios práticos.
         </p>
+
+        {/* Stats bar */}
+        <div className="flex items-center justify-center gap-6 text-sm text-[var(--color-muted)]">
+          <span className="flex items-center gap-2">
+            <BookOpen className="w-4 h-4 text-[var(--color-primary)]" />
+            <strong className="text-[var(--color-foreground)]">{lessons.length}</strong> aulas
+          </span>
+          <span className="w-1 h-1 rounded-full bg-[var(--color-border)]" />
+          <span className="flex items-center gap-2">
+            <Layers className="w-4 h-4 text-[var(--color-primary)]" />
+            <strong className="text-[var(--color-foreground)]">{modulos.length}</strong> módulos
+          </span>
+        </div>
       </header>
 
-      <div className="max-w-4xl mx-auto px-6 pb-16 space-y-10">
+      <div className="max-w-4xl mx-auto px-6 pb-16 space-y-10 relative z-10">
         {modulos.map(([modulo, aulasDoModulo]) => (
           <section key={modulo}>
             <div className="flex items-center gap-3 mb-4">
@@ -76,7 +90,7 @@ export default function AulasPage() {
         ))}
       </div>
 
-      <footer className="border-t border-[var(--color-border)] py-8 text-center text-xs text-[var(--color-muted)]">
+      <footer className="border-t border-[var(--color-border)] py-8 text-center text-xs text-[var(--color-muted)] relative z-10">
         <p>
           Tech Class — Material educacional CETAM
         </p>
