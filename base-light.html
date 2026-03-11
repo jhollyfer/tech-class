@@ -1,0 +1,693 @@
+<!doctype html>
+
+<html class="dark" lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;family=Space+Mono:wght@400;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "var(--primary)",
+              accent: "var(--accent)",
+              "background-light": "var(--bg-light)",
+              "background-dark": "var(--bg-dark)",
+              "surface-dark": "#25253D",
+              "border-dark": "#32324D",
+            },
+            fontFamily: {
+              sans: ["Nunito", "sans-serif"],
+              display: ["Nunito", "sans-serif"],
+              mono: ["Space Mono", "monospace"],
+            },
+            borderRadius: {
+              DEFAULT: "1rem",
+              lg: "1rem",
+              xl: "1.5rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :root {
+        --primary: #6c3fe0;
+        --accent: #4ba8c8;
+        --bg-light: #f8f9fa;
+        --bg-dark: #1c1c2e;
+      }
+
+      .grid-bg {
+        background-image: radial-gradient(
+          circle,
+          currentColor 1px,
+          transparent 1px
+        );
+        background-size: 24px 24px;
+      }
+    </style>
+  </head>
+  <body
+    class="font-sans bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 selection:bg-primary/30 selection:text-primary transition-colors duration-300"
+  >
+    <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+      <header
+        class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-border-dark bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md"
+      >
+        <div
+          class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between"
+        >
+          <div class="flex items-center gap-3">
+            <div class="bg-primary p-2 rounded-lg text-white">
+              <span class="material-symbols-outlined block">terminal</span>
+            </div>
+            <h2 class="text-xl font-bold tracking-tight">
+              Tech <span class="text-primary">Class</span>
+            </h2>
+          </div>
+          <nav class="hidden md:flex items-center gap-10">
+            <a
+              class="text-sm font-semibold hover:text-primary transition-colors"
+              href="#"
+              >Cursos</a
+            >
+            <a
+              class="text-sm font-semibold hover:text-primary transition-colors"
+              href="#"
+              >Sobre</a
+            >
+            <a
+              class="text-sm font-semibold hover:text-primary transition-colors"
+              href="#"
+              >Contato</a
+            >
+          </nav>
+          <div class="flex items-center gap-4">
+            <button
+              class="p-2 rounded-lg bg-slate-200 dark:bg-border-dark hover:ring-2 ring-primary/20 transition-all text-slate-600 dark:text-slate-300"
+              id="theme-toggle"
+            >
+              <span class="material-symbols-outlined text-xl block dark:hidden"
+                >dark_mode</span
+              >
+              <span class="material-symbols-outlined text-xl hidden dark:block"
+                >light_mode</span
+              >
+            </button>
+            <button
+              class="bg-primary text-white px-5 py-2.5 rounded-lg font-bold text-sm hover:opacity-90 transition-opacity"
+            >
+              Entrar
+            </button>
+          </div>
+        </div>
+      </header>
+      <main class="flex-1">
+        <section class="relative pt-20 pb-32 overflow-hidden">
+          <div
+            class="absolute inset-0 grid-bg text-primary/[0.03] dark:text-primary/5 -z-10"
+          ></div>
+          <div
+            class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center"
+          >
+            <div class="flex flex-col items-start gap-8">
+              <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-wider"
+              >
+                <span class="relative flex h-2 w-2">
+                  <span
+                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"
+                  ></span>
+                  <span
+                    class="relative inline-flex rounded-full h-2 w-2 bg-green-500"
+                  ></span>
+                </span>
+                Plataforma educacional
+              </div>
+              <h1
+                class="text-6xl md:text-7xl font-extrabold leading-[1.1] tracking-tight"
+              >
+                Tech <span class="text-primary">Class</span>
+              </h1>
+              <p
+                class="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-lg leading-relaxed"
+              >
+                Aprenda programação do zero ao avançado com uma metodologia
+                prática, focada no mercado e em projetos reais.
+              </p>
+              <div class="flex flex-wrap gap-4">
+                <button
+                  class="bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg shadow-primary/25 hover:scale-[1.02] transition-transform"
+                >
+                  Começar agora
+                </button>
+                <button
+                  class="border-2 border-slate-200 dark:border-border-dark px-8 py-4 rounded-xl font-bold text-lg hover:bg-slate-100 dark:hover:bg-border-dark transition-colors"
+                >
+                  Ver cursos
+                </button>
+              </div>
+            </div>
+            <div class="relative group">
+              <div
+                class="absolute -inset-4 bg-gradient-to-tr from-primary to-accent opacity-20 blur-3xl rounded-full"
+              ></div>
+              <div
+                class="relative bg-slate-900 border border-slate-800 dark:bg-surface-dark dark:border-border-dark rounded-xl shadow-2xl overflow-hidden aspect-video flex flex-col"
+              >
+                <div
+                  class="flex items-center gap-2 px-4 py-3 border-b border-slate-800 dark:border-border-dark bg-slate-900/50 dark:bg-border-dark/30"
+                >
+                  <div class="flex gap-1.5">
+                    <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+                  </div>
+                  <div
+                    class="mx-auto text-[10px] font-mono text-slate-500 uppercase tracking-widest"
+                  >
+                    terminal — main.py
+                  </div>
+                </div>
+                <div
+                  class="p-6 font-mono text-sm leading-relaxed overflow-hidden"
+                >
+                  <div class="flex gap-4">
+                    <span class="text-slate-600">01</span>
+                    <p><span class="text-primary">import</span> tech_class</p>
+                  </div>
+                  <div class="flex gap-4">
+                    <span class="text-slate-600">02</span>
+                    <p>
+                      <span class="text-primary">class</span>
+                      <span class="text-accent">Student</span>:
+                    </p>
+                  </div>
+                  <div class="flex gap-4">
+                    <span class="text-slate-600">03</span>
+                    <p class="ml-4">
+                      <span class="text-primary">def</span>
+                      <span class="text-yellow-400">learn</span>(self):
+                    </p>
+                  </div>
+                  <div class="flex gap-4">
+                    <span class="text-slate-600">04</span>
+                    <p class="ml-8 text-green-400">
+                      "De iniciante para desenvolvedor"
+                    </p>
+                  </div>
+                  <div class="flex gap-4">
+                    <span class="text-slate-600">05</span>
+                    <p class="ml-8">
+                      <span class="text-primary">return</span>
+                      self.career_ready()
+                    </p>
+                  </div>
+                  <div class="mt-8 flex gap-4">
+                    <span class="text-slate-600">&gt;&gt;</span>
+                    <p class="text-accent animate-pulse">_</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="max-w-7xl mx-auto px-6 py-12">
+          <div
+            class="grid grid-cols-1 md:grid-cols-3 gap-8 p-10 rounded-xl bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark shadow-sm"
+          >
+            <div class="flex items-center gap-6">
+              <div
+                class="size-14 rounded-lg bg-primary/10 flex items-center justify-center text-primary"
+              >
+                <span class="material-symbols-outlined text-3xl">book_5</span>
+              </div>
+              <div>
+                <p class="font-mono text-3xl font-bold leading-none mb-1">
+                  11+
+                </p>
+                <p
+                  class="text-sm text-slate-500 uppercase font-bold tracking-tight"
+                >
+                  Aulas
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex items-center gap-6 md:border-x border-slate-200 dark:border-border-dark md:px-12"
+            >
+              <div
+                class="size-14 rounded-lg bg-accent/10 flex items-center justify-center text-accent"
+              >
+                <span class="material-symbols-outlined text-3xl">layers</span>
+              </div>
+              <div>
+                <p class="font-mono text-3xl font-bold leading-none mb-1">04</p>
+                <p
+                  class="text-sm text-slate-500 uppercase font-bold tracking-tight"
+                >
+                  Planejados
+                </p>
+              </div>
+            </div>
+            <div class="flex items-center gap-6 md:pl-12">
+              <div
+                class="size-14 rounded-lg bg-green-500/10 flex items-center justify-center text-green-500"
+              >
+                <span class="material-symbols-outlined text-3xl"
+                  >all_inclusive</span
+                >
+              </div>
+              <div>
+                <p class="font-mono text-3xl font-bold leading-none mb-1">
+                  Infinito
+                </p>
+                <p
+                  class="text-sm text-slate-500 uppercase font-bold tracking-tight"
+                >
+                  Prática
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="max-w-7xl mx-auto px-6 py-24">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div
+              class="p-8 border-l-4 border-primary bg-white dark:bg-surface-dark rounded-r-xl shadow-sm"
+            >
+              <span class="material-symbols-outlined text-primary text-4xl mb-4"
+                >play_circle</span
+              >
+              <h3 class="text-xl font-bold mb-3">Aulas Interativas</h3>
+              <p class="text-slate-600 dark:text-slate-400">
+                Conteúdo dinâmico com editores de código e simuladores
+                integrados no navegador.
+              </p>
+            </div>
+            <div
+              class="p-8 border-l-4 border-accent bg-white dark:bg-surface-dark rounded-r-xl shadow-sm"
+            >
+              <span class="material-symbols-outlined text-accent text-4xl mb-4"
+                >trending_up</span
+              >
+              <h3 class="text-xl font-bold mb-3">Do Zero ao Avançado</h3>
+              <p class="text-slate-600 dark:text-slate-400">
+                Trilha completa desenhada para levar você da primeira linha de
+                código até a arquitetura.
+              </p>
+            </div>
+            <div
+              class="p-8 border-l-4 border-green-500 bg-white dark:bg-surface-dark rounded-r-xl shadow-sm"
+            >
+              <span
+                class="material-symbols-outlined text-green-500 text-4xl mb-4"
+                >terminal</span
+              >
+              <h3 class="text-xl font-bold mb-3">Prática Real</h3>
+              <p class="text-slate-600 dark:text-slate-400">
+                Desenvolva projetos do mundo real que enriquecem seu portfólio
+                profissional.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section class="max-w-7xl mx-auto px-6 py-24">
+          <div
+            class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12"
+          >
+            <div>
+              <h2 class="text-4xl font-extrabold mb-4">
+                Trilhas de Aprendizado
+              </h2>
+              <p class="text-slate-600 dark:text-slate-400 max-w-xl">
+                Escolha seu caminho e comece a dominar as tecnologias mais
+                requisitadas do mercado atual.
+              </p>
+            </div>
+            <a
+              class="text-primary font-bold flex items-center gap-2 hover:underline"
+              href="#"
+            >
+              Ver catálogo completo
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </a>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div
+              class="group relative bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark p-8 rounded-xl hover:border-primary transition-colors cursor-pointer"
+            >
+              <div class="flex justify-between items-start mb-6">
+                <div class="p-3 bg-primary/10 text-primary rounded-lg">
+                  <span class="material-symbols-outlined text-3xl"
+                    >integration_instructions</span
+                  >
+                </div>
+                <span
+                  class="px-3 py-1 rounded-full bg-green-500/10 text-green-500 text-xs font-bold uppercase tracking-widest border border-green-500/20"
+                  >Disponível</span
+                >
+              </div>
+              <h4 class="text-2xl font-bold mb-2">Lógica de Programação</h4>
+              <p class="text-slate-500 dark:text-slate-400 mb-6">
+                Fundamentos essenciais para qualquer linguagem de programação.
+              </p>
+              <div
+                class="flex items-center gap-4 text-sm text-slate-500 font-semibold font-mono"
+              >
+                <span class="flex items-center gap-1.5"
+                  ><span class="material-symbols-outlined text-lg"
+                    >video_library</span
+                  >
+                  11 aulas</span
+                >
+                <span class="flex items-center gap-1.5"
+                  ><span class="material-symbols-outlined text-lg"
+                    >schedule</span
+                  >
+                  5h 30min</span
+                >
+              </div>
+            </div>
+            <div
+              class="opacity-60 bg-white/50 dark:bg-surface-dark/50 border border-dashed border-slate-300 dark:border-border-dark p-8 rounded-xl"
+            >
+              <div class="flex justify-between items-start mb-6">
+                <div
+                  class="p-3 bg-slate-200 dark:bg-border-dark text-slate-400 rounded-lg"
+                >
+                  <span class="material-symbols-outlined text-3xl"
+                    >database</span
+                  >
+                </div>
+                <span
+                  class="px-3 py-1 rounded-full bg-slate-200 dark:bg-border-dark text-slate-500 text-xs font-bold uppercase tracking-widest"
+                  >Em breve</span
+                >
+              </div>
+              <h4 class="text-2xl font-bold mb-2">Banco de Dados</h4>
+              <p class="text-slate-500 dark:text-slate-400 mb-6">
+                Aprenda a modelar, estruturar e consultar dados com SQL.
+              </p>
+              <div
+                class="h-2 bg-slate-200 dark:bg-border-dark rounded-full w-full"
+              ></div>
+            </div>
+            <div
+              class="opacity-60 bg-white/50 dark:bg-surface-dark/50 border border-dashed border-slate-300 dark:border-border-dark p-8 rounded-xl"
+            >
+              <div class="flex justify-between items-start mb-6">
+                <div
+                  class="p-3 bg-slate-200 dark:bg-border-dark text-slate-400 rounded-lg"
+                >
+                  <span class="material-symbols-outlined text-3xl"
+                    >architecture</span
+                  >
+                </div>
+                <span
+                  class="px-3 py-1 rounded-full bg-slate-200 dark:bg-border-dark text-slate-500 text-xs font-bold uppercase tracking-widest"
+                  >Em breve</span
+                >
+              </div>
+              <h4 class="text-2xl font-bold mb-2">Engenharia de Software</h4>
+              <p class="text-slate-500 dark:text-slate-400 mb-6">
+                Padrões de projeto, arquitetura e boas práticas de
+                desenvolvimento.
+              </p>
+              <div
+                class="h-2 bg-slate-200 dark:bg-border-dark rounded-full w-full"
+              ></div>
+            </div>
+            <div
+              class="opacity-60 bg-white/50 dark:bg-surface-dark/50 border border-dashed border-slate-300 dark:border-border-dark p-8 rounded-xl"
+            >
+              <div class="flex justify-between items-start mb-6">
+                <div
+                  class="p-3 bg-slate-200 dark:bg-border-dark text-slate-400 rounded-lg"
+                >
+                  <span class="material-symbols-outlined text-3xl">html</span>
+                </div>
+                <span
+                  class="px-3 py-1 rounded-full bg-slate-200 dark:bg-border-dark text-slate-500 text-xs font-bold uppercase tracking-widest"
+                  >Em breve</span
+                >
+              </div>
+              <h4 class="text-2xl font-bold mb-2">Desenvolvimento Web</h4>
+              <p class="text-slate-500 dark:text-slate-400 mb-6">
+                Construa aplicações modernas com HTML, CSS, React e Next.js.
+              </p>
+              <div
+                class="h-2 bg-slate-200 dark:bg-border-dark rounded-full w-full"
+              ></div>
+            </div>
+          </div>
+        </section>
+        <section
+          class="max-w-7xl mx-auto px-6 py-24 bg-primary/5 rounded-3xl mb-24"
+        >
+          <div class="grid lg:grid-cols-2 gap-16 items-center px-10">
+            <div class="space-y-6">
+              <h2 class="text-5xl font-extrabold leading-tight">
+                Aprenda fazendo
+              </h2>
+              <p
+                class="text-xl text-slate-600 dark:text-slate-400 leading-relaxed"
+              >
+                Nossa plataforma foi construída para você praticar enquanto
+                aprende. Sem configurações complexas, comece a codar direto no
+                browser.
+              </p>
+              <ul class="space-y-4">
+                <li class="flex items-center gap-3 font-semibold">
+                  <span class="material-symbols-outlined text-green-500"
+                    >check_circle</span
+                  >
+                  Editor de código com realce de sintaxe
+                </li>
+                <li class="flex items-center gap-3 font-semibold">
+                  <span class="material-symbols-outlined text-green-500"
+                    >check_circle</span
+                  >
+                  Quizzes rápidos após cada conceito
+                </li>
+                <li class="flex items-center gap-3 font-semibold">
+                  <span class="material-symbols-outlined text-green-500"
+                    >check_circle</span
+                  >
+                  Simuladores de hardware e bits binários
+                </li>
+              </ul>
+            </div>
+            <div
+              class="bg-slate-900 dark:bg-surface-dark border border-slate-800 dark:border-border-dark p-2 rounded-xl shadow-2xl overflow-hidden scale-110 md:rotate-2"
+            >
+              <div class="flex flex-col gap-4 p-6">
+                <div class="space-y-2">
+                  <p class="text-slate-400 font-mono text-xs uppercase">
+                    Exercício 04: Variáveis
+                  </p>
+                  <div
+                    class="bg-black/40 p-4 rounded-lg font-mono text-sm leading-relaxed text-slate-100"
+                  >
+                    <p>
+                      <span class="text-primary">let</span> name =
+                      <span class="text-green-400">"Class"</span>;
+                    </p>
+                    <p>
+                      <span class="text-primary">const</span> year =
+                      <span class="text-yellow-400">2024</span>;
+                    </p>
+                    <p class="mt-4">
+                      <span class="text-slate-500"
+                        >// Complete o código abaixo:</span
+                      >
+                    </p>
+                    <p>
+                      console.log(<span
+                        class="bg-primary/20 border-b-2 border-primary px-4"
+                        >?</span
+                      >);
+                    </p>
+                  </div>
+                </div>
+                <div class="space-y-3 pt-4 text-slate-100">
+                  <p class="text-sm font-bold">Qual a saída correta?</p>
+                  <div class="grid grid-cols-1 gap-2">
+                    <button
+                      class="text-left px-4 py-3 rounded-lg border border-slate-700 hover:border-primary text-sm transition-colors"
+                    >
+                      A) undefined
+                    </button>
+                    <button
+                      class="text-left px-4 py-3 rounded-lg border border-primary bg-primary/10 text-sm font-bold"
+                    >
+                      B) Class
+                    </button>
+                    <button
+                      class="text-left px-4 py-3 rounded-lg border border-slate-700 hover:border-primary text-sm transition-colors"
+                    >
+                      C) 2024
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="max-w-7xl mx-auto px-6 py-24 mb-24">
+          <div
+            class="relative bg-gradient-to-r from-primary to-accent rounded-3xl p-12 md:p-20 text-center text-white overflow-hidden"
+          >
+            <div
+              class="absolute inset-0 grid-bg opacity-10 pointer-events-none"
+            ></div>
+            <div
+              class="relative z-10 max-w-2xl mx-auto flex flex-col items-center gap-8"
+            >
+              <h2 class="text-4xl md:text-5xl font-black">
+                Comece sua jornada em tecnologia hoje
+              </h2>
+              <p class="text-lg opacity-90 leading-relaxed font-medium">
+                Junte-se a centenas de alunos que estão transformando suas vidas
+                através da programação de qualidade e gratuita.
+              </p>
+              <button
+                class="bg-white text-primary px-10 py-5 rounded-xl font-black text-xl hover:shadow-2xl hover:scale-105 transition-all"
+              >
+                Acessar plataforma
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer
+        class="border-t border-slate-200 dark:border-border-dark py-20 bg-white dark:bg-background-dark/50"
+      >
+        <div
+          class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12"
+        >
+          <div class="col-span-1 md:col-span-2 space-y-6">
+            <div class="flex items-center gap-3">
+              <div class="bg-primary p-2 rounded-lg text-white">
+                <span class="material-symbols-outlined block">terminal</span>
+              </div>
+              <h2 class="text-2xl font-bold tracking-tight">
+                Tech <span class="text-primary">Class</span>
+              </h2>
+            </div>
+            <p
+              class="text-slate-500 dark:text-slate-400 max-w-sm leading-relaxed"
+            >
+              Desenvolvido com propósito educacional para democratizar o acesso
+              ao conhecimento tecnológico de alta qualidade.
+            </p>
+            <p class="text-sm font-bold text-slate-400">
+              Atribuição:
+              <span class="text-slate-600 dark:text-slate-200">CETAM</span>
+            </p>
+          </div>
+          <div>
+            <h4 class="font-bold text-lg mb-6">Links Rápidos</h4>
+            <ul
+              class="space-y-4 text-slate-500 dark:text-slate-400 font-semibold"
+            >
+              <li>
+                <a class="hover:text-primary transition-colors" href="#"
+                  >Cursos</a
+                >
+              </li>
+              <li>
+                <a class="hover:text-primary transition-colors" href="#"
+                  >Materiais</a
+                >
+              </li>
+              <li>
+                <a class="hover:text-primary transition-colors" href="#"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a class="hover:text-primary transition-colors" href="#"
+                  >Certificados</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-lg mb-6">Comunidade</h4>
+            <ul
+              class="space-y-4 text-slate-500 dark:text-slate-400 font-semibold"
+            >
+              <li>
+                <a class="hover:text-primary transition-colors" href="#"
+                  >GitHub</a
+                >
+              </li>
+              <li>
+                <a class="hover:text-primary transition-colors" href="#"
+                  >Discord</a
+                >
+              </li>
+              <li>
+                <a class="hover:text-primary transition-colors" href="#"
+                  >Contato</a
+                >
+              </li>
+              <li>
+                <a class="hover:text-primary transition-colors" href="#"
+                  >Sobre Nós</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="max-w-7xl mx-auto px-6 mt-20 pt-8 border-t border-slate-200 dark:border-border-dark flex flex-col md:flex-row justify-between items-center gap-4 text-slate-400 text-sm font-medium"
+        >
+          <p>© 2024 Tech Class. Todos os direitos reservados.</p>
+          <div class="flex gap-8">
+            <a class="hover:text-primary" href="#">Privacidade</a>
+            <a class="hover:text-primary" href="#">Termos de Uso</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script>
+      const themeToggleBtn = document.getElementById("theme-toggle");
+      const htmlElement = document.documentElement;
+
+      themeToggleBtn.addEventListener("click", () => {
+        if (htmlElement.classList.contains("dark")) {
+          htmlElement.classList.remove("dark");
+          localStorage.setItem("theme", "light");
+        } else {
+          htmlElement.classList.add("dark");
+          localStorage.setItem("theme", "dark");
+        }
+      });
+
+      // Initialize theme based on preference
+      if (
+        localStorage.getItem("theme") === "light" ||
+        (!("theme" in localStorage) &&
+          !window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        htmlElement.classList.remove("dark");
+      } else {
+        htmlElement.classList.add("dark");
+      }
+    </script>
+  </body>
+</html>

@@ -105,3 +105,17 @@ body {
     linear-gradient(oklch(0.68 0.20 262 / 0.04) 1px, transparent 1px),
     linear-gradient(90deg, oklch(0.68 0.20 262 / 0.04) 1px, transparent 1px);
 }
+
+/* Prose styles for markdown content */
+.prose-aula > *:first-child {
+  margin-top: 0;
+}
+
+.prose-aula h2:first-of-type {
+  margin-top: 0;
+}
+
+/* Dark mode mermaid diagrams */
+.dark .prose-aula [class*="mermaid"] svg {
+  filter: invert(0.88) hue-rotate(180deg);
+}

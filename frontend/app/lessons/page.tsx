@@ -1,24 +1,26 @@
-import { aulas } from "@/lib/aulas-data";
+import { getAllLessons } from "@/lib/lessons";
+import type { Lesson } from "@/lib/lessons";
 import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Tech Class — Lógica de Programação",
   description:
-    "Aulas interativas de Lógica de Programação com quizzes, simuladores e exercícios práticos.",
+    "22 aulas interativas de Lógica de Programação com quizzes e exercícios práticos.",
 };
 
-function groupByModulo(aulas: typeof import("@/lib/aulas-data").aulas) {
-  const groups: Record<string, typeof aulas> = {};
-  for (const aula of aulas) {
-    if (!groups[aula.modulo]) groups[aula.modulo] = [];
-    groups[aula.modulo].push(aula);
+function groupByModulo(lessons: Lesson[]) {
+  const groups: Record<string, Lesson[]> = {};
+  for (const lesson of lessons) {
+    if (!groups[lesson.modulo]) groups[lesson.modulo] = [];
+    groups[lesson.modulo].push(lesson);
   }
   return Object.entries(groups);
 }
 
 export default function AulasPage() {
-  const modulos = groupByModulo(aulas);
+  const lessons = getAllLessons();
+  const modulos = groupByModulo(lessons);
   let aulaIndex = 0;
 
   return (
@@ -29,7 +31,7 @@ export default function AulasPage() {
         </span>
         <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">Aulas</h1>
         <p className="text-[var(--color-muted)] text-lg max-w-xl mx-auto">
-          {aulas.length} aulas interativas com quizzes, simuladores e exercícios práticos.
+          {lessons.length} aulas interativas com quizzes e exercícios práticos.
         </p>
       </header>
 
@@ -58,11 +60,6 @@ export default function AulasPage() {
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <div className="min-w-0">
-                        <div className="flex items-center gap-2 mb-1">
-                          <p className="text-xs text-[var(--color-muted)] font-mono">
-                            {aula.secoes.length} {aula.secoes.length === 1 ? "seção" : "seções"}
-                          </p>
-                        </div>
                         <h3 className="font-bold text-sm group-hover:text-[var(--color-primary)] transition-colors leading-snug">
                           {aula.titulo}
                         </h3>
@@ -81,7 +78,7 @@ export default function AulasPage() {
 
       <footer className="border-t border-[var(--color-border)] py-8 text-center text-xs text-[var(--color-muted)]">
         <p>
-          Tech Class — Material baseado nas aulas do Prof. André Noel (CETAM)
+          Tech Class — Material educacional CETAM
         </p>
       </footer>
     </main>
