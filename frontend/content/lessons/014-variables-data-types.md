@@ -40,89 +40,196 @@ quiz:
     explicacaoErrada: "✗ Em TypeScript, o tipo vem após os dois pontos: let nome: string = \"Ana\"."
 ---
 
-## O que são variáveis?
+## O que sao variaveis?
 
-Variáveis são espaços na memória que guardam valores. Pense nelas como caixas etiquetadas — cada caixa tem um nome e guarda um valor dentro.
+Variaveis sao espacos na memoria que guardam valores. Pense nelas como caixas etiquetadas — cada caixa tem um nome e guarda um valor dentro.
 
-Em TypeScript, existem duas formas de criar variáveis:
+Em TypeScript, existem duas formas de criar variaveis:
 
 ```typescript
-let nome = "Maria";      // pode mudar depois
-const PI = 3.14159;       // não pode mudar (constante)
+let nome: string = "Maria";   // pode mudar depois
+const PI: number = 3.14159;   // não pode mudar (constante)
 ```
 
-O nome da variável é a etiqueta. O valor à direita do `=` é o que vai dentro da caixa.
+O nome da variavel e a etiqueta. O valor a direita do `=` e o que vai dentro da caixa. Os dois pontos (`:`) seguidos do tipo dizem ao TypeScript que tipo de valor a caixa aceita.
 
 ## let vs const
 
-A diferença é simples:
+A diferenca e simples:
 
-- **`let`** — o valor pode ser reatribuído (trocado) depois
-- **`const`** — o valor é fixo, não muda nunca
+- **`let`** — o valor pode ser reatribuido (trocado) depois
+- **`const`** — o valor e fixo, nao muda nunca
 
 ```typescript
-let idade = 25;
+let idade: number = 25;
 idade = 26;        // ✓ OK com let
 
-const pais = "Brasil";
+const pais: string = "Brasil";
 // pais = "Portugal"; // ✗ ERRO! const não permite reatribuição
 ```
 
-**Regra prática:** use `const` por padrão. Só use `let` quando precisar mudar o valor depois. Isso torna o código mais seguro e previsível.
+**Regra pratica:** use `const` por padrao. So use `let` quando precisar mudar o valor depois. Isso torna o codigo mais seguro e previsivel.
+
+> [!info]
+> Existe tambem a palavra-chave `var`, que e a forma antiga de declarar variaveis. Ela ainda funciona, mas **nunca use `var`** em codigo novo. Sempre prefira `let` ou `const`.
 
 ## Tipos primitivos
 
 TypeScript tem cinco tipos primitivos principais:
 
 ```typescript
-const nome: string = "Ana";        // texto
-const idade: number = 20;          // número (inteiro ou decimal)
-const ativo: boolean = true;       // verdadeiro ou falso
-const vazio: null = null;          // ausência intencional de valor
+const nome: string = "Ana";              // texto
+const idade: number = 20;                // número (inteiro ou decimal)
+const ativo: boolean = true;             // verdadeiro ou falso
+const vazio: null = null;                // ausência intencional de valor
 const indefinido: undefined = undefined; // valor não definido
 ```
 
-| Tipo | Exemplo | Descrição |
+| Tipo | Exemplo | Descricao |
 |------|---------|-----------|
-| string | "Olá" | Texto |
-| number | 42, 3.14 | Números |
-| boolean | true, false | Lógico |
-| null | null | Vazio intencional |
-| undefined | undefined | Não definido |
+| `string` | `"Ola"`, `'mundo'`, `` `oi` `` | Texto |
+| `number` | `42`, `3.14`, `-10` | Numeros inteiros e decimais |
+| `boolean` | `true`, `false` | Verdadeiro ou falso |
+| `null` | `null` | Vazio intencional |
+| `undefined` | `undefined` | Nao definido |
 
-Em JavaScript, não existe tipo separado para inteiro e decimal — tudo é `number`. `42` e `3.14` são ambos `number`.
+Em JavaScript/TypeScript, nao existe tipo separado para inteiro e decimal — tudo e `number`. `42` e `3.14` sao ambos `number`.
 
 ## Tipagem em TypeScript
 
-TypeScript adiciona tipos estáticos ao JavaScript. Isso significa que você declara o tipo da variável e o compilador garante que só valores daquele tipo sejam atribuídos:
+TypeScript adiciona tipos estaticos ao JavaScript. Voce declara o tipo da variavel e o compilador garante que so valores daquele tipo sejam atribuidos:
 
 ```typescript
 let mensagem: string = "Olá";
 // mensagem = 42; // ✗ ERRO! TypeScript não permite atribuir número a string
+
+let contador: number = 0;
+// contador = "dez"; // ✗ ERRO! TypeScript não permite atribuir string a number
 ```
 
-Sem TypeScript (JavaScript puro), esse erro só apareceria durante a execução — talvez em produção, com usuários usando o sistema. Com TypeScript, o erro aparece antes de executar, no momento em que você escreve o código.
+Sem TypeScript (JavaScript puro), esses erros so apareceriam durante a execucao — talvez em producao, com usuarios usando o sistema. Com TypeScript, o erro aparece antes de executar, no momento em que voce escreve o codigo.
 
 > [!sucesso]
-> TypeScript detecta erros ANTES de executar. É como ter um revisor que lê seu código e avisa quando algo está errado. Quanto mais cedo um erro é encontrado, mais fácil e barato é corrigi-lo.
+> TypeScript detecta erros ANTES de executar. E como ter um revisor que le seu codigo e avisa quando algo esta errado. Quanto mais cedo um erro e encontrado, mais facil e barato e corrigi-lo.
+
+## Inferencia de tipo
+
+TypeScript e inteligente: quando voce atribui um valor, ele deduz o tipo automaticamente. Isso se chama **inferencia de tipo**:
+
+```typescript
+// Com tipo explícito (você declara)
+let nome: string = "Carlos";
+
+// Com inferência (TypeScript deduz que é string)
+let sobrenome = "Silva";
+
+// Ambos são string — o TypeScript sabe disso
+```
+
+Quando usar tipo explicito e quando deixar a inferencia?
+
+```typescript
+// ✓ Inferência OK — o valor deixa claro o tipo
+const idade = 25;                // TypeScript sabe que é number
+const ativo = true;              // TypeScript sabe que é boolean
+
+// ✓ Tipo explícito — quando a variável começa sem valor
+let resultado: number;
+resultado = calcularMedia();
+
+// ✓ Tipo explícito — em parâmetros de função (veremos depois)
+function saudacao(nome: string): string {
+  return `Olá, ${nome}!`;
+}
+```
+
+> [!info]
+> Para iniciantes, recomendamos declarar o tipo explicitamente. Isso ajuda a fixar os conceitos. Com o tempo, voce vai perceber quando a inferencia e suficiente.
+
+## Erros comuns com tipos
+
+```typescript
+// ✗ ERRO: tipo incompatível
+let preco: number = "29.90";  // string não é number
+
+// ✓ CORRETO
+let preco: number = 29.90;
+
+// ✗ ERRO: reatribuir const
+const nome: string = "Ana";
+nome = "Bia";  // const não permite reatribuição
+
+// ✗ ERRO: usar variável antes de declarar
+console.log(x);  // x ainda não existe
+let x: number = 10;
+```
 
 ## typeof — descobrindo o tipo
 
 O operador `typeof` retorna o tipo de qualquer valor:
 
 ```typescript
-console.log(typeof "Olá");   // "string"
-console.log(typeof 42);      // "number"
-console.log(typeof true);    // "boolean"
-console.log(typeof null);    // "object" (bug histórico do JavaScript)
+console.log(typeof "Olá");     // "string"
+console.log(typeof 42);        // "number"
+console.log(typeof true);      // "boolean"
+console.log(typeof undefined); // "undefined"
+console.log(typeof null);      // "object" (bug histórico do JavaScript!)
 ```
 
-`typeof` é útil para verificar tipos em tempo de execução, especialmente quando você recebe dados de fontes externas (APIs, formulários, arquivos).
+> [!alerta]
+> `typeof null` retorna `"object"` em vez de `"null"`. Isso e um bug historico do JavaScript que nunca foi corrigido por questoes de compatibilidade. Cuidado com esse caso especial.
+
+`typeof` e util para verificar tipos em tempo de execucao, especialmente quando voce recebe dados de fontes externas:
 
 ```typescript
-const valor = "123";
+const valor: unknown = "123";
 
 if (typeof valor === "string") {
   console.log("É texto, precisa converter para número");
+  const numero: number = parseInt(valor);
+  console.log("Convertido:", numero);
+}
+
+if (typeof valor === "number") {
+  console.log("Já é número:", valor);
 }
 ```
+
+## Exemplo pratico: ficha de cadastro
+
+Veja como variaveis e tipos trabalham juntos em um programa real:
+
+```typescript
+// Dados do aluno
+const nome: string = "Maria Silva";
+const idade: number = 22;
+const matricula: string = "2024001";
+const ativo: boolean = true;
+let faltas: number = 0;
+
+// Exibindo a ficha
+console.log("=== Ficha do Aluno ===");
+console.log(`Nome: ${nome}`);
+console.log(`Idade: ${idade} anos`);
+console.log(`Matrícula: ${matricula}`);
+console.log(`Situação: ${ativo ? "Ativo" : "Inativo"}`);
+console.log(`Faltas: ${faltas}`);
+
+// Registrando uma falta
+faltas = faltas + 1;
+console.log(`Faltas após registro: ${faltas}`);
+```
+
+Resultado:
+
+```
+=== Ficha do Aluno ===
+Nome: Maria Silva
+Idade: 22 anos
+Matrícula: 2024001
+Situação: Ativo
+Faltas: 0
+Faltas após registro: 1
+```
+
+Note que `faltas` usa `let` porque o valor muda ao longo do programa. Todos os outros dados usam `const` porque nao mudam.

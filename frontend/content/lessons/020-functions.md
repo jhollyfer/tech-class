@@ -35,9 +35,11 @@ quiz:
     explicacaoErrada: "✗ Variáveis declaradas com let ou const dentro de uma função não são acessíveis fora dela. Isso é escopo local."
 ---
 
-## Declarando funções
+## O que são funções?
 
-Uma função é um bloco de código nomeado que pode ser executado quantas vezes quiser. Em TypeScript, declare os tipos dos parâmetros e do retorno:
+Imagine que você precisa calcular o desconto de um produto em vários lugares do seu programa. Sem funções, você copiaria o mesmo código repetidamente. Com funções, você escreve a lógica uma vez e reutiliza quantas vezes precisar.
+
+Uma **função** é um bloco de código nomeado que realiza uma tarefa específica. Em TypeScript, declaramos os tipos dos parâmetros e do retorno para garantir segurança:
 
 ```typescript
 function saudacao(nome: string): string {
@@ -45,13 +47,17 @@ function saudacao(nome: string): string {
 }
 
 console.log(saudacao("Maria")); // "Olá, Maria!"
+console.log(saudacao("João"));  // "Olá, João!"
 ```
 
-A função `saudacao` recebe um `nome` do tipo `string` e retorna uma `string`. O `return` encerra a função e devolve o valor.
+A função `saudacao` recebe um `nome` do tipo `string` e retorna uma `string`. A palavra-chave `return` encerra a função e devolve o valor para quem a chamou.
+
+> [!info]
+> Funções seguem o princípio DRY (Don't Repeat Yourself): escreva uma vez, use muitas vezes. Se você está copiando e colando código, provavelmente precisa de uma função.
 
 ## Parâmetros e retorno tipados
 
-TypeScript exige que você declare os tipos. Isso previne erros:
+TypeScript exige que você declare os tipos dos parâmetros e do retorno. Isso previne erros antes mesmo de executar o código:
 
 ```typescript
 function somar(a: number, b: number): number {
@@ -62,78 +68,182 @@ function exibirMensagem(msg: string): void {
   console.log(msg);
   // void = não retorna nada
 }
+
+function estaAprovado(nota: number): boolean {
+  return nota >= 7;
+}
 ```
 
-O tipo após os parênteses (`: number`, `: string`, `: void`) indica o que a função retorna. `void` significa que a função não retorna nenhum valor.
+O tipo após os parênteses (`: number`, `: string`, `: void`, `: boolean`) indica o que a função retorna. `void` significa que a função não retorna nenhum valor -- ela apenas executa uma acao.
+
+### Exemplo prático: calculadora de desconto
+
+```typescript
+function calcularDesconto(preco: number, percentual: number): number {
+  const desconto: number = preco * (percentual / 100);
+  return preco - desconto;
+}
+
+const precoOriginal: number = 120;
+const precoFinal: number = calcularDesconto(precoOriginal, 15);
+console.log(`De R$${precoOriginal} por R$${precoFinal}`); // "De R$120 por R$102"
+```
+
+Observe que a função recebe dois números e retorna um número. O TypeScript garante que ninguem passe uma string por engano.
 
 ## Arrow functions
 
-Arrow functions são uma sintaxe mais curta para escrever funções:
+Arrow functions sao uma sintaxe mais curta para escrever funções. Sao especialmente uteis para funções simples de uma linha:
 
 ```typescript
 const dobrar = (n: number): number => n * 2;
 const saudar = (nome: string): string => `Oi, ${nome}`;
+const ehPar = (n: number): boolean => n % 2 === 0;
 
-// Equivalente a:
-// function dobrar(n: number): number { return n * 2; }
+console.log(dobrar(7));       // 14
+console.log(saudar("Ana"));   // "Oi, Ana"
+console.log(ehPar(4));        // true
 ```
 
 > [!info]
-> Arrow functions são uma sintaxe mais curta. Use-as para funções simples de uma linha. Para funções maiores com múltiplas linhas, a sintaxe tradicional com `function` pode ser mais legível.
+> Quando uma arrow function tem apenas uma expressao, o `return` e implicito -- o valor e retornado automaticamente. Para funções com mais de uma linha, use chaves `{}` e `return` explicito.
 
-Para arrow functions com mais de uma linha, use chaves e `return`:
+Para arrow functions com multiplas linhas, use chaves e `return`:
 
 ```typescript
 const calcularMedia = (notas: number[]): number => {
-  const soma = notas.reduce((acc, n) => acc + n, 0);
+  const soma: number = notas.reduce((acc, n) => acc + n, 0);
   return soma / notas.length;
 };
+
+console.log(calcularMedia([8, 7, 9, 6])); // 7.5
 ```
 
-## Valores padrão
+## Valores padrao
 
-Parâmetros podem ter valores padrão, usados quando o argumento não é fornecido:
+Parametros podem ter valores padrao, usados quando o argumento nao e fornecido:
 
 ```typescript
-function cumprimentar(nome: string, saudacao: string = "Olá"): string {
+function cumprimentar(nome: string, saudacao: string = "Ola"): string {
   return `${saudacao}, ${nome}!`;
 }
 
-console.log(cumprimentar("Ana"));            // "Olá, Ana!"
+console.log(cumprimentar("Ana"));            // "Ola, Ana!"
 console.log(cumprimentar("Ana", "Bom dia")); // "Bom dia, Ana!"
 ```
 
-Parâmetros com valor padrão devem vir por último na lista de parâmetros.
-
-## Escopo de variáveis
-
-Variáveis declaradas dentro de uma função só existem dentro dela. Isso é o escopo local:
+Outro exemplo pratico -- uma funcao que formata precos:
 
 ```typescript
-const global = "visível em todo lugar";
-
-function exemplo() {
-  const local = "visível só aqui dentro";
-  console.log(global); // funciona
-  console.log(local);  // funciona
+function formatarPreco(valor: number, moeda: string = "R$"): string {
+  return `${moeda} ${valor.toFixed(2)}`;
 }
 
-// console.log(local); // ERRO! local não existe aqui fora
+console.log(formatarPreco(49.9));          // "R$ 49.90"
+console.log(formatarPreco(49.9, "US$"));   // "US$ 49.90"
 ```
 
-Variáveis de fora são acessíveis dentro da função. Variáveis de dentro não são acessíveis fora. Isso protege o código — cada função tem seu próprio espaço isolado.
+> [!alerta]
+> Parametros com valor padrao devem vir por ultimo na lista de parametros. `function f(a: string = "oi", b: number)` causa confusao porque voce nao pode pular o primeiro argumento.
 
-## Funções como parâmetros (callbacks)
+## Escopo de variaveis
 
-Funções podem receber outras funções como parâmetro. Isso é chamado de callback:
+Variaveis declaradas dentro de uma funcao so existem dentro dela. Isso e o **escopo local**:
+
+```typescript
+const mensagem: string = "visivel em todo lugar";
+
+function exemplo(): void {
+  const local: string = "visivel so aqui dentro";
+  console.log(mensagem); // funciona -- variavel de fora
+  console.log(local);    // funciona -- variavel local
+}
+
+exemplo();
+// console.log(local); // ERRO! local nao existe aqui fora
+```
+
+Variaveis de fora sao acessiveis dentro da funcao. Variaveis de dentro nao sao acessiveis fora. Isso protege o codigo -- cada funcao tem seu proprio espaco isolado.
+
+```typescript
+function contarAte(limite: number): void {
+  for (let i = 1; i <= limite; i++) {
+    console.log(i);
+  }
+  // i tambem nao existe aqui -- escopo do for
+}
+
+contarAte(3);
+// console.log(i); // ERRO! i nao existe fora da funcao
+```
+
+## Funcoes como parametros (callbacks)
+
+Funcoes podem receber outras funcoes como parametro. Isso e chamado de **callback** e e um dos padroes mais importantes em TypeScript:
 
 ```typescript
 function executar(operacao: (n: number) => number, valor: number): void {
-  console.log(operacao(valor));
+  const resultado: number = operacao(valor);
+  console.log(`Resultado: ${resultado}`);
 }
 
-executar(n => n * 2, 5);  // 10
-executar(n => n ** 2, 5); // 25
+executar((n) => n * 2, 5);  // Resultado: 10
+executar((n) => n ** 2, 5); // Resultado: 25
 ```
 
-O parâmetro `operacao` tem tipo `(n: number) => number` — uma função que recebe um número e retorna um número. Callbacks são a base de métodos como `map`, `filter` e `find` que você já viu em arrays.
+O parametro `operacao` tem tipo `(n: number) => number` -- uma funcao que recebe um numero e retorna um numero.
+
+### Por que callbacks sao importantes?
+
+Callbacks sao a base de muitos metodos que voce ja conhece e usara no futuro:
+
+```typescript
+const numeros: number[] = [1, 2, 3, 4, 5];
+
+// filter recebe um callback que retorna boolean
+const pares: number[] = numeros.filter((n: number): boolean => n % 2 === 0);
+console.log(pares); // [2, 4]
+
+// map recebe um callback que transforma cada elemento
+const dobrados: number[] = numeros.map((n: number): number => n * 2);
+console.log(dobrados); // [2, 4, 6, 8, 10]
+
+// forEach recebe um callback que executa uma acao
+numeros.forEach((n: number): void => {
+  console.log(`Numero: ${n}`);
+});
+```
+
+> [!alerta]
+> Callbacks tambem sao usados para lidar com operacoes assincronas (como ler arquivos ou esperar entrada do usuario). Voce vera isso nos projetos a seguir.
+
+## Funcoes genericas
+
+Às vezes, voce quer que uma funcao funcione com varios tipos diferentes. TypeScript permite criar **funcoes genericas** usando `<T>`:
+
+```typescript
+function primeiroElemento<T>(lista: T[]): T | undefined {
+  return lista[0];
+}
+
+const primeiroNumero = primeiroElemento([10, 20, 30]);   // tipo: number
+const primeiraLetra = primeiroElemento(["a", "b", "c"]); // tipo: string
+
+console.log(primeiroNumero); // 10
+console.log(primeiraLetra);  // "a"
+```
+
+O `<T>` e um **parametro de tipo** -- ele se adapta ao tipo do argumento passado. Nao se preocupe em dominar generics agora; o importante e saber que existem e reconhecer a sintaxe `<T>` quando encontra-la.
+
+## Resumo
+
+| Conceito | Sintaxe | Quando usar |
+|---|---|---|
+| Funcao tradicional | `function nome(p: tipo): tipo {}` | Funcoes nomeadas reutilizaveis |
+| Arrow function | `const f = (p: tipo): tipo => ...` | Funcoes curtas, callbacks |
+| Valor padrao | `function f(p: tipo = valor)` | Parametros opcionais |
+| Callback | `function f(cb: (x: tipo) => tipo)` | Passar logica como argumento |
+| Generics | `function f<T>(p: T): T` | Funcoes que aceitam varios tipos |
+
+> [!sucesso]
+> Funcoes sao o bloco fundamental da programacao. Dominar funcoes -- especialmente callbacks -- e essencial para tudo que vem a seguir: projetos, manipulacao de dados e programacao assincrona.

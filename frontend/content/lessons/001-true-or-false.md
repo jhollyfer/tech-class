@@ -101,9 +101,82 @@ Todo programa segue uma estrutura básica: recebe dados (entrada), processa esse
 
 A lógica booleana é o coração do processamento — o computador toma decisões avaliando condições que resultam em verdadeiro ou falso.
 
-```pseudocode
-se temperatura > 38 então
-  exibir "Febre detectada"
-senão
-  exibir "Temperatura normal"
+```typescript
+const temperatura: number = 39;
+
+if (temperatura > 38) {
+  console.log("Febre detectada");
+} else {
+  console.log("Temperatura normal");
+}
+// Saída: "Febre detectada"
 ```
+
+Neste exemplo, a **entrada** é o valor da temperatura, o **processamento** é a comparação `temperatura > 38` (que resulta em `true` ou `false`), e a **saída** é a mensagem exibida.
+
+## Na prática com TypeScript
+
+Em TypeScript, o tipo que representa verdadeiro ou falso é o `boolean`. Ele aceita apenas dois valores: `true` e `false`.
+
+### Declarando variáveis booleanas
+
+```typescript
+const estaChovendo: boolean = true;
+const temSol: boolean = false;
+
+console.log(estaChovendo); // true
+console.log(temSol);       // false
+```
+
+> [!sucesso]
+> O TypeScript verifica o tipo em tempo de compilação. Se você tentar atribuir um número ou texto a uma variável `boolean`, o compilador apontará um erro antes mesmo de executar o programa.
+
+### Verificando o tipo com `typeof`
+
+O operador `typeof` retorna uma string indicando o tipo de um valor. Para booleanos, retorna `"boolean"`:
+
+```typescript
+const aprovado: boolean = true;
+
+console.log(typeof aprovado);  // "boolean"
+console.log(typeof 42);        // "number"
+console.log(typeof "texto");   // "string"
+```
+
+### Tomando decisões com `if/else`
+
+O `if/else` é a tradução direta do raciocínio condicional para código. A condição entre parênteses é avaliada como `true` ou `false`:
+
+```typescript
+const joanaPageou: boolean = true;
+
+if (joanaPageou) {
+  console.log("Produto liberado");
+} else {
+  console.log("Cobrar novamente");
+}
+// Saída: "Produto liberado"
+```
+
+> [!alerta]
+> Em TypeScript, condições como `if (1)` ou `if ("texto")` funcionam por causa da coerção de tipos, mas isso é considerado má prática. Sempre use valores `boolean` explícitos nas suas condições para manter o código claro e seguro.
+
+## Representações em TypeScript
+
+Veja como os diferentes formatos de representação se relacionam:
+
+| Lógica formal | Binário | TypeScript | Descrição |
+|---|---|---|---|
+| V | 1 | `true` | Verdadeiro, ligado, sim |
+| F | 0 | `false` | Falso, desligado, não |
+
+Em TypeScript, expressões de comparação sempre retornam `boolean`:
+
+```typescript
+console.log(10 > 5);    // true  (V)
+console.log(3 === 7);   // false (F)
+console.log(1 === 1);   // true  (V)
+```
+
+> [!info]
+> Na lógica formal usamos V e F. No sistema binário usamos 1 e 0. Em TypeScript usamos `true` e `false`. São três formas de expressar a mesma ideia: dois estados possíveis, sem meio-termo.

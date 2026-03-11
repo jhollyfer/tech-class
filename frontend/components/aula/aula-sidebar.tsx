@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useScrollProgress } from "@/hooks/use-scroll-progress";
+import { slugify } from "@/lib/slugify";
 import Link from "next/link";
 
 interface AulaSidebarProps {
@@ -23,10 +24,7 @@ function extractHeadings(content: string): Heading[] {
   let match;
   while ((match = headingRegex.exec(content)) !== null) {
     const text = match[1].trim();
-    const id = text
-      .toLowerCase()
-      .replace(/[^\w\s-]/g, "")
-      .replace(/\s+/g, "-");
+    const id = slugify(text);
     headings.push({ id, text });
   }
   return headings;

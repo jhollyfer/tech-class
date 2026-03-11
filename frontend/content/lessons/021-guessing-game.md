@@ -32,86 +32,155 @@ quiz:
 
 ## O projeto
 
-O computador escolhe um número entre 1 e 100. O jogador tenta adivinhar, e a cada tentativa recebe uma dica: o número secreto é maior ou menor que o palpite. O jogo termina quando o jogador acerta e exibe o total de tentativas.
+O computador escolhe um numero aleatorio entre 1 e 100. O jogador tenta adivinhar, e a cada tentativa recebe uma dica: o numero secreto e **maior** ou **menor** que o palpite. O jogo termina quando o jogador acerta e exibe o total de tentativas.
 
-Conceitos aplicados: variáveis, condicionais, loops (recursão), entrada/saída, conversão de tipo e validação.
+> [!info]
+> Este projeto aplica na pratica tudo que voce aprendeu ate aqui: variaveis, tipos, condicionais, funcoes, entrada/saida e conversao de tipos. E o seu primeiro programa interativo completo.
 
-## Passo 1: Gerando o número secreto
+## Passo 1: Gerando o numero secreto
 
-`Math.random()` gera um número decimal entre 0 e 1. Multiplicando por 100 e arredondando para baixo, obtemos um inteiro de 0 a 99. Somando 1, o intervalo fica de 1 a 100:
+`Math.random()` gera um numero decimal entre 0 e 1. Multiplicando por 100 e arredondando para baixo com `Math.floor()`, obtemos um inteiro de 0 a 99. Somando 1, o intervalo fica de 1 a 100:
 
 ```typescript
-const secreto = Math.floor(Math.random() * 100) + 1;
+const secreto: number = Math.floor(Math.random() * 100) + 1;
 ```
 
-## Passo 2: Lendo a entrada do jogador
+| Expressao | Resultado |
+|---|---|
+| `Math.random()` | `0.7342...` (exemplo) |
+| `* 100` | `73.42...` |
+| `Math.floor(...)` | `73` |
+| `+ 1` | `74` |
 
-Para ler entrada no terminal, usamos o módulo `readline` do Node.js:
+## Passo 2: Configurando a leitura de entrada
+
+Para ler entrada no terminal, usamos o modulo `readline` do Node.js. Ele cria uma interface que conecta a entrada e a saida do terminal:
 
 ```typescript
 import * as readline from "readline";
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
+const rl: readline.Interface = readline.createInterface({
+  input: process.stdin,   // le do teclado
+  output: process.stdout, // escreve no terminal
 });
 ```
 
-O `rl.question()` exibe uma pergunta e espera a resposta do jogador.
+O metodo `rl.question()` exibe uma pergunta e espera a resposta do jogador. A resposta chega como **string** dentro de um callback.
 
-## Passo 3: O jogo completo
+## Passo 3: Logica de cada tentativa
+
+A funcao `perguntar()` e o coracao do jogo. Ela exibe a pergunta, le a resposta, valida a entrada, compara com o numero secreto e decide o proximo passo:
 
 ```typescript
-import * as readline from "readline";
+let tentativas: number = 0;
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
-
-const secreto = Math.floor(Math.random() * 100) + 1;
-let tentativas = 0;
-
-function perguntar() {
-  rl.question("Seu palpite (1-100): ", (resposta) => {
-    const palpite = parseInt(resposta);
+function perguntar(): void {
+  rl.question("Seu palpite (1-100): ", (resposta: string): void => {
+    // Converte string para numero
+    const palpite: number = parseInt(resposta);
     tentativas++;
 
+    // Valida a entrada
     if (isNaN(palpite) || palpite < 1 || palpite > 100) {
-      console.log("Digite um número entre 1 e 100!");
+      console.log("Digite um numero valido entre 1 e 100!");
+      perguntar(); // pede novamente
+      return;
+    }
+
+    // Compara com o numero secreto
+    if (palpite === secreto) {
+      console.log(`Acertou em ${tentativas} tentativa(s)!`);
+      rl.close(); // encerra o jogo
+    } else if (palpite < secreto) {
+      console.log("O numero secreto e MAIOR!");
+      perguntar(); // tenta novamente
+    } else {
+      console.log("O numero secreto e MENOR!");
+      perguntar(); // tenta novamente
+    }
+  });
+}
+```
+
+> [!info]
+> A funcao `perguntar()` chama a si mesma quando o jogador erra. Isso e **recursao** -- uma tecnica onde a funcao se repete ate que uma condicao de parada seja atendida (neste caso, o acerto).
+
+## Passo 4: O jogo completo
+
+Aqui esta o codigo final reunindo todas as partes:
+
+```typescript
+import * as readline from "readline";
+
+// --- Configuracao ---
+const rl: readline.Interface = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+// --- Estado do jogo ---
+const secreto: number = Math.floor(Math.random() * 100) + 1;
+let tentativas: number = 0;
+
+// --- Logica principal ---
+function perguntar(): void {
+  rl.question("Seu palpite (1-100): ", (resposta: string): void => {
+    const palpite: number = parseInt(resposta);
+    tentativas++;
+
+    // Validacao: entrada precisa ser um numero entre 1 e 100
+    if (isNaN(palpite) || palpite < 1 || palpite > 100) {
+      console.log("Digite um numero valido entre 1 e 100!");
       perguntar();
       return;
     }
 
+    // Comparacao com o numero secreto
     if (palpite === secreto) {
-      console.log(`Acertou em ${tentativas} tentativas!`);
+      console.log(`Parabens! Acertou o numero ${secreto} em ${tentativas} tentativa(s)!`);
       rl.close();
     } else if (palpite < secreto) {
-      console.log("Maior!");
+      console.log("O numero secreto e MAIOR! Tente novamente.");
       perguntar();
     } else {
-      console.log("Menor!");
+      console.log("O numero secreto e MENOR! Tente novamente.");
       perguntar();
     }
   });
 }
 
-console.log("Pensei em um número entre 1 e 100...");
+// --- Inicio ---
+console.log("=== Jogo de Adivinhacao ===");
+console.log("Pensei em um numero entre 1 e 100. Tente adivinhar!\n");
 perguntar();
 ```
 
-Execute com `npx tsx jogo.ts` e tente adivinhar o número.
+Execute com `npx tsx jogo.ts` e tente adivinhar o numero.
 
 ## Conceitos aplicados
 
-Cada parte do jogo usa conceitos que você já aprendeu:
+Cada parte do jogo usa conceitos que voce ja aprendeu:
 
-- **Variáveis** — `secreto`, `tentativas`, `palpite` armazenam os dados do jogo.
-- **Loop** — a função `perguntar()` chama a si mesma (recursão), criando um loop que só para quando o jogador acerta.
-- **Condicional** — `if/else if/else` compara o palpite com o número secreto e decide a dica.
-- **Entrada/Saída** — `readline` lê o palpite, `console.log` exibe as dicas.
-- **Conversão de tipo** — `parseInt()` converte a string digitada em número.
-- **Validação** — `isNaN()` verifica se a entrada é válida antes de comparar.
+| Trecho do codigo | Conceito | Licao |
+|---|---|---|
+| `const secreto: number = ...` | Variavel tipada | Variaveis e tipos |
+| `Math.floor(Math.random() * 100) + 1` | Funcoes matematicas | Funcoes |
+| `parseInt(resposta)` | Conversao de tipo | Tipos primitivos |
+| `isNaN(palpite) \|\| palpite < 1` | Validacao com operadores logicos | Logica booleana |
+| `if / else if / else` | Condicional | Condicionais |
+| `perguntar()` chamando a si mesma | Recursao (loop) | Funcoes |
+| `rl.question("...", callback)` | Callback | Funcoes como parametros |
+| `rl.close()` | Controle de fluxo | Finalizacao do programa |
 
 > [!sucesso]
-> Este projeto usa TODOS os conceitos dos módulos anteriores: lógica booleana, condicionais, loops e entrada/saída. Se conseguiu acompanhar cada parte, está pronto para projetos mais complexos.
+> Este projeto usa **todos** os conceitos dos modulos anteriores: logica booleana, condicionais, funcoes, callbacks e entrada/saida. Se conseguiu acompanhar cada parte, esta pronto para projetos mais complexos.
+
+## Melhorias possiveis
+
+Quer um desafio extra? Tente implementar estas melhorias:
+
+- **Limite de tentativas** -- o jogador tem no maximo 10 tentativas. Se nao acertar, perde e o numero e revelado.
+- **Niveis de dificuldade** -- facil (1-50), medio (1-100), dificil (1-500). Pergunte ao jogador antes de comecar.
+- **Dica de distancia** -- em vez de apenas "maior/menor", diga se esta "quente" (diferenca < 10) ou "frio" (diferenca > 30).
+- **Jogar novamente** -- ao final, pergunte se o jogador quer outra rodada sem precisar reiniciar o programa.
+- **Historico de palpites** -- use um array para guardar todos os palpites e exibi-los a cada rodada, evitando repeticoes.

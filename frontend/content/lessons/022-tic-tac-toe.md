@@ -32,16 +32,39 @@ quiz:
 
 ## O projeto
 
-Jogo da velha completo no terminal para dois jogadores. Tabuleiro 3x3, alternância entre X e O, validação de jogadas, detecção de vitória e empate. Este é o projeto mais completo do curso até aqui.
+Jogo da velha completo no terminal para dois jogadores. Tabuleiro 3x3, alternancia entre X e O, validacao de jogadas, deteccao de vitoria e empate. Este e o projeto mais completo do curso ate aqui -- ele combina arrays, funcoes, condicionais, callbacks e logica de jogo em um programa real.
 
-## Passo 1: O tabuleiro
+> [!info]
+> Vamos construir o jogo passo a passo. Cada etapa adiciona uma funcionalidade nova. Ao final, tudo se conecta em um programa funcional.
 
-O tabuleiro é um array de 9 posições. Inicialmente, cada posição contém seu número (1 a 9) para o jogador saber qual escolher:
+## Passo a passo
+
+### Passo 1: Representando o tabuleiro
+
+O tabuleiro 3x3 tem 9 casas. Usamos um **array de strings** com 9 posicoes. Inicialmente, cada posicao contem seu numero (1 a 9) para que o jogador saiba qual escolher:
 
 ```typescript
 const tabuleiro: string[] = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+```
 
-function exibirTabuleiro(): void {
+Visualmente, o array mapeia assim:
+
+```
+ 1 | 2 | 3      tabuleiro[0] | tabuleiro[1] | tabuleiro[2]
+-----------      ------------------------------------------
+ 4 | 5 | 6      tabuleiro[3] | tabuleiro[4] | tabuleiro[5]
+-----------      ------------------------------------------
+ 7 | 8 | 9      tabuleiro[6] | tabuleiro[7] | tabuleiro[8]
+```
+
+Quando um jogador escolhe a posicao 5, `tabuleiro[4]` muda de `"5"` para `"X"` ou `"O"`.
+
+### Passo 2: Exibindo o tabuleiro
+
+Uma funcao dedicada para desenhar o tabuleiro no terminal. Ela sera chamada antes de cada jogada:
+
+```typescript
+function exibirTabuleiro(tabuleiro: string[]): void {
   console.log(`
   ${tabuleiro[0]} | ${tabuleiro[1]} | ${tabuleiro[2]}
   ---------
@@ -52,21 +75,21 @@ function exibirTabuleiro(): void {
 }
 ```
 
-Quando um jogador escolhe a posição 5, `tabuleiro[4]` muda de `"5"` para `"X"` ou `"O"`.
+A funcao recebe o tabuleiro como parametro e usa template literals para formatar a saida. O tipo `void` indica que ela apenas exibe informacao, sem retornar nada.
 
-## Passo 2: Verificar vitória
+### Passo 3: Verificando vitoria
 
-Existem 8 formas de vencer: 3 linhas, 3 colunas e 2 diagonais. Cada combinação é um array de 3 índices:
+Existem **8 formas de vencer**: 3 linhas, 3 colunas e 2 diagonais. Cada combinacao e um array de 3 indices que representam as posicoes no tabuleiro:
 
 ```typescript
-const combinacoes = [
+const combinacoesVitoria: number[][] = [
   [0, 1, 2], [3, 4, 5], [6, 7, 8], // linhas
   [0, 3, 6], [1, 4, 7], [2, 5, 8], // colunas
   [0, 4, 8], [2, 4, 6],             // diagonais
 ];
 
-function verificarVitoria(jogador: string): boolean {
-  return combinacoes.some(([a, b, c]) =>
+function verificarVitoria(tabuleiro: string[], jogador: string): boolean {
+  return combinacoesVitoria.some(([a, b, c]: number[]): boolean =>
     tabuleiro[a] === jogador &&
     tabuleiro[b] === jogador &&
     tabuleiro[c] === jogador
@@ -74,56 +97,142 @@ function verificarVitoria(jogador: string): boolean {
 }
 ```
 
-O método `some()` retorna `true` se qualquer combinação tiver as 3 posições preenchidas pelo mesmo jogador. A desestruturação `[a, b, c]` extrai os 3 índices de cada combinação.
+O metodo `some()` percorre cada combinacao e retorna `true` se **alguma** delas tiver as 3 posicoes preenchidas pelo mesmo jogador. A desestruturacao `[a, b, c]` extrai os 3 indices de cada combinacao.
 
-## Passo 3: Loop do jogo
+> [!info]
+> `some()` e um metodo de array que recebe um callback e retorna `true` se **pelo menos um** elemento satisfaz a condicao. E perfeito para perguntar: "alguma das 8 combinacoes foi completada?"
 
-O jogo alterna entre jogadores X e O. Cada turno exibe o tabuleiro, pede a jogada, valida, marca no tabuleiro e verifica vitória ou empate:
+### Passo 4: Validando a jogada
+
+Antes de marcar uma posicao, precisamos verificar se a jogada e valida -- a posicao deve estar entre 1 e 9, e a casa nao pode ja estar ocupada:
+
+```typescript
+function jogadaValida(tabuleiro: string[], posicao: number): boolean {
+  return posicao >= 0 && posicao <= 8 &&
+    tabuleiro[posicao] !== "X" &&
+    tabuleiro[posicao] !== "O";
+}
+```
+
+A funcao retorna `true` se a posicao esta dentro do intervalo **e** a casa ainda nao foi marcada com X ou O.
+
+### Passo 5: O loop do jogo
+
+O jogo alterna entre jogadores X e O. Cada turno exibe o tabuleiro, pede a jogada, valida, marca no tabuleiro e verifica vitoria ou empate. Usamos recursao (a funcao `jogar` chama a si mesma) para repetir os turnos:
 
 ```typescript
 import * as readline from "readline";
 
-const tabuleiro: string[] = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
-
-const combinacoes = [
-  [0, 1, 2], [3, 4, 5], [6, 7, 8],
-  [0, 3, 6], [1, 4, 7], [2, 5, 8],
-  [0, 4, 8], [2, 4, 6],
-];
-
-function exibirTabuleiro(): void {
-  console.log(`
-  ${tabuleiro[0]} | ${tabuleiro[1]} | ${tabuleiro[2]}
-  ---------
-  ${tabuleiro[3]} | ${tabuleiro[4]} | ${tabuleiro[5]}
-  ---------
-  ${tabuleiro[6]} | ${tabuleiro[7]} | ${tabuleiro[8]}
-  `);
-}
-
-function verificarVitoria(jogador: string): boolean {
-  return combinacoes.some(([a, b, c]) =>
-    tabuleiro[a] === jogador &&
-    tabuleiro[b] === jogador &&
-    tabuleiro[c] === jogador
-  );
-}
-
-const rl = readline.createInterface({
+const rl: readline.Interface = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-let jogadorAtual = "X";
-let jogadas = 0;
+let jogadorAtual: string = "X";
+let jogadas: number = 0;
 
-function jogar() {
-  exibirTabuleiro();
-  rl.question(`Jogador ${jogadorAtual}, escolha (1-9): `, (resposta) => {
-    const posicao = parseInt(resposta) - 1;
+function jogar(): void {
+  exibirTabuleiro(tabuleiro);
 
-    if (posicao < 0 || posicao > 8 || tabuleiro[posicao] === "X" || tabuleiro[posicao] === "O") {
-      console.log("Jogada inválida!");
+  rl.question(`Jogador ${jogadorAtual}, escolha (1-9): `, (resposta: string): void => {
+    const posicao: number = parseInt(resposta) - 1;
+
+    // Valida a jogada
+    if (!jogadaValida(tabuleiro, posicao)) {
+      console.log("Jogada invalida! Escolha uma posicao livre de 1 a 9.");
+      jogar(); // pede novamente
+      return;
+    }
+
+    // Marca a posicao
+    tabuleiro[posicao] = jogadorAtual;
+    jogadas++;
+
+    // Verifica vitoria
+    if (verificarVitoria(tabuleiro, jogadorAtual)) {
+      exibirTabuleiro(tabuleiro);
+      console.log(`Jogador ${jogadorAtual} venceu! Parabens!`);
+      rl.close();
+      return;
+    }
+
+    // Verifica empate
+    if (jogadas === 9) {
+      exibirTabuleiro(tabuleiro);
+      console.log("Empate! Ninguem venceu.");
+      rl.close();
+      return;
+    }
+
+    // Alterna o jogador e continua
+    jogadorAtual = jogadorAtual === "X" ? "O" : "X";
+    jogar();
+  });
+}
+```
+
+> [!info]
+> O operador ternario `jogadorAtual === "X" ? "O" : "X"` alterna o jogador de forma concisa. Se e X, muda para O; se e O, muda para X.
+
+### Passo 6: Codigo completo
+
+Aqui esta o jogo reunindo todas as partes:
+
+```typescript
+import * as readline from "readline";
+
+// --- Configuracao ---
+const rl: readline.Interface = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+// --- Estado do jogo ---
+const tabuleiro: string[] = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+let jogadorAtual: string = "X";
+let jogadas: number = 0;
+
+// --- Combinacoes vencedoras ---
+const combinacoesVitoria: number[][] = [
+  [0, 1, 2], [3, 4, 5], [6, 7, 8], // linhas
+  [0, 3, 6], [1, 4, 7], [2, 5, 8], // colunas
+  [0, 4, 8], [2, 4, 6],             // diagonais
+];
+
+// --- Funcoes ---
+function exibirTabuleiro(tab: string[]): void {
+  console.log(`
+  ${tab[0]} | ${tab[1]} | ${tab[2]}
+  ---------
+  ${tab[3]} | ${tab[4]} | ${tab[5]}
+  ---------
+  ${tab[6]} | ${tab[7]} | ${tab[8]}
+  `);
+}
+
+function verificarVitoria(tab: string[], jogador: string): boolean {
+  return combinacoesVitoria.some(([a, b, c]: number[]): boolean =>
+    tab[a] === jogador &&
+    tab[b] === jogador &&
+    tab[c] === jogador
+  );
+}
+
+function jogadaValida(tab: string[], posicao: number): boolean {
+  return posicao >= 0 && posicao <= 8 &&
+    tab[posicao] !== "X" &&
+    tab[posicao] !== "O";
+}
+
+// --- Loop principal ---
+function jogar(): void {
+  exibirTabuleiro(tabuleiro);
+
+  rl.question(`Jogador ${jogadorAtual}, escolha (1-9): `, (resposta: string): void => {
+    const posicao: number = parseInt(resposta) - 1;
+
+    if (!jogadaValida(tabuleiro, posicao)) {
+      console.log("Jogada invalida! Escolha uma posicao livre de 1 a 9.");
       jogar();
       return;
     }
@@ -131,16 +240,16 @@ function jogar() {
     tabuleiro[posicao] = jogadorAtual;
     jogadas++;
 
-    if (verificarVitoria(jogadorAtual)) {
-      exibirTabuleiro();
-      console.log(`Jogador ${jogadorAtual} venceu!`);
+    if (verificarVitoria(tabuleiro, jogadorAtual)) {
+      exibirTabuleiro(tabuleiro);
+      console.log(`Jogador ${jogadorAtual} venceu! Parabens!`);
       rl.close();
       return;
     }
 
     if (jogadas === 9) {
-      exibirTabuleiro();
-      console.log("Empate!");
+      exibirTabuleiro(tabuleiro);
+      console.log("Empate! Ninguem venceu.");
       rl.close();
       return;
     }
@@ -150,6 +259,9 @@ function jogar() {
   });
 }
 
+// --- Inicio ---
+console.log("=== Jogo da Velha ===");
+console.log("Jogador X comeca!\n");
 jogar();
 ```
 
@@ -157,14 +269,29 @@ Execute com `npx tsx velha.ts` e jogue com um amigo no terminal.
 
 ## Conceitos aplicados
 
-Este projeto integra todos os conceitos do módulo:
+Este projeto integra todos os conceitos do modulo:
 
-- **Array** — tabuleiro como array de 9 posições, combinações de vitória como array de arrays.
-- **Funções** — `exibirTabuleiro`, `verificarVitoria`, `jogar` encapsulam responsabilidades distintas.
-- **Loops** — recursão via `jogar()` para alternância de turnos.
-- **Condicionais** — verificar vitória, empate, jogada válida e alternância de jogador.
-- **Métodos de array** — `some()` para checar combinações vencedoras.
-- **Operador ternário** — `jogadorAtual === "X" ? "O" : "X"` para alternar jogadores.
+| Trecho do codigo | Conceito | Licao |
+|---|---|---|
+| `const tabuleiro: string[]` | Array tipado | Arrays |
+| `combinacoesVitoria: number[][]` | Array de arrays | Arrays |
+| `exibirTabuleiro()`, `verificarVitoria()` | Funcoes com parametros tipados | Funcoes |
+| `jogar()` chamando a si mesma | Recursao (loop) | Funcoes |
+| `rl.question("...", callback)` | Callback | Funcoes como parametros |
+| `if / else if / else` | Condicionais | Condicionais |
+| `some(([a, b, c]) => ...)` | Metodo de array com callback | Arrays + Funcoes |
+| `jogadorAtual === "X" ? "O" : "X"` | Operador ternario | Condicionais |
+| `parseInt(resposta) - 1` | Conversao de tipo | Tipos |
 
 > [!sucesso]
-> Este é o projeto mais completo do curso. Ele combina arrays, funções, condicionais, loops e entrada/saída em um programa real e funcional. Se entendeu cada parte, domina os fundamentos de programação.
+> Este e o projeto mais completo do curso. Ele combina arrays, funcoes, condicionais, callbacks e entrada/saida em um programa real e funcional. Se entendeu cada parte, voce domina os fundamentos de programacao.
+
+## Melhorias possiveis
+
+Quer ir alem? Aqui estao sugestoes para expandir o jogo:
+
+- **Jogar contra o computador** -- implemente uma IA simples que escolhe posicoes aleatorias livres. Para um desafio maior, faca a IA priorizar o centro, depois os cantos.
+- **Placar entre rodadas** -- use variaveis para contar vitorias de X, vitorias de O e empates. Ao final de cada rodada, pergunte se os jogadores querem jogar novamente.
+- **Tabuleiro maior** -- adapte o jogo para um tabuleiro 4x4 ou 5x5. Voce precisara atualizar o array de combinacoes vencedoras.
+- **Destaque colorido** -- use codigos ANSI para colorir o X de vermelho e o O de azul no terminal: `"\x1b[31mX\x1b[0m"` para vermelho.
+- **Validacao de nomes** -- pergunte os nomes dos jogadores no inicio e use-os em vez de "Jogador X" e "Jogador O".

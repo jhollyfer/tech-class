@@ -54,18 +54,20 @@ Node.js é o motor que executa código JavaScript e TypeScript fora do navegador
 1. Acesse [nodejs.org](https://nodejs.org)
 2. Baixe a versão **LTS** (Long Term Support) — é a mais estável
 3. Execute o instalador e siga as instruções (Next, Next, Finish)
-4. Abra o terminal e verifique:
+4. Abra o terminal e verifique a instalação:
 
-```typescript
-// No terminal, digite:
-// node --version
-// Deve aparecer algo como: v20.11.0
+```bash
+node --version
+# Deve aparecer algo como: v20.11.0
 
-// npm --version
-// Deve aparecer algo como: 10.2.4
+npm --version
+# Deve aparecer algo como: 10.2.4
 ```
 
 O **npm** (Node Package Manager) vem junto com o Node.js. É o gerenciador de pacotes — ele instala bibliotecas e ferramentas extras que você vai usar nos seus projetos.
+
+> [!info]
+> Se o terminal exibir "comando não encontrado" após a instalação, feche e abra o terminal novamente. Em alguns sistemas, é necessário reiniciar o terminal para que os novos comandos sejam reconhecidos.
 
 ## Instalando o VS Code
 
@@ -82,29 +84,76 @@ VS Code (Visual Studio Code) é o editor de código mais usado no mundo. É grat
 - **Portuguese (Brazil) Language Pack** — traduz a interface para português
 - **ESLint** — detecta erros e problemas no código automaticamente
 
-Para instalar extensões: abra o VS Code → clique no ícone de quadradinhos na barra lateral → pesquise o nome → clique em "Install".
+Para instalar extensões: abra o VS Code, clique no icone de quadradinhos na barra lateral, pesquise o nome e clique em "Install".
+
+## Instalando o tsx
+
+Para executar TypeScript diretamente no terminal, vamos instalar o `tsx` de forma global:
+
+```bash
+npm install -g tsx
+```
+
+O `tsx` permite rodar arquivos `.ts` sem precisar compilar antes. Depois de instalar, verifique:
+
+```bash
+tsx --version
+# Deve aparecer a versão instalada
+```
 
 ## Seu primeiro comando no terminal
 
-Crie um arquivo chamado `ola.ts` no VS Code com este conteúdo:
+Crie uma pasta para seus projetos e abra no VS Code:
+
+```bash
+mkdir meus-programas
+cd meus-programas
+code .
+```
+
+Dentro do VS Code, crie um arquivo chamado `ola.ts` com este conteudo:
 
 ```typescript
 console.log("Olá, mundo!");
 ```
 
-Agora abra o terminal e execute:
+Agora abra o terminal integrado do VS Code (atalho: `Ctrl + '`) e execute:
 
-```typescript
-// Para TypeScript diretamente:
-// npx tsx ola.ts
-
-// Ou, se estiver usando JavaScript puro (arquivo .js):
-// node ola.js
+```bash
+npx tsx ola.ts
 ```
 
-Se aparecer `Olá, mundo!` no terminal, tudo está funcionando. Seu ambiente está pronto.
+Se aparecer `Olá, mundo!` no terminal, tudo esta funcionando.
 
-O comando `npx tsx` executa TypeScript diretamente, sem precisar compilar antes. É a forma mais rápida de testar código durante o aprendizado.
+> [!sucesso]
+> O comando `npx tsx` executa TypeScript diretamente, sem precisar compilar antes. E a forma mais rapida de testar codigo durante o aprendizado.
+
+## Verificacao final do ambiente
+
+Para garantir que tudo esta configurado corretamente, execute os seguintes comandos no terminal:
+
+```bash
+# 1. Verificar Node.js
+node --version
+
+# 2. Verificar npm
+npm --version
+
+# 3. Verificar tsx
+npx tsx --version
+
+# 4. Testar execucao de TypeScript
+npx tsx ola.ts
+```
+
+Todos os comandos devem retornar uma resposta sem erros. Se algum falhar, revise o passo de instalacao correspondente.
+
+| Ferramenta | Comando de verificacao | Resultado esperado |
+|------------|----------------------|-------------------|
+| Node.js | `node --version` | v20.x.x ou superior |
+| npm | `npm --version` | 10.x.x ou superior |
+| tsx | `npx tsx --version` | Numero da versao |
+| VS Code | Abrir normalmente | Interface do editor |
 
 > [!info]
 > Node.js é o motor que alimenta servidores, APIs e ferramentas no mundo inteiro. Empresas como Netflix, PayPal e LinkedIn usam Node.js em produção. Ao instalar o Node.js, você tem acesso ao mesmo ambiente usado em aplicações reais.

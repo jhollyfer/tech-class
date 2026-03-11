@@ -50,6 +50,12 @@ Com apenas esses três operadores, é possível construir qualquer expressão l�
 
 Para n variáveis, a tabela verdade terá 2ⁿ linhas. Com 2 variáveis = 4 linhas, com 3 = 8, com 4 = 16.
 
+| Lógica formal | TypeScript | Nome | Descrição |
+|---|---|---|---|
+| ∧ | `&&` | E (AND) | Verdadeiro quando ambos são verdadeiros |
+| ∨ | `\|\|` | OU (OR) | Verdadeiro quando pelo menos um é verdadeiro |
+| ¬ | `!` | NÃO (NOT) | Inverte o valor lógico |
+
 ## Conjunção — E (AND) — símbolo ∧
 
 A conjunção (E) só é verdadeira quando **AMBAS** as proposições são verdadeiras.
@@ -77,16 +83,15 @@ A disjunção (OU) é verdadeira quando **PELO MENOS UMA** proposição é verda
 
 "Vou de ônibus **OU** de carro" — basta um ser verdade.
 
-Otimização importante: se o computador avalia P e P já é V, ele NÃO precisa testar Q — já sabe que P OU Q é V. Isso se chama **avaliação de curto-circuito** (short-circuit evaluation).
-
-Existe também o **OU exclusivo (XOR)**: verdadeiro quando apenas uma das partes é verdadeira, não ambas.
-
 | P | Q | P ∨ Q |
 |---|---|-------|
 | V | V | V |
 | V | F | V |
 | F | V | V |
 | F | F | F |
+
+> [!info]
+> Existe também o **OU exclusivo (XOR)**: verdadeiro quando apenas uma das partes é verdadeira, não ambas. Em TypeScript, não há operador lógico XOR, mas podemos simulá-lo com `p !== q` para booleanos.
 
 ## Negação — NÃO (NOT) — símbolo ¬
 
@@ -98,3 +103,120 @@ Se P é "Está chovendo" (verdadeiro), então ¬P é "Não está chovendo" (fals
 |---|---|
 | V | F |
 | F | V |
+
+## Avaliação de curto-circuito
+
+Quando o computador avalia expressões lógicas, ele pode "pular" parte da avaliação se o resultado já estiver definido:
+
+- **No E (&&):** se o primeiro valor é `false`, o resultado já é `false` — não precisa avaliar o segundo.
+- **No OU (||):** se o primeiro valor é `true`, o resultado já é `true` — não precisa avaliar o segundo.
+
+Isso se chama **avaliação de curto-circuito** (short-circuit evaluation) e é uma otimização importante que também afeta o comportamento do código.
+
+## Na prática com TypeScript
+
+### Operadores lógicos
+
+Em TypeScript, os conectivos lógicos são representados por operadores:
+
+```typescript
+const p: boolean = true;
+const q: boolean = false;
+
+// E (AND) — operador &&
+console.log(p && q);  // false — ambos precisam ser true
+
+// OU (OR) — operador ||
+console.log(p || q);  // true — basta um ser true
+
+// NÃO (NOT) — operador !
+console.log(!p);       // false — inverte o valor
+console.log(!q);       // true  — inverte o valor
+```
+
+### Curto-circuito na prática
+
+O curto-circuito não é apenas uma otimização — ele permite padrões de código muito úteis:
+
+```typescript
+const usuario: string | null = null;
+
+// O && "protege" o segundo operando:
+// se usuario é null (falsy), não tenta acessar .length
+console.log(usuario && usuario.length);  // null
+
+const nomeDoUsuario: string | null = null;
+// O || fornece um valor padrão:
+// se nomeDoUsuario é null (falsy), usa "Visitante"
+const nomeExibido = nomeDoUsuario || "Visitante";
+console.log(nomeExibido);  // "Visitante"
+```
+
+> [!sucesso]
+> O curto-circuito é um dos padrões mais usados no dia a dia do programador. Com `&&` você protege acessos que podem falhar. Com `||` você define valores padrão.
+
+### Exemplo do mundo real: controle de acesso
+
+Imagine um sistema que verifica se um usuário pode acessar um conteúdo:
+
+```typescript
+const idade: number = 20;
+const temCarteira: boolean = true;
+const estaComOculos: boolean = false;
+
+// Conjunção (E): todas as condições precisam ser verdadeiras
+if (idade >= 18 && temCarteira) {
+  console.log("Pode dirigir");
+} else {
+  console.log("Não pode dirigir");
+}
+// Saída: "Pode dirigir"
+
+// Disjunção (OU): basta uma condição ser verdadeira
+if (temCarteira || estaComOculos) {
+  console.log("Tem documento de identificação");
+}
+// Saída: "Tem documento de identificação"
+
+// Negação (NÃO): inverte a condição
+if (!estaComOculos) {
+  console.log("Não está com óculos");
+}
+// Saída: "Não está com óculos"
+```
+
+### Verificando a tabela verdade com código
+
+Podemos usar TypeScript para gerar e verificar tabelas verdade:
+
+```typescript
+const valores: boolean[] = [true, false];
+
+console.log(" P     | Q     | P && Q | P || Q | !P");
+console.log("-------|-------|--------|--------|------");
+
+for (const p of valores) {
+  for (const q of valores) {
+    const pStr = String(p).padEnd(5);
+    const qStr = String(q).padEnd(5);
+    const andStr = String(p && q).padEnd(6);
+    const orStr = String(p || q).padEnd(6);
+    const notStr = String(!p);
+    console.log(` ${pStr} | ${qStr} | ${andStr} | ${orStr} | ${notStr}`);
+  }
+}
+```
+
+Saída:
+
+```
+ P     | Q     | P && Q | P || Q | !P
+-------|-------|--------|--------|------
+ true  | true  | true   | true   | false
+ true  | false | false  | true   | false
+ false | true  | false  | true   | true
+ false | false | false  | false  | true
+```
+
+> [!info]
+> Compare essa saída com as tabelas verdade usando V e F que vimos acima. Os resultados são idênticos — `true` corresponde a V, e `false` corresponde a F.

@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { getLessonBySlug, getAllLessons } from "@/lib/lessons";
+import { highlightCodeBlocks } from "@/lib/highlight";
 import { AulaHeader } from "@/components/aula/aula-header";
 import { AulaNextSteps } from "@/components/aula/aula-next-steps";
 import { AulaProgressBar } from "@/components/aula/aula-progress-bar";
@@ -41,6 +42,7 @@ export default async function AulaPage({ params }: PageProps) {
   const nextLesson = currentIndex < lessons.length - 1 ? lessons[currentIndex + 1] : null;
 
   const readingTime = Math.max(5, Math.ceil(lesson.content.split(/\s+/).length / 200));
+  const highlightedCode = await highlightCodeBlocks(lesson.content);
 
   return (
     <>
@@ -82,7 +84,7 @@ export default async function AulaPage({ params }: PageProps) {
           />
 
           <div className="prose-aula">
-            <MarkdownContent content={lesson.content} />
+            <MarkdownContent content={lesson.content} highlightedCode={highlightedCode} />
           </div>
 
           <AulaQuiz questoes={lesson.quiz} />

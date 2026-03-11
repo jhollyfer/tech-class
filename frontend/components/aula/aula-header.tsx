@@ -32,7 +32,7 @@ export function AulaHeader({
       </div>
 
       <h1 className="text-4xl lg:text-6xl font-black mb-6 flex items-start gap-4 leading-[1.1]">
-        <span className="text-[var(--color-border)] select-none font-mono shrink-0">
+        <span className="text-[var(--color-foreground)]/10 select-none font-mono shrink-0">
           {String(ordem).padStart(2, "0")}.
         </span>
         <span>{titulo}</span>

@@ -52,9 +52,7 @@ quiz:
 
 Scratch é uma plataforma de programação visual criada pelo MIT (scratch.mit.edu).
 
-Em vez de digitar código, você arrasta e encaixa blocos coloridos — como montar com Lego.
-
-É usado mundialmente para ensinar lógica de programação a iniciantes de todas as idades.
+Em vez de digitar código, você arrasta e encaixa blocos coloridos — como montar com Lego. É usado mundialmente para ensinar lógica de programação a iniciantes de todas as idades.
 
 > [!sucesso]
 > Scratch é gratuito e roda no navegador. Acesse scratch.mit.edu para experimentar!
@@ -84,6 +82,9 @@ A área de scripts (centro) é onde você monta o programa encaixando blocos.
 - Blocos **ARREDONDADOS** — valores (números, textos)
 - Blocos **QUADRADOS** (com encaixes) — ações/comandos
 
+> [!info]
+> As formas dos blocos impedem erros: um bloco hexagonal (condição) não encaixa onde se espera um valor arredondado. O Scratch usa o formato visual para garantir que o programa faça sentido.
+
 ## Exemplo: gato caminhando
 
 ```
@@ -111,3 +112,78 @@ Quando bandeira verde clicada:
 
 > [!info]
 > O fatorial no Scratch usa os mesmos conceitos do pseudocódigo: variáveis, loop com condição de parada, e entrada/saída. A diferença é apenas visual — a lógica é idêntica.
+
+## De Scratch ao TypeScript
+
+Scratch ensina os conceitos fundamentais da programação. Quando você passa para TypeScript, os mesmos conceitos aparecem — só muda a forma de escrever (blocos visuais para texto).
+
+### Categorias de blocos e seus equivalentes
+
+| Bloco Scratch | TypeScript |
+|---|---|
+| Quando bandeira clicada | chamada da função principal |
+| Mova 10 passos | `posicaoX += 10` |
+| Próxima fantasia | alterar propriedade visual |
+| Espere 0.2 segundos | `setTimeout()` ou `await delay()` |
+| Repita 10 vezes | `for (let i = 0; i < 10; i++)` |
+| Repita até que... | `while (!condicao)` |
+| Se...então...senão | `if (...) { } else { }` |
+| Pergunte e espere | `prompt()` |
+| Diga | `console.log()` |
+| Mude variável para | `let variavel = valor` |
+
+### Gato caminhando em TypeScript
+
+```typescript
+// Simulação do gato caminhando
+let posicaoX = 0;
+let fantasiaAtual = 0;
+const fantasias = ["pernas_abertas", "pernas_fechadas"];
+
+function proximaFantasia(): string {
+  fantasiaAtual = (fantasiaAtual + 1) % fantasias.length;
+  return fantasias[fantasiaAtual];
+}
+
+// "Quando bandeira verde clicada" → executar a função
+function gatoCaminhando(): void {
+  for (let i = 0; i < 10; i++) {       // Repita 10 vezes
+    posicaoX += 10;                      // Mova 10 passos
+    const fantasia = proximaFantasia();  // Próxima fantasia
+    console.log(`Posição: ${posicaoX}, Fantasia: ${fantasia}`);
+    // Espere 0.2 segundos → no navegador usaríamos setTimeout
+  }
+}
+
+gatoCaminhando();
+```
+
+### Fatorial em TypeScript
+
+```typescript
+function fatorialScratch(): void {
+  // "Pergunte e espere" → receber o valor
+  const n_input = 5; // no Scratch seria prompt("Digite um número")
+  let n = n_input;
+
+  // "Mude resultado para 1"
+  let resultado = 1;
+
+  // "Repita até que N ≤ 1"
+  while (n > 1) {
+    resultado = resultado * n;  // Mude resultado para (resultado × N)
+    n = n - 1;                  // Adicione -1 a N
+  }
+
+  // "Diga (resultado)"
+  console.log(`Fatorial de ${n_input} = ${resultado}`);
+}
+
+fatorialScratch(); // "Fatorial de 5 = 120"
+```
+
+> [!sucesso]
+> A transição de Scratch para TypeScript é natural: cada bloco tem um equivalente em código. O que muda é que no TypeScript você **digita** os comandos em vez de **arrastar** blocos. A lógica permanece exatamente a mesma!
+
+> [!alerta]
+> Scratch é uma ferramenta de aprendizado. Em projetos profissionais, usamos linguagens textuais como TypeScript. Mas os conceitos que você aprende no Scratch (variáveis, loops, condicionais, eventos) são **os mesmos** em qualquer linguagem.

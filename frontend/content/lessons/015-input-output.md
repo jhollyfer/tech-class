@@ -35,14 +35,14 @@ quiz:
     explicacaoErrada: "✗ parseInt() converte texto para número inteiro. \"42\" vira 42."
 ---
 
-## Saída: console.log
+## Saida: console.log
 
-`console.log` é a principal forma de exibir dados no terminal. Aceita um ou mais valores separados por vírgula:
+`console.log` e a principal forma de exibir dados no terminal. Aceita um ou mais valores separados por virgula:
 
 ```typescript
 console.log("Texto simples");
 console.log("Soma:", 2 + 3);
-console.log(`Resultado: ${2 + 3}`); // template literal
+console.log("Nome:", "Ana", "- Idade:", 20);
 ```
 
 Resultado:
@@ -50,113 +50,245 @@ Resultado:
 ```
 Texto simples
 Soma: 5
-Resultado: 5
+Nome: Ana - Idade: 20
 ```
 
-Quando você passa vários valores separados por vírgula, `console.log` exibe todos na mesma linha, separados por espaço.
+Quando voce passa varios valores separados por virgula, `console.log` exibe todos na mesma linha, separados por espaco.
 
-## Template literals (crase)
+### Outras funcoes de saida
 
-Template literals são a forma mais prática de montar textos com valores dinâmicos:
+Alem do `console.log`, existem outras funcoes uteis para exibir informacoes:
 
 ```typescript
-const nome = "Ana";
-const idade = 20;
-console.log(`${nome} tem ${idade} anos`); // "Ana tem 20 anos"
+console.log("Informação normal");        // saída padrão
+console.warn("Atenção: valor alto!");     // aviso (aparece em amarelo em alguns terminais)
+console.error("Erro: arquivo não encontrado"); // erro (aparece em vermelho)
+console.table({ nome: "Ana", idade: 20 }); // exibe em formato de tabela
 ```
 
 > [!info]
-> Template literals usam crase (\`) em vez de aspas. Dentro delas, `${expressão}` é substituído pelo valor da expressão. Qualquer expressão válida funciona: variáveis, cálculos, chamadas de função.
+> `console.warn` e `console.error` funcionam igual ao `console.log`, mas ajudam a diferenciar mensagens normais de avisos e erros. Em navegadores, eles aparecem com cores diferentes no console.
 
-Comparando as formas de montar texto:
+## Template literals (crase)
+
+Template literals sao a forma mais pratica de montar textos com valores dinamicos:
 
 ```typescript
-// Concatenação (forma antiga, mais verbosa)
-console.log("Olá, " + nome + "! Você tem " + idade + " anos.");
-
-// Template literal (forma moderna, mais legível)
-console.log(`Olá, ${nome}! Você tem ${idade} anos.`);
+const nome: string = "Ana";
+const idade: number = 20;
+console.log(`${nome} tem ${idade} anos`);
 ```
 
-Ambas produzem o mesmo resultado, mas template literals são mais fáceis de ler e manter.
+Resultado:
 
-## Entrada: lendo dados do usuário
+```
+Ana tem 20 anos
+```
 
-No Node.js, a leitura de dados do terminal usa o módulo `readline`:
+> [!info]
+> Template literals usam crase (\`) em vez de aspas. Dentro delas, `${expressao}` e substituido pelo valor da expressao. Qualquer expressao valida funciona: variaveis, calculos, chamadas de funcao.
+
+### Comparando formas de montar texto
+
+```typescript
+const produto: string = "Notebook";
+const preco: number = 3500;
+const parcelas: number = 12;
+
+// ✗ Concatenação (forma antiga, mais verbosa)
+console.log("Produto: " + produto + " | Preço: R$" + preco + " | " + parcelas + "x de R$" + (preco / parcelas).toFixed(2));
+
+// ✓ Template literal (forma moderna, mais legível)
+console.log(`Produto: ${produto} | Preço: R$${preco} | ${parcelas}x de R$${(preco / parcelas).toFixed(2)}`);
+```
+
+Ambas produzem o mesmo resultado, mas template literals sao mais faceis de ler e manter.
+
+### Mais exemplos com template literals
+
+```typescript
+const aluno: string = "Carlos";
+const nota1: number = 8.5;
+const nota2: number = 7.0;
+const media: number = (nota1 + nota2) / 2;
+
+// Cálculos dentro do ${}
+console.log(`Média de ${aluno}: ${(nota1 + nota2) / 2}`);
+
+// Chamadas de método dentro do ${}
+console.log(`Média formatada: ${media.toFixed(1)}`);
+
+// Expressões condicionais dentro do ${}
+console.log(`Situação: ${media >= 7 ? "Aprovado" : "Reprovado"}`);
+```
+
+Resultado:
+
+```
+Média de Carlos: 7.75
+Média formatada: 7.8
+Situação: Aprovado
+```
+
+> [!alerta]
+> Nao confunda crase (\`) com aspas simples ('). Elas parecem similares mas sao teclas diferentes. No teclado brasileiro, a crase fica ao lado da tecla "1".
+
+## Entrada: lendo dados do usuario
+
+No Node.js, a leitura de dados do terminal usa o modulo `readline`:
 
 ```typescript
 import * as readline from "readline";
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
+// Cria a interface de leitura conectando ao terminal
+const rl: readline.Interface = readline.createInterface({
+  input: process.stdin,   // entrada: teclado do usuário
+  output: process.stdout, // saída: tela do terminal
 });
 
-rl.question("Qual seu nome? ", (resposta) => {
+// Faz uma pergunta e aguarda a resposta
+rl.question("Qual seu nome? ", (resposta: string) => {
   console.log(`Olá, ${resposta}!`);
-  rl.close();
+  rl.close(); // encerra a leitura
 });
 ```
 
-O que acontece nesse código:
+O que acontece nesse codigo:
 
-1. `import` carrega o módulo readline
-2. `createInterface` conecta o programa ao terminal (entrada e saída)
-3. `rl.question` exibe a pergunta e espera o usuário digitar
-4. A resposta vem como parâmetro da função callback
-5. `rl.close()` encerra a leitura
+1. **`import`** carrega o modulo readline do Node.js
+2. **`createInterface`** conecta o programa ao terminal (entrada e saida)
+3. **`rl.question`** exibe a pergunta e espera o usuario digitar
+4. A resposta chega como parametro da funcao callback (sempre como `string`)
+5. **`rl.close()`** encerra a interface de leitura
 
-## Convertendo tipos
+### Lendo multiplos valores
 
-Dados digitados pelo usuário chegam sempre como **string** (texto). Para fazer cálculos, é necessário converter:
-
-```typescript
-const textoIdade = "25";
-const idade = parseInt(textoIdade);    // string → número inteiro
-const preco = parseFloat("19.90");     // string → número decimal
-const volta = String(42);              // número → string
-```
-
-| Função | Converte | Exemplo |
-|--------|----------|---------|
-| parseInt() | string → inteiro | parseInt("25") → 25 |
-| parseFloat() | string → decimal | parseFloat("19.90") → 19.9 |
-| String() | qualquer → string | String(42) → "42" |
-| Number() | string → número | Number("3.14") → 3.14 |
-
-Se a conversão falhar, o resultado é `NaN` (Not a Number):
-
-```typescript
-console.log(parseInt("abc")); // NaN — não é um número válido
-```
-
-## Programa completo: calculadora de média
-
-Juntando entrada, processamento e saída em um programa funcional:
+Para fazer varias perguntas, aninhamos as chamadas de `rl.question`:
 
 ```typescript
 import * as readline from "readline";
 
-const rl = readline.createInterface({
+const rl: readline.Interface = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-rl.question("Nota 1: ", (n1) => {
-  rl.question("Nota 2: ", (n2) => {
-    const media = (parseFloat(n1) + parseFloat(n2)) / 2;
-    console.log(`Média: ${media.toFixed(1)}`);
+rl.question("Seu nome: ", (nome: string) => {
+  rl.question("Sua idade: ", (idadeTexto: string) => {
+    const idade: number = parseInt(idadeTexto);
+    console.log(`${nome} tem ${idade} anos.`);
     rl.close();
   });
 });
 ```
 
-Execução:
+> [!info]
+> Toda entrada do usuario chega como `string`, mesmo que ele digite um numero. Por isso e necessario converter com `parseInt` ou `parseFloat` antes de fazer calculos.
+
+## Convertendo tipos
+
+Dados digitados pelo usuario chegam sempre como **string** (texto). Para fazer calculos, e necessario converter:
+
+```typescript
+const textoIdade: string = "25";
+const idade: number = parseInt(textoIdade);      // string → número inteiro
+const preco: number = parseFloat("19.90");        // string → número decimal
+const volta: string = String(42);                 // número → string
+const textoNumero: string = (42).toString();      // outra forma: número → string
+```
+
+| Funcao | Converte | Exemplo | Resultado |
+|--------|----------|---------|-----------|
+| `parseInt()` | string para inteiro | `parseInt("25")` | `25` |
+| `parseFloat()` | string para decimal | `parseFloat("19.90")` | `19.9` |
+| `String()` | qualquer para string | `String(42)` | `"42"` |
+| `Number()` | string para numero | `Number("3.14")` | `3.14` |
+
+Se a conversao falhar, o resultado e `NaN` (Not a Number):
+
+```typescript
+console.log(parseInt("abc"));      // NaN — não é um número válido
+console.log(Number(""));           // 0 — string vazia vira 0
+console.log(Number("12abc"));      // NaN — contém letras
+console.log(parseFloat("12.5abc")); // 12.5 — lê até onde consegue
+```
+
+> [!alerta]
+> Sempre verifique se a conversao deu certo antes de usar o valor. Use `isNaN()` para testar:
+
+```typescript
+const entrada: string = "abc";
+const numero: number = parseInt(entrada);
+
+if (isNaN(numero)) {
+  console.log("Valor inválido! Digite um número.");
+} else {
+  console.log(`Número: ${numero}`);
+}
+```
+
+## Programa completo: calculadora de media
+
+Juntando entrada, processamento e saida em um programa funcional:
+
+```typescript
+import * as readline from "readline";
+
+// Configuração da interface de leitura
+const rl: readline.Interface = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+console.log("=== Calculadora de Média ===");
+console.log("");
+
+// Lê a primeira nota
+rl.question("Digite a nota 1: ", (n1Texto: string) => {
+  // Lê a segunda nota
+  rl.question("Digite a nota 2: ", (n2Texto: string) => {
+    // Converte strings para números
+    const nota1: number = parseFloat(n1Texto);
+    const nota2: number = parseFloat(n2Texto);
+
+    // Verifica se as notas são válidas
+    if (isNaN(nota1) || isNaN(nota2)) {
+      console.log("Erro: digite apenas números válidos.");
+    } else {
+      // Calcula e exibe o resultado
+      const media: number = (nota1 + nota2) / 2;
+      console.log("");
+      console.log(`Nota 1: ${nota1}`);
+      console.log(`Nota 2: ${nota2}`);
+      console.log(`Média: ${media.toFixed(1)}`);
+      console.log(`Situação: ${media >= 7 ? "Aprovado" : "Reprovado"}`);
+    }
+
+    // Encerra a interface de leitura
+    rl.close();
+  });
+});
+```
+
+Execute com:
+
+```bash
+npx tsx media.ts
+```
+
+Exemplo de execucao:
 
 ```
+=== Calculadora de Média ===
+
+Digite a nota 1: 7.5
+Digite a nota 2: 8.3
+
 Nota 1: 7.5
 Nota 2: 8.3
 Média: 7.9
+Situação: Aprovado
 ```
 
-O método `.toFixed(1)` formata o número com uma casa decimal. `parseFloat` converte o texto digitado em número decimal antes do cálculo.
+> [!sucesso]
+> Este programa usa tudo que aprendemos ate agora: variaveis com tipos, template literals, leitura do usuario, conversao de tipos e saida formatada. Salve este codigo e experimente modificar: adicione uma terceira nota, mude a nota minima de aprovacao ou exiba uma mensagem diferente para cada faixa de nota.

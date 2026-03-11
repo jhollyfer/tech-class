@@ -104,3 +104,107 @@ Na lógica formal, esse tipo de erro é evitado porque as regras são precisas: 
 
 > [!alerta]
 > A lógica formal existe justamente para evitar falácias. Sempre verifique se cada passo da dedução é válido pela tabela verdade.
+
+## Na prática com TypeScript
+
+### O `if/else` como condicional (→)
+
+O `if/else` do TypeScript é a implementação direta da condicional lógica. "Se P, então faça Q":
+
+```typescript
+const fezCalor: boolean = true;
+
+if (fezCalor) {
+  console.log("Vou ao shopping");
+}
+// Saída: "Vou ao shopping"
+```
+
+Com o bloco `else`, definimos o que acontece quando a condição é falsa:
+
+```typescript
+const choveu: boolean = false;
+
+if (choveu) {
+  console.log("Levar guarda-chuva");
+} else {
+  console.log("Dia livre de chuva");
+}
+// Saída: "Dia livre de chuva"
+```
+
+> [!info]
+> Note a diferença: na lógica formal, quando P é falso, P → Q é verdadeiro independente de Q. No código, o bloco `else` permite definir explicitamente o que fazer quando a condição é falsa — algo que a lógica formal simplesmente ignora.
+
+### Operador ternário: condicional compacta
+
+O operador ternário é uma forma resumida de escrever `if/else` que retorna um valor:
+
+```typescript
+const temperatura: number = 35;
+
+const mensagem: string = temperatura > 30
+  ? "Está calor"
+  : "Temperatura agradável";
+
+console.log(mensagem);  // "Está calor"
+```
+
+A estrutura é: `condição ? valorSeVerdadeiro : valorSeFalso`. É muito útil quando você precisa atribuir um valor com base em uma condição.
+
+### Bicondicional com `===`
+
+A bicondicional (↔) verifica se dois valores são iguais — ambos verdadeiros ou ambos falsos. Em TypeScript, o operador `===` faz exatamente isso para booleanos:
+
+```typescript
+const interruptorLigado: boolean = true;
+const lampadaAcesa: boolean = true;
+
+// Bicondicional: P ↔ Q (verdadeiro quando P e Q têm o mesmo valor)
+const sistemaFuncionando: boolean = interruptorLigado === lampadaAcesa;
+console.log(sistemaFuncionando);  // true
+
+// Testando todos os casos da bicondicional:
+console.log(true === true);    // true  (V ↔ V = V)
+console.log(true === false);   // false (V ↔ F = F)
+console.log(false === true);   // false (F ↔ V = F)
+console.log(false === false);  // true  (F ↔ F = V)
+```
+
+> [!sucesso]
+> O operador `===` entre dois booleanos produz exatamente o resultado da tabela verdade da bicondicional. Compare os quatro resultados acima com a tabela P ↔ Q.
+
+### Exemplo completo: verificar promessa
+
+Vamos modelar a condicional "Se fizer calor, vou ao shopping" como uma função TypeScript:
+
+```typescript
+function verificarPromessa(fezCalor: boolean, foiAoShopping: boolean): boolean {
+  // A condicional P → Q só é falsa quando P é V e Q é F
+  if (fezCalor && !foiAoShopping) {
+    return false; // Promessa quebrada!
+  }
+  return true; // Promessa mantida
+}
+
+// Testando todos os casos da tabela verdade:
+console.log(verificarPromessa(true, true));   // true  — fez calor e foi: ok
+console.log(verificarPromessa(true, false));  // false — fez calor e não foi: quebrou!
+console.log(verificarPromessa(false, true));  // true  — não fez calor, mas foi: ok
+console.log(verificarPromessa(false, false)); // true  — não fez calor e não foi: ok
+```
+
+> [!info]
+> A função `verificarPromessa` implementa exatamente a tabela verdade da condicional (→). O único caso que retorna `false` é quando a condição aconteceu (`fezCalor` é `true`) mas a consequência não (`foiAoShopping` é `false`).
+
+### Tabela de equivalências
+
+| Conceito | Lógica formal | TypeScript |
+|---|---|---|
+| Condicional | P → Q | `if (p) { q }` |
+| Bicondicional | P ↔ Q | `p === q` |
+| Condicional falsa | P é V e Q é F | `p && !q` |
+| Condicional compacta | — | `p ? valorV : valorF` |
+
+> [!alerta]
+> Cuidado: o `if/else` do TypeScript não é 100% equivalente ao operador → da lógica formal. Na lógica, P → Q é uma expressão que retorna V ou F. No código, `if/else` é um comando que executa blocos. A equivalência mais direta seria a expressão `!p || q`, que reproduz exatamente a tabela verdade da condicional.

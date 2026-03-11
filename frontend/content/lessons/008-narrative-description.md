@@ -53,6 +53,9 @@ Existem três formas principais de representar um algoritmo, do mais informal ao
 
 Nesta aula, começamos pela mais simples: a descrição narrativa.
 
+> [!info]
+> A descrição narrativa é a forma mais acessível de escrever algoritmos. Qualquer pessoa consegue ler e entender, sem conhecimento técnico.
+
 ## Receita de pavê de café
 
 A receita é um exemplo perfeito de algoritmo narrativo:
@@ -91,6 +94,87 @@ O nível de detalhe depende do público/executor:
 
 - Para um humano adulto: "Escove os dentes" é suficiente
 - Para uma criança: precisa dos 7 passos detalhados
-- Para um robô: cada passo precisa ser subdividido ("pegar a escova" vira: localizar escova → mover braço → abrir garra → fechar garra → levantar)
+- Para um robô: cada passo precisa ser subdividido ("pegar a escova" vira: localizar escova, mover braço, abrir garra, fechar garra, levantar)
 
 Na programação, o nível de detalhe é determinado pela linguagem e pelas bibliotecas disponíveis.
+
+## Do narrativo ao TypeScript
+
+Agora vamos ver como os algoritmos narrativos se traduzem para TypeScript. A lógica é a mesma — muda apenas a forma de escrever.
+
+### Receita como TypeScript
+
+A receita de pavê pode ser representada como uma sequência de funções:
+
+```typescript
+// ENTRADA — ingredientes
+const ingredientes = {
+  biscoito: "champagne",
+  cafe: "forte",
+  cremeDeLeite: true,
+  leiteCondensado: true,
+  chocolateEmPo: true,
+};
+
+// PROCESSAMENTO — preparo em 4 passos
+function prepararCafe(): string {
+  return "Café forte preparado e resfriado";
+}
+
+function misturarCreme(): string {
+  return "Creme de leite com leite condensado homogêneo";
+}
+
+function montarCamadas(cafe: string, creme: string): string {
+  return "Camadas alternadas de biscoitos molhados e creme";
+}
+
+function finalizarPave(camadas: string): string {
+  return "Pavê coberto com chocolate em pó, na geladeira por 4 horas";
+}
+
+// SAÍDA — resultado
+const cafe = prepararCafe();
+const creme = misturarCreme();
+const camadas = montarCamadas(cafe, creme);
+const pave = finalizarPave(camadas);
+
+console.log(pave); // "Pavê coberto com chocolate em pó, na geladeira por 4 horas"
+```
+
+### Escovar os dentes como TypeScript
+
+Observe como a **REPETIÇÃO** e a **CONDICIONAL** do algoritmo narrativo aparecem no código:
+
+```typescript
+function escovarDentes(temFioDental: boolean): void {
+  // Passos 1 a 4 — sequência linear
+  console.log("Pegar a escova de dentes");
+  console.log("Abrir a pasta de dentes");
+  console.log("Aplicar pasta sobre as cerdas");
+  console.log("Molhar a escova sob a torneira");
+
+  // Passo 5 — REPETIÇÃO (loop)
+  for (let segundos = 0; segundos < 120; segundos++) {
+    // Escovar fazendo movimentos circulares por 2 minutos
+  }
+  console.log("Escovação concluída (2 minutos)");
+
+  // Passo 6 — CONDICIONAL (if)
+  if (temFioDental) {
+    console.log("Passar fio dental entre os dentes");
+  }
+
+  // Passo 7 — sequência linear
+  console.log("Enxaguar a boca com água");
+}
+
+escovarDentes(true);  // com fio dental
+escovarDentes(false); // sem fio dental
+```
+
+> [!sucesso]
+> Veja a correspondência direta: **SE houver fio dental** virou `if (temFioDental)`, e **REPETIR por 2 minutos** virou `for (let segundos = 0; segundos < 120; segundos++)`. A lógica narrativa e o código TypeScript expressam a mesma ideia!
+
+> [!info]
+> No TypeScript, o `boolean` (verdadeiro/falso) é o tipo ideal para representar condições como "tem fio dental?" — é exatamente o **SE** do algoritmo narrativo.

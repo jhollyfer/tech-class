@@ -41,49 +41,86 @@ quiz:
 
 ## O desafio
 
-Três competidores (A, B e C) fazem afirmações. Sabemos que pelo menos um mente e pelo menos um fala a verdade.
+Três competidores (A, B e C) fazem afirmações. Sabemos que **pelo menos um mente** e **pelo menos um fala a verdade**.
 
 Usando lógica, devemos descobrir quem é honesto e quem mente.
 
 > [!info]
-> A chave é testar TODAS as combinações possíveis e eliminar as que geram contradições.
+> A chave é testar TODAS as combinações possíveis e eliminar as que geram contradições. Com 3 pessoas, são 2³ = 8 combinações.
 
 ## Montando o problema
 
-- **A** diz: "B está mentindo" (ou seja, A afirma ¬B)
-- **B** diz: "C está mentindo" (ou seja, B afirma ¬C)
-- **C** diz: "A e B estão mentindo" (ou seja, C afirma ¬A ∧ ¬B)
+Cada competidor faz uma afirmação sobre os outros:
 
-Regra: se uma pessoa fala a verdade, sua afirmação É verdadeira. Se mente, sua afirmação É falsa.
+- **A** diz: "B está mentindo" → A afirma **¬B**
+- **B** diz: "C está mentindo" → B afirma **¬C**
+- **C** diz: "A e B estão mentindo" → C afirma **¬A ∧ ¬B**
+
+**Regra fundamental:** se uma pessoa fala a verdade, sua afirmação **é** verdadeira. Se mente, sua afirmação **é** falsa.
+
+> [!alerta]
+> Cuidado: "C afirma ¬A ∧ ¬B" significa que C diz que **ambos** A e B mentem. Se C mente, basta que **pelo menos um** deles fale a verdade para a afirmação de C ser falsa (De Morgan!).
 
 ## Teste de hipóteses passo a passo
 
-**HIPÓTESE 1:** Suponha que A fala verdade (A=V).
+Vamos testar sistematicamente, assumindo que cada competidor fala a verdade e verificando se isso gera contradição.
 
-→ A diz ¬B, e A fala verdade, então B mente (B=F).
-→ B diz ¬C, mas B mente, então ¬C é falso → C fala verdade (C=V).
-→ C diz ¬A ∧ ¬B. C fala verdade, então ¬A ∧ ¬B deve ser V → A=F e B=F.
-→ Mas assumimos A=V! **CONTRADIÇÃO.** Descartada.
+### Hipótese 1: A fala verdade (A = V)
 
-**HIPÓTESE 2:** Suponha que B fala verdade (B=V).
+| Passo | Raciocínio | Resultado |
+|:-----:|-----------|:---------:|
+| 1 | A diz ¬B e A fala verdade | B = F |
+| 2 | B diz ¬C mas B mente | C = V |
+| 3 | C diz ¬A ∧ ¬B e C fala verdade | A = F e B = F |
+| 4 | Mas assumimos A = V! | **CONTRADIÇÃO** |
 
-→ B diz ¬C, e B fala verdade, então C mente (C=F).
-→ C diz ¬A ∧ ¬B. C mente, então ¬A ∧ ¬B é falso → pelo menos um entre A e B fala verdade.
-→ B=V, então a condição já é satisfeita.
-→ A diz ¬B. Se A fala verdade, B mente — mas B=V. Contradição → A mente (A=F).
-→ Verificação: A=F, B=V, C=F. **CONSISTENTE!**
+> [!alerta]
+> Contradição! Se A fala verdade, chegamos a A = F no passo 3. Impossível. Hipótese descartada.
+
+### Hipótese 2: B fala verdade (B = V)
+
+| Passo | Raciocínio | Resultado |
+|:-----:|-----------|:---------:|
+| 1 | B diz ¬C e B fala verdade | C = F |
+| 2 | C diz ¬A ∧ ¬B mas C mente | ¬(¬A ∧ ¬B) = V, ou seja, A = V ou B = V |
+| 3 | B = V, então o passo 2 já é satisfeito | OK |
+| 4 | A diz ¬B. Se A = V, então B = F — mas B = V! | A = F (A mente) |
+| 5 | Verificação: A=F, B=V, C=F | **CONSISTENTE** |
+
+> [!sucesso]
+> Nenhuma contradição! A combinação A=F, B=V, C=F é consistente com todas as afirmações.
+
+### Hipótese 3: C fala verdade (C = V)
+
+| Passo | Raciocínio | Resultado |
+|:-----:|-----------|:---------:|
+| 1 | C diz ¬A ∧ ¬B e C fala verdade | A = F e B = F |
+| 2 | Mas a regra diz que pelo menos um fala verdade | Só C = V |
+| 3 | A diz ¬B. A mente, então ¬B é falso → B = V | B = V |
+| 4 | Mas no passo 1 concluímos B = F! | **CONTRADIÇÃO** |
+
+> [!alerta]
+> Outra contradição! Se C fala verdade, os passos levam a B=V e B=F simultaneamente. Descartada.
 
 ## A solução
 
 A única combinação consistente é: **A mente, B fala a verdade, C mente.**
 
-Verificação completa:
+Verificação completa de cada afirmação:
+
 - A (mentiroso) diz "B mente" → falso, pois B fala verdade ✓
 - B (verdadeiro) diz "C mente" → verdadeiro, pois C realmente mente ✓
 - C (mentiroso) diz "A e B mentem" → falso, pois B fala verdade ✓
 
+> [!sucesso]
+> Cada afirmação bate com o status do competidor (verdadeiro ou mentiroso). A solução é única e verificada!
+
+## Tabela verdade completa
+
+Para ser rigoroso, podemos verificar **todas** as 8 combinações possíveis:
+
 | A | B | C | A diz ¬B | B diz ¬C | C diz ¬A∧¬B | Consistente? |
-|---|---|---|----------|----------|-------------|--------------|
+|---|---|---|:--------:|:--------:|:-----------:|:------------:|
 | V | V | V | ¬V=F≠V | — | — | ✗ |
 | V | V | F | ¬V=F≠V | — | — | ✗ |
 | V | F | V | ¬F=V✓ | ¬V=F✓ | ¬V∧¬F=F≠V | ✗ |
@@ -93,5 +130,122 @@ Verificação completa:
 | F | F | V | ¬F=V≠F | — | — | ✗ |
 | F | F | F | — | — | — | ✗ (regra) |
 
+> [!info]
+> O traço (—) indica que não precisamos continuar verificando: uma falha anterior já invalida a combinação. A linha F,F,F viola a regra de que pelo menos um fala a verdade.
+
+## Resolvendo com TypeScript
+
+Podemos resolver esse puzzle de forma programática, testando todas as combinações automaticamente:
+
+### Função de verificação de consistência
+
+```typescript
+function verificarConsistencia(a: boolean, b: boolean, c: boolean): boolean {
+  // O que cada pessoa DIZ
+  const aDiz = !b;          // A afirma: "B mente"
+  const bDiz = !c;          // B afirma: "C mente"
+  const cDiz = !a && !b;    // C afirma: "A e B mentem"
+
+  // Se a pessoa fala verdade, sua afirmação deve ser verdadeira
+  // Se a pessoa mente, sua afirmação deve ser falsa
+  const aConsistente = a === aDiz;  // a=true → aDiz deve ser true
+  const bConsistente = b === bDiz;  // b=true → bDiz deve ser true
+  const cConsistente = c === cDiz;  // c=true → cDiz deve ser true
+
+  return aConsistente && bConsistente && cConsistente;
+}
+```
+
+### Testando todas as combinações
+
+```typescript
+console.log("=== Resolvendo o puzzle lógico ===\n");
+console.log("A     | B     | C     | Resultado");
+console.log("------|-------|-------|----------");
+
+for (const a of [true, false]) {
+  for (const b of [true, false]) {
+    for (const c of [true, false]) {
+      // Regra: pelo menos um verdadeiro e pelo menos um mentiroso
+      const peloMenosUmV = a || b || c;
+      const peloMenosUmF = !a || !b || !c;
+
+      if (!peloMenosUmV || !peloMenosUmF) {
+        console.log(
+          `${String(a).padEnd(5)} | ${String(b).padEnd(5)} | ${String(c).padEnd(5)} | Viola regra`
+        );
+        continue;
+      }
+
+      const consistente = verificarConsistencia(a, b, c);
+      const status = consistente ? "CONSISTENTE!" : "Contradição";
+      console.log(
+        `${String(a).padEnd(5)} | ${String(b).padEnd(5)} | ${String(c).padEnd(5)} | ${status}`
+      );
+
+      if (consistente) {
+        console.log(`\n>>> Solução encontrada!`);
+        console.log(`    A ${a ? "fala verdade" : "mente"}`);
+        console.log(`    B ${b ? "fala verdade" : "mente"}`);
+        console.log(`    C ${c ? "fala verdade" : "mente"}`);
+      }
+    }
+  }
+}
+```
+
+### Generalizando para qualquer puzzle
+
+Podemos tornar o código mais flexível para resolver puzzles semelhantes:
+
+```typescript
+type Afirmacao = (estados: boolean[]) => boolean;
+
+function resolverPuzzle(afirmacoes: Afirmacao[], nomes: string[]): void {
+  const n = afirmacoes.length;
+  const totalCombinacoes = 2 ** n;
+
+  console.log(`Testando ${totalCombinacoes} combinações para ${n} pessoas...\n`);
+
+  for (let i = 0; i < totalCombinacoes; i++) {
+    // Gera combinação a partir do número binário
+    const estados = Array.from({ length: n }, (_, j) =>
+      Boolean((i >> (n - 1 - j)) & 1)
+    );
+
+    // Regra: pelo menos um V e pelo menos um F
+    if (estados.every((e) => e) || estados.every((e) => !e)) continue;
+
+    // Verifica consistência
+    const consistente = estados.every((estado, idx) =>
+      estado === afirmacoes[idx](estados)
+    );
+
+    if (consistente) {
+      console.log("Solução encontrada:");
+      estados.forEach((estado, idx) => {
+        console.log(`  ${nomes[idx]}: ${estado ? "fala verdade" : "mente"}`);
+      });
+    }
+  }
+}
+
+// Definindo o puzzle: [A, B, C]
+const afirmacoes: Afirmacao[] = [
+  (e) => !e[1],            // A diz: B mente
+  (e) => !e[2],            // B diz: C mente
+  (e) => !e[0] && !e[1],   // C diz: A e B mentem
+];
+
+resolverPuzzle(afirmacoes, ["A", "B", "C"]);
+// Solução encontrada:
+//   A: mente
+//   B: fala verdade
+//   C: mente
+```
+
 > [!sucesso]
-> Resultado: B fala a verdade. A e C mentem. O método sistemático garante que não perdemos nenhuma possibilidade.
+> A versão generalizada pode resolver qualquer puzzle desse tipo! Basta definir as afirmações de cada pessoa como funções. A lógica faz o resto.
+
+> [!info]
+> Perceba como o código TypeScript espelha o raciocínio lógico: cada `if`, `&&` e `||` corresponde exatamente aos operadores ∧ e ∨ que usamos na teoria. Programar **é** aplicar lógica.
