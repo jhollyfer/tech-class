@@ -1,6 +1,6 @@
 ---
 slug: "tic-tac-toe"
-modulo: "Módulo 4 — Controle de Fluxo"
+modulo: "Módulo 5 — Prática"
 titulo: "Projeto: Jogo da Velha"
 subtitulo: "Arrays, funções e lógica combinados em um jogo clássico"
 descricao: "Jogo da velha completo no terminal com prompt-sync e while loop: tabuleiro como array, verificação de vitória, alternância de jogadores e validação de jogadas."

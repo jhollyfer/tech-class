@@ -1,6 +1,6 @@
 ---
 slug: "guessing-game"
-modulo: "Módulo 4 — Controle de Fluxo"
+modulo: "Módulo 5 — Prática"
 titulo: "Projeto: Jogo de Adivinhação"
 subtitulo: "Aplicando variáveis, loops e condicionais em um projeto real"
 descricao: "Jogo onde o computador escolhe um número e o jogador tenta adivinhar com dicas de 'maior' ou 'menor', usando while loop e prompt-sync."

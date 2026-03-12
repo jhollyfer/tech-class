@@ -7,7 +7,7 @@ import { BookOpen, Layers, Infinity, ArrowRight } from "lucide-react";
 export const metadata: Metadata = {
   title: "Tech Class — Lógica de Programação",
   description:
-    "22 aulas interativas de Lógica de Programação com quizzes e exercícios práticos.",
+    "21 aulas interativas de Lógica de Programação com quizzes e exercícios práticos.",
 };
 
 function groupByModulo(lessons: Lesson[]) {
