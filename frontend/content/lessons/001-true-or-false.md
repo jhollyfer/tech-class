@@ -133,14 +133,12 @@ console.log(temSol);       // false
 
 ### Verificando o tipo com `typeof`
 
-O operador `typeof` retorna uma string indicando o tipo de um valor. Para booleanos, retorna `"boolean"`:
+O operador `typeof` retorna uma string indicando o tipo de um valor:
 
 ```typescript
-const aprovado: boolean = true;
-
-console.log(typeof aprovado);  // "boolean"
-console.log(typeof 42);        // "number"
-console.log(typeof "texto");   // "string"
+console.log(typeof true);    // "boolean"
+console.log(typeof 42);      // "number"
+console.log(typeof "texto"); // "string"
 ```
 
 ### Tomando decisões com `if/else`

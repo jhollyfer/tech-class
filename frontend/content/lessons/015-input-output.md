@@ -3,7 +3,7 @@ slug: "input-output"
 modulo: "Módulo 3 — Primeiros Programas"
 titulo: "Entrada e Saída de Dados"
 subtitulo: "Lendo dados do usuário e exibindo resultados formatados"
-descricao: "prompt/readline para entrada, console.log para saída, template literals e um programa completo de cálculo de média."
+descricao: "prompt-sync para entrada, console.log para saída, template literals e um programa completo de cálculo de média."
 ordem: 15
 proximosPassos:
   - titulo: "Estruturas condicionais"
@@ -24,10 +24,10 @@ quiz:
     explicacao: "✓ Template literals usam crases (`) e permitem inserir expressões com ${expressão} dentro do texto."
     explicacaoErrada: "✗ Template literals usam crase (`) e ${} para inserir valores dinâmicos: `Olá, ${nome}`."
   - pergunta: "Para ler entrada do usuário no Node.js, usamos:"
-    opcoes: ["input()", "scanf()", "readline", "prompt()"]
+    opcoes: ["input()", "scanf()", "prompt-sync", "prompt()"]
     correta: 2
-    explicacao: "✓ No Node.js, o módulo readline permite ler dados digitados pelo usuário no terminal."
-    explicacaoErrada: "✗ No Node.js (terminal), usamos o módulo readline. prompt() é do navegador, não do terminal."
+    explicacao: "✓ No Node.js, o pacote prompt-sync permite ler dados digitados pelo usuário no terminal de forma simples e síncrona."
+    explicacaoErrada: "✗ No Node.js (terminal), usamos o pacote prompt-sync. prompt() é do navegador, não do terminal."
   - pergunta: "parseInt(\"42\") retorna:"
     opcoes: ["\"42\" (string)", "42 (number)", "NaN", "undefined"]
     correta: 1
@@ -88,22 +88,6 @@ Ana tem 20 anos
 > [!info]
 > Template literals usam crase (\`) em vez de aspas. Dentro delas, `${expressao}` e substituido pelo valor da expressao. Qualquer expressao valida funciona: variaveis, calculos, chamadas de funcao.
 
-### Comparando formas de montar texto
-
-```typescript
-const produto: string = "Notebook";
-const preco: number = 3500;
-const parcelas: number = 12;
-
-// ✗ Concatenação (forma antiga, mais verbosa)
-console.log("Produto: " + produto + " | Preço: R$" + preco + " | " + parcelas + "x de R$" + (preco / parcelas).toFixed(2));
-
-// ✓ Template literal (forma moderna, mais legível)
-console.log(`Produto: ${produto} | Preço: R$${preco} | ${parcelas}x de R$${(preco / parcelas).toFixed(2)}`);
-```
-
-Ambas produzem o mesmo resultado, mas template literals sao mais faceis de ler e manter.
-
 ### Mais exemplos com template literals
 
 ```typescript
@@ -112,22 +96,13 @@ const nota1: number = 8.5;
 const nota2: number = 7.0;
 const media: number = (nota1 + nota2) / 2;
 
-// Cálculos dentro do ${}
-console.log(`Média de ${aluno}: ${(nota1 + nota2) / 2}`);
-
-// Chamadas de método dentro do ${}
-console.log(`Média formatada: ${media.toFixed(1)}`);
-
-// Expressões condicionais dentro do ${}
-console.log(`Situação: ${media >= 7 ? "Aprovado" : "Reprovado"}`);
+console.log(`Média de ${aluno}: ${media.toFixed(1)}`);
 ```
 
 Resultado:
 
 ```
-Média de Carlos: 7.75
-Média formatada: 7.8
-Situação: Aprovado
+Média de Carlos: 7.8
 ```
 
 > [!alerta]
@@ -135,51 +110,38 @@ Situação: Aprovado
 
 ## Entrada: lendo dados do usuario
 
-No Node.js, a leitura de dados do terminal usa o modulo `readline`:
+No Node.js, a leitura de dados do terminal usa o pacote `prompt-sync`. Ele e simples e sincrono — o programa para e espera o usuario digitar:
 
 ```typescript
-import * as readline from "readline";
+import PromptSync from "prompt-sync";
 
-// Cria a interface de leitura conectando ao terminal
-const rl: readline.Interface = readline.createInterface({
-  input: process.stdin,   // entrada: teclado do usuário
-  output: process.stdout, // saída: tela do terminal
-});
+const prompt = PromptSync();
 
-// Faz uma pergunta e aguarda a resposta
-rl.question("Qual seu nome? ", (resposta: string) => {
-  console.log(`Olá, ${resposta}!`);
-  rl.close(); // encerra a leitura
-});
+const nome: string = prompt("Qual seu nome? ");
+console.log(`Olá, ${nome}!`);
 ```
 
 O que acontece nesse codigo:
 
-1. **`import`** carrega o modulo readline do Node.js
-2. **`createInterface`** conecta o programa ao terminal (entrada e saida)
-3. **`rl.question`** exibe a pergunta e espera o usuario digitar
-4. A resposta chega como parametro da funcao callback (sempre como `string`)
-5. **`rl.close()`** encerra a interface de leitura
+1. **`import`** carrega o pacote prompt-sync
+2. **`PromptSync()`** cria a funcao `prompt` que le do terminal
+3. **`prompt("...")`** exibe a pergunta e espera o usuario digitar
+4. O valor digitado e retornado como `string`
 
 ### Lendo multiplos valores
 
-Para fazer varias perguntas, aninhamos as chamadas de `rl.question`:
+Para fazer varias perguntas, basta chamar `prompt` varias vezes:
 
 ```typescript
-import * as readline from "readline";
+import PromptSync from "prompt-sync";
 
-const rl: readline.Interface = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+const prompt = PromptSync();
 
-rl.question("Seu nome: ", (nome: string) => {
-  rl.question("Sua idade: ", (idadeTexto: string) => {
-    const idade: number = parseInt(idadeTexto);
-    console.log(`${nome} tem ${idade} anos.`);
-    rl.close();
-  });
-});
+const nome: string = prompt("Seu nome: ");
+const idadeTexto: string = prompt("Sua idade: ");
+const idade: number = parseInt(idadeTexto);
+
+console.log(`${nome} tem ${idade} anos.`);
 ```
 
 > [!info]
@@ -232,42 +194,29 @@ if (isNaN(numero)) {
 Juntando entrada, processamento e saida em um programa funcional:
 
 ```typescript
-import * as readline from "readline";
+import PromptSync from "prompt-sync";
 
-// Configuração da interface de leitura
-const rl: readline.Interface = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+const prompt = PromptSync();
 
 console.log("=== Calculadora de Média ===");
 console.log("");
 
-// Lê a primeira nota
-rl.question("Digite a nota 1: ", (n1Texto: string) => {
-  // Lê a segunda nota
-  rl.question("Digite a nota 2: ", (n2Texto: string) => {
-    // Converte strings para números
-    const nota1: number = parseFloat(n1Texto);
-    const nota2: number = parseFloat(n2Texto);
+// Lê as notas
+const nota1: number = parseFloat(prompt("Digite a nota 1: "));
+const nota2: number = parseFloat(prompt("Digite a nota 2: "));
 
-    // Verifica se as notas são válidas
-    if (isNaN(nota1) || isNaN(nota2)) {
-      console.log("Erro: digite apenas números válidos.");
-    } else {
-      // Calcula e exibe o resultado
-      const media: number = (nota1 + nota2) / 2;
-      console.log("");
-      console.log(`Nota 1: ${nota1}`);
-      console.log(`Nota 2: ${nota2}`);
-      console.log(`Média: ${media.toFixed(1)}`);
-      console.log(`Situação: ${media >= 7 ? "Aprovado" : "Reprovado"}`);
-    }
-
-    // Encerra a interface de leitura
-    rl.close();
-  });
-});
+// Verifica se as notas são válidas
+if (isNaN(nota1) || isNaN(nota2)) {
+  console.log("Erro: digite apenas números válidos.");
+} else {
+  // Calcula e exibe o resultado
+  const media: number = (nota1 + nota2) / 2;
+  console.log("");
+  console.log(`Nota 1: ${nota1}`);
+  console.log(`Nota 2: ${nota2}`);
+  console.log(`Média: ${media.toFixed(1)}`);
+  console.log(`Situação: ${media >= 7 ? "Aprovado" : "Reprovado"}`);
+}
 ```
 
 Execute com:

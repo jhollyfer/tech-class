@@ -126,23 +126,6 @@ let sobrenome = "Silva";
 // Ambos são string — o TypeScript sabe disso
 ```
 
-Quando usar tipo explicito e quando deixar a inferencia?
-
-```typescript
-// ✓ Inferência OK — o valor deixa claro o tipo
-const idade = 25;                // TypeScript sabe que é number
-const ativo = true;              // TypeScript sabe que é boolean
-
-// ✓ Tipo explícito — quando a variável começa sem valor
-let resultado: number;
-resultado = calcularMedia();
-
-// ✓ Tipo explícito — em parâmetros de função (veremos depois)
-function saudacao(nome: string): string {
-  return `Olá, ${nome}!`;
-}
-```
-
 > [!info]
 > Para iniciantes, recomendamos declarar o tipo explicitamente. Isso ajuda a fixar os conceitos. Com o tempo, voce vai perceber quando a inferencia e suficiente.
 
@@ -178,22 +161,6 @@ console.log(typeof null);      // "object" (bug histórico do JavaScript!)
 
 > [!alerta]
 > `typeof null` retorna `"object"` em vez de `"null"`. Isso e um bug historico do JavaScript que nunca foi corrigido por questoes de compatibilidade. Cuidado com esse caso especial.
-
-`typeof` e util para verificar tipos em tempo de execucao, especialmente quando voce recebe dados de fontes externas:
-
-```typescript
-const valor: unknown = "123";
-
-if (typeof valor === "string") {
-  console.log("É texto, precisa converter para número");
-  const numero: number = parseInt(valor);
-  console.log("Convertido:", numero);
-}
-
-if (typeof valor === "number") {
-  console.log("Já é número:", valor);
-}
-```
 
 ## Exemplo pratico: ficha de cadastro
 

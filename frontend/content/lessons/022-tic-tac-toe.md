@@ -3,7 +3,7 @@ slug: "tic-tac-toe"
 modulo: "Módulo 4 — Controle de Fluxo"
 titulo: "Projeto: Jogo da Velha"
 subtitulo: "Arrays, funções e lógica combinados em um jogo clássico"
-descricao: "Jogo da velha completo no terminal: tabuleiro como array, verificação de vitória, alternância de jogadores e validação de jogadas."
+descricao: "Jogo da velha completo no terminal com prompt-sync e while loop: tabuleiro como array, verificação de vitória, alternância de jogadores e validação de jogadas."
 ordem: 22
 proximosPassos:
   - titulo: "Desafios extras"
@@ -21,8 +21,8 @@ quiz:
   - pergunta: "Como o jogo verifica se alguém venceu?"
     opcoes: ["Conta quantos X e O existem", "Testa todas as combinações de 3 em linha (linhas, colunas, diagonais)", "Verifica apenas as diagonais", "Compara com um tabuleiro de referência"]
     correta: 1
-    explicacao: "✓ O array combinacoes lista todas as 8 possibilidades de vitória (3 linhas, 3 colunas, 2 diagonais). O método some() testa se alguma foi preenchida pelo mesmo jogador."
-    explicacaoErrada: "✗ São 8 combinações vencedoras: 3 linhas, 3 colunas e 2 diagonais. O jogo testa todas usando some()."
+    explicacao: "✓ O array combinacoes lista todas as 8 possibilidades de vitória (3 linhas, 3 colunas, 2 diagonais). Um for...of testa se alguma foi preenchida pelo mesmo jogador."
+    explicacaoErrada: "✗ São 8 combinações vencedoras: 3 linhas, 3 colunas e 2 diagonais. O jogo testa todas com um for...of."
   - pergunta: "O que acontece quando jogadas chega a 9 sem nenhum vencedor?"
     opcoes: ["O jogo reinicia", "O último jogador vence", "É declarado empate", "O jogo dá erro"]
     correta: 2
@@ -32,7 +32,7 @@ quiz:
 
 ## O projeto
 
-Jogo da velha completo no terminal para dois jogadores. Tabuleiro 3x3, alternancia entre X e O, validacao de jogadas, deteccao de vitoria e empate. Este e o projeto mais completo do curso ate aqui -- ele combina arrays, funcoes, condicionais, callbacks e logica de jogo em um programa real.
+Jogo da velha completo no terminal para dois jogadores. Tabuleiro 3x3, alternancia entre X e O, validacao de jogadas, deteccao de vitoria e empate. Este e o projeto mais completo do curso ate aqui -- ele combina arrays, funcoes, condicionais, loops e logica de jogo em um programa real.
 
 > [!info]
 > Vamos construir o jogo passo a passo. Cada etapa adiciona uma funcionalidade nova. Ao final, tudo se conecta em um programa funcional.
@@ -89,18 +89,22 @@ const combinacoesVitoria: number[][] = [
 ];
 
 function verificarVitoria(tabuleiro: string[], jogador: string): boolean {
-  return combinacoesVitoria.some(([a, b, c]: number[]): boolean =>
-    tabuleiro[a] === jogador &&
-    tabuleiro[b] === jogador &&
-    tabuleiro[c] === jogador
-  );
+  for (const combo of combinacoesVitoria) {
+    const a: number = combo[0];
+    const b: number = combo[1];
+    const c: number = combo[2];
+
+    if (tabuleiro[a] === jogador &&
+        tabuleiro[b] === jogador &&
+        tabuleiro[c] === jogador) {
+      return true;
+    }
+  }
+  return false;
 }
 ```
 
-O metodo `some()` percorre cada combinacao e retorna `true` se **alguma** delas tiver as 3 posicoes preenchidas pelo mesmo jogador. A desestruturacao `[a, b, c]` extrai os 3 indices de cada combinacao.
-
-> [!info]
-> `some()` e um metodo de array que recebe um callback e retorna `true` se **pelo menos um** elemento satisfaz a condicao. E perfeito para perguntar: "alguma das 8 combinacoes foi completada?"
+A funcao percorre cada combinacao com `for...of`. Para cada uma, extrai os 3 indices e verifica se as 3 posicoes foram preenchidas pelo mesmo jogador.
 
 ### Passo 4: Validando a jogada
 
@@ -118,56 +122,51 @@ A funcao retorna `true` se a posicao esta dentro do intervalo **e** a casa ainda
 
 ### Passo 5: O loop do jogo
 
-O jogo alterna entre jogadores X e O. Cada turno exibe o tabuleiro, pede a jogada, valida, marca no tabuleiro e verifica vitoria ou empate. Usamos recursao (a funcao `jogar` chama a si mesma) para repetir os turnos:
+O jogo alterna entre jogadores X e O. Cada turno exibe o tabuleiro, pede a jogada, valida, marca no tabuleiro e verifica vitoria ou empate. Usamos um `while` loop para repetir os turnos:
 
 ```typescript
-import * as readline from "readline";
+import PromptSync from "prompt-sync";
 
-const rl: readline.Interface = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+const prompt = PromptSync();
 
 let jogadorAtual: string = "X";
 let jogadas: number = 0;
+let fimDeJogo: boolean = false;
 
-function jogar(): void {
+while (!fimDeJogo) {
   exibirTabuleiro(tabuleiro);
 
-  rl.question(`Jogador ${jogadorAtual}, escolha (1-9): `, (resposta: string): void => {
-    const posicao: number = parseInt(resposta) - 1;
+  const resposta: string = prompt(`Jogador ${jogadorAtual}, escolha (1-9): `);
+  const posicao: number = parseInt(resposta) - 1;
 
-    // Valida a jogada
-    if (!jogadaValida(tabuleiro, posicao)) {
-      console.log("Jogada invalida! Escolha uma posicao livre de 1 a 9.");
-      jogar(); // pede novamente
-      return;
-    }
+  // Valida a jogada
+  if (!jogadaValida(tabuleiro, posicao)) {
+    console.log("Jogada invalida! Escolha uma posicao livre de 1 a 9.");
+    continue;
+  }
 
-    // Marca a posicao
-    tabuleiro[posicao] = jogadorAtual;
-    jogadas++;
+  // Marca a posicao
+  tabuleiro[posicao] = jogadorAtual;
+  jogadas++;
 
-    // Verifica vitoria
-    if (verificarVitoria(tabuleiro, jogadorAtual)) {
-      exibirTabuleiro(tabuleiro);
-      console.log(`Jogador ${jogadorAtual} venceu! Parabens!`);
-      rl.close();
-      return;
-    }
+  // Verifica vitoria
+  if (verificarVitoria(tabuleiro, jogadorAtual)) {
+    exibirTabuleiro(tabuleiro);
+    console.log(`Jogador ${jogadorAtual} venceu! Parabens!`);
+    fimDeJogo = true;
+    continue;
+  }
 
-    // Verifica empate
-    if (jogadas === 9) {
-      exibirTabuleiro(tabuleiro);
-      console.log("Empate! Ninguem venceu.");
-      rl.close();
-      return;
-    }
+  // Verifica empate
+  if (jogadas === 9) {
+    exibirTabuleiro(tabuleiro);
+    console.log("Empate! Ninguem venceu.");
+    fimDeJogo = true;
+    continue;
+  }
 
-    // Alterna o jogador e continua
-    jogadorAtual = jogadorAtual === "X" ? "O" : "X";
-    jogar();
-  });
+  // Alterna o jogador
+  jogadorAtual = jogadorAtual === "X" ? "O" : "X";
 }
 ```
 
@@ -179,18 +178,15 @@ function jogar(): void {
 Aqui esta o jogo reunindo todas as partes:
 
 ```typescript
-import * as readline from "readline";
+import PromptSync from "prompt-sync";
 
-// --- Configuracao ---
-const rl: readline.Interface = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+const prompt = PromptSync();
 
 // --- Estado do jogo ---
 const tabuleiro: string[] = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 let jogadorAtual: string = "X";
 let jogadas: number = 0;
+let fimDeJogo: boolean = false;
 
 // --- Combinacoes vencedoras ---
 const combinacoesVitoria: number[][] = [
@@ -211,11 +207,18 @@ function exibirTabuleiro(tab: string[]): void {
 }
 
 function verificarVitoria(tab: string[], jogador: string): boolean {
-  return combinacoesVitoria.some(([a, b, c]: number[]): boolean =>
-    tab[a] === jogador &&
-    tab[b] === jogador &&
-    tab[c] === jogador
-  );
+  for (const combo of combinacoesVitoria) {
+    const a: number = combo[0];
+    const b: number = combo[1];
+    const c: number = combo[2];
+
+    if (tab[a] === jogador &&
+        tab[b] === jogador &&
+        tab[c] === jogador) {
+      return true;
+    }
+  }
+  return false;
 }
 
 function jogadaValida(tab: string[], posicao: number): boolean {
@@ -224,45 +227,41 @@ function jogadaValida(tab: string[], posicao: number): boolean {
     tab[posicao] !== "O";
 }
 
-// --- Loop principal ---
-function jogar(): void {
-  exibirTabuleiro(tabuleiro);
-
-  rl.question(`Jogador ${jogadorAtual}, escolha (1-9): `, (resposta: string): void => {
-    const posicao: number = parseInt(resposta) - 1;
-
-    if (!jogadaValida(tabuleiro, posicao)) {
-      console.log("Jogada invalida! Escolha uma posicao livre de 1 a 9.");
-      jogar();
-      return;
-    }
-
-    tabuleiro[posicao] = jogadorAtual;
-    jogadas++;
-
-    if (verificarVitoria(tabuleiro, jogadorAtual)) {
-      exibirTabuleiro(tabuleiro);
-      console.log(`Jogador ${jogadorAtual} venceu! Parabens!`);
-      rl.close();
-      return;
-    }
-
-    if (jogadas === 9) {
-      exibirTabuleiro(tabuleiro);
-      console.log("Empate! Ninguem venceu.");
-      rl.close();
-      return;
-    }
-
-    jogadorAtual = jogadorAtual === "X" ? "O" : "X";
-    jogar();
-  });
-}
-
 // --- Inicio ---
 console.log("=== Jogo da Velha ===");
 console.log("Jogador X comeca!\n");
-jogar();
+
+// --- Loop principal ---
+while (!fimDeJogo) {
+  exibirTabuleiro(tabuleiro);
+
+  const resposta: string = prompt(`Jogador ${jogadorAtual}, escolha (1-9): `);
+  const posicao: number = parseInt(resposta) - 1;
+
+  if (!jogadaValida(tabuleiro, posicao)) {
+    console.log("Jogada invalida! Escolha uma posicao livre de 1 a 9.");
+    continue;
+  }
+
+  tabuleiro[posicao] = jogadorAtual;
+  jogadas++;
+
+  if (verificarVitoria(tabuleiro, jogadorAtual)) {
+    exibirTabuleiro(tabuleiro);
+    console.log(`Jogador ${jogadorAtual} venceu! Parabens!`);
+    fimDeJogo = true;
+    continue;
+  }
+
+  if (jogadas === 9) {
+    exibirTabuleiro(tabuleiro);
+    console.log("Empate! Ninguem venceu.");
+    fimDeJogo = true;
+    continue;
+  }
+
+  jogadorAtual = jogadorAtual === "X" ? "O" : "X";
+}
 ```
 
 Execute com `npx tsx velha.ts` e jogue com um amigo no terminal.
@@ -276,15 +275,15 @@ Este projeto integra todos os conceitos do modulo:
 | `const tabuleiro: string[]` | Array tipado | Arrays |
 | `combinacoesVitoria: number[][]` | Array de arrays | Arrays |
 | `exibirTabuleiro()`, `verificarVitoria()` | Funcoes com parametros tipados | Funcoes |
-| `jogar()` chamando a si mesma | Recursao (loop) | Funcoes |
-| `rl.question("...", callback)` | Callback | Funcoes como parametros |
+| `while (!fimDeJogo)` | Loop com condicao | Loops |
+| `prompt("...")` | Leitura de entrada | Entrada e saida |
 | `if / else if / else` | Condicionais | Condicionais |
-| `some(([a, b, c]) => ...)` | Metodo de array com callback | Arrays + Funcoes |
+| `for (const combo of combinacoesVitoria)` | Iteracao sobre array | Arrays |
 | `jogadorAtual === "X" ? "O" : "X"` | Operador ternario | Condicionais |
 | `parseInt(resposta) - 1` | Conversao de tipo | Tipos |
 
 > [!sucesso]
-> Este e o projeto mais completo do curso. Ele combina arrays, funcoes, condicionais, callbacks e entrada/saida em um programa real e funcional. Se entendeu cada parte, voce domina os fundamentos de programacao.
+> Este e o projeto mais completo do curso. Ele combina arrays, funcoes, condicionais, loops e entrada/saida em um programa real e funcional. Se entendeu cada parte, voce domina os fundamentos de programacao.
 
 ## Melhorias possiveis
 

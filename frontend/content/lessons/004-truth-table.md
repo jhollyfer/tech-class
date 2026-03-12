@@ -3,13 +3,9 @@ slug: "truth-table"
 modulo: "Módulo 1 — Lógica Proposicional"
 titulo: "Semântica: Tabela Verdade"
 subtitulo: "Analisando expressões lógicas com múltiplas variáveis"
-descricao: "Construção de tabelas verdade com 2 e 3 variáveis, precedência de operadores, método de preenchimento e o sistema de alarme como exemplo completo."
+descricao: "Construção de tabelas verdade com 2 e 3 variáveis, precedência de operadores e método de preenchimento."
 ordem: 4
 proximosPassos:
-  - titulo: "Equivalências lógicas"
-    descricao: "Descubra quando duas expressões são logicamente iguais"
-  - titulo: "Simplificação"
-    descricao: "Aprenda a simplificar expressões usando equivalências"
   - titulo: "Exercícios práticos"
     descricao: "Construa tabelas verdade para expressões do cotidiano"
 quiz:
@@ -19,15 +15,10 @@ quiz:
     explicacao: "✓ 2³ = 8 linhas. A fórmula é 2ⁿ onde n é o número de variáveis."
     explicacaoErrada: "✗ A fórmula é 2ⁿ. Com 3 variáveis: 2³ = 8 linhas."
   - pergunta: "Qual operador tem maior precedência?"
-    opcoes: ["∧ (E/AND)", "∨ (OU/OR)", "¬ (NÃO/NOT)", "→ (condicional)"]
+    opcoes: ["∧ (E/AND)", "∨ (OU/OR)", "¬ (NÃO/NOT)"]
     correta: 2
     explicacao: "✓ ¬ (NÃO) tem a maior precedência — é avaliado primeiro."
-    explicacaoErrada: "✗ A ordem é: ¬ > ∧ > ∨ > → > ↔. O ¬ tem prioridade máxima."
-  - pergunta: "No sistema de alarme A ∧ (P ∨ M), se A=V, P=F, M=F, o alarme dispara?"
-    opcoes: ["Sim", "Não"]
-    correta: 1
-    explicacao: "✓ P ∨ M = F ∨ F = F. Depois A ∧ F = F. O alarme não dispara."
-    explicacaoErrada: "✗ Sem porta aberta nem movimento, P ∨ M é falso, e V ∧ F = F."
+    explicacaoErrada: "✗ A ordem é: ¬ > ∧ > ∨. O ¬ tem prioridade máxima."
   - pergunta: "Ao preencher a tabela verdade de trás para frente, a última variável alterna como?"
     opcoes: ["V,V,F,F,V,V,F,F", "V,F,V,F,V,F,V,F", "V,V,V,V,F,F,F,F", "F,V,F,V,F,V,F,V"]
     correta: 1
@@ -76,9 +67,7 @@ Assim como na matemática (multiplicação antes de soma), a lógica tem uma ord
 |:----------:|:--------:|------|:------------------:|
 | 1 (maior) | ¬ | Negação (NÃO) | `!` |
 | 2 | ∧ | Conjunção (E) | `&&` |
-| 3 | ∨ | Disjunção (OU) | `\|\|` |
-| 4 | → | Condicional | — |
-| 5 (menor) | ↔ | Bicondicional | — |
+| 3 (menor) | ∨ | Disjunção (OU) | `\|\|` |
 
 O ¬ é como o sinal de menos, ∧ é como multiplicação, ∨ é como soma. Use parênteses para alterar a precedência quando necessário.
 
@@ -104,26 +93,6 @@ Expressão com 3 variáveis: **P ∧ (Q ∨ R)** — dinheiro E (filme bom OU am
 
 Sem dinheiro (P=F), nada feito. Com dinheiro, precisa de pelo menos uma das outras condições.
 
-## Sistema de alarme com 3 variáveis
-
-Considere um alarme com 3 condições: A (alarme ligado), P (porta aberta), M (movimento detectado).
-
-O alarme dispara quando: **A ∧ (P ∨ M)** — o alarme deve estar ligado E pelo menos uma das condições de risco deve ser verdadeira.
-
-| A | P | M | P ∨ M | A ∧ (P ∨ M) |
-|---|---|---|:-----:|:-----------:|
-| V | V | V | V | V |
-| V | V | F | V | V |
-| V | F | V | V | V |
-| V | F | F | F | F |
-| F | V | V | V | F |
-| F | V | F | V | F |
-| F | F | V | V | F |
-| F | F | F | F | F |
-
-> [!info]
-> Observe: quando A=F (alarme desligado), o resultado é **sempre** F, independentemente de P e M. Isso faz sentido no mundo real!
-
 ## Na prática com TypeScript
 
 Em TypeScript, os operadores lógicos seguem a mesma precedência da lógica formal:
@@ -133,83 +102,6 @@ Em TypeScript, os operadores lógicos seguem a mesma precedência da lógica for
 | ¬ | `!` | Maior |
 | ∧ | `&&` | Média |
 | ∨ | `\|\|` | Menor |
-
-### Gerando uma tabela verdade no código
-
-Podemos gerar tabelas verdade de forma programática, iterando sobre todas as combinações possíveis:
-
-```typescript
-function tabelaVerdade() {
-  console.log("P     | Q     | P && Q");
-  console.log("------|-------|-------");
-
-  for (const p of [true, false]) {
-    for (const q of [true, false]) {
-      console.log(`${p.toString().padEnd(5)} | ${q.toString().padEnd(5)} | ${p && q}`);
-    }
-  }
-}
-
-tabelaVerdade();
-// P     | Q     | P && Q
-// ------|-------|-------
-// true  | true  | true
-// true  | false | false
-// false | true  | false
-// false | false | false
-```
-
-### Tabela verdade com 3 variáveis
-
-Para gerar todas as 8 combinações de 3 variáveis, basta adicionar mais um loop:
-
-```typescript
-function tabelaVerdade3Vars() {
-  console.log("P     | Q     | R     | Q || R | P && (Q || R)");
-  console.log("------|-------|-------|--------|-------------");
-
-  for (const p of [true, false]) {
-    for (const q of [true, false]) {
-      for (const r of [true, false]) {
-        const qOuR = q || r;
-        const resultado = p && qOuR;
-        console.log(
-          `${String(p).padEnd(5)} | ${String(q).padEnd(5)} | ${String(r).padEnd(5)} | ${String(qOuR).padEnd(6)} | ${resultado}`
-        );
-      }
-    }
-  }
-}
-
-tabelaVerdade3Vars();
-```
-
-### Sistema de alarme em TypeScript
-
-O sistema de alarme **A ∧ (P ∨ M)** pode ser implementado como uma função:
-
-```typescript
-function alarmeDispara(
-  alarmeLigado: boolean,
-  portaAberta: boolean,
-  movimentoDetectado: boolean
-): boolean {
-  return alarmeLigado && (portaAberta || movimentoDetectado);
-}
-
-// Testando todas as combinações
-console.log("=== Sistema de Alarme: A ∧ (P ∨ M) ===\n");
-
-for (const a of [true, false]) {
-  for (const p of [true, false]) {
-    for (const m of [true, false]) {
-      const dispara = alarmeDispara(a, p, m);
-      const status = dispara ? "DISPARA!" : "silêncio";
-      console.log(`Alarme=${a}, Porta=${p}, Movimento=${m} → ${status}`);
-    }
-  }
-}
-```
 
 ### Precedência na prática
 

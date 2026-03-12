@@ -136,24 +136,18 @@ console.log(!q);       // true  — inverte o valor
 
 ### Curto-circuito na prática
 
-O curto-circuito não é apenas uma otimização — ele permite padrões de código muito úteis:
+O curto-circuito não é apenas uma otimização — ele permite padrões de código úteis:
 
 ```typescript
-const usuario: string | null = null;
+const a: boolean = false;
+const b: boolean = true;
 
-// O && "protege" o segundo operando:
-// se usuario é null (falsy), não tenta acessar .length
-console.log(usuario && usuario.length);  // null
+// No &&: se o primeiro é false, já retorna false
+console.log(a && b);  // false (não precisou avaliar b)
 
-const nomeDoUsuario: string | null = null;
-// O || fornece um valor padrão:
-// se nomeDoUsuario é null (falsy), usa "Visitante"
-const nomeExibido = nomeDoUsuario || "Visitante";
-console.log(nomeExibido);  // "Visitante"
+// No ||: se o primeiro é true, já retorna true
+console.log(b || a);  // true (não precisou avaliar a)
 ```
-
-> [!sucesso]
-> O curto-circuito é um dos padrões mais usados no dia a dia do programador. Com `&&` você protege acessos que podem falhar. Com `||` você define valores padrão.
 
 ### Exemplo do mundo real: controle de acesso
 
@@ -185,38 +179,3 @@ if (!estaComOculos) {
 // Saída: "Não está com óculos"
 ```
 
-### Verificando a tabela verdade com código
-
-Podemos usar TypeScript para gerar e verificar tabelas verdade:
-
-```typescript
-const valores: boolean[] = [true, false];
-
-console.log(" P     | Q     | P && Q | P || Q | !P");
-console.log("-------|-------|--------|--------|------");
-
-for (const p of valores) {
-  for (const q of valores) {
-    const pStr = String(p).padEnd(5);
-    const qStr = String(q).padEnd(5);
-    const andStr = String(p && q).padEnd(6);
-    const orStr = String(p || q).padEnd(6);
-    const notStr = String(!p);
-    console.log(` ${pStr} | ${qStr} | ${andStr} | ${orStr} | ${notStr}`);
-  }
-}
-```
-
-Saída:
-
-```
- P     | Q     | P && Q | P || Q | !P
--------|-------|--------|--------|------
- true  | true  | true   | true   | false
- true  | false | false  | true   | false
- false | true  | false  | true   | true
- false | false | false  | false  | true
-```
-
-> [!info]
-> Compare essa saída com as tabelas verdade usando V e F que vimos acima. Os resultados são idênticos — `true` corresponde a V, e `false` corresponde a F.

@@ -111,12 +111,14 @@ console.log(ehPar(4));        // true
 Para arrow functions com multiplas linhas, use chaves e `return`:
 
 ```typescript
-const calcularMedia = (notas: number[]): number => {
-  const soma: number = notas.reduce((acc, n) => acc + n, 0);
-  return soma / notas.length;
+const saudacaoCompleta = (nome: string, hora: number): string => {
+  if (hora < 12) return `Bom dia, ${nome}!`;
+  if (hora < 18) return `Boa tarde, ${nome}!`;
+  return `Boa noite, ${nome}!`;
 };
 
-console.log(calcularMedia([8, 7, 9, 6])); // 7.5
+console.log(saudacaoCompleta("Ana", 9));  // "Bom dia, Ana!"
+console.log(saudacaoCompleta("Ana", 15)); // "Boa tarde, Ana!"
 ```
 
 ## Valores padrao
@@ -177,73 +179,13 @@ contarAte(3);
 // console.log(i); // ERRO! i nao existe fora da funcao
 ```
 
-## Funcoes como parametros (callbacks)
-
-Funcoes podem receber outras funcoes como parametro. Isso e chamado de **callback** e e um dos padroes mais importantes em TypeScript:
-
-```typescript
-function executar(operacao: (n: number) => number, valor: number): void {
-  const resultado: number = operacao(valor);
-  console.log(`Resultado: ${resultado}`);
-}
-
-executar((n) => n * 2, 5);  // Resultado: 10
-executar((n) => n ** 2, 5); // Resultado: 25
-```
-
-O parametro `operacao` tem tipo `(n: number) => number` -- uma funcao que recebe um numero e retorna um numero.
-
-### Por que callbacks sao importantes?
-
-Callbacks sao a base de muitos metodos que voce ja conhece e usara no futuro:
-
-```typescript
-const numeros: number[] = [1, 2, 3, 4, 5];
-
-// filter recebe um callback que retorna boolean
-const pares: number[] = numeros.filter((n: number): boolean => n % 2 === 0);
-console.log(pares); // [2, 4]
-
-// map recebe um callback que transforma cada elemento
-const dobrados: number[] = numeros.map((n: number): number => n * 2);
-console.log(dobrados); // [2, 4, 6, 8, 10]
-
-// forEach recebe um callback que executa uma acao
-numeros.forEach((n: number): void => {
-  console.log(`Numero: ${n}`);
-});
-```
-
-> [!alerta]
-> Callbacks tambem sao usados para lidar com operacoes assincronas (como ler arquivos ou esperar entrada do usuario). Voce vera isso nos projetos a seguir.
-
-## Funcoes genericas
-
-Às vezes, voce quer que uma funcao funcione com varios tipos diferentes. TypeScript permite criar **funcoes genericas** usando `<T>`:
-
-```typescript
-function primeiroElemento<T>(lista: T[]): T | undefined {
-  return lista[0];
-}
-
-const primeiroNumero = primeiroElemento([10, 20, 30]);   // tipo: number
-const primeiraLetra = primeiroElemento(["a", "b", "c"]); // tipo: string
-
-console.log(primeiroNumero); // 10
-console.log(primeiraLetra);  // "a"
-```
-
-O `<T>` e um **parametro de tipo** -- ele se adapta ao tipo do argumento passado. Nao se preocupe em dominar generics agora; o importante e saber que existem e reconhecer a sintaxe `<T>` quando encontra-la.
-
 ## Resumo
 
 | Conceito | Sintaxe | Quando usar |
 |---|---|---|
 | Funcao tradicional | `function nome(p: tipo): tipo {}` | Funcoes nomeadas reutilizaveis |
-| Arrow function | `const f = (p: tipo): tipo => ...` | Funcoes curtas, callbacks |
+| Arrow function | `const f = (p: tipo): tipo => ...` | Funcoes curtas |
 | Valor padrao | `function f(p: tipo = valor)` | Parametros opcionais |
-| Callback | `function f(cb: (x: tipo) => tipo)` | Passar logica como argumento |
-| Generics | `function f<T>(p: T): T` | Funcoes que aceitam varios tipos |
 
 > [!sucesso]
-> Funcoes sao o bloco fundamental da programacao. Dominar funcoes -- especialmente callbacks -- e essencial para tudo que vem a seguir: projetos, manipulacao de dados e programacao assincrona.
+> Funcoes sao o bloco fundamental da programacao. Dominar funcoes e essencial para tudo que vem a seguir: projetos, manipulacao de dados e programacao assincrona.

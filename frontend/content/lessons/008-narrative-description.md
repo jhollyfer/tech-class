@@ -108,13 +108,11 @@ A receita de pavê pode ser representada como uma sequência de funções:
 
 ```typescript
 // ENTRADA — ingredientes
-const ingredientes = {
-  biscoito: "champagne",
-  cafe: "forte",
-  cremeDeLeite: true,
-  leiteCondensado: true,
-  chocolateEmPo: true,
-};
+const biscoito: string = "champagne";
+const tipoCafe: string = "forte";
+const temCremeDeLeite: boolean = true;
+const temLeiteCondensado: boolean = true;
+const temChocolateEmPo: boolean = true;
 
 // PROCESSAMENTO — preparo em 4 passos
 function prepararCafe(): string {
@@ -134,10 +132,10 @@ function finalizarPave(camadas: string): string {
 }
 
 // SAÍDA — resultado
-const cafe = prepararCafe();
-const creme = misturarCreme();
-const camadas = montarCamadas(cafe, creme);
-const pave = finalizarPave(camadas);
+const cafe: string = prepararCafe();
+const creme: string = misturarCreme();
+const camadas: string = montarCamadas(cafe, creme);
+const pave: string = finalizarPave(camadas);
 
 console.log(pave); // "Pavê coberto com chocolate em pó, na geladeira por 4 horas"
 ```

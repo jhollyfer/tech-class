@@ -128,9 +128,13 @@ Cada nivel de aninhamento adiciona complexidade. A leitura fica mais dificil con
 
 ```typescript
 // Difícil de ler e manter
-if (usuario) {
-  if (usuario.ativo) {
-    if (usuario.temPermissao) {
+const usuarioExiste: boolean = true;
+const contaAtiva: boolean = true;
+const temPermissao: boolean = false;
+
+if (usuarioExiste) {
+  if (contaAtiva) {
+    if (temPermissao) {
       console.log("Acesso liberado");
     } else {
       console.log("Sem permissão");

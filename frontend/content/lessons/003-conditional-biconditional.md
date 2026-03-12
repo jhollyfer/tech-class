@@ -10,8 +10,6 @@ proximosPassos:
     descricao: "Aprenda a construir tabelas com múltiplas variáveis"
   - titulo: "Prática com condicionais"
     descricao: "Resolva exercícios de condicional e bicondicional"
-  - titulo: "Equivalências lógicas"
-    descricao: "Descubra como simplificar expressões condicionais"
 quiz:
   - pergunta: "Se P é verdadeiro e Q é falso, qual o valor de P → Q?"
     opcoes: ["Verdadeiro", "Falso"]
@@ -173,29 +171,6 @@ console.log(false === false);  // true  (F ↔ F = V)
 
 > [!sucesso]
 > O operador `===` entre dois booleanos produz exatamente o resultado da tabela verdade da bicondicional. Compare os quatro resultados acima com a tabela P ↔ Q.
-
-### Exemplo completo: verificar promessa
-
-Vamos modelar a condicional "Se fizer calor, vou ao shopping" como uma função TypeScript:
-
-```typescript
-function verificarPromessa(fezCalor: boolean, foiAoShopping: boolean): boolean {
-  // A condicional P → Q só é falsa quando P é V e Q é F
-  if (fezCalor && !foiAoShopping) {
-    return false; // Promessa quebrada!
-  }
-  return true; // Promessa mantida
-}
-
-// Testando todos os casos da tabela verdade:
-console.log(verificarPromessa(true, true));   // true  — fez calor e foi: ok
-console.log(verificarPromessa(true, false));  // false — fez calor e não foi: quebrou!
-console.log(verificarPromessa(false, true));  // true  — não fez calor, mas foi: ok
-console.log(verificarPromessa(false, false)); // true  — não fez calor e não foi: ok
-```
-
-> [!info]
-> A função `verificarPromessa` implementa exatamente a tabela verdade da condicional (→). O único caso que retorna `false` é quando a condição aconteceu (`fezCalor` é `true`) mas a consequência não (`foiAoShopping` é `false`).
 
 ### Tabela de equivalências
 

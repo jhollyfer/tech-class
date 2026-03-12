@@ -3,7 +3,7 @@ slug: "lists-arrays"
 modulo: "Módulo 4 — Controle de Fluxo"
 titulo: "Listas e Arrays"
 subtitulo: "Agrupando dados em coleções ordenadas"
-descricao: "Arrays em TypeScript: criar, acessar, modificar, métodos (push, pop, map, filter, find) e iteração."
+descricao: "Arrays em TypeScript: criar, acessar, modificar, métodos (push, pop, includes, indexOf) e iteração com for."
 ordem: 19
 proximosPassos:
   - titulo: "Funções"
@@ -148,31 +148,32 @@ O `filter` retorna um novo array contendo apenas os elementos que passam no test
 
 ```typescript
 const alunos: string[] = ["Ana", "Bob", "Carlos", "Diana"];
-const resultado: string | undefined = alunos.find(
+const resultado = alunos.find(
   (aluno: string) => aluno.startsWith("C")
 );
 
 console.log(resultado); // "Carlos"
 ```
 
-O `find` retorna o **primeiro** elemento que satisfaz a condicao, ou `undefined` se nenhum satisfizer. Perceba que o tipo inclui `| undefined` --- o TypeScript nos obriga a considerar esse caso.
+O `find` retorna o **primeiro** elemento que satisfaz a condicao, ou `undefined` se nenhum satisfizer.
 
-### reduce --- acumula em um unico valor
+### Somando elementos com for
+
+Para acumular valores de um array, use um `for...of` com uma variavel acumuladora:
 
 ```typescript
 const numeros: number[] = [1, 2, 3, 4, 5];
-const soma: number = numeros.reduce(
-  (acumulador: number, atual: number) => acumulador + atual,
-  0
-);
+let soma: number = 0;
+
+for (const n of numeros) {
+  soma = soma + n;
+}
 
 console.log(soma); // 15
 ```
 
-O `reduce` percorre o array acumulando valores. O `0` no final e o valor inicial do acumulador. E o metodo mais poderoso, mas tambem o mais complexo.
-
 > [!sucesso]
-> **Resumo rapido:** `map` transforma, `filter` seleciona, `find` busca um, `reduce` acumula. Esses quatro metodos sao essenciais para trabalhar com arrays em TypeScript.
+> **Resumo rapido:** `map` transforma, `filter` seleciona, `find` busca um. Para acumular valores, use um `for` simples.
 
 ## Outros metodos uteis
 
@@ -184,22 +185,7 @@ console.log(numeros.includes(5)); // true
 
 // indexOf — encontra a posição
 console.log(numeros.indexOf(4)); // 2
-
-// some — verifica se algum satisfaz
-const temNegativo: boolean = numeros.some((n: number) => n < 0);
-console.log(temNegativo); // false
-
-// every — verifica se todos satisfazem
-const todosMaioresQueZero: boolean = numeros.every((n: number) => n > 0);
-console.log(todosMaioresQueZero); // true
-
-// sort — ordena (modifica o original!)
-const ordenados: number[] = [...numeros].sort((a: number, b: number) => a - b);
-console.log(ordenados); // [1, 1, 2, 3, 4, 5, 6, 9]
 ```
-
-> [!alerta]
-> O metodo `sort()` **modifica o array original**. Para manter o original intacto, crie uma copia antes de ordenar usando `[...array]` (spread operator).
 
 ## Iterando sobre arrays
 
@@ -213,27 +199,15 @@ for (const aluno of alunos) {
 }
 ```
 
-Se precisar do indice junto com o valor, use `forEach`:
+Se precisar do indice junto com o valor, use o `for` classico:
 
 ```typescript
-alunos.forEach((aluno: string, indice: number) => {
-  console.log(`${indice + 1}. ${aluno}`);
-});
+for (let i: number = 0; i < alunos.length; i++) {
+  console.log(`${i + 1}. ${alunos[i]}`);
+}
 // 1. Ana
 // 2. Bob
 // 3. Carlos
-```
-
-Para casos em que voce precisa do indice para logica mais complexa (como comparar com o proximo elemento), o `for` classico ainda e a melhor opcao:
-
-```typescript
-const temperaturas: number[] = [22, 25, 23, 28, 30, 27];
-
-for (let i: number = 1; i < temperaturas.length; i++) {
-  const diferenca: number = temperaturas[i] - temperaturas[i - 1];
-  const direcao: string = diferenca > 0 ? "subiu" : "desceu";
-  console.log(`Dia ${i + 1}: ${direcao} ${Math.abs(diferenca)}°C`);
-}
 ```
 
 ## Padroes comuns com arrays
@@ -270,9 +244,11 @@ console.log(`Candidato A: ${votosA} votos`); // 4
 
 ```typescript
 const celsius: number[] = [0, 20, 37, 100];
-const fahrenheit: number[] = celsius.map(
-  (c: number) => (c * 9) / 5 + 32
-);
+const fahrenheit: number[] = [];
+
+for (const c of celsius) {
+  fahrenheit.push((c * 9) / 5 + 32);
+}
 
 console.log(fahrenheit); // [32, 68, 98.6, 212]
 ```
@@ -288,12 +264,11 @@ Dado um array de notas de alunos, escreva um programa que:
 ```typescript
 const notas: number[] = [8.5, 6.0, 9.2, 4.5, 7.0, 5.5, 8.0, 3.0];
 
-// 1. Use reduce para calcular a soma, depois divida por notas.length
+// 1. Use um for para calcular a soma, depois divida por notas.length
 
-// 2. Use filter para obter apenas as notas >= 7
+// 2. Use um for para obter apenas as notas >= 7 (adicione em um novo array com push)
 
-// 3. Use Math.max(...notas) e Math.min(...notas) para encontrar os extremos
-//    Dica: o ... (spread) "espalha" o array como argumentos da função
+// 3. Use um for para encontrar a maior e a menor nota
 ```
 
 > [!info]

@@ -223,20 +223,3 @@ const idade: number = 25;
 // e exiba a faixa etária no console
 ```
 
-Depois, tente reescrever a mesma logica usando `switch` com `true` --- e uma tecnica interessante:
-
-```typescript
-switch (true) {
-  case idade < 12:
-    console.log("Criança");
-    break;
-  case idade < 18:
-    console.log("Adolescente");
-    break;
-  case idade < 60:
-    console.log("Adulto");
-    break;
-  default:
-    console.log("Idoso");
-}
-```
