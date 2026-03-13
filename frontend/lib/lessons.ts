@@ -1,6 +1,6 @@
 import fs from "fs";
-import path from "path";
 import matter from "gray-matter";
+import path from "path";
 
 export interface QuizQuestion {
   pergunta: string;
@@ -27,12 +27,12 @@ export interface Lesson {
   proximosPassos: ProximoPasso[];
 }
 
-const lessonsDirectory = path.join(process.cwd(), "content/lessons");
-
-export function getAllLessons(): Lesson[] {
-  const files = fs.readdirSync(lessonsDirectory).filter((f) => f.endsWith(".md"));
+export function getAllLessonsByDir(dir: string): Lesson[] {
+  const directory = path.join(process.cwd(), "content", dir);
+  if (!fs.existsSync(directory)) return [];
+  const files = fs.readdirSync(directory).filter((f) => f.endsWith(".md"));
   const lessons = files.map((filename) => {
-    const filePath = path.join(lessonsDirectory, filename);
+    const filePath = path.join(directory, filename);
     const fileContents = fs.readFileSync(filePath, "utf8");
     const { data, content } = matter(fileContents);
     return {
@@ -50,10 +50,13 @@ export function getAllLessons(): Lesson[] {
   return lessons.sort((a, b) => a.ordem - b.ordem);
 }
 
-export function getLessonBySlug(slug: string): Lesson | undefined {
-  return getAllLessons().find((l) => l.slug === slug);
+export function getLessonByDirAndSlug(
+  dir: string,
+  slug: string,
+): Lesson | undefined {
+  return getAllLessonsByDir(dir).find((l) => l.slug === slug);
 }
 
-export function getAllLessonSlugs(): string[] {
-  return getAllLessons().map((l) => l.slug);
+export function getAllSlugsByDir(dir: string): string[] {
+  return getAllLessonsByDir(dir).map((l) => l.slug);
 }

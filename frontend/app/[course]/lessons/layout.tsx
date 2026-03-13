@@ -7,7 +7,7 @@ const spaceMono = Space_Mono({
   display: "swap",
 });
 
-export default function AulasLayout({
+export default function CourseLessonsLayout({
   children,
 }: {
   children: React.ReactNode;

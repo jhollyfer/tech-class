@@ -1,4 +1,5 @@
-import { getAllLessons } from "@/lib/lessons";
+import { getAllLessonsByDir } from "@/lib/lessons";
+import { getCourseConfig } from "@/lib/courses";
 import Link from "next/link";
 import { BookOpen, Layers, Infinity, Play, TrendingUp, Terminal, CheckCircle, ArrowRight, Code } from "lucide-react";
 
@@ -9,7 +10,7 @@ const cursos = [
     linguagem: "TypeScript" as const,
     descricao: "Fundamentos essenciais para qualquer linguagem de programação.",
     status: "disponivel" as const,
-    href: "/lessons",
+    href: "/logica-programacao-typescript/lessons",
     icon: Code,
   },
   {
@@ -17,14 +18,14 @@ const cursos = [
     titulo: "Lógica de Programação",
     linguagem: "Python" as const,
     descricao: "Os mesmos fundamentos, agora com a linguagem mais popular do mundo.",
-    status: "em-breve" as const,
-    href: "#",
+    status: "disponivel" as const,
+    href: "/logica-programacao-python/lessons",
     icon: Code,
   },
   {
     id: "bd",
     titulo: "Banco de Dados",
-    linguagem: null,
+    linguagem: null as string | null,
     descricao: "Aprenda a modelar, estruturar e consultar dados com SQL.",
     status: "em-breve" as const,
     href: "#",
@@ -33,7 +34,7 @@ const cursos = [
   {
     id: "engsoft",
     titulo: "Engenharia de Software",
-    linguagem: null,
+    linguagem: null as string | null,
     descricao: "Padrões de projeto, arquitetura e boas práticas de desenvolvimento.",
     status: "em-breve" as const,
     href: "#",
@@ -42,7 +43,7 @@ const cursos = [
   {
     id: "web",
     titulo: "Desenvolvimento Web",
-    linguagem: null,
+    linguagem: null as string | null,
     descricao: "Construa aplicações modernas com HTML, CSS, React e Next.js.",
     status: "em-breve" as const,
     href: "#",
@@ -51,7 +52,8 @@ const cursos = [
 ];
 
 export default function Home() {
-  const lessons = getAllLessons();
+  const tsConfig = getCourseConfig("logica-programacao-typescript");
+  const lessons = tsConfig ? getAllLessonsByDir(tsConfig.dir) : [];
 
   return (
     <div className="grid-bg relative z-10">
@@ -75,7 +77,7 @@ export default function Home() {
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link
-                  href="/lessons"
+                  href="/logica-programacao-typescript/lessons"
                   className="bg-[var(--color-primary)] text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg shadow-[var(--color-primary)]/25 hover:scale-[1.02] transition-transform"
                 >
                   Começar agora
@@ -305,7 +307,7 @@ export default function Home() {
                   </li>
                 </ul>
                 <Link
-                  href="/lessons"
+                  href="/logica-programacao-typescript/lessons"
                   className="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white px-8 py-4 rounded-xl font-bold text-lg hover:opacity-90 transition-opacity"
                 >
                   Começar agora
@@ -348,7 +350,7 @@ export default function Home() {
                 Junte-se a centenas de alunos que estão transformando suas vidas através da programação de qualidade e gratuita.
               </p>
               <Link
-                href="/lessons"
+                href="/logica-programacao-typescript/lessons"
                 className="bg-white text-[var(--color-primary)] px-10 py-5 rounded-xl font-black text-xl hover:shadow-2xl hover:scale-105 transition-all"
               >
                 Acessar plataforma
@@ -379,14 +381,14 @@ export default function Home() {
             <div>
               <h4 className="font-bold text-lg mb-6">Links Rápidos</h4>
               <ul className="space-y-4 text-[var(--color-muted)] font-semibold">
-                <li><Link href="/lessons" className="hover:text-[var(--color-primary)] transition-colors">Aulas</Link></li>
+                <li><Link href="/logica-programacao-typescript/lessons" className="hover:text-[var(--color-primary)] transition-colors">Aulas</Link></li>
                 <li><Link href="/#cursos" className="hover:text-[var(--color-primary)] transition-colors">Cursos</Link></li>
               </ul>
             </div>
             <div>
               <h4 className="font-bold text-lg mb-6">Plataforma</h4>
               <ul className="space-y-4 text-[var(--color-muted)] font-semibold">
-                <li><Link href="/lessons/environment-setup" className="hover:text-[var(--color-primary)] transition-colors">Primeira aula</Link></li>
+                <li><Link href="/logica-programacao-typescript/lessons/environment-setup" className="hover:text-[var(--color-primary)] transition-colors">Primeira aula</Link></li>
               </ul>
             </div>
           </div>
