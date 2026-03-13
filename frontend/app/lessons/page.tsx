@@ -5,9 +5,9 @@ import Link from "next/link";
 import { BookOpen, Layers, Infinity, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Tech Class — Lógica de Programação",
+  title: "Tech Class — Lógica de Programação com TypeScript",
   description:
-    "21 aulas interativas de Lógica de Programação com quizzes e exercícios práticos.",
+    "Aulas interativas de Lógica de Programação com TypeScript — quizzes e exercícios práticos.",
 };
 
 function groupByModulo(lessons: Lesson[]) {
@@ -28,7 +28,7 @@ export default function AulasPage() {
     <main className="min-h-screen grid-bg relative">
       <header className="pt-20 pb-16 px-6 text-center relative z-10">
         <span className="inline-block px-3 py-1 text-xs font-mono font-bold tracking-widest uppercase rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] border border-[var(--color-primary)]/20 mb-6">
-          Lógica de Programação
+          Lógica de Programação · TypeScript
         </span>
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-4">Aulas</h1>
         <p className="text-[var(--color-muted)] text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">

@@ -12,13 +12,13 @@ const nunito = Nunito({
 });
 
 export const metadata: Metadata = {
-  title: "Tech Class — Lógica de Programação",
+  title: "Tech Class — Plataforma Educacional",
   description:
-    "Aulas interativas de Lógica de Programação com quizzes, simuladores e exercícios práticos. Baseado nas aulas do professor André Noel (CETAM).",
+    "Aulas interativas de programação com quizzes, simuladores e exercícios práticos. Baseado nas aulas do professor André Noel (CETAM).",
   openGraph: {
-    title: "Tech Class — Lógica de Programação",
+    title: "Tech Class — Plataforma Educacional",
     description:
-      "11 aulas interativas de Lógica de Programação com quizzes, simuladores e exercícios práticos.",
+      "Aulas interativas de programação com quizzes, simuladores e exercícios práticos.",
     locale: "pt_BR",
     type: "website",
   },

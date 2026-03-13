@@ -6,14 +6,25 @@ const cursos = [
   {
     id: "lpii",
     titulo: "Lógica de Programação",
+    linguagem: "TypeScript" as const,
     descricao: "Fundamentos essenciais para qualquer linguagem de programação.",
     status: "disponivel" as const,
     href: "/lessons",
     icon: Code,
   },
   {
+    id: "lpii-py",
+    titulo: "Lógica de Programação",
+    linguagem: "Python" as const,
+    descricao: "Os mesmos fundamentos, agora com a linguagem mais popular do mundo.",
+    status: "em-breve" as const,
+    href: "#",
+    icon: Code,
+  },
+  {
     id: "bd",
     titulo: "Banco de Dados",
+    linguagem: null,
     descricao: "Aprenda a modelar, estruturar e consultar dados com SQL.",
     status: "em-breve" as const,
     href: "#",
@@ -22,6 +33,7 @@ const cursos = [
   {
     id: "engsoft",
     titulo: "Engenharia de Software",
+    linguagem: null,
     descricao: "Padrões de projeto, arquitetura e boas práticas de desenvolvimento.",
     status: "em-breve" as const,
     href: "#",
@@ -30,6 +42,7 @@ const cursos = [
   {
     id: "web",
     titulo: "Desenvolvimento Web",
+    linguagem: null,
     descricao: "Construa aplicações modernas com HTML, CSS, React e Next.js.",
     status: "em-breve" as const,
     href: "#",
@@ -150,7 +163,7 @@ export default function Home() {
                 <Layers size={28} />
               </div>
               <div>
-                <p className="font-mono text-3xl font-bold leading-none mb-1">04</p>
+                <p className="font-mono text-3xl font-bold leading-none mb-1">05</p>
                 <p className="text-sm text-[var(--color-muted)] uppercase font-bold tracking-tight">Módulos</p>
               </div>
             </div>
@@ -180,7 +193,7 @@ export default function Home() {
               <TrendingUp size={32} className="text-[var(--color-accent)] mb-4" />
               <h3 className="text-xl font-bold mb-3">Do Zero ao Avançado</h3>
               <p className="text-[var(--color-muted)]">
-                Trilha completa: da lógica proposicional até projetos de programação em TypeScript.
+                Trilha completa: dos fundamentos até projetos de programação em TypeScript.
               </p>
             </div>
             <div className="p-8 border-l-4 border-[var(--color-success)] bg-[var(--color-surface)] rounded-r-xl">
@@ -222,6 +235,11 @@ export default function Home() {
                       </span>
                     </div>
                     <h4 className="text-2xl font-bold mb-2 group-hover:text-[var(--color-primary)] transition-colors">{curso.titulo}</h4>
+                    {curso.linguagem && (
+                      <span className="inline-block px-2.5 py-0.5 text-xs font-mono font-bold rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)] border border-[var(--color-accent)]/20 mb-3">
+                        {curso.linguagem}
+                      </span>
+                    )}
                     <p className="text-[var(--color-muted)] mb-6">{curso.descricao}</p>
                     <div className="flex items-center gap-4 text-sm text-[var(--color-muted)] font-semibold font-mono">
                       <span className="flex items-center gap-1.5">
@@ -230,7 +248,7 @@ export default function Home() {
                       </span>
                       <span className="flex items-center gap-1.5">
                         <Layers size={16} />
-                        4 módulos
+                        5 módulos
                       </span>
                     </div>
                   </Link>
@@ -250,6 +268,11 @@ export default function Home() {
                     </span>
                   </div>
                   <h4 className="text-2xl font-bold mb-2">{curso.titulo}</h4>
+                  {curso.linguagem && (
+                    <span className="inline-block px-2.5 py-0.5 text-xs font-mono font-bold rounded-full bg-[var(--color-muted)]/10 text-[var(--color-muted)] border border-[var(--color-muted)]/20 mb-3">
+                      {curso.linguagem}
+                    </span>
+                  )}
                   <p className="text-[var(--color-muted)] mb-6">{curso.descricao}</p>
                   <div className="h-2 bg-[var(--color-border)] rounded-full w-full" />
                 </div>
@@ -363,12 +386,12 @@ export default function Home() {
             <div>
               <h4 className="font-bold text-lg mb-6">Plataforma</h4>
               <ul className="space-y-4 text-[var(--color-muted)] font-semibold">
-                <li><Link href="/lessons/true-or-false" className="hover:text-[var(--color-primary)] transition-colors">Primeira aula</Link></li>
+                <li><Link href="/lessons/environment-setup" className="hover:text-[var(--color-primary)] transition-colors">Primeira aula</Link></li>
               </ul>
             </div>
           </div>
           <div className="max-w-7xl mx-auto px-6 mt-20 pt-8 border-t border-[var(--color-border)] text-center text-[var(--color-muted)] text-sm font-medium">
-            <p>© 2024 Tech Class. Todos os direitos reservados.</p>
+            <p>© 2025 Tech Class. Todos os direitos reservados.</p>
           </div>
         </footer>
       </main>
