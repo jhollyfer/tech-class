@@ -48,8 +48,11 @@ export function useQuizWs() {
   }, []);
 
   useEffect(() => {
-    const protocol = window.location.protocol === "https:" ? "wss:" : "ws:";
-    const ws = new WebSocket(`${protocol}//${window.location.host}/ws`);
+    const isDev = process.env.NODE_ENV === "development";
+    const wsUrl = isDev
+      ? "ws://localhost:3001/ws"
+      : `${window.location.protocol === "https:" ? "wss:" : "ws:"}//${window.location.host}/ws`;
+    const ws = new WebSocket(wsUrl);
     wsRef.current = ws;
 
     ws.onopen = () => setConnected(true);
