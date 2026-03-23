@@ -9,7 +9,7 @@ export function middleware(request: NextRequest) {
       return NextResponse.rewrite(new URL("/lessons", request.url));
     }
     if (!path.startsWith("/lessons")) {
-      return NextResponse.redirect(new URL("/lessons", request.url));
+      return NextResponse.redirect(new URL("/lessons", request.url), 308);
     }
   }
 

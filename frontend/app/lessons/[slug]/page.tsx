@@ -1,4 +1,4 @@
-import { redirect } from "next/navigation";
+import { permanentRedirect } from "next/navigation";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -6,5 +6,5 @@ interface PageProps {
 
 export default async function LessonSlugRedirect({ params }: PageProps) {
   const { slug } = await params;
-  redirect(`/logica-programacao-typescript/lessons/${slug}`);
+  permanentRedirect(`/logica-programacao-typescript/lessons/${slug}`);
 }

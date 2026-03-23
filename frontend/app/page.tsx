@@ -1,7 +1,7 @@
 import { getAllLessonsByDir } from "@/lib/lessons";
 import { getCourseConfig } from "@/lib/courses";
 import Link from "next/link";
-import { BookOpen, Layers, Infinity, Play, TrendingUp, Terminal, CheckCircle, ArrowRight, Code } from "lucide-react";
+import { BookOpen, Layers, Infinity, Play, TrendingUp, Terminal, CheckCircle, ArrowRight, Code, FileText } from "lucide-react";
 
 const cursos = [
   {
@@ -21,6 +21,15 @@ const cursos = [
     status: "disponivel" as const,
     href: "/logica-programacao-python/lessons",
     icon: Code,
+  },
+  {
+    id: "info-word",
+    titulo: "Informática Avançada",
+    linguagem: "Word" as const,
+    descricao: "Domine o Microsoft Word: formatação profissional, tabelas, mala direta e documentos ABNT.",
+    status: "disponivel" as const,
+    href: "/informatica-avancada-word/lessons",
+    icon: FileText,
   },
   {
     id: "bd",

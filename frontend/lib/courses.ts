@@ -15,6 +15,11 @@ export const courses: Record<string, CourseConfig> = {
     label: "Lógica de Programação",
     language: "Python",
   },
+  "informatica-avancada-word": {
+    dir: "informatica-avancada-word",
+    label: "Informática Avançada",
+    language: "Word",
+  },
 };
 
 export function getCourseConfig(course: string): CourseConfig | undefined {

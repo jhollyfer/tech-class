@@ -19,8 +19,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const config = getCourseConfig(course);
   if (!config) return { title: "Curso não encontrado" };
   return {
-    title: `Tech Class — Lógica de Programação com ${config.label}`,
-    description: `Aulas interativas de Lógica de Programação com ${config.label} — quizzes e exercícios práticos.`,
+    title: `Tech Class — ${config.label} com ${config.language}`,
+    description: `Aulas interativas de ${config.label} com ${config.language} — quizzes e exercícios práticos.`,
   };
 }
 
@@ -46,7 +46,7 @@ export default async function CourseLessonsPage({ params }: PageProps) {
     <main className="min-h-screen grid-bg relative">
       <header className="pt-20 pb-16 px-6 text-center relative z-10">
         <span className="inline-block px-3 py-1 text-xs font-mono font-bold tracking-widest uppercase rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] border border-[var(--color-primary)]/20 mb-6">
-          Lógica de Programação · {config.label}
+          {config.label} · {config.language}
         </span>
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-4">Aulas</h1>
         <p className="text-[var(--color-muted)] text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
