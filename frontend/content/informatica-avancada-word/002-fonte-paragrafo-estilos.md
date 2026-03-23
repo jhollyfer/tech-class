@@ -60,6 +60,15 @@ Para abrir todas as opções de uma vez: `Ctrl + D`.
 | `Ctrl + ]`      | Aumentar fonte    | Sem usar o mouse                  |
 | `Ctrl + [`      | Diminuir fonte    | Sem usar o mouse                  |
 
+### Limpar formatação de texto colado da internet
+
+Quando você copia texto de um site (`Ctrl + C`) e cola no Word (`Ctrl + V`), a formatação vem toda bagunçada — cores, links, fontes diferentes. Existem duas soluções:
+
+1. **Colar sem formatação:** Página Inicial → setinha abaixo de Colar → **Manter Somente Texto** (terceiro ícone)
+2. **Limpar depois:** Selecione o texto colado → `Ctrl + Espaço` — remove toda a formatação e links
+
+> **Dica do professor:** Na hora de colar, o botão Colar tem três opções: manter formatação original, mesclar formatação, ou manter somente o texto. Use a terceira quando colar da internet.
+
 ### Pincel de Formatação
 
 - Copia a formatação de um trecho e aplica em outro
@@ -139,9 +148,17 @@ Um **estilo** é um conjunto de formatações com um nome. Ao modificar o estilo
 
 ### Como criar um estilo novo
 
-1. Formate um parágrafo manualmente do jeito desejado
-2. Clique na caixa de estilos (mostra o nome do estilo atual)
-3. Digite o nome do novo estilo e pressione Enter
+1. Clique na setinha para baixo na galeria de estilos → **Criar um Estilo**
+2. Dê um nome ao estilo (ex: "Frase Importante")
+3. Clique em **Modificar** para configurar fonte, tamanho, cor, recuo, espaçamento
+4. Em **"Estilo do parágrafo seguinte"**, escolha para qual estilo o Word deve mudar ao pressionar Enter (ex: Normal)
+5. Clique em **OK** — o novo estilo aparece na galeria
+
+> **Dica do professor:** Configure o "estilo do parágrafo seguinte" como Normal nos seus títulos. Assim, ao dar Enter após um título, o Word já muda automaticamente para o estilo de corpo de texto — você não precisa trocar manualmente.
+
+### Por que usar estilos é mais inteligente que formatação manual
+
+Imagine que você formatou 80 títulos manualmente — mudou fonte, tamanho, cor, um por um. Agora o professor pede para mudar a cor de todos os títulos. Com formatação manual, você teria que mudar cada um dos 80. **Com estilos, basta modificar o estilo uma vez e todos os 80 atualizam em 10 segundos.** Além disso, sem estilos o sumário automático (Aula 06) simplesmente não funciona.
 
 ---
 

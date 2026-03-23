@@ -27,6 +27,11 @@ quiz:
     correta: 1
     explicacao: "F9 com o cursor dentro do sumário atualiza os títulos e números de página automaticamente."
     explicacaoErrada: "Clique no sumário e pressione F9, ou clique em 'Atualizar Sumário → Atualizar o índice inteiro'."
+  - pergunta: "Qual a diferença entre notas de rodapé e comentários?"
+    opcoes: ["Não há diferença", "Notas aparecem no documento impresso, comentários não", "Comentários aparecem no documento impresso, notas não", "Ambos aparecem na impressão"]
+    correta: 1
+    explicacao: "Notas de rodapé são para o leitor final e aparecem na impressão. Comentários são para revisão interna e NÃO aparecem na impressão."
+    explicacaoErrada: "Notas de rodapé = para o leitor (impresso). Comentários = para revisão (não impresso). São ferramentas com finalidades diferentes."
 ---
 
 ## Sumário Automático
@@ -83,19 +88,42 @@ Referências .................................................................. 
 
 O cursor vai automaticamente para o rodapé da página onde você digita a nota. O Word numera automaticamente.
 
+> **Dica do professor:** As notas de rodapé servem para o autor conversar com o leitor — explicar um termo técnico, dar uma informação extra que não cabe no parágrafo. Coloque o cursor logo após a palavra que quer explicar e pressione `Alt + Ctrl + F`.
+
+### Comportamento inteligente das notas
+
+Se você adicionar texto e a palavra com a nota de rodapé pular para outra página, **a nota de rodapé pula junto automaticamente**. O Word gerencia a numeração e o posicionamento — você não precisa fazer nada.
+
 ### Notas de fim (Endnotes)
 
 `Referências → Inserir Nota de Fim`
 
 Funcionam igual às notas de rodapé, mas aparecem no final do documento. Usadas em livros e monografias.
 
-### Comentários
+### Comentários — comunicação durante a revisão
 
 `Revisão → Novo Comentário`
 
-- Aparecem na margem direita do documento
-- Usados para revisão colaborativa
-- Não aparecem na impressão por padrão
+Comentários são diferentes de notas de rodapé:
+- **Notas de rodapé** = para o leitor final (aparecem no documento impresso)
+- **Comentários** = para você e outros editores (NÃO aparecem na impressão)
+
+### Como usar comentários
+
+1. Selecione a palavra, frase ou parágrafo que quer comentar
+2. `Revisão → Novo Comentário`
+3. Digite o comentário (ex: "Verificar se este termo está correto")
+4. Clique fora — o comentário fica na margem do documento
+
+### Revisão colaborativa com comentários
+
+- Outros usuários que compartilham o documento (via OneDrive) veem seus comentários em tempo real
+- Cada comentário tem um botão **Responder** — criando uma conversa
+- Use `Revisão → Próximo Comentário / Comentário Anterior` para navegar
+- **Resolver:** aceita o comentário (fica tracejado) · **Excluir:** remove o comentário
+- Clique em **Mostrar Comentários** para ver todos na lateral direita
+
+> **Dica do professor:** Use comentários como lembretes para si mesmo durante a escrita. Por exemplo: "melhorar este parágrafo", "verificar citação", "adicionar dados". Na revisão final, resolva ou exclua todos.
 
 ---
 

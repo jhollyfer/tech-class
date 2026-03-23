@@ -49,6 +49,16 @@ quiz:
 | Paisagem   | Folha horizontal — para tabelas muito largas          |
 | Tamanho A4 | 21 × 29,7 cm — padrão no Brasil                       |
 
+> **Dica do professor:** Se você não sabe o tamanho do papel, pegue uma régua e meça a largura e a altura. Em `Layout → Tamanho → Mais Tamanhos de Papel`, você pode digitar as medidas exatas. Isso evita que a impressão corte o conteúdo.
+
+### Margens para encadernação
+
+Se o documento vai ser encadernado (espiral, grampo), a margem interna precisa ser maior para que o texto não fique escondido na encadernação.
+
+- **Margem espelhada:** `Layout → Margens → Espelhada` — ideal para impressão frente e verso
+- Com margem espelhada, a margem interna (lado da encadernação) fica maior automaticamente
+- Em um livro aberto, a margem do centro é sempre maior que a margem externa
+
 ---
 
 ## Texto em Colunas
@@ -104,6 +114,8 @@ Zonas especiais que se repetem automaticamente em todas as páginas — fora da 
 - **Entrar:** duplo clique na área cinza acima/abaixo do texto — ou `Inserir → Cabeçalho/Rodapé`
 - **Sair:** clique em **"Fechar Cabeçalho e Rodapé"** na Ribbon — ou duplo clique na área de texto
 
+> **Dica do professor:** O duplo clique é a forma mais rápida. Clique duas vezes na parte de cima da página para editar o cabeçalho, duas vezes na parte de baixo para o rodapé. Dois cliques no texto para sair da edição.
+
 ### O que colocar
 
 | Elemento            | Posição sugerida           |
@@ -122,6 +134,13 @@ Em **Formatar Números de Página** você define:
 
 - Algarismos romanos (i, ii, iii) → páginas preliminares
 - Algarismos arábicos (1, 2, 3) → texto principal
+- **Iniciar em:** define o número inicial (ex: começar na página 3 se a capa e sumário não contam)
+
+> **Dica do professor:** Se você quer que a capa seja a página 1 mas sem mostrar o número, use "Primeira Página Diferente" e configure o início da numeração. Assim a contagem continua correta, mas a capa fica limpa.
+
+### Como remover cabeçalho/rodapé de uma quebra
+
+Para exibir e apagar uma quebra de página ou seção: ative os caracteres ocultos (`Ctrl + *`), clique logo após a marca da quebra e pressione `Backspace`.
 
 ### Primeira página sem cabeçalho (capas)
 
