@@ -24,11 +24,11 @@ services:
         max-file: "5"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.tech-class-app.rule=Host(`tech-class.maiyu.com.br`) || Host(`www.tech-class.maiyu.com.br`)"
+      - "traefik.http.routers.tech-class-app.rule=Host(`tech-class.maiyu.com.br`)"
       - "traefik.http.routers.tech-class-app.entrypoints=websecure"
       - "traefik.http.routers.tech-class-app.tls.certresolver=myresolver"
       - "traefik.http.services.tech-class-app.loadbalancer.server.port=3000"
-      - "traefik.http.routers.tech-class-app-http.rule=Host(`tech-class.maiyu.com.br`) || Host(`www.tech-class.maiyu.com.br`)"
+      - "traefik.http.routers.tech-class-app-http.rule=Host(`tech-class.maiyu.com.br`)"
       - "traefik.http.routers.tech-class-app-http.entrypoints=web"
       - "traefik.http.routers.tech-class-app-http.middlewares=https-only@file"
 

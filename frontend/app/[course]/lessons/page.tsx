@@ -4,7 +4,7 @@ import { getCourseConfig, getAllCourseKeys } from "@/lib/courses";
 import type { Lesson } from "@/lib/lessons";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BookOpen, Layers, Infinity, ArrowRight } from "lucide-react";
+import { BookOpen, Layers, Infinity, ArrowRight, ClipboardList } from "lucide-react";
 
 interface PageProps {
   params: Promise<{ course: string }>;
@@ -89,6 +89,16 @@ export default async function CourseLessonsPage({ params }: PageProps) {
               </span>
             </div>
           </div>
+        </div>
+
+        <div className="mt-6">
+          <Link
+            href={`/${course}/quiz-geral`}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-primary)] text-white font-bold text-sm hover:opacity-90 transition-all transform hover:-translate-y-0.5 active:scale-95 shadow-lg"
+          >
+            <ClipboardList className="w-4 h-4" />
+            Quiz Geral
+          </Link>
         </div>
       </header>
 
