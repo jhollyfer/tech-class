@@ -169,3 +169,10 @@ Imagine que você formatou 80 títulos manualmente — mudou fonte, tamanho, cor
 - [ ] Usei o Pincel de Formatação para copiar aparência entre trechos
 - [ ] Apliquei os estilos Título 1, Título 2 e Normal em um documento
 - [ ] Modifiquei um estilo e vi todos os títulos atualizarem automaticamente
+
+---
+
+## Referências
+
+- [Digitação e Formatação Básica (~21min)](https://www.youtube.com/watch?v=JvSVkrDbzf0)
+- [Formatações Baseadas em Estilos (~13min)](https://www.youtube.com/watch?v=ELtk2wmrmQc)

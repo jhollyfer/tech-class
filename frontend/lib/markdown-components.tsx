@@ -1,6 +1,7 @@
 import type { Components } from "react-markdown";
 import { AulaCallout } from "@/components/aula/aula-callout";
 import { MermaidDiagram } from "@/components/aula/mermaid-diagram";
+import { VideoCard } from "@/components/aula/video-card";
 import { slugify } from "@/lib/slugify";
 
 function TruthTableCell({ children }: { children: React.ReactNode }) {
@@ -103,6 +104,21 @@ export function createMarkdownComponents(
         {children}
       </strong>
     ),
+    a: ({ href, children }) => {
+      if (href && /youtube\.com\/watch|youtu\.be\//.test(href)) {
+        return <VideoCard url={href} title={extractText(children)} />;
+      }
+      return (
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[var(--color-primary)] hover:underline"
+        >
+          {children}
+        </a>
+      );
+    },
     blockquote: ({ children }) => {
       const text = extractText(children);
       const infoMatch = text.match(/^\[!info\]\s*([\s\S]*)/);
@@ -222,7 +238,7 @@ function extractText(node: React.ReactNode): string {
   if (typeof node === "string") return node;
   if (typeof node === "number") return String(node);
   if (!node) return "";
-  if (Array.isArray(node)) return node.map(extractText).join("");
+  if (Array.isArray(node)) return node.map(extractText).join("\n");
   if (typeof node === "object" && node !== null && "props" in node) {
     const element = node as React.ReactElement<{
       children?: React.ReactNode;

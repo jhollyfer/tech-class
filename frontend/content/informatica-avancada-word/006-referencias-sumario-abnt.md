@@ -194,3 +194,11 @@ FORBELLONE, A. L.; EBERSPÄCHER, H. Lógica de Programação.
 - [ ] Escrevi uma citação indireta (paráfrase com autor e ano)
 - [ ] Escrevi uma citação direta curta (com aspas, autor, ano e página)
 - [ ] Gerei a bibliografia automática com `Referências → Inserir Bibliografia`
+
+---
+
+## Referências
+
+- [Sumário Automático (~14min)](https://www.youtube.com/watch?v=bmOaFoUoMmU)
+- [Criando Bibliografia ABNT Automática (~15min)](https://www.youtube.com/watch?v=MEeNfX7f1Gg)
+- [Notas de Rodapé e Comentários (~12min)](https://www.youtube.com/watch?v=V0iN-op4_Y0)

@@ -177,3 +177,11 @@ Tabelas no Word são para **organizar informação visualmente**. Cálculos fica
 - [ ] Sei mesclar células e criar cabeçalho da tabela
 - [ ] Sei aplicar estilo de tabela e ativar Linha de Cabeçalho
 - [ ] Sei centralizar texto nas células (Layout → Centro)
+
+---
+
+## Referências
+
+- [Marcas de Tabulação (~13min)](https://www.youtube.com/watch?v=FiSqeGKS5vA)
+- [Listas no Word (~14min)](https://www.youtube.com/watch?v=a3O1J8b5g_Q)
+- [Tabelas no Word (~16min)](https://www.youtube.com/watch?v=LjxXQnU9Mvk)

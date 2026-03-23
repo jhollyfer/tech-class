@@ -161,3 +161,12 @@ Com o cabeçalho da nova seção aberto → desmarcar **"Vincular ao Anterior"**
 - [ ] Criei cabeçalho com nome da escola
 - [ ] Adicionei número de página no rodapé
 - [ ] Ativei "Primeira Página Diferente" para a capa ficar sem cabeçalho
+
+---
+
+## Referências
+
+- [Configurações na Página (~10min)](https://www.youtube.com/watch?v=2aFDaHEjWbM)
+- [Texto em Colunas (~11min)](https://www.youtube.com/watch?v=w3G2pnx5vJY)
+- [Quebras de Texto (~13min)](https://www.youtube.com/watch?v=OLxPKMf7HJI)
+- [Cabeçalho e Rodapé (~10min)](https://www.youtube.com/watch?v=ck-Bx_KAmPg)

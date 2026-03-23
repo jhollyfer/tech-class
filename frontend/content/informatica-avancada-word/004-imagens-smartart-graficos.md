@@ -136,3 +136,10 @@ O Word abre uma mini planilha integrada para digitar os dados. Para editar depoi
 - [ ] Editei o SmartArt pelo painel de texto
 - [ ] Desenhei uma forma e adicionei texto
 - [ ] Inseri um gráfico de colunas com dados de exemplo
+
+---
+
+## Referências
+
+- [Trabalhando com Imagens (~11min)](https://www.youtube.com/watch?v=BSHPpwPz7O0)
+- [Componentes de Design (~11min)](https://www.youtube.com/watch?v=BkJpfmpVMxE)

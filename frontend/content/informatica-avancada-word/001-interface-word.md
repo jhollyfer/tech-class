@@ -213,3 +213,10 @@ Você pode acessar **qualquer comando do Ribbon sem usar o mouse**:
 - [ ] Testei `Ctrl + *` para mostrar caracteres ocultos
 - [ ] Testei o zoom pela Barra de Status e voltei a 100%
 - [ ] Experimentei o Modo de Leitura e voltei para Layout de Impressão
+
+---
+
+## Referências
+
+- [10 Dicas para Word 2016 (~15min)](https://www.youtube.com/watch?v=qVoiU4MMCZ8)
+- [Primeiros Passos no Word 2016 (~13min)](https://www.youtube.com/watch?v=iOlONI3F300)
