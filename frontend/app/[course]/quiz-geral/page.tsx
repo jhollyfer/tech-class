@@ -4,17 +4,6 @@ import { getCourseConfig, getAllCourseKeys } from "@/lib/courses";
 import type { Metadata } from "next";
 import { QuizGeralApp } from "@/components/quiz-geral/quiz-geral-app";
 
-export interface QuizGeralQuestion {
-  lessonTitulo: string;
-  lessonDescricao: string;
-  lessonModulo: string;
-  pergunta: string;
-  opcoes: string[];
-  correta: number;
-  explicacao: string;
-  explicacaoErrada: string;
-}
-
 interface PageProps {
   params: Promise<{ course: string }>;
 }
@@ -31,7 +20,7 @@ export async function generateMetadata({
   if (!config) return { title: "Curso não encontrado" };
   return {
     title: `Quiz Geral — ${config.label} com ${config.language}`,
-    description: `Quiz geral de ${config.label} com ${config.language} — todas as perguntas do curso.`,
+    description: `Quiz geral de ${config.label} com ${config.language} — tempo real com WebSocket.`,
   };
 }
 
@@ -41,26 +30,14 @@ export default async function QuizGeralPage({ params }: PageProps) {
   if (!config) notFound();
 
   const lessons = getAllLessonsByDir(config.dir);
-
-  const questions: QuizGeralQuestion[] = lessons.flatMap((lesson) =>
-    lesson.quiz.map((q) => ({
-      lessonTitulo: lesson.titulo,
-      lessonDescricao: lesson.descricao,
-      lessonModulo: lesson.modulo,
-      pergunta: q.pergunta,
-      opcoes: q.opcoes,
-      correta: q.correta,
-      explicacao: q.explicacao,
-      explicacaoErrada: q.explicacaoErrada,
-    })),
-  );
+  const questionCount = lessons.reduce((sum, l) => sum + l.quiz.length, 0);
 
   return (
     <QuizGeralApp
-      questions={questions}
       courseSlug={course}
       courseLabel={config.label}
       courseLanguage={config.language}
+      questionCount={questionCount}
     />
   );
 }

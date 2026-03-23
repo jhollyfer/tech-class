@@ -28,8 +28,18 @@ COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
+# Content files for WebSocket server to read quiz questions
+COPY --from=builder --chown=nextjs:nodejs /app/content ./content
+
+# Custom server with WebSocket support
+COPY --from=builder --chown=nextjs:nodejs /app/server.custom.js ./server.custom.js
+COPY --from=builder --chown=nextjs:nodejs /app/ws-server.js ./ws-server.js
+
+# ws package (not traced by Next.js standalone)
+COPY --from=builder --chown=nextjs:nodejs /app/node_modules/ws ./node_modules/ws
+
 USER nextjs
 
 EXPOSE 3000
 
-CMD ["node", "server.js"]
+CMD ["node", "server.custom.js"]
