@@ -1,4 +1,4 @@
-name: ${ENVIRONMENT:-production}-tech-class
+name: tech-class
 
 services:
   api:
