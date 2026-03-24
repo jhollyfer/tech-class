@@ -151,3 +151,9 @@ console.log(resultado); // → 90
 
 > [!sucesso]
 > **Resumo:** `filter` seleciona, `map` transforma, `reduce` acumula, `find` busca um, `some`/`every` verificam. Nenhum muda o array original.
+
+## Referências
+
+- [Array.prototype.map() - MDN Web Docs](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/map) — documentação de map, filter, reduce e outros métodos funcionais
+- [JavaScript Array Methods - W3Schools](https://www.w3schools.com/js/js_array_methods.asp) — tutorial interativo sobre filter, map, reduce, find, some e every
+- [Métodos de Array (map, filter, reduce) - Filipe Deschamps](https://www.youtube.com/watch?v=NhHB79zSTdg) — vídeo explicando os principais métodos funcionais de arrays

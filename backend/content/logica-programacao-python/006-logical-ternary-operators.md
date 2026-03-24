@@ -33,146 +33,112 @@ quiz:
     explicacaoErrada: "Precedência: and primeiro, or depois. True and False = False, depois False or True = True."
 ---
 
-## Operadores Lógicos
+## O que sao operadores logicos?
 
-Python usa palavras em vez de símbolos:
+Operadores logicos combinam condicoes. Em vez de simbolos como `&&` e `||`, Python usa palavras: `and`, `or` e `not`. Mais facil de ler, mais facil de entender.
 
-| Python | Outras linguagens | Significado |
-| --- | --- | --- |
-| `and` | `&&` | E — ambos verdadeiros |
-| `or` | `\|\|` | OU — pelo menos um verdadeiro |
-| `not` | `!` | NÃO — inverte |
+> [!info]
+> Precedencia dos operadores logicos: `not` primeiro, depois `and`, depois `or`. Na duvida, use parenteses.
+
+## and -- os dois precisam ser True
+
+`and` so retorna `True` se **ambas** as condicoes forem verdadeiras:
 
 ```python
-# and — os DOIS precisam ser True
 print(True and True)    # → True
 print(True and False)   # → False
-
-# or — pelo menos UM precisa ser True
-print(True or False)    # → True
-print(False or False)   # → False
-
-# not — inverte
-print(not True)         # → False
-print(not False)        # → True
+print(False and True)   # → False
+print(False and False)  # → False
 ```
 
-## Tabelas Verdade
-
-### and
-
-| A | B | A and B |
-| --- | --- | --- |
-| True | True | **True** |
-| True | False | False |
-| False | True | False |
-| False | False | False |
-
-> [!info]
-> `and` só dá True quando **os dois** são True.
-
-### or
-
-| A | B | A or B |
-| --- | --- | --- |
-| True | True | True |
-| True | False | True |
-| False | True | True |
-| False | False | **False** |
-
-> [!info]
-> `or` só dá False quando **os dois** são False.
-
-## Exemplos do dia a dia
+Na pratica:
 
 ```python
 idade = 25
 tem_carteira = True
-saldo = 1500.0
 
-# Pode alugar carro? (precisa dos dois)
 pode_alugar = idade >= 21 and tem_carteira
-print(f"Pode alugar: {pode_alugar}")  # → True
-
-# Tem desconto? (jovem OU idoso)
-tem_desconto = idade < 18 or idade >= 65
-print(f"Desconto: {tem_desconto}")  # → False
-
-# Está no verde? (saldo positivo)
-no_verde = not (saldo < 0)
-print(f"No verde: {no_verde}")  # → True
+print(f"Pode alugar: {pode_alugar}")  # → Pode alugar: True
 ```
 
-## Precedência: not > and > or
+## or -- pelo menos um precisa ser True
+
+`or` retorna `True` se **qualquer uma** das condicoes for verdadeira:
 
 ```python
-resultado = True or False and not False
-# 1. not False → True
-# 2. False and True → False
-# 3. True or False → True
-print(resultado)  # → True
+print(True or False)    # → True
+print(False or True)    # → True
+print(False or False)   # → False
 ```
 
-> [!sucesso]
-> Use parênteses quando misturar `and` e `or`. Fica mais claro e evita bugs.
+Na pratica:
+
+```python
+idade = 25
+tem_desconto = idade < 18 or idade >= 65
+print(f"Desconto: {tem_desconto}")  # → Desconto: False
+```
+
+## not -- inverte o valor
+
+`not` simplesmente inverte: `True` vira `False` e vice-versa.
+
+```python
+print(not True)   # → False
+print(not False)  # → True
+
+saldo = 1500.0
+no_verde = not (saldo < 0)
+print(f"No verde: {no_verde}")  # → No verde: True
+```
 
 ## Curto-circuito
 
-Python é esperto: se já sabe o resultado, não avalia o resto.
-
-### and — para no primeiro False
+Python e esperto: se ja sabe o resultado, ele **para de avaliar** o resto da expressao. Isso se chama curto-circuito.
 
 ```python
-# Se o primeiro é False, nem olha o segundo
+# and para no primeiro False
 divisor = 0
 if divisor != 0 and 10 / divisor > 2:
     print("OK")
-# divisor != 0 já é False, então 10/divisor NÃO é avaliado (evita erro!)
-```
+# divisor != 0 ja e False, entao 10/divisor NAO e avaliado (evita erro!)
 
-### or — para no primeiro True
+# or para no primeiro True
+nome = "" or "Anonimo"
+print(nome)  # → Anonimo
 
-```python
-# Se o primeiro é True, nem olha o segundo
-nome = "" or "Anônimo"
-print(nome)  # → Anônimo (string vazia é "falso")
-
-nome = "Carlos" or "Anônimo"
+nome = "Carlos" or "Anonimo"
 print(nome)  # → Carlos
 ```
 
-### and e or retornam o valor real, não só True/False
+Detalhe importante: `and` e `or` retornam o **valor real**, nao so `True`/`False`:
 
 ```python
-print(1 and 2 and 3)     # → 3 (todos "verdadeiros", retorna o último)
-print(1 and 0 and 3)     # → 0 (0 é "falso", para ali)
-print(0 or "" or "Olá")  # → "Olá" (primeiro "verdadeiro")
+print(1 and 2 and 3)     # → 3
+print(1 and 0 and 3)     # → 0
+print(0 or "" or "Ola")  # → Ola
 ```
 
-## Operador Ternário
+> [!sucesso]
+> Use `valor or "padrao"` como um valor padrao rapido. Se `valor` for falsy (vazio, zero, None), o padrao entra no lugar.
 
-Um `if/else` em uma linha só:
+## Operador ternario
+
+O ternario e um atalho pra escrever um `if/else` em uma linha so. A sintaxe e: `valor_se_true if condicao else valor_se_false`.
 
 ```python
-# Sintaxe: valor_se_true if condição else valor_se_false
-
 idade = 20
 status = "maior" if idade >= 18 else "menor"
 print(status)  # → maior
-```
 
-### Exemplos práticos
-
-```python
 nota = 7.5
 resultado = "Aprovado" if nota >= 7 else "Reprovado"
 print(resultado)  # → Aprovado
+```
 
-numero = 15
-paridade = "par" if numero % 2 == 0 else "ímpar"
-print(f"{numero} é {paridade}")  # → 15 é ímpar
+Funciona dentro de f-strings tambem:
 
-# Dentro de f-strings
+```python
 saldo = -50
 print(f"Status: {'positivo' if saldo >= 0 else 'negativo'}")
 # → Status: negativo
@@ -183,54 +149,39 @@ print(f"{qtd} item" if qtd == 1 else f"{qtd} itens")
 # → 1 item
 ```
 
-### Ternário encadeado (use com moderação)
-
-```python
-nota = 8.5
-conceito = (
-    "A" if nota >= 9 else
-    "B" if nota >= 7 else
-    "C" if nota >= 5 else
-    "D"
-)
-print(conceito)  # → B
-```
-
 > [!alerta]
-> Se ficar confuso, use `if/elif/else` normal. Legibilidade vem primeiro.
+> Se o ternario ficar confuso ou longo demais, use `if/elif/else` normal. Legibilidade vem primeiro.
 
-## Exemplo: Validação de formulário
+## Tabela resumo
+
+| Operador | O que faz | Exemplo | Resultado |
+|----------|-----------|---------|-----------|
+| `and` | Ambos True | `True and False` | `False` |
+| `or` | Pelo menos um True | `True or False` | `True` |
+| `not` | Inverte | `not True` | `False` |
+| ternario | if inline | `"sim" if True else "nao"` | `"sim"` |
+
+## Exemplo pratico: validacao de formulario
 
 ```python
-print("=== Cadastro ===\n")
-
 nome = input("Nome: ")
-email = input("E-mail: ")
-idade = int(input("Idade: "))
-senha = input("Senha: ")
+idade_str = input("Idade: ")
+email = input("Email: ")
 
-nome_ok = len(nome) >= 2
-email_ok = "@" in email and "." in email
-idade_ok = 13 <= idade <= 120
-senha_ok = len(senha) >= 6
+nome_valido = len(nome) >= 2
+idade_valida = idade_str.isdigit() and int(idade_str) >= 18
+email_valido = "@" in email and "." in email
 
-print("\n--- Validação ---")
-print(f"Nome:  {'OK' if nome_ok else 'Mínimo 2 caracteres'}")
-print(f"Email: {'OK' if email_ok else 'Deve conter @ e .'}")
-print(f"Idade: {'OK' if idade_ok else 'Entre 13 e 120'}")
-print(f"Senha: {'OK' if senha_ok else 'Mínimo 6 caracteres'}")
+tudo_ok = nome_valido and idade_valida and email_valido
 
-tudo_ok = nome_ok and email_ok and idade_ok and senha_ok
-print(f"\nCadastro: {'Aprovado!' if tudo_ok else 'Corrija os erros.'}")
+status = "Cadastro aprovado!" if tudo_ok else "Dados invalidos."
+print(status)
 ```
 
-## Resumo
+Cada validacao e uma condicao simples. O `and` combina todas no final. O ternario decide a mensagem.
 
-| Conceito | Sintaxe | O que faz |
-| --- | --- | --- |
-| E lógico | `and` | Ambos devem ser True |
-| OU lógico | `or` | Pelo menos um True |
-| NÃO lógico | `not` | Inverte o valor |
-| Ternário | `a if cond else b` | if/else em uma linha |
-| Precedência | `not > and > or` | Ordem de avaliação |
-| Curto-circuito | `and` para no False, `or` para no True | Otimização automática |
+## Referencias
+
+- [Boolean Operations](https://docs.python.org/3/library/stdtypes.html#boolean-operations-and-or-not) -- documentacao oficial
+- [Conditional Expressions](https://docs.python.org/3/reference/expressions.html#conditional-expressions) -- operador ternario na doc oficial
+- [Curso Python #10 - Condicoes](https://www.youtube.com/watch?v=K10u3XIf1-Q) -- Curso em Video, PT-BR

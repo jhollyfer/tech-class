@@ -196,3 +196,9 @@ const notas: number[] = [8.5, 6.0, 9.2, 4.5, 7.0, 5.5, 8.0, 3.0];
 
 > [!info]
 > Na próxima aula, você vai aprender a encapsular essa lógica em funções reutilizáveis.
+
+## Referências
+
+- [Array - MDN Web Docs](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array) — documentação completa de arrays com todos os métodos disponíveis
+- [JavaScript Arrays - W3Schools](https://www.w3schools.com/js/js_arrays.asp) — tutorial interativo sobre criação, acesso e manipulação de arrays
+- [Arrays em JavaScript - Curso em Vídeo](https://www.youtube.com/watch?v=defBuY0nLrc) — aula sobre arrays, índices e métodos push, pop, shift e splice

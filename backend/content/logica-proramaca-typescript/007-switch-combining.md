@@ -204,3 +204,9 @@ function podeVotar(idade: number, tituloAtivo: boolean): string {
 | Combinar condições | `&&`, `\|\|`, `!` |
 | Validações antes da lógica principal | Guard clauses |
 | Mais de 2 níveis de aninhamento | Refatore com guard clauses |
+
+## Referências
+
+- [switch - MDN Web Docs](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/switch) — documentação oficial do switch/case com exemplos de fall-through e default
+- [JavaScript Switch Statement - W3Schools](https://www.w3schools.com/js/js_switch.asp) — tutorial interativo sobre switch/case e quando usá-lo
+- [Switch Case em JavaScript - Curso em Vídeo](https://www.youtube.com/watch?v=HB1aPYPPJ24) — vídeo explicando switch/case e combinação com operadores lógicos

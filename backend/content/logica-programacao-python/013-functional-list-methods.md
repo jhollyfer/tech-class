@@ -33,117 +33,98 @@ quiz:
     explicacaoErrada: "Use sum(numeros). É uma função do Python, não um método da lista."
 ---
 
-## Ideia Central
+## O que sao metodos funcionais?
 
-Essas funções processam listas **sem modificar os dados originais**. Pense nelas como máquinas numa linha de produção: os dados entram, são processados, e saem novos dados.
+Essas funcoes processam listas sem modificar os dados originais. Os dados entram, sao transformados ou filtrados, e saem como dados novos. A lista original fica intacta.
 
-## filter() — Selecionar
+As tres principais sao: `filter()` seleciona elementos, `map()` transforma elementos e `sorted()` ordena elementos.
 
-Passa uma função que retorna True/False. Só quem passa no teste fica:
+> [!info]
+> `filter()` e `map()` retornam objetos especiais (iteradores). Use `list()` para converter o resultado em lista.
+
+## filter -- seleciona quem passa no teste
+
+O `filter()` recebe uma funcao e uma lista. So passam os itens que retornam `True`:
 
 ```python
 numeros: list[int] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-
 pares: list[int] = list(filter(lambda x: x % 2 == 0, numeros))
-print(pares)     # → [2, 4, 6, 8, 10]
-print(numeros)   # → [1, 2, 3, ...] (original intacta!)
+print(pares)    # → [2, 4, 6, 8, 10]
+print(numeros)  # → [1, 2, 3, ...] (original intacta!)
 ```
 
 ```python
-notas: list[float] = [8.5, 4.0, 7.0, 3.5, 9.2, 6.0, 5.5]
-
+notas: list[float] = [8.5, 4.0, 7.0, 3.5, 9.2, 6.0]
 aprovados: list[float] = list(filter(lambda n: n >= 7.0, notas))
 print(aprovados)  # → [8.5, 7.0, 9.2]
-
-palavras: list[str] = ["amor", "brisa", "estrela", "ilha", "nuvem", "oceano"]
-com_vogal: list[str] = list(filter(lambda p: p[0] in "aeiou", palavras))
-print(com_vogal)  # → ["amor", "estrela", "ilha", "oceano"]
 ```
 
-## map() — Transformar
+## map -- transforma cada elemento
 
-Aplica uma função a **cada elemento** e retorna os resultados:
+O `map()` aplica uma funcao em cada item e retorna os resultados:
 
 ```python
 numeros: list[int] = [1, 2, 3, 4, 5]
-
 dobros: list[int] = list(map(lambda x: x * 2, numeros))
-print(dobros)    # → [2, 4, 6, 8, 10]
-print(numeros)   # → [1, 2, 3, 4, 5] (original intacta!)
+print(dobros)  # → [2, 4, 6, 8, 10]
 ```
 
 ```python
 nomes: list[str] = ["ana", "bruno", "carla"]
 maiusculos: list[str] = list(map(lambda n: n.upper(), nomes))
 print(maiusculos)  # → ["ANA", "BRUNO", "CARLA"]
-
-notas: list[float] = [8.5, 7.0, 9.2]
-formatadas: list[str] = list(map(lambda n: f"Nota: {n:.1f}", notas))
-print(formatadas)  # → ["Nota: 8.5", "Nota: 7.0", "Nota: 9.2"]
 ```
 
-## Combinando filter() + map()
+## Combinando filter + map
 
 Primeiro filtra, depois transforma:
 
 ```python
-numeros: list[int] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-
-# Pegar pares e elevar ao quadrado
+numeros: list[int] = [1, 2, 3, 4, 5]
 resultado: list[int] = list(map(lambda x: x ** 2, filter(lambda x: x % 2 == 0, numeros)))
-print(resultado)  # → [4, 16, 36, 64, 100]
+print(resultado)  # → [4, 16]
 ```
 
-## sorted() — Ordenar sem Alterar
+> [!info]
+> A leitura fica de dentro pra fora: primeiro o `filter` roda, depois o `map` transforma. Se ficar confuso, use list comprehension: `[x ** 2 for x in numeros if x % 2 == 0]`.
 
-Retorna uma **lista nova** ordenada:
+## sorted -- ordena sem alterar o original
+
+`sorted()` cria uma lista nova, ordenada:
 
 ```python
 notas: list[float] = [8.5, 4.0, 7.0, 3.5, 9.2]
 
 crescente: list[float] = sorted(notas)
 print(crescente)  # → [3.5, 4.0, 7.0, 8.5, 9.2]
+print(notas)      # → [8.5, 4.0, 7.0, 3.5, 9.2] (original intacta!)
 
 decrescente: list[float] = sorted(notas, reverse=True)
 print(decrescente)  # → [9.2, 8.5, 7.0, 4.0, 3.5]
-
-print(notas)  # → [8.5, 4.0, 7.0, 3.5, 9.2] (original intacta!)
 ```
 
-### sorted() vs sort()
+Com `key` voce define o criterio de ordenacao:
+
+```python
+nomes: list[str] = ["Carlos", "ana", "Bruno"]
+por_nome: list[str] = sorted(nomes, key=lambda n: n.lower())
+print(por_nome)  # → ["ana", "Bruno", "Carlos"]
+```
+
+## sort vs sorted
 
 ```python
 numeros: list[int] = [5, 2, 8, 1, 9]
-
-# sort() — MUDA a lista original
-numeros.sort()
-print(numeros)  # → [1, 2, 5, 8, 9] (mudou!)
-
-# sorted() — CRIA lista nova
-numeros2: list[int] = [5, 2, 8, 1, 9]
-ordenados: list[int] = sorted(numeros2)
-print(numeros2)    # → [5, 2, 8, 1, 9] (não mudou)
+numeros.sort()       # MUDA a lista original
+print(numeros)       # → [1, 2, 5, 8, 9]
 ```
 
-> [!alerta] `sort()` muda a lista original. `sorted()` cria uma nova. Na dúvida, use `sorted()`.
+> [!alerta]
+> `sort()` muda a lista original e retorna `None`. `sorted()` cria uma lista nova. Na duvida, use `sorted()` para nao perder os dados originais.
 
-### Ordenação com key
+## sum, max, min -- funcoes built-in
 
-```python
-nomes: list[str] = ["Carlos", "ana", "Bruno", "diana"]
-
-# Ignorar maiúsculas
-ordenados: list[str] = sorted(nomes, key=lambda n: n.lower())
-print(ordenados)  # → ["ana", "Bruno", "Carlos", "diana"]
-
-# Por tamanho
-por_tamanho: list[str] = sorted(nomes, key=lambda n: len(n))
-print(por_tamanho)  # → ["ana", "Bruno", "Carlos", "diana"]
-```
-
-## sum(), max(), min()
-
-Funções prontas do Python:
+Calculos rapidos sem precisar de loop:
 
 ```python
 notas: list[float] = [8.5, 7.0, 9.2, 6.8, 7.5]
@@ -153,43 +134,38 @@ print(max(notas))   # → 9.2
 print(min(notas))   # → 6.8
 
 media: float = sum(notas) / len(notas)
-print(f"Média: {media:.1f}")  # → Média: 7.8
+print(f"Media: {media:.1f}")  # → Media: 7.8
 ```
+
+## Exercicio pratico
+
+Dada uma lista de produtos com nome e preco:
+
+1. Filtre os produtos com preco acima de 50
+2. Crie uma lista so com os nomes (use map)
+3. Ordene por preco crescente
 
 ```python
-palavras: list[str] = ["sol", "estrela", "lua", "universo"]
+produtos: list[tuple[str, float]] = [
+    ("Teclado", 120.0),
+    ("Mouse", 45.0),
+    ("Monitor", 890.0),
+    ("Cabo USB", 15.0),
+    ("Headset", 200.0),
+]
 
-mais_longa: str = max(palavras, key=lambda p: len(p))
-print(mais_longa)  # → "universo"
+# 1. list(filter(lambda p: p[1] > 50, produtos))
 
-mais_curta: str = min(palavras, key=lambda p: len(p))
-print(mais_curta)  # → "sol"
+# 2. list(map(lambda p: p[0], produtos))
+
+# 3. sorted(produtos, key=lambda p: p[1])
 ```
 
-## Funcional vs List Comprehension
+> [!sucesso]
+> Se voce consegue encadear `filter` e `map`, ja esta pensando de forma funcional. Na proxima aula, vamos criar funcoes proprias com `def`.
 
-```python
-numeros: list[int] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+## Referencias
 
-# filter + map
-pares_dobro: list[int] = list(map(lambda x: x * 2, filter(lambda x: x % 2 == 0, numeros)))
-
-# List comprehension (mais legível)
-pares_dobro: list[int] = [x * 2 for x in numeros if x % 2 == 0]
-
-# Ambos: [4, 8, 12, 16, 20]
-```
-
-> [!info] List comprehension costuma ser mais legível. Use filter/map quando já tiver funções prontas.
-
-## Resumo
-
-| Função | O que faz | Altera original? |
-| --- | --- | --- |
-| `filter(fn, lista)` | Seleciona elementos | Não |
-| `map(fn, lista)` | Transforma elementos | Não |
-| `sorted(lista)` | Ordena elementos | Não |
-| `lista.sort()` | Ordena elementos | **Sim** |
-| `sum(lista)` | Soma todos | Não |
-| `max(lista)` | Retorna o maior | Não |
-| `min(lista)` | Retorna o menor | Não |
+- [Funcoes built-in](https://docs.python.org/pt-br/3/library/functions.html) -- documentacao oficial (filter, map, sorted, sum, max, min)
+- [Python's filter(): Extract Values From Iterables](https://realpython.com/python-filter-function/) -- guia completo no Real Python
+- [Curso Python #16 - Funcoes (Parte 1)](https://www.youtube.com/watch?v=ezfr9d7wd_k) -- Curso em Video

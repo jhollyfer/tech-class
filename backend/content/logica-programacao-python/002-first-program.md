@@ -33,138 +33,148 @@ quiz:
     explicacaoErrada: "O comando correto é python programa.py."
 ---
 
-## Exibindo coisas com print()
+## O que e o Python?
 
-`print()` mostra informações no terminal. Pense nele como o "falar" do Python.
+Python e uma linguagem de programacao simples e poderosa. Voce escreve instrucoes num arquivo `.py` e o computador executa linha por linha, de cima pra baixo.
+
+Pra comecar, voce so precisa de tres coisas: `print()` pra mostrar algo na tela, `input()` pra ler o que o usuario digita, e `#` pra deixar comentarios no codigo.
+
+> [!info]
+> Para rodar um arquivo Python, salve com extensao `.py` e execute no terminal com `python arquivo.py` (ou `python3` em alguns sistemas).
+
+## print() -- mostrando coisas na tela
+
+`print()` e a funcao mais basica do Python. Ela recebe um valor e exibe no terminal.
 
 ```python
-print("Olá, mundo!")  # → Olá, mundo!
+print("Ola, mundo!")  # → Ola, mundo!
 print(42)             # → 42
 print(3.14)           # → 3.14
-print(True)           # → True
 ```
 
-Pode passar vários valores separados por vírgula:
+Voce pode passar varios valores separados por virgula. O Python coloca um espaco entre eles automaticamente:
 
 ```python
-print("Meu nome é", "Ana", "e tenho", 25, "anos")
-# → Meu nome é Ana e tenho 25 anos
+print("Nome:", "Ana", "- Idade:", 25)
+# → Nome: Ana - Idade: 25
 ```
 
-### Personalizando separador e final
+Da pra personalizar o separador e o final da linha:
 
 ```python
-print("Python", "é", "legal", sep="-")
-# → Python-é-legal
+print("Python", "e", "legal", sep="-")
+# → Python-e-legal
 
 print("Carregando", end="...")
 print("Pronto!")
 # → Carregando...Pronto!
 ```
 
-## Comentários
+| Parametro | O que faz | Padrao |
+|-----------|-----------|--------|
+| `sep` | Separador entre os valores | `" "` (espaco) |
+| `end` | O que vem no final da linha | `"\n"` (quebra de linha) |
 
-Tudo depois do `#` é ignorado pelo Python. Serve para anotar o código.
+## Comentarios com #
+
+Comentarios sao anotacoes no codigo que o Python ignora completamente. Servem pra voce (e pra quem for ler depois) entender o que aquele trecho faz.
 
 ```python
-# Isto é um comentário
-print("Olá")  # Comentário ao lado do código
+# Isto e um comentario -- Python ignora tudo depois do #
+print("Ola")  # Comentario ao lado do codigo
 
 # Desativar uma linha temporariamente:
-# print("Esta linha não roda")
+# print("Esta linha nao roda")
 ```
 
 > [!info]
-> Python não tem comentários de bloco como `/* */`. Para várias linhas, use `#` em cada uma.
+> Use comentarios pra explicar o **porque**, nao o **o que**. O codigo ja mostra o que ele faz -- o comentario explica a intencao.
 
-## Lendo dados com input()
+## input() -- lendo dados do usuario
 
-`input()` pausa o programa e espera o usuário digitar algo. Sempre retorna **texto** (string).
+`input()` pausa o programa e espera o usuario digitar algo. O que ele digitar volta como **string** (texto).
 
 ```python
-nome = input("Qual é o seu nome? ")
-print("Olá,", nome)
-# Qual é o seu nome? Maria
-# → Olá, Maria
+nome = input("Qual e o seu nome? ")
+print("Ola,", nome)
+# Qual e o seu nome? Maria
+# → Ola, Maria
 ```
 
-> [!alerta]
-> input() **sempre** retorna string, mesmo se o usuário digitar um número!
+Mesmo que o usuario digite um numero, `input()` retorna texto:
 
 ```python
-idade = input("Qual sua idade? ")
+idade = input("Sua idade? ")
 print(type(idade))  # → <class 'str'>
 ```
 
-### Convertendo para número
+> [!alerta]
+> `input()` **sempre** retorna string. Se voce digitar `42`, vem `"42"` (texto). Para fazer contas, converta com `int()` ou `float()`.
+
+## Convertendo a entrada do usuario
+
+Para trabalhar com numeros vindos do `input()`, voce precisa converter antes de usar:
 
 ```python
-idade = int(input("Qual sua idade? "))
-print("No ano que vem:", idade + 1, "anos")
+idade = int(input("Sua idade? "))
+print("Ano que vem:", idade + 1)
+# Sua idade? 20
+# → Ano que vem: 21
 
 altura = float(input("Sua altura em metros? "))
-print("Sua altura:", altura)
+print("Altura:", altura)
+# Sua altura em metros? 1.75
+# → Altura: 1.75
 ```
 
-## Exemplo: Calculadora de Idade
+## f-strings -- texto com variaveis
+
+O `f` antes das aspas cria uma **f-string**. Ela permite colocar variaveis e expressoes dentro do texto usando `{}`:
 
 ```python
-# programa.py
-
-print("=== Calculadora de Idade ===")
-print()
-
-nome = input("Qual é o seu nome? ")
-ano_nascimento = int(input("Em que ano você nasceu? "))
-
-idade = 2026 - ano_nascimento
-
-print()
-print("Olá,", nome + "!")
-print("Você tem (ou fará)", idade, "anos em 2026.")
+nome = "Ana"
+idade = 22
+print(f"Meu nome e {nome} e tenho {idade} anos")
+# → Meu nome e Ana e tenho 22 anos
 ```
 
-## Exemplo: Conversor de temperatura
+## Erros comuns
+
+```python
+# Somar string com numero
+idade = input("Idade: ")    # retorna string
+# print(idade + 1)          # TypeError!
+
+# Correto: converter antes
+idade = int(input("Idade: "))
+print(idade + 1)             # → funciona!
+
+# Esquecer os parenteses
+# print "Ola"               # SyntaxError!
+
+# Correto: sempre usar parenteses
+print("Ola")                 # → Ola
+```
+
+## Exemplo pratico: conversor de temperatura
 
 ```python
 # conversor.py
 
 celsius = float(input("Temperatura em Celsius: "))
 
-# Fórmula: F = C × 9/5 + 32
+# Formula: F = C x 9/5 + 32
 fahrenheit = celsius * 9 / 5 + 32
 
 print(f"{celsius}°C = {fahrenheit}°F")
+# Temperatura em Celsius: 100
+# → 100.0°C = 212.0°F
 ```
 
-> [!info]
-> O `f` antes das aspas cria uma **f-string** — permite colocar variáveis dentro do texto com `{}`.
+`celsius` vem do `input()` e precisa de `float()` porque temperatura pode ter decimais. A f-string monta o resultado final de forma legivel.
 
-## Erros comuns
+## Referencias
 
-```python
-# ❌ Somar string com número
-idade = input("Idade: ")    # retorna string
-# print(idade + 1)          # TypeError!
-
-# ✅ Converter antes
-idade = int(input("Idade: "))
-print(idade + 1)             # → funciona!
-
-# ❌ Esquecer os parênteses
-# print "Olá"               # SyntaxError!
-
-# ✅ Sempre usar parênteses
-print("Olá")
-```
-
-## Resumo
-
-| Conceito | Exemplo |
-| --- | --- |
-| Exibir na tela | `print("texto")` |
-| Ler do usuário | `input("mensagem")` |
-| Comentário | `# texto ignorado` |
-| Converter para inteiro | `int(input("número: "))` |
-| Converter para decimal | `float(input("decimal: "))` |
-| Executar arquivo | `python arquivo.py` |
+- [Built-in Functions: print()](https://docs.python.org/3/library/functions.html#print) -- documentacao oficial do print()
+- [Built-in Functions: input()](https://docs.python.org/3/library/functions.html#input) -- documentacao oficial do input()
+- [Curso Python #03 - Primeiro Programa](https://www.youtube.com/watch?v=RWRnIGo-qMc) -- Curso em Video, PT-BR

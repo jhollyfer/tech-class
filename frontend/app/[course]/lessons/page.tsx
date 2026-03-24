@@ -38,7 +38,12 @@ export default async function CourseLessonsPage({ params }: PageProps) {
   const config = getCourseConfig(course);
   if (!config) notFound();
 
-  const lessons = await getAllLessons(course);
+  let lessons: LessonSummary[] = [];
+  try {
+    lessons = await getAllLessons(course);
+  } catch {
+    // Backend offline — render with empty lessons
+  }
   const modulos = groupByModulo(lessons);
   let aulaIndex = 0;
 

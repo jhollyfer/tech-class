@@ -33,139 +33,93 @@ quiz:
     explicacaoErrada: "ABNT pede 1,5 linhas (Ctrl + 5)."
 ---
 
-## Formatação de Fonte
+## O que voce vai ver aqui?
 
-Tudo fica em **Página Inicial → grupo Fonte**.
-Atalho para abrir todas as opções: `Ctrl + D`.
+Formatar um documento envolve tres niveis: a **fonte** (aparencia dos caracteres), o **paragrafo** (alinhamento e espacamento) e os **estilos** (conjuntos de formatacao com nome). Dominar esses tres e o que separa um documento amador de um profissional.
 
-### Tipos de fonte
+A dica de ouro: estilos sao o recurso mais poderoso do Word. Em vez de formatar titulo por titulo na mao, voce aplica um estilo e muda tudo de uma vez. E mais — o sumario automatico so funciona se voce usar estilos.
 
-| Tipo          | Exemplos                  | Quando usar             |
-|---------------|---------------------------|-------------------------|
-| Com serifa    | Times New Roman, Garamond | Acadêmicos e formais    |
-| Sem serifa    | Arial, Calibri            | Modernos e digitais     |
-| Monoespaçada  | Courier New               | Código e texto técnico  |
+## Formatando a fonte
 
-> [!info] Use no máximo 2 fontes por documento.
+A fonte e o nivel mais basico de formatacao: negrito, italico, tamanho, cor, tipo de letra.
 
-### Atalhos de caractere
+1. Selecione o texto que quer formatar
+2. Use o grupo **Fonte** na aba **Pagina Inicial**, ou pressione `Ctrl + D` para abrir a caixa completa
 
-| Atalho          | Efeito            |
-|-----------------|--------------------|
-| `Ctrl + N`      | **Negrito**        |
-| `Ctrl + I`      | _Itálico_          |
-| `Ctrl + S`      | Sublinhado         |
-| `Ctrl + D`      | Janela Fonte       |
-| `Ctrl + Espaço` | Limpar formatação  |
-| `Ctrl + ]`      | Aumentar fonte     |
-| `Ctrl + [`      | Diminuir fonte     |
+| Atalho | O que faz |
+|--------|-----------|
+| `Ctrl + N` | Negrito |
+| `Ctrl + I` | Italico |
+| `Ctrl + S` | Sublinhado |
+| `Ctrl + ]` | Aumentar fonte (1pt por vez) |
+| `Ctrl + [` | Diminuir fonte (1pt por vez) |
+| `Ctrl + Espaco` | Limpar toda formatacao de fonte |
 
-### Limpar formatação de texto colado da internet
+> [!info]
+> `Ctrl + Espaco` e seu melhor amigo quando a formatacao vira uma bagunca. Ele reseta tudo e volta pro estilo base.
 
-Texto copiado da internet vem com formatação bagunçada. Duas soluções:
+## Colando texto da internet (sem sujeira)
 
-1. **Colar limpo:** **Página Inicial → setinha de Colar → Manter Somente Texto**
-2. **Limpar depois:** selecione o texto → `Ctrl + Espaço`
+Quando voce copia texto de um site e cola no Word, vem junto um monte de formatacao indesejada — fontes estranhas, cores, tamanhos diferentes. Pra evitar isso:
 
-> [!info] Na hora de colar, use o terceiro ícone (Manter Somente Texto) para textos da internet.
+1. Copie o texto normalmente com `Ctrl + C`
+2. No Word, va em **Pagina Inicial** e clique na **setinha** abaixo de **Colar**
+3. Escolha **Manter Somente Texto** (terceiro icone)
 
-### Pincel de Formatação
+Pronto. O texto vem limpo e assume a formatacao do seu documento.
 
-Copia a formatação de um trecho e aplica em outro. Ícone de pincel em **Área de Transferência**.
+## Configurando paragrafo ABNT
 
-- **1 clique** = aplica em um trecho
-- **Duplo clique** = modo contínuo (vários trechos)
-
----
-
-## Formatação de Parágrafo
-
-Acesse em **Página Inicial → grupo Parágrafo** ou botão direito → **Parágrafo**.
-
-### O erro mais comum
-
-> [!alerta] Nunca use Enter duplo para espaçar parágrafos. Configure o campo **"Espaçamento Depois"** em Parágrafo — isso garante consistência.
-
-### Alinhamento
-
-| Atalho     | Tipo         | Quando usar              |
-|------------|--------------|--------------------------|
-| `Ctrl + Q` | Esquerda     | Textos informais, e-mails|
-| `Ctrl + E` | Centralizado | Títulos, capas           |
-| `Ctrl + G` | Direita      | Datas, assinaturas       |
-| `Ctrl + J` | Justificado  | **Padrão ABNT**          |
-
-### Espaçamento entre linhas
-
-| Atalho     | Espaçamento   | Uso                     |
-|------------|---------------|-------------------------|
-| `Ctrl + 1` | Simples (1,0) | Rodapés, legendas       |
-| `Ctrl + 5` | 1,5 linhas    | **Padrão ABNT**         |
-| `Ctrl + 2` | Duplo (2,0)   | Documentos de revisão   |
-
-### Configuração ABNT — passo a passo
+Se voce ta fazendo um trabalho academico, o paragrafo precisa seguir regras especificas. Aqui vai a configuracao padrao ABNT:
 
 1. Fonte: **Arial** ou **Times New Roman**, tamanho **12**
-2. Alinhamento: **Justificado** — `Ctrl + J`
-3. Espaçamento entre linhas: **1,5** — `Ctrl + 5`
-4. Espaçamento Depois: **0pt** — Parágrafo → Espaçamento → Depois: 0
-5. Recuo de primeira linha: **1,25cm** — Parágrafo → Recuos Especiais → Primeira linha
+2. Alinhamento: **Justificado** — pressione `Ctrl + J`
+3. Espacamento entre linhas: **1,5** — pressione `Ctrl + 5`
+4. Espacamento Depois: **0pt** — va em **Pagina Inicial** e depois clique na setinha do grupo **Paragrafo** e depois **Espacamento** e depois **Depois: 0**
+5. Recuo de primeira linha: **1,25 cm** — na mesma caixa de Paragrafo, va em **Recuos Especiais** e depois **Primeira linha**
 
----
+> [!alerta]
+> Nunca use Enter duplo para espacar paragrafos. Parece que funciona, mas cria espacamento inconsistente. Configure o campo "Espacamento Depois" em Paragrafo — isso garante que todo o documento fica uniforme.
 
-## Estilos de Texto
+## Alinhamentos
 
-Um **estilo** é um conjunto de formatações com nome. Mude o estilo uma vez e todos os trechos que usam ele atualizam juntos.
+O Word tem quatro tipos de alinhamento. Voce precisa saber todos, mas no dia a dia vai usar mais o Justificado:
 
-### Hierarquia de estilos
+| Alinhamento | Atalho | Quando usar |
+|-------------|--------|-------------|
+| Esquerda | `Ctrl + Q` | Textos informais, listas |
+| Centralizado | `Ctrl + E` | Titulos, capas |
+| Direita | `Ctrl + G` | Datas, assinaturas |
+| Justificado | `Ctrl + J` | Corpo do texto ABNT |
 
-| Estilo       | Uso                               |
-|--------------|-----------------------------------|
-| **Título 1** | Capítulos principais              |
-| **Título 2** | Subcapítulos                      |
-| **Título 3** | Subsubcapítulos                   |
-| **Normal**   | Corpo do texto                    |
-| **Citação**  | Citações longas (ABNT: recuo 4cm) |
+## Usando estilos
 
-> [!alerta] Sem Título 1, 2 e 3, o sumário automático (Aula 06) não funciona.
+Estilos sao a funcionalidade mais importante do Word pra documentos longos. Em vez de formatar cada titulo manualmente, voce aplica um estilo e pronto.
 
-### Por que usar estilos
+**Aplicando um estilo:**
 
-| Sem estilos                               | Com estilos                            |
-|-------------------------------------------|----------------------------------------|
-| 80 títulos para mudar: 30 min de trabalho | Modificar o estilo uma vez: 10 segundos|
-| Inconsistências visuais                   | Padronização automática                |
-| Sumário automático não funciona           | Sumário gerado em 1 clique             |
+1. Selecione o texto (ex: um titulo de capitulo)
+2. Na galeria de estilos em **Pagina Inicial**, clique em **Titulo 1**
+3. Para subcapitulos, use **Titulo 2**. Para o corpo do texto, use **Normal**
 
-### Como modificar um estilo
+**Modificando um estilo existente:**
 
-1. Botão direito no estilo na galeria → **Modificar**
-2. Altere fonte, tamanho, cor, espaçamento
-3. **OK** — tudo atualiza
+1. Clique com botao direito no estilo na galeria
+2. Escolha **Modificar**
+3. Altere fonte, tamanho, cor e espacamento
+4. Clique em **OK** — todas as partes do documento que usam esse estilo mudam de uma vez
 
-### Como criar um estilo novo
+**Criando um estilo novo:**
 
-1. Setinha na galeria de estilos → **Criar um Estilo**
-2. Dê um nome (ex: "Frase Importante")
-3. **Modificar** → configure fonte, tamanho, cor, recuo
-4. Em **"Estilo do parágrafo seguinte"**, escolha Normal
-5. **OK** — aparece na galeria
+1. Clique na setinha no canto da galeria de estilos
+2. Escolha **Criar um Estilo**
+3. De um nome, configure a formatacao e clique em **OK**
 
-> [!sucesso] Configure "estilo do parágrafo seguinte" como Normal nos títulos. Ao dar Enter após um título, o Word já muda para o corpo do texto automaticamente.
-
----
-
-## Checklist da Aula
-
-- [ ] Configurei um parágrafo ABNT completo
-- [ ] Testei negrito (`Ctrl+N`), itálico (`Ctrl+I`) e limpeza (`Ctrl+Espaço`)
-- [ ] Usei o Pincel de Formatação
-- [ ] Apliquei Título 1, Título 2 e Normal
-- [ ] Modifiquei um estilo e vi tudo atualizar
-
----
+> [!sucesso]
+> Dica de ouro: ao modificar um estilo de titulo, configure "Estilo do paragrafo seguinte" como **Normal**. Assim, ao dar Enter apos um titulo, o Word ja muda automaticamente para o corpo do texto.
 
 ## Referências
 
-- [Digitação e Formatação Básica (~21min)](https://www.youtube.com/watch?v=JvSVkrDbzf0)
-- [Formatações Baseadas em Estilos (~13min)](https://www.youtube.com/watch?v=ELtk2wmrmQc)
+- [Digitacao e Formatacao Basica (~21min)](https://www.youtube.com/watch?v=JvSVkrDbzf0) — formatacao de fonte e paragrafo no Word
+- [Formatacoes Baseadas em Estilos (~13min)](https://www.youtube.com/watch?v=ELtk2wmrmQc) — como usar e modificar estilos
+- [Aplicar estilos — Microsoft Support](https://support.microsoft.com/pt-br/office/aplicar-estilos-f8b96097-4d25-4fac-8200-6139c8093109)

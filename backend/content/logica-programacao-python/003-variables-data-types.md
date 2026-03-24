@@ -33,119 +33,108 @@ quiz:
     explicacaoErrada: "Números com ponto decimal são float. Inteiros como 3 seriam int."
 ---
 
-## Criando variáveis
+## O que sao variaveis?
 
-Variável é como uma caixa com etiqueta onde você guarda um valor. Em Python, basta dar um nome e atribuir:
+Variaveis guardam valores. Pense nelas como gavetas com etiqueta -- cada uma tem um nome e guarda algo dentro. Em Python, nao precisa declarar o tipo: ele e definido automaticamente pelo valor que voce atribui.
 
 ```python
 nome = "Maria"
 idade = 25
 altura = 1.68
-esta_matriculado = True
+ativo = True
+resultado = None
 ```
 
-O tipo é definido automaticamente pelo valor. Sem `let`, `var` ou `const`.
-
-### Nomes usam snake_case
-
-```python
-# ✅ Padrão Python
-nome_completo = "Ana Silva"
-ano_nascimento = 1998
-
-# ❌ Não é o padrão
-# nomeCompleto = "Ana Silva"
-```
-
-### Variáveis podem mudar de valor
-
-```python
-valor = 10        # int
-valor = "texto"   # agora é str
-print(valor)      # → texto
-```
+Sem `let`, sem `var`, sem `const`. E so escrever o nome, o `=` e o valor.
 
 > [!info]
-> Mudar o tipo de uma variável funciona, mas pode confundir quem lê o código. Evite quando possível.
+> Python usa `snake_case` para nomes de variaveis: `nome_completo`, `ano_nascimento`. Nada de `camelCase`.
 
-## Os 5 tipos básicos
+## Os 5 tipos basicos
 
-### str — Texto
+Python tem cinco tipos primitivos. Cada valor que voce cria pertence a um deles:
+
+```python
+print(type("Ana"))    # → <class 'str'>
+print(type(25))       # → <class 'int'>
+print(type(1.68))     # → <class 'float'>
+print(type(True))     # → <class 'bool'>
+print(type(None))     # → <class 'NoneType'>
+```
+
+| Tipo | Exemplo | O que e |
+|------|---------|---------|
+| `str` | `"Ola"`, `'oi'` | Texto |
+| `int` | `42`, `-10`, `7_000` | Numero inteiro |
+| `float` | `3.14`, `-0.5` | Numero decimal |
+| `bool` | `True`, `False` | Verdadeiro ou falso |
+| `None` | `None` | Nenhum valor (caixa vazia) |
+
+## str -- texto
+
+Strings sao textos entre aspas simples ou duplas. Ambas funcionam igual:
 
 ```python
 nome = "Python"
-versao = '3.12'
-
-# Texto com várias linhas
-mensagem = """Olá,
-várias linhas aqui."""
-
-print(len(nome))   # → 6 (tamanho)
-print(nome[0])     # → P (primeiro caractere)
-print(nome[-1])    # → n (último caractere)
+print(len(nome))   # → 6
+print(nome[0])     # → P
+print(nome[-1])    # → n
 ```
 
-### int — Número inteiro
+## int e float -- numeros
+
+`int` e numero inteiro, `float` e numero com casas decimais. Underlines ajudam a ler numeros grandes:
 
 ```python
-idade = 25
-populacao = 7_900_000_000  # underlines ajudam a ler
-print(type(idade))  # → <class 'int'>
-```
+populacao = 7_900_000_000  # underlines sao ignorados
+print(type(populacao))     # → <class 'int'>
 
-### float — Número decimal
-
-```python
 preco = 19.99
-pi = 3.14159
+print(type(preco))         # → <class 'float'>
 
-print(0.1 + 0.2)  # → 0.30000000000000004 (isso é normal!)
+# Cuidado com float!
+print(0.1 + 0.2)  # → 0.30000000000000004 (normal!)
 ```
 
-> [!info]
-> Decimais no computador nem sempre são exatos. `0.1 + 0.2` não dá exatamente `0.3`.
+## bool -- verdadeiro ou falso
 
-### bool — Verdadeiro ou Falso
+Booleanos so tem dois valores: `True` e `False`. Sempre com letra maiuscula!
 
 ```python
-ativo = True
-bloqueado = False
-
 print(10 > 5)   # → True
 print(3 == 7)   # → False
 ```
 
 > [!alerta]
-> `True` e `False` com letra maiúscula! `true` ou `false` dá erro.
+> `True` e `False` com letra maiuscula! `true` ou `false` da `NameError`.
 
-### None — Nenhum valor
+## None -- nenhum valor
 
-Pense no None como uma caixa vazia. Ela existe, mas não tem nada dentro.
+`None` representa a ausencia de valor. E como uma caixa vazia de proposito.
 
 ```python
 resultado = None
-print(type(resultado))  # → <class 'NoneType'>
 
 if resultado is None:
-    print("Sem resultado ainda")
+    print("Sem resultado ainda")  # → Sem resultado ainda
 ```
 
-> [!sucesso]
-> Use `is None` em vez de `== None`. É a forma correta.
+> [!info]
+> Para verificar `None`, use `is None` em vez de `== None`. E a forma correta e Pythonica.
 
-## f-strings — Texto com variáveis
+## f-strings -- texto com variaveis
 
-Coloque `f` antes das aspas e use `{}` para inserir variáveis:
+O `f` antes das aspas permite colocar variaveis e expressoes dentro do texto:
 
 ```python
 nome = "Ana"
 idade = 22
 
-print(f"Meu nome é {nome} e tenho {idade} anos")
-# → Meu nome é Ana e tenho 22 anos
+print(f"Meu nome e {nome} e tenho {idade} anos")
+# → Meu nome e Ana e tenho 22 anos
 
-print(f"No ano que vem terei {idade + 1} anos")
-# → No ano que vem terei 23 anos
+print(f"Ano que vem terei {idade + 1} anos")
+# → Ano que vem terei 23 anos
 
 # Formatando decimais
 preco = 49.9
@@ -153,85 +142,81 @@ print(f"Valor: R$ {preco:.2f}")
 # → Valor: R$ 49.90
 ```
 
-### f-string vs concatenação
+## Conversao de tipos
+
+Voce pode converter entre tipos usando funcoes como `int()`, `float()`, `str()` e `bool()`:
 
 ```python
-# ❌ Concatenação (chato de escrever)
-print("Nome: " + nome + ", Idade: " + str(idade))
-
-# ✅ f-string (limpo e fácil)
-print(f"Nome: {nome}, Idade: {idade}")
-```
-
-## Descobrindo e verificando tipos
-
-```python
-# type() — qual é o tipo?
-print(type("Olá"))   # → <class 'str'>
-print(type(42))      # → <class 'int'>
-print(type(3.14))    # → <class 'float'>
-print(type(True))    # → <class 'bool'>
-print(type(None))    # → <class 'NoneType'>
-
-# isinstance() — é desse tipo?
-valor = 42
-print(isinstance(valor, int))          # → True
-print(isinstance(valor, str))          # → False
-print(isinstance(valor, (int, float))) # → True (é int OU float?)
-```
-
-## Conversão de tipos
-
-```python
-# String → Número
+# String para numero
 numero = int("42")       # → 42
 preco = float("19.99")   # → 19.99
 
-# Número → String
+# Numero para string
 texto = str(100)          # → "100"
 
-# Float → Int (corta as casas, não arredonda!)
+# Float para int (corta as casas, nao arredonda!)
 valor = int(3.99)
 print(valor)  # → 3
 
-# Número → Bool
+# Numero para bool
 print(bool(0))   # → False
 print(bool(1))   # → True
-print(bool(-5))  # → True (qualquer número diferente de 0)
+print(bool(-5))  # → True (qualquer numero diferente de 0)
 ```
 
 > [!alerta]
-> `int("3.14")` dá erro! Converta em dois passos: `int(float("3.14"))`.
+> `int("3.14")` da erro! Converta em dois passos: `int(float("3.14"))`.
 
-## Exemplo: Ficha de cadastro
+## type() e isinstance() -- descobrindo o tipo
+
+`type()` retorna o tipo exato. `isinstance()` verifica se o valor pertence a um tipo (ou a varios):
 
 ```python
-print("=== Ficha de Cadastro ===")
-print()
-
-nome = input("Nome completo: ")
-idade = int(input("Idade: "))
-altura = float(input("Altura (metros): "))
-email = input("E-mail: ")
-
-ano_nascimento = 2026 - idade
-
-print()
-print(f"Nome:   {nome}")
-print(f"Idade:  {idade} anos (nasceu ~{ano_nascimento})")
-print(f"Altura: {altura:.2f} m")
-print(f"E-mail: {email}")
+valor = 42
+print(type(valor))                     # → <class 'int'>
+print(isinstance(valor, int))          # → True
+print(isinstance(valor, str))          # → False
+print(isinstance(valor, (int, float))) # → True
 ```
 
-## Resumo
+## Erros comuns
 
-| Tipo | Exemplo | O que é |
-| --- | --- | --- |
-| `str` | `"Olá"` | Texto |
-| `int` | `42` | Número inteiro |
-| `float` | `3.14` | Número decimal |
-| `bool` | `True` / `False` | Verdadeiro ou falso |
-| `None` | `None` | Nenhum valor |
-| f-string | `f"Olá {nome}"` | Texto com variáveis |
-| `type()` | `type(42)` | Descobrir o tipo |
-| `isinstance()` | `isinstance(42, int)` | Verificar o tipo |
+```python
+# Usar o nome antes de criar
+# print(x)  # NameError: name 'x' is not defined
+
+# Trocar o tipo na conversao
+# int("abc")  # ValueError!
+
+# Esquecer o f na f-string
+print("Tenho {idade} anos")   # → Tenho {idade} anos (nao substituiu!)
+print(f"Tenho {idade} anos")  # → Tenho 22 anos
+```
+
+## Exemplo pratico: ficha de cadastro
+
+```python
+nome = "Maria Silva"
+idade = 22
+matricula = "2024001"
+ativo = True
+faltas = 0
+
+print("=== Ficha do Aluno ===")
+print(f"Nome: {nome}")            # → Nome: Maria Silva
+print(f"Idade: {idade} anos")     # → Idade: 22 anos
+print(f"Matricula: {matricula}")  # → Matricula: 2024001
+print(f"Situacao: {'Ativo' if ativo else 'Inativo'}")  # → Situacao: Ativo
+print(f"Faltas: {faltas}")        # → Faltas: 0
+
+faltas = faltas + 1
+print(f"Faltas apos registro: {faltas}")  # → Faltas apos registro: 1
+```
+
+`faltas` muda ao longo do programa. O resto nao muda, mas em Python nao existe `const` -- tudo e variavel.
+
+## Referencias
+
+- [Built-in Types](https://docs.python.org/3/library/stdtypes.html) -- documentacao oficial dos tipos do Python
+- [Python f-strings](https://realpython.com/python-f-strings/) -- guia completo de f-strings no Real Python
+- [Curso Python #09 - Variaveis](https://www.youtube.com/watch?v=nao2VV2N5rU) -- Curso em Video, PT-BR

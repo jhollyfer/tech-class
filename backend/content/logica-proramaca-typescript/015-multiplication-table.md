@@ -107,3 +107,9 @@ for (let n = 1; n <= 10; n++) {
 
 > [!sucesso]
 > Conceitos usados: funções void, for loop, template literals, `padStart` e `toString()`.
+
+## Referências
+
+- [String.prototype.padStart() - MDN Web Docs](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/padStart) — documentação do padStart para formatação e alinhamento de strings
+- [JavaScript For Loop - W3Schools](https://www.w3schools.com/js/js_loop_for.asp) — tutorial sobre loops for com exemplos de contagem e iteração
+- [Tabuada com JavaScript - Curso em Vídeo](https://www.youtube.com/watch?v=pE6lXnbRZ1g) — vídeo prático gerando tabuadas com loops e formatação

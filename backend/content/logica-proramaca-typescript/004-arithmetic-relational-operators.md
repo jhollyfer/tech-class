@@ -109,3 +109,9 @@ Em vez de `soma = soma + valor`, escreva `soma += valor`. Mais curto e mais clar
 
 > [!sucesso]
 > Aritméticos fazem contas, relacionais comparam (retornam true/false), atribuição atualiza variáveis. Domine esses três antes de avançar.
+
+## Referências
+
+- [Expressões e operadores - MDN Web Docs](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Expressions_and_operators) — guia completo sobre operadores aritméticos, de comparação e atribuição
+- [JavaScript Operators - W3Schools](https://www.w3schools.com/js/js_operators.asp) — tutorial interativo com exemplos de todos os operadores
+- [Operadores em TypeScript - Hora de Codar](https://www.youtube.com/watch?v=2lSLEfYIhGQ) — vídeo explicando operadores aritméticos e relacionais na prática

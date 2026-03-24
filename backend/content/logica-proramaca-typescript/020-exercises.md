@@ -713,3 +713,9 @@ type FormularioCadastro = {
 //     idade: "Idade mínima é 18 anos"
 //   }
 ```
+
+## Referências
+
+- [JavaScript - MDN Web Docs](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript) — referência completa de JavaScript/TypeScript com guias, tutoriais e documentação de todas as APIs
+- [JavaScript Exercises - W3Schools](https://www.w3schools.com/js/js_exercises.asp) — exercícios interativos de JavaScript organizados por tema e nível de dificuldade
+- [Exercícios de Lógica de Programação - Curso em Vídeo](https://www.youtube.com/watch?v=8mei6uVttho) — lista de desafios de lógica resolvidos passo a passo em português

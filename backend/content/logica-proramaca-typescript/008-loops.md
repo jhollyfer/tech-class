@@ -169,3 +169,9 @@ let contadorPares: number = 0;
 // Use for + if para encontrar os pares
 // Exiba cada par e, no final, o total
 ```
+
+## Referências
+
+- [Loops e iteração - MDN Web Docs](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Loops_and_iteration) — guia completo sobre for, while e do-while com exemplos
+- [JavaScript For Loop - W3Schools](https://www.w3schools.com/js/js_loop_for.asp) — tutorial interativo sobre loops for, while e do-while
+- [Estruturas de Repetição em JavaScript - Curso em Vídeo](https://www.youtube.com/watch?v=NfHVP1td6oY) — aula completa sobre loops for, while e do-while

@@ -124,3 +124,9 @@ const clima = temp > 30 ? "quente" : "agradável";
 
 > [!sucesso]
 > `&&` e `||` combinam condições, `!` inverte, ternário é um if/else curto. Você vai usar isso em todo programa.
+
+## Referências
+
+- [Operadores lógicos - MDN Web Docs](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Logical_AND) — documentação dos operadores &&, || e ! com exemplos detalhados
+- [JavaScript Comparison and Logical Operators - W3Schools](https://www.w3schools.com/js/js_comparisons.asp) — tutorial sobre operadores lógicos e o operador ternário
+- [Operador Ternário em JavaScript - Código Fonte TV](https://www.youtube.com/watch?v=QhIlMb2WQHQ) — vídeo explicando operadores lógicos e ternário com exemplos práticos

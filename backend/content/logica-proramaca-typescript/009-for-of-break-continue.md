@@ -138,3 +138,9 @@ for (const n of numeros) {
 
 > [!sucesso]
 > **Resumo:** `for...of` percorre arrays. `break` para o loop. `continue` pula uma volta.
+
+## Referências
+
+- [for...of - MDN Web Docs](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/for...of) — documentação oficial do for...of com exemplos de iteração
+- [JavaScript Break and Continue - W3Schools](https://www.w3schools.com/js/js_break.asp) — tutorial interativo sobre break e continue em loops
+- [For...of, Break e Continue - Programador BR](https://www.youtube.com/watch?v=NTs0IAfKhRs) — vídeo explicando como percorrer arrays e controlar o fluxo de loops

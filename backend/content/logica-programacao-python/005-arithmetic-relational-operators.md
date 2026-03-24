@@ -33,124 +33,122 @@ quiz:
     explicacaoErrada: "Python suporta isso nativamente. É o mesmo que (1 <= x) and (x <= 10)."
 ---
 
-## Operadores Aritméticos
+## Pra que servem operadores?
 
-Python tem 7 operadores para fazer contas:
+Python tem operadores pra fazer contas e pra comparar valores. Os aritmeticos resolvem calculos matematicos. Os relacionais comparam dois valores e devolvem `True` ou `False`.
 
-| Operador | Nome | Exemplo | Resultado |
-| --- | --- | --- | --- |
-| `+` | Adição | `5 + 3` | `8` |
-| `-` | Subtração | `10 - 4` | `6` |
-| `*` | Multiplicação | `3 * 7` | `21` |
-| `/` | Divisão | `7 / 2` | `3.5` |
-| `//` | Divisão inteira | `7 // 2` | `3` |
-| `%` | Resto (módulo) | `7 % 2` | `1` |
-| `**` | Potência | `2 ** 3` | `8` |
+Saber a diferenca entre `/` e `//`, entender o `%` e usar comparacoes encadeadas vai facilitar muito sua vida nos proximos programas.
 
-### O básico
+> [!info]
+> Python segue a mesma ordem da matematica: potencia primeiro, depois multiplicacao/divisao, depois soma/subtracao. Na duvida, use parenteses.
+
+## Operadores aritmeticos
+
+Os basicos voce ja conhece. A novidade sao `//` (divisao inteira), `%` (resto) e `**` (potencia):
 
 ```python
 print(15 + 27)   # → 42
 print(100 - 37)  # → 63
 print(6 * 7)     # → 42
-
-# + também junta strings
-print("Olá" + " " + "Mundo")  # → Olá Mundo
-
-# * repete strings
-print("-" * 40)  # → ----------------------------------------
 ```
 
-### Divisão (/) vs Divisão Inteira (//)
+| Operador | O que faz | Exemplo | Resultado |
+|----------|-----------|---------|-----------|
+| `+` | Soma | `15 + 27` | `42` |
+| `-` | Subtracao | `100 - 37` | `63` |
+| `*` | Multiplicacao | `6 * 7` | `42` |
+| `/` | Divisao (float) | `7 / 2` | `3.5` |
+| `//` | Divisao inteira | `7 // 2` | `3` |
+| `%` | Resto (modulo) | `10 % 3` | `1` |
+| `**` | Potencia | `2 ** 3` | `8` |
 
-Essa diferença é importante:
+## / vs // -- divisao real e inteira
+
+Essa e uma das maiores fontes de confusao. A barra simples **sempre** retorna float. A barra dupla corta as casas decimais:
 
 ```python
-# / SEMPRE retorna float
-print(10 / 2)   # → 5.0 (float, não int!)
-print(7 / 2)    # → 3.5
+# / sempre retorna float
+print(10 / 2)    # → 5.0
+print(7 / 2)     # → 3.5
 
-# // corta as casas decimais
-print(10 // 2)  # → 5
-print(7 // 2)   # → 3
+# // corta as casas decimais (divisao inteira)
+print(10 // 2)   # → 5
+print(7 // 2)    # → 3
 ```
 
 > [!alerta]
-> `//` com negativos arredonda **para baixo**, não para zero: `-7 // 2` dá `-4`, não `-3`.
+> `//` com negativos arredonda pra baixo, nao pra zero: `-7 // 2` da `-4`, nao `-3`.
 
-### Resto (%) e Potência (**)
+## % -- resto da divisao
+
+O operador `%` (modulo) retorna o **resto** da divisao. Super util pra saber se um numero e par ou impar:
 
 ```python
-# % — resto da divisão
-print(10 % 3)   # → 1 (10 = 3×3 + 1)
-print(15 % 5)   # → 0 (divisão exata)
+print(10 % 3)    # → 1
+print(15 % 5)    # → 0
 
-# Truque útil: verificar par/ímpar
+# Truque: par ou impar
 numero = 42
 if numero % 2 == 0:
-    print(f"{numero} é par")  # → 42 é par
-
-# ** — potência
-print(2 ** 3)    # → 8 (2³)
-print(5 ** 2)    # → 25 (5²)
-print(9 ** 0.5)  # → 3.0 (raiz quadrada)
+    print(f"{numero} e par")   # → 42 e par
+else:
+    print(f"{numero} e impar")
 ```
 
-### Ordem das operações
+## ** -- potencia e raiz
 
-Igual na matemática: potência primeiro, depois multiplicação/divisão, depois soma/subtração.
+`**` e a potenciacao. E tambem serve pra raiz quadrada (potencia de `0.5`):
 
 ```python
-print(2 + 3 * 4)    # → 14 (não 20!)
-print((2 + 3) * 4)  # → 20 (parênteses primeiro)
+print(2 ** 3)    # → 8
+print(9 ** 0.5)  # → 3.0 (raiz quadrada)
+print(2 ** 10)   # → 1024
 ```
 
-> [!sucesso]
-> Na dúvida, use parênteses. Deixa o código mais claro.
+## Operadores relacionais
 
-## Operadores Relacionais
-
-Comparam dois valores e retornam `True` ou `False`:
-
-| Operador | Significado | Exemplo | Resultado |
-| --- | --- | --- | --- |
-| `==` | Igual | `5 == 5` | `True` |
-| `!=` | Diferente | `5 != 3` | `True` |
-| `>` | Maior que | `10 > 5` | `True` |
-| `<` | Menor que | `3 < 8` | `True` |
-| `>=` | Maior ou igual | `5 >= 5` | `True` |
-| `<=` | Menor ou igual | `4 <= 3` | `False` |
+Relacionais comparam dois valores e devolvem `True` ou `False`:
 
 ```python
 idade = 18
-print(idade == 18)  # → True
-print(idade > 17)   # → True
-print(idade <= 17)  # → False
+print(idade == 18)   # → True
+print(idade != 18)   # → False
+print(idade > 17)    # → True
+print(idade < 21)    # → True
+print(idade >= 18)   # → True
+print(idade <= 17)   # → False
 ```
 
-### Comparações encadeadas
+| Operador | Significado | Exemplo | Resultado |
+|----------|-------------|---------|-----------|
+| `==` | Igual a | `5 == 5` | `True` |
+| `!=` | Diferente de | `5 != 3` | `True` |
+| `>` | Maior que | `10 > 5` | `True` |
+| `<` | Menor que | `3 < 7` | `True` |
+| `>=` | Maior ou igual | `5 >= 5` | `True` |
+| `<=` | Menor ou igual | `4 <= 3` | `False` |
 
-Python permite algo que a maioria das linguagens não faz:
+## Comparacoes encadeadas
+
+Isso e exclusivo do Python! Voce pode encadear comparacoes de forma natural:
 
 ```python
 x = 15
-print(10 <= x <= 20)  # → True (x está entre 10 e 20?)
+print(10 <= x <= 20)  # → True
+print(1 <= x <= 10)   # → False
 
-nota = 7.5
-print(7 <= nota < 9)  # → True (nota é "bom"?)
-```
-
-### Comparando strings
-
-```python
+# Strings comparam pela ordem alfabetica
 print("abc" == "abc")   # → True
-print("abc" == "ABC")   # → False (diferencia maiúsculas!)
-print("a" < "b")        # → True (ordem alfabética)
+print("abc" == "ABC")   # → False
+print("a" < "b")        # → True
 ```
 
-## Atribuição Composta
+> [!sucesso]
+> `1 <= x <= 10` e o mesmo que `(1 <= x) and (x <= 10)`, so que muito mais legivel. Usa isso!
 
-Atalhos para fazer uma operação e guardar o resultado:
+## Atribuicao composta
+
+Atalhos pra modificar o valor de uma variavel:
 
 ```python
 x = 10
@@ -160,71 +158,39 @@ x *= 2    # x = x * 2  → 24
 x //= 5   # x = x // 5 → 4
 x **= 3   # x = x ** 3 → 64
 x %= 10   # x = x % 10 → 4
+print(x)  # → 4
 ```
 
-> [!info]
-> Python **não tem** `++` nem `--`. Use `x += 1` e `x -= 1`.
+> [!alerta]
+> Python nao tem `++` nem `--`. Use `x += 1` e `x -= 1`.
 
-## Exemplo: Calculadora de IMC
+## Ordem das operacoes
+
+Mesma regra da matematica. Parenteses sempre ganham:
 
 ```python
-peso = float(input("Seu peso (kg): "))
-altura = float(input("Sua altura (m): "))
+print(2 + 3 * 4)    # → 14 (multiplicacao primeiro)
+print((2 + 3) * 4)  # → 20 (parenteses primeiro)
+```
+
+## Exemplo pratico: calculadora de IMC
+
+```python
+peso = float(input("Peso (kg): "))
+altura = float(input("Altura (m): "))
 
 imc = peso / altura ** 2
 
-print(f"\nSeu IMC: {imc:.1f}")
-
-if imc < 18.5:
-    print("Abaixo do peso")
-elif 18.5 <= imc < 25:
-    print("Peso normal")
-elif 25 <= imc < 30:
-    print("Sobrepeso")
-else:
-    print("Obesidade")
+print(f"Seu IMC: {imc:.1f}")
+# Peso (kg): 70
+# Altura (m): 1.75
+# → Seu IMC: 22.9
 ```
 
-## Exemplo: Troco em cédulas
+Aqui `**` tem prioridade sobre `/`, entao `altura ** 2` e calculado primeiro. Depois o `peso` e dividido pelo resultado.
 
-```python
-valor = int(input("Valor em reais: "))
+## Referencias
 
-cedulas_100 = valor // 100
-valor %= 100
-
-cedulas_50 = valor // 50
-valor %= 50
-
-cedulas_20 = valor // 20
-valor %= 20
-
-cedulas_10 = valor // 10
-valor %= 10
-
-cedulas_5 = valor // 5
-valor %= 5
-
-cedulas_2 = valor // 2
-valor %= 2
-
-moedas_1 = valor
-
-print(f"Notas de R$100: {cedulas_100}")
-print(f"Notas de R$50:  {cedulas_50}")
-print(f"Notas de R$20:  {cedulas_20}")
-print(f"Notas de R$10:  {cedulas_10}")
-print(f"Notas de R$5:   {cedulas_5}")
-print(f"Notas de R$2:   {cedulas_2}")
-print(f"Moedas de R$1:  {moedas_1}")
-```
-
-## Resumo
-
-| Categoria | Operadores |
-| --- | --- |
-| Aritméticos | `+  -  *  /  //  %  **` |
-| Relacionais | `==  !=  >  <  >=  <=` |
-| Atribuição composta | `+=  -=  *=  //=  **=  %=` |
-| Comparação encadeada | `a <= x <= b` |
-| **Lembre-se:** | `/` sempre retorna float, `//` trunca |
+- [Expressions -- Python docs](https://docs.python.org/3/reference/expressions.html) -- referencia oficial sobre operadores
+- [Operators and Expressions in Python](https://realpython.com/python-operators-expressions/) -- guia detalhado no Real Python
+- [Curso Python #09 - Operadores Aritmeticos](https://www.youtube.com/watch?v=Yrp-EEqkaok) -- Curso em Video, PT-BR

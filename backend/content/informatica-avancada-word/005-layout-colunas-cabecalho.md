@@ -28,140 +28,104 @@ quiz:
     explicacaoErrada: "Marque 'Primeira Página Diferente' na guia Design do cabeçalho."
 ---
 
-## Configurações da Página
+## O que voce vai ver aqui?
 
-**Layout → Margens → Margens Personalizadas**
+Nesta aula voce monta a estrutura completa de um documento profissional: margens, colunas, quebras e cabecalho/rodape. Sao os recursos que dao forma ao documento antes de qualquer conteudo.
 
-### Margens ABNT
+O recurso mais poderoso aqui e a **Quebra de Secao**. Ela permite ter margens, orientacao, colunas e cabecalhos diferentes dentro do mesmo arquivo. Sem ela, tudo fica igual do comeco ao fim.
 
-| Margem   | Valor |
-|----------|-------|
-| Superior | 3 cm  |
-| Inferior | 2 cm  |
-| Esquerda | 3 cm  |
-| Direita  | 2 cm  |
+## Margens ABNT
 
-### Orientação e Tamanho
+Se voce ja configurou na aula 1, otimo. Mas aqui vai o reforco — porque em documentos longos voce pode precisar mudar margens por secao:
 
-| Opção      | Descrição                              |
-|------------|----------------------------------------|
-| Retrato    | Vertical — padrão para a maioria       |
-| Paisagem   | Horizontal — para tabelas muito largas |
-| Tamanho A4 | 21 x 29,7 cm — padrão no Brasil       |
+1. Va em **Layout** e depois **Margens** e depois **Margens Personalizadas**
+2. Configure os valores padrao ABNT:
 
-> [!info] Não sabe o tamanho do papel? Meça com uma régua e digite em **Layout → Tamanho → Mais Tamanhos de Papel**.
+| Margem | Valor |
+|--------|-------|
+| Superior | 3 cm |
+| Inferior | 2 cm |
+| Esquerda | 3 cm |
+| Direita | 2 cm |
 
-### Margens para encadernação
+**Para encadernacao:** va em **Layout** e depois **Margens** e depois **Espelhada**. A margem interna fica maior pra nao comer texto na hora de encadernar.
 
-Se o documento vai ser encadernado, a margem interna precisa ser maior.
+## Texto em colunas
 
-- **Margem espelhada:** **Layout → Margens → Espelhada** — ideal para frente e verso
-- A margem interna (lado da encadernação) fica maior automaticamente
+Colunas sao uteis pra newsletters, jornais escolares ou qualquer documento que precise de layout mais dinamico.
 
----
+1. Selecione o trecho que quer em colunas (ou nao selecione nada pra aplicar no documento todo)
+2. Va em **Layout** e depois **Colunas** e escolha 2, 3 ou clique em **Mais Colunas...**
+3. Para linha divisoria entre colunas: em **Mais Colunas...**, marque **Linha entre colunas**
 
-## Texto em Colunas
+> [!info]
+> Se voce quer colunas so num trecho especifico, selecione o texto antes. O Word insere as quebras de secao automaticamente ao redor.
 
-**Layout → Colunas → escolha ou Mais Colunas...**
+## Quebra de pagina
 
-| Opção            | Resultado                                    |
-|------------------|----------------------------------------------|
-| 2 colunas iguais | Divide a largura em dois                     |
-| 3 colunas iguais | Divide a largura em três                     |
-| Esquerda         | Coluna estreita à esquerda + larga à direita |
-| Direita          | Coluna larga à esquerda + estreita à direita |
-| Mais Colunas...  | Largura e espaçamento exatos                 |
+A quebra de pagina forca tudo que esta apos o cursor para a proxima pagina. Use quando terminar um capitulo e quiser comecar o proximo em pagina nova.
 
-> [!info] Para colunas em apenas um trecho: selecione o trecho antes de aplicar.
+- Pressione `Ctrl + Enter` — pronto, o texto pulou pra proxima pagina
 
-Linha divisória entre colunas: **Mais Colunas... → marcar "Linha entre colunas"**
+> [!alerta]
+> Nunca use Enter varias vezes pra empurrar texto pra proxima pagina. Se voce editar algo antes, tudo desalinha. Use sempre `Ctrl + Enter`.
 
----
+## Quebra de secao
 
-## Quebras de Página e de Seção
+A Quebra de Secao e diferente da quebra de pagina. Ela cria secoes independentes — cada uma pode ter margens, orientacao, colunas e cabecalhos diferentes.
 
-**Layout → Quebras**
+1. Posicione o cursor onde quer a divisao
+2. Va em **Layout** e depois **Quebras** e depois **Secao — Proxima Pagina**
 
-| Tipo                   | Função                              | Atalho         |
-|------------------------|-------------------------------------|----------------|
-| Quebra de Página       | Força texto para a próxima página   | `Ctrl + Enter` |
-| Quebra de Coluna       | Força texto para a próxima coluna   | —              |
-| Seção — Próxima Página | Nova seção na próxima página        | —              |
-| Seção — Contínua       | Nova seção na mesma página          | —              |
-| Seção — Par/Ímpar      | Próxima seção em página par ou ímpar| —              |
+**Exemplo pratico:** uma pagina em paisagem no meio do documento:
 
-> [!sucesso] A Quebra de Seção permite margens, orientação, colunas e cabeçalhos diferentes no mesmo documento.
+1. Insira uma quebra de secao antes do trecho
+2. Insira outra quebra de secao depois
+3. Com o cursor na secao do meio, va em **Layout** e depois **Orientacao** e depois **Paisagem**
+4. So aquela secao muda — o resto continua em retrato
 
-### Paisagem em páginas específicas
+> [!sucesso]
+> A Quebra de Secao e o recurso que permite configuracoes diferentes por parte do documento. Sem ela, tudo fica uniforme.
 
-1. Cursor antes da página → **Layout → Quebras → Seção — Próxima Página**
-2. Na nova seção: **Layout → Orientação → Paisagem**
-3. Outra Quebra de Seção e volte para Retrato
+> [!info]
+> Para remover uma quebra: ative os caracteres ocultos com `Ctrl + *`, clique apos a marca da quebra e pressione **Backspace**.
 
----
+## Cabecalho e rodape
 
-## Cabeçalho e Rodapé
+Cabecalho e rodape sao as areas no topo e na base de cada pagina. Otimos pra colocar nome da escola, titulo do trabalho e numero de pagina.
 
-Zonas que se repetem em todas as páginas, fora da área de texto.
+1. De um duplo clique na parte de cima da pagina (cabecalho) ou na parte de baixo (rodape)
+2. Digite o conteudo — ele se repete automaticamente em todas as paginas
+3. Para sair: duplo clique no texto do documento, ou clique em **Fechar Cabecalho e Rodape**
 
-### Como entrar e sair
+## Numero de pagina
 
-- **Entrar:** duplo clique na parte de cima/baixo da página — ou **Inserir → Cabeçalho/Rodapé**
-- **Sair:** clique em **Fechar Cabeçalho e Rodapé** — ou duplo clique no texto
+1. Va em **Inserir** e depois **Numero de Pagina** e escolha a posicao (inferior, superior, margens)
+2. Para formatos diferentes: clique em **Formatar Numeros de Pagina**
+3. Defina romanos (i, ii, iii) para paginas preliminares e arabicos (1, 2, 3) para o texto principal
 
-> [!info] Duplo clique é a forma mais rápida. Cima = cabeçalho. Baixo = rodapé. Texto = sair.
+## Capa sem cabecalho
 
-### O que colocar
+Na maioria dos trabalhos, a capa nao deve ter cabecalho nem numero de pagina. Pra resolver isso:
 
-| Elemento            | Posição sugerida           |
-|---------------------|----------------------------|
-| Nome da instituição | Cabeçalho — esquerda       |
-| Título do documento | Cabeçalho — centro         |
-| Logo                | Cabeçalho — direita        |
-| Número de página    | Rodapé — direita ou centro |
-| Nome do aluno       | Rodapé — esquerda          |
+1. Abra o cabecalho (duplo clique no topo da primeira pagina)
+2. Na guia **Design**, marque **Primeira Pagina Diferente**
+3. Deixe o cabecalho da primeira pagina vazio — pronto
 
-### Número de página
+## Cabecalhos diferentes por secao
 
-**Inserir → Número de Página → escolha posição e formato**
+Em documentos longos (TCC, monografia), voce pode querer cabecalhos diferentes por capitulo:
 
-Em **Formatar Números de Página** você define:
+1. Insira uma **Quebra de Secao** antes da secao que quer diferente
+2. Abra o cabecalho da nova secao (duplo clique no topo)
+3. Na guia **Design**, desmarque **Vincular ao Anterior**
+4. Agora edite o cabecalho a vontade — ele nao afeta as outras secoes
 
-- Romanos (i, ii, iii) → páginas preliminares
-- Arábicos (1, 2, 3) → texto principal
-- **Iniciar em:** define o número inicial
-
-> [!info] Quer capa sem número mas contando? Use "Primeira Página Diferente" e configure o início da numeração.
-
-### Removendo uma quebra
-
-Ative os caracteres ocultos (`Ctrl + *`), clique após a marca da quebra e pressione `Backspace`.
-
-### Capa sem cabeçalho
-
-Cabeçalho aberto → **Design → marcar "Primeira Página Diferente"**
-
-### Cabeçalhos diferentes por seção
-
-Cabeçalho da nova seção aberto → desmarcar **"Vincular ao Anterior"** → edite à vontade
-
----
-
-## Checklist da Aula
-
-- [ ] Configurei margens ABNT (3/2/3/2)
-- [ ] Criei texto em 2 colunas
-- [ ] Inseri quebra de página com `Ctrl + Enter`
-- [ ] Usei Quebra de Seção para mudar orientação de uma página
-- [ ] Criei cabeçalho com nome da escola
-- [ ] Adicionei número de página no rodapé
-- [ ] Ativei "Primeira Página Diferente" para a capa
-
----
+> [!alerta]
+> Se voce nao desmarcar "Vincular ao Anterior", qualquer mudanca no cabecalho da nova secao vai mudar o cabecalho de todas as secoes anteriores tambem.
 
 ## Referências
 
-- [Configurações na Página (~10min)](https://www.youtube.com/watch?v=2aFDaHEjWbM)
-- [Texto em Colunas (~11min)](https://www.youtube.com/watch?v=w3G2pnx5vJY)
-- [Quebras de Texto (~13min)](https://www.youtube.com/watch?v=OLxPKMf7HJI)
-- [Cabeçalho e Rodapé (~10min)](https://www.youtube.com/watch?v=ck-Bx_KAmPg)
+- [Configuracoes na Pagina (~10min)](https://www.youtube.com/watch?v=2aFDaHEjWbM) — margens, tamanho e orientacao
+- [Texto em Colunas (~11min)](https://www.youtube.com/watch?v=w3G2pnx5vJY) — dividir texto em colunas
+- [Cabecalho e Rodape (~10min)](https://www.youtube.com/watch?v=ck-Bx_KAmPg) — criar e personalizar cabecalho e rodape

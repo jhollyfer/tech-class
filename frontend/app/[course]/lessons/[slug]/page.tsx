@@ -16,9 +16,13 @@ export async function generateStaticParams() {
   for (const course of getAllCourseKeys()) {
     const config = getCourseConfig(course);
     if (!config) continue;
-    const lessons = await getAllLessons(course);
-    for (const lesson of lessons) {
-      params.push({ course, slug: lesson.slug });
+    try {
+      const lessons = await getAllLessons(course);
+      for (const lesson of lessons) {
+        params.push({ course, slug: lesson.slug });
+      }
+    } catch {
+      // Backend offline — pages will be rendered on-demand (SSR)
     }
   }
   return params;

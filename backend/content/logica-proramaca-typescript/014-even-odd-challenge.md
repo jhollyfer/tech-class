@@ -131,3 +131,9 @@ let impares = 0;
 // Incremente pares ou impares conforme a classificação
 // Exiba o total ao final
 ```
+
+## Referências
+
+- [Operador resto (%) - MDN Web Docs](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Remainder) — documentação do operador módulo usado para verificar par ou ímpar
+- [JavaScript While Loop - W3Schools](https://www.w3schools.com/js/js_loop_while.asp) — tutorial sobre loops while e validação de entrada do usuário
+- [Par ou Ímpar em JavaScript - DevMedia](https://www.youtube.com/watch?v=8dZd-LkKsGQ) — vídeo prático sobre como classificar números usando operador módulo

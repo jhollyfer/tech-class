@@ -34,159 +34,98 @@ quiz:
     explicacaoErrada: "Notas de rodapé aparecem na impressão. Comentários não."
 ---
 
-## Sumário Automático
+## O que voce vai ver aqui?
 
-O Word gera o sumário sozinho a partir dos estilos **Título 1, Título 2 e Título 3**.
+O sumario automatico e o recurso que transforma seu documento em algo profissional. O Word gera o sumario sozinho a partir dos estilos **Titulo 1**, **Titulo 2** e **Titulo 3**. Sem esses estilos aplicados, o sumario simplesmente nao funciona.
 
-> [!alerta] Sem os estilos Título 1, 2 e 3 no documento, o sumário NÃO funciona. Aplique os estilos antes de continuar (veja Aula 02).
+Alem do sumario, voce vai aprender a inserir notas de rodape, cadastrar fontes bibliograficas e formatar citacoes no padrao ABNT — tudo direto pelo Word.
 
-### Como inserir
+> [!alerta]
+> Se voce nao aplicou os estilos Titulo 1, 2 e 3 no documento, o sumario automatico nao vai funcionar. Volte na aula 2 se precisar revisar estilos.
 
-1. Posicione o cursor onde o sumário vai ficar (após a capa, antes da introdução)
-2. **Referências → Sumário → Automático 1** ou **Automático 2**
-3. Pronto — títulos e páginas aparecem automaticamente
+## Sumario automatico
 
-### Como atualizar
+O sumario e gerado automaticamente a partir dos estilos de titulo que voce aplicou no documento. Funciona assim:
 
-Sempre que editar o documento:
+1. Posicione o cursor onde o sumario vai ficar (geralmente apos a capa, antes da introducao)
+2. Va em **Referencias** e depois **Sumario** e depois **Automatico 1** ou **Automatico 2**
+3. Pronto — titulos e numeros de pagina aparecem sozinhos
 
-- Clique no sumário → **Atualizar Sumário → Atualizar o índice inteiro**
-- Ou pressione `F9` com o cursor dentro do sumário
+> [!sucesso]
+> O sumario e um campo "vivo". Ele puxa as informacoes direto dos estilos de titulo. Se voce mudar um titulo, basta atualizar o sumario.
 
-### Sumário personalizado
+## Atualizando o sumario
 
-**Referências → Sumário → Sumário Personalizado...**
+Depois de editar o documento (mudar titulos, adicionar paginas), voce precisa atualizar o sumario:
 
-| Opção                      | O que controla                       |
-|----------------------------|--------------------------------------|
-| Mostrar níveis             | Quantos níveis aparecem (ABNT: 3)   |
-| Caractere de preenchimento | Pontos, hífens ou linha              |
-| Formato                    | Clássico, Elegante, Moderno          |
+1. Clique dentro do sumario
+2. Clique em **Atualizar Sumario**
+3. Escolha **Atualizar o indice inteiro** (atualiza titulos e paginas)
 
-```
-Sumário
+Ou simplesmente: posicione o cursor no sumario e pressione `F9`.
 
-1. Introdução ............................................................... 3
-   1.1 Contexto do problema ..................................... 4
-       1.1.1 Dados históricos ..................................... 5
-2. Desenvolvimento ...................................................... 7
-   2.1 Metodologia ........................................................ 8
-3. Conclusão ................................................................ 25
-Referências .................................................................. 28
-```
+## Personalizando o sumario
 
----
+O sumario padrao ja funciona bem, mas voce pode ajustar:
 
-## Notas de Rodapé e Comentários
+1. Va em **Referencias** e depois **Sumario** e depois **Sumario Personalizado...**
+2. Escolha quantos niveis mostrar (ABNT recomenda 3)
+3. Escolha o caractere de preenchimento (pontos, hifens ou linha)
 
-### Nota de rodapé
+## Notas de rodape
 
-**Referências → Inserir Nota de Rodapé** ou `Alt + Ctrl + F`
+Notas de rodape servem pra explicar algo sem interromper o texto principal. O Word numera automaticamente e posiciona no rodape da pagina correta.
 
-O cursor vai para o rodapé da página. Digite a nota e o Word numera automaticamente.
+1. Posicione o cursor apos a palavra que quer explicar
+2. Pressione `Alt + Ctrl + F` (ou va em **Referencias** e depois **Inserir Nota de Rodape**)
+3. O cursor pula pro rodape da pagina — digite a nota
+4. Se a palavra mudar de pagina, a nota acompanha automaticamente
 
-> [!info] Notas de rodapé servem para explicar termos ou dar informações extras ao leitor. Coloque o cursor após a palavra e pressione `Alt + Ctrl + F`.
+> [!info]
+> Notas de rodape sao para o leitor final e aparecem na impressao. Comentarios sao para revisao e **nao** aparecem na impressao. Use comentarios como lembretes durante a escrita ("melhorar esse paragrafo", "verificar citacao").
 
-Se a palavra pular para outra página, a nota pula junto. O Word cuida de tudo.
+## Cadastrando fontes bibliograficas
 
-### Notas de fim
+O Word tem um gerenciador de fontes embutido. Voce cadastra uma vez e usa em qualquer lugar do documento:
 
-**Referências → Inserir Nota de Fim**
+1. Va em **Referencias** e depois **Inserir Citacao** e depois **Adicionar Nova Fonte**
+2. Escolha o tipo: **Livro**, **Artigo de Periodico**, **Site**, etc.
+3. Preencha os campos: Autor, Titulo, Ano, Editora, Cidade
+4. Clique em **OK** — a citacao aparece no texto
 
-Igual à nota de rodapé, mas aparece no final do documento. Usada em livros e monografias.
+## Estilo ABNT
 
-### Comentários
+Para que as citacoes e a bibliografia sigam o padrao ABNT:
 
-**Revisão → Novo Comentário**
+1. Va em **Referencias** e depois **Estilo** e selecione **ABNT**
+2. Se nao aparecer na lista, pesquise "instalar estilo ABNT Word" pra baixar e instalar
 
-- **Notas de rodapé** = para o leitor final (aparecem na impressão)
-- **Comentários** = para revisão (NÃO aparecem na impressão)
+> [!alerta]
+> Nem todas as versoes do Word vem com o estilo ABNT instalado. Se nao aparecer, voce precisa baixar separadamente.
 
-### Como usar comentários
+## Gerando a bibliografia
 
-1. Selecione o trecho que quer comentar
-2. **Revisão → Novo Comentário**
-3. Digite o comentário
-4. Clique fora — fica na margem do documento
+Com as fontes cadastradas, gerar a bibliografia e automatico:
 
-Outros usuários (via OneDrive) veem e respondem em tempo real. Use **Resolver** para aceitar ou **Excluir** para remover.
+1. Posicione o cursor no final do documento (onde a bibliografia deve ficar)
+2. Va em **Referencias** e depois **Bibliografia** e depois **Inserir Bibliografia**
+3. O Word gera a lista em ordem alfabetica com todas as fontes que voce citou
 
-> [!sucesso] Use comentários como lembretes: "melhorar parágrafo", "verificar citação". Na revisão final, resolva ou exclua todos.
+## Tipos de citacao ABNT
 
----
+Existem tres formas de citar no padrao ABNT. Voce vai usar bastante:
 
-## Citações e Bibliografia ABNT
+| Tipo | Formato | Exemplo |
+|------|---------|---------|
+| Indireta (parafrase) | Autor (ano) | De acordo com Manzano (2022), o algoritmo e... |
+| Direta curta (ate 3 linhas) | "texto" (AUTOR, ano, p.) | "O algoritmo e..." (MANZANO, 2022, p. 15) |
+| Direta longa (mais de 3 linhas) | Recuo 4 cm, fonte 10pt, sem aspas | Bloco recuado sem aspas |
 
-### Cadastrar uma fonte
-
-1. **Referências → Inserir Citação → Adicionar Nova Fonte**
-2. Tipo: Livro, Artigo, Site, etc.
-3. Preencha: Autor, Título, Ano, Editora, Cidade
-4. **OK** — a citação aparece no texto
-
-### Estilo ABNT
-
-**Referências → Estilo → ABNT**
-
-> [!info] Se o estilo ABNT não aparecer, pesquise "instalar estilo ABNT Word" para baixar.
-
-### Gerar bibliografia
-
-**Referências → Bibliografia → Inserir Bibliografia**
-
-O Word gera a lista em ordem alfabética com todas as fontes citadas.
-
-### Tipos de citação ABNT
-
-| Tipo                            | Formato                              | Exemplo                                        |
-|---------------------------------|--------------------------------------|-------------------------------------------------|
-| Indireta (paráfrase)           | Autor (ano)                          | De acordo com Manzano (2022), o algoritmo é... |
-| Direta curta (até 3 linhas)    | "texto" (AUTOR, ano, p.)            | "O algoritmo é..." (MANZANO, 2022, p. 15).    |
-| Direta longa (mais de 3 linhas)| Recuo 4cm, fonte 10pt, sem aspas    | —                                               |
-
-### Exemplo de referência ABNT
-
-```
-MANZANO, J. A. Algoritmos. 30. ed. São Paulo: Érica, 2022.
-
-FORBELLONE, A. L.; EBERSPÄCHER, H. Lógica de Programação.
-3. ed. São Paulo: Pearson, 2021.
-```
-
----
-
-## Avaliação AV2
-
-**Arquivo:** `AV2_[SeuNome]_Aula06.docx`
-
-| Critério                                                                                                           | Pontos   |
-|--------------------------------------------------------------------------------------------------------------------|----------|
-| Estrutura com estilos: Título 1 para capítulos, Título 2 para subcapítulos, Normal para corpo · mínimo 3 capítulos | 2,0      |
-| Sumário automático com pelo menos 2 níveis de hierarquia                                                            | 2,0      |
-| Mínimo 2 notas de rodapé com texto explicativo                                                                      | 2,0      |
-| Mínimo 2 citações ABNT: uma indireta e uma direta curta                                                             | 2,0      |
-| Lista de referências gerada automaticamente com mínimo 2 fontes                                                     | 2,0      |
-| **Total**                                                                                                           | **10,0** |
-
-**Critérios de aprovação:** frequência >= 75% · nota >= 6,0
-
----
-
-## Checklist pré-AV2
-
-- [ ] Apliquei Título 1, Título 2 e Título 3 no documento
-- [ ] Gerei o sumário automático com **Referências → Sumário**
-- [ ] Atualizei o sumário com `F9`
-- [ ] Inseri pelo menos 2 notas de rodapé com `Alt + Ctrl + F`
-- [ ] Cadastrei fontes em **Referências → Inserir Citação**
-- [ ] Escrevi uma citação indireta (paráfrase com autor e ano)
-- [ ] Escrevi uma citação direta curta (com aspas, autor, ano e página)
-- [ ] Gerei a bibliografia com **Referências → Inserir Bibliografia**
-
----
+> [!sucesso]
+> Citacao indireta e a mais usada em trabalhos academicos. Voce explica a ideia do autor com suas proprias palavras e referencia com Autor (ano).
 
 ## Referências
 
-- [Sumário Automático (~14min)](https://www.youtube.com/watch?v=bmOaFoUoMmU)
-- [Criando Bibliografia ABNT Automática (~15min)](https://www.youtube.com/watch?v=MEeNfX7f1Gg)
-- [Notas de Rodapé e Comentários (~12min)](https://www.youtube.com/watch?v=V0iN-op4_Y0)
+- [Sumario Automatico (~14min)](https://www.youtube.com/watch?v=bmOaFoUoMmU) — como gerar e atualizar o sumario
+- [Criando Bibliografia ABNT Automatica (~15min)](https://www.youtube.com/watch?v=MEeNfX7f1Gg) — cadastrar fontes e gerar bibliografia
+- [Notas de Rodape e Comentarios (~12min)](https://www.youtube.com/watch?v=V0iN-op4_Y0) — inserir notas e usar comentarios de revisao

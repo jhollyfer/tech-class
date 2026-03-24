@@ -33,13 +33,18 @@ quiz:
     explicacaoErrada: "match/case é do Python 3.10. Versões anteriores usam if/elif/else."
 ---
 
-## Match/Case
+## O que e match/case?
 
-Pense no `match/case` como um "cardápio de opções". Você dá um valor e o Python encontra o case que combina.
+O `match/case` e o "cardapio de opcoes" do Python. Voce passa um valor e ele encontra o caso que combina. Pense nele como um `if/elif/else` mais elegante quando voce tem muitas opcoes fixas.
 
-Disponível a partir do **Python 3.10**.
+Disponivel a partir do Python 3.10.
 
-### Sintaxe básica
+> [!info]
+> `case _:` e o curinga -- funciona como o "default" do switch em outras linguagens. Captura tudo que nao bateu com os outros cases.
+
+## Match/case basico
+
+A estrutura e simples: `match valor:` seguido de varios `case padrao:`:
 
 ```python
 comando = input("Comando: ").lower()
@@ -52,55 +57,35 @@ match comando:
     case "parar":
         print("Encerrando...")
     case _:
-        print(f"'{comando}' não reconhecido.")
+        print(f"'{comando}' nao reconhecido.")
 ```
 
-> [!info]
-> `case _:` é o "se nenhum outro bateu" — funciona como o default do switch.
+Cada `case` testa um valor. O `case _:` no final pega qualquer coisa que nao bateu com os anteriores.
 
-### Comparação com if/elif
+## Combinando padroes com |
 
-```python
-# Com if/elif
-dia = 3
-if dia == 1:
-    nome = "Segunda"
-elif dia == 2:
-    nome = "Terça"
-elif dia == 3:
-    nome = "Quarta"
-else:
-    nome = "Inválido"
-
-# Com match/case — mais limpo
-match dia:
-    case 1: nome = "Segunda"
-    case 2: nome = "Terça"
-    case 3: nome = "Quarta"
-    case _: nome = "Inválido"
-
-print(nome)  # → Quarta
-```
-
-### Combinando padrões com |
-
-Use `|` para agrupar vários valores num case:
+Use `|` (pipe) pra agrupar varios valores num unico case:
 
 ```python
 dia = 6
 
 match dia:
     case 1 | 2 | 3 | 4 | 5:
-        tipo = "Dia útil"
+        tipo = "Dia util"
     case 6 | 7:
         tipo = "Fim de semana"
     case _:
-        tipo = "Dia inválido"
+        tipo = "Dia invalido"
 
 print(tipo)  # → Fim de semana
 ```
 
-### Match com guardas (if extra)
+> [!alerta]
+> Use `|` (pipe) pra combinar padroes, nao `or`. Dentro do `case`, `or` nao funciona como voce espera.
+
+## Match com guardas (if extra)
+
+Voce pode adicionar uma condicao extra depois do padrao usando `if`:
 
 ```python
 nota = 8.5
@@ -118,140 +103,101 @@ match nota:
 print(f"Nota {nota}: {conceito}")  # → Nota 8.5: Bom
 ```
 
-## Valores Falsy e Truthy
+O `n` captura o valor e o `if` testa a condicao. E como ter `elif` dentro do `match`.
 
-Em Python, qualquer valor pode ser tratado como verdadeiro ou falso.
+## Valores falsy e truthy
 
-### Falsy (tratados como False)
+Alem do `match/case`, Python tem um conceito importante: qualquer valor pode ser tratado como verdadeiro ou falso. Isso permite escrever condicoes mais limpas.
 
 ```python
+# Falsy -- tratados como False
 print(bool(0))       # → False
 print(bool(0.0))     # → False
 print(bool(""))      # → False (string vazia)
 print(bool([]))      # → False (lista vazia)
 print(bool({}))      # → False (dict vazio)
 print(bool(None))    # → False
-print(bool(False))   # → False
 ```
 
-### Truthy (tratados como True)
-
 ```python
+# Truthy -- tratados como True
 print(bool(1))         # → True
 print(bool(-5))        # → True
 print(bool("texto"))   # → True
-print(bool("0"))       # → True (não é vazio!)
-print(bool("False"))   # → True (não é vazio!)
+print(bool("0"))       # → True (nao e vazio!)
 print(bool([1, 2]))    # → True
 ```
 
-> [!alerta]
-> `"0"` e `"False"` são **truthy** porque não são strings vazias. Só `""` é falsy.
+| Valor | Falsy ou Truthy |
+|-------|-----------------|
+| `0`, `0.0` | Falsy |
+| `""` (string vazia) | Falsy |
+| `[]`, `{}`, `set()` | Falsy |
+| `None` | Falsy |
+| `False` | Falsy |
+| Qualquer outro valor | Truthy |
 
-### Uso prático
+> [!alerta]
+> `"0"` e `"False"` sao **truthy** porque nao sao strings vazias. So `""` e falsy.
+
+## Uso pratico de falsy/truthy
+
+Saber isso permite escrever condicoes mais curtas e Pythonicas:
 
 ```python
 nome = input("Seu nome: ")
 
 # Em vez de: if nome != ""
 if nome:
-    print(f"Olá, {nome}!")
+    print(f"Ola, {nome}!")
 else:
-    print("Não digitou nada.")
+    print("Nao digitou nada.")
 
 # Lista vazia?
 itens = []
 if not itens:
-    print("Lista vazia!")
-```
+    print("Lista vazia!")  # → Lista vazia!
 
-## Combinando condições
-
-```python
-idade = 25
-tem_ingresso = True
-eh_vip = False
-
-# Pode entrar se: (tem ingresso E maior) OU é VIP
-pode_entrar = (tem_ingresso and idade >= 18) or eh_vip
-print(f"Pode entrar: {pode_entrar}")  # → True
-```
-
-### Verificando None antes de usar
-
-```python
+# Verificando None antes de usar
 resultado = None
-
-# ❌ Pode dar erro
-# print(resultado.upper())  # AttributeError!
-
-# ✅ Verifica primeiro
 if resultado is not None:
     print(resultado.upper())
 else:
-    print("Sem resultado")
+    print("Sem resultado")  # → Sem resultado
 ```
 
-## Exemplo: Menu de restaurante
+> [!sucesso]
+> Use `if lista:` pra verificar se uma lista tem itens e `if valor is not None:` pra checar None. Codigo mais limpo e Pythonico.
+
+## Exemplo pratico: menu interativo
 
 ```python
-print("=== Cardápio ===")
-print("1. Hambúrguer — R$ 25")
-print("2. Pizza      — R$ 35")
-print("3. Salada     — R$ 18")
-print("4. Suco       — R$ 10")
-print("5. Sobremesa  — R$ 15")
-print()
+print("=== Sistema ===")
+print("1 - Novo cadastro")
+print("2 - Consultar")
+print("3 - Sair")
 
-total = 0.0
-pedidos = []
+opcao = input("Escolha: ")
 
-while True:
-    escolha = input("Item (1-5) ou 'fim': ")
-
-    if escolha == "fim":
-        break
-
-    match escolha:
-        case "1":
-            total += 25.00
-            pedidos.append("Hambúrguer")
-        case "2":
-            total += 35.00
-            pedidos.append("Pizza")
-        case "3":
-            total += 18.00
-            pedidos.append("Salada")
-        case "4":
-            total += 10.00
-            pedidos.append("Suco")
-        case "5":
-            total += 15.00
-            pedidos.append("Sobremesa")
-        case _:
-            print("Opção inválida!")
-            continue
-
-    print(f"  Subtotal: R$ {total:.2f}")
-
-print("\n=== Conta ===")
-if pedidos:
-    for item in pedidos:
-        print(f"  - {item}")
-    print(f"\nTotal: R$ {total:.2f}")
-else:
-    print("Nenhum pedido.")
+match opcao:
+    case "1":
+        nome = input("Nome: ")
+        if nome:
+            print(f"Cadastrado: {nome}")
+        else:
+            print("Nome nao pode ser vazio!")
+    case "2":
+        print("Consultando...")
+    case "3":
+        print("Ate logo!")
+    case _:
+        print(f"Opcao '{opcao}' invalida.")
 ```
 
-## Resumo
+O `match` cuida da navegacao do menu. Dentro do case `"1"`, o `if nome:` usa truthy/falsy pra validar a entrada sem precisar de `!= ""`.
 
-| Conceito | Sintaxe |
-| --- | --- |
-| Match/case | `match valor:` / `case padrão:` |
-| Curinga (default) | `case _:` |
-| Múltiplos padrões | `case 1 \| 2 \| 3:` |
-| Guarda | `case x if x > 0:` |
-| Valores falsy | `0, 0.0, "", [], {}, None, False` |
-| Valores truthy | Tudo que não é falsy |
-| Verificar None | `if valor is not None:` |
-| Verificar vazio | `if lista:` (truthy se tem itens) |
+## Referencias
+
+- [match Statements](https://docs.python.org/3/tutorial/controlflow.html#match-statements) -- documentacao oficial do match/case
+- [Structural Pattern Matching](https://realpython.com/python310-new-features/#structural-pattern-matching) -- artigo no Real Python
+- [Truth Value Testing](https://docs.python.org/3/library/stdtypes.html#truth-value-testing) -- documentacao oficial sobre truthy/falsy

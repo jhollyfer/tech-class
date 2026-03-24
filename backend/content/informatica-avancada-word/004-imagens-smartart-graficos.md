@@ -28,120 +28,90 @@ quiz:
     explicacaoErrada: "Organogramas usam a categoria Hierarquia do SmartArt."
 ---
 
-## Trabalhando com Imagens
+## O que voce vai ver aqui?
 
-### Como inserir
+Elementos visuais tornam o documento mais claro e profissional. **Imagens** ilustram ideias, **SmartArt** cria diagramas e organogramas, e **graficos** apresentam dados numericos de forma visual.
 
-- **Inserir → Imagens → Deste Dispositivo**
-- `Ctrl + V` de uma imagem copiada
-- Arrastar o arquivo direto para o documento
+O segredo que ninguem te conta: o layout da imagem. Por padrao, ela fica "em linha com o texto" e e quase impossivel de mover. Troque pra **Quadrado** e voce ganha liberdade total.
 
-### Layout de imagem
+## Inserindo uma imagem
 
-Por padrão a imagem fica **"Em linha com o texto"** — difícil de mover. Clique na imagem → ícone de layout → escolha o tipo.
+Existem tres formas de colocar uma imagem no documento:
 
-| Layout               | Comportamento                    | Quando usar                   |
-|----------------------|----------------------------------|-------------------------------|
-| Em linha com o texto | Tratada como caractere           | Evitar                        |
-| **Quadrado**         | Texto contorna a imagem          | **Mais usado**                |
-| Bem justo            | Contorna o formato da imagem     | Fundo transparente            |
-| Atrás do texto       | Imagem fica como fundo           | Decorativo                    |
-| Superior e inferior  | Texto só acima e abaixo          | Documentos formais            |
+1. Va em **Inserir** e depois **Imagens** e depois **Deste Dispositivo** — escolha o arquivo
+2. Cole diretamente com `Ctrl + V` se ja copiou a imagem
+3. Arraste o arquivo direto pro documento
 
-> [!sucesso] Use **Quadrado** na maioria dos casos. A imagem move livremente e o texto se ajusta.
+Depois de inserir, o passo mais importante:
 
-### Redimensionamento
+1. Clique na imagem — aparece um icone de layout no canto superior direito
+2. Clique nele e escolha **Quadrado**
+3. Agora voce pode arrastar a imagem pra qualquer lugar e o texto se ajusta ao redor
 
-- Arraste pelas alças dos **cantos** (mantém proporção)
-- Tamanho exato: **Formato de Imagem → grupo Tamanho**
+> [!sucesso]
+> Use layout **Quadrado** na maioria dos casos. E o mais versatil — a imagem move livremente e o texto contorna ela certinho.
 
-> [!alerta] Nunca arraste pelas alças laterais — distorce a imagem.
+## Layouts de imagem
 
-### Recorte
+Vale conhecer todos pra saber quando usar cada um:
 
-**Selecione a imagem → Formato de Imagem → Recortar**
+| Layout | O que faz | Quando usar |
+|--------|-----------|-------------|
+| Em Linha com o Texto | Imagem se comporta como uma letra | Icones pequenos dentro do texto |
+| Quadrado | Texto contorna a imagem | Maioria dos casos |
+| Apertado | Texto contorna o contorno real | Imagens com fundo transparente |
+| Atras do Texto | Imagem fica como marca d'agua | Logos, marcas d'agua |
+| Na Frente do Texto | Imagem cobre o texto | Sobreposicoes, capas |
 
-| Tipo                    | O que faz                              |
-|-------------------------|----------------------------------------|
-| Recorte livre           | Arraste as alças para definir a área   |
-| Recortar para forma     | Círculo, estrela, hexágono             |
-| Recortar para proporção | 16:9, 4:3, 1:1                         |
+## Redimensionando sem distorcer
 
-### Ferramentas de formatação
+Esse e um erro classico: arrastar pelas alcas laterais e a imagem fica esticada ou achatada.
 
-| Ferramenta        | Função                           |
-|-------------------|----------------------------------|
-| Correções         | Nitidez, brilho e contraste      |
-| Cor               | Saturação, tom, escala de cinza  |
-| Estilos de Imagem | Bordas e sombras prontas         |
-| Compactar Imagens | Reduz o tamanho do arquivo       |
+1. Clique na imagem para exibir as alcas (quadradinhos nos cantos e nas laterais)
+2. Arraste pelas alcas dos **cantos** — isso mantem a proporcao
+3. Para tamanho exato: va em **Formato de Imagem** e depois use o grupo **Tamanho**
 
----
+> [!alerta]
+> Nunca arraste pelas alcas laterais. Isso distorce a imagem. Sempre use as alcas dos cantos.
 
-## SmartArt — Organogramas e Diagramas
+## Recortando a imagem
 
-**Inserir → SmartArt → escolha a categoria**
+As vezes voce so quer uma parte da imagem. Em vez de editar fora do Word, recorte direto:
 
-### Categorias principais
+1. Selecione a imagem e va em **Formato de Imagem** e depois **Recortar**
+2. Arraste as alcas pretas para definir a area visivel
+3. Clique fora da imagem para aplicar
 
-| Categoria      | Quando usar                        |
-|----------------|------------------------------------|
-| Lista          | Itens sem hierarquia               |
-| Processo       | Etapas sequenciais, fluxogramas    |
-| **Hierarquia** | Organograma — o mais usado         |
-| Ciclo          | Processos que se repetem           |
-| Relação        | Comparações e conexões             |
-| Matriz         | 4 quadrantes (ex: análise SWOT)    |
-| Pirâmide       | Hierarquia por tamanho             |
+Quer recortar em formato de circulo, estrela ou outra forma? Clique na setinha abaixo de **Recortar** e depois **Recortar para Forma** e escolha a forma.
 
-### Editando o SmartArt
+## Criando um SmartArt (organograma)
 
-- **Painel de texto** (esquerda): digite o conteúdo de cada forma
-- `Tab` no painel = desce um nível
-- `Shift + Tab` = sobe um nível
-- **Design de SmartArt** → mude o layout sem perder conteúdo
-- **Formatar** → cores, efeitos e tamanho
+SmartArt e perfeito pra criar organogramas, fluxogramas e diagramas sem precisar desenhar nada na mao.
 
----
+1. Va em **Inserir** e depois **SmartArt**
+2. Escolha a categoria **Hierarquia** para organogramas (ou **Processo** para fluxogramas, **Ciclo** para ciclos, etc.)
+3. No painel de texto a esquerda, digite o conteudo de cada forma
+4. Use **Tab** no painel para descer um nivel e **Shift + Tab** para subir
+5. Em **Design de SmartArt**, mude cores e layout sem perder o conteudo
 
-## Formas e Gráficos
+> [!info]
+> Se o painel de texto nao aparecer, clique na setinha no lado esquerdo do SmartArt.
 
-### Formas
+## Inserindo um grafico
 
-**Inserir → Formas → escolha e arraste**
+Graficos sao otimos pra apresentar numeros de forma visual — vendas, notas, comparacoes.
 
-- Segure **Shift** = forma perfeita (círculo, quadrado)
-- Adicionar texto: botão direito → **Adicionar Texto**
-- Agrupar: `Ctrl + clique` nas formas → **Agrupar**
+1. Va em **Inserir** e depois **Grafico**
+2. Escolha o tipo: **Colunas** (comparacao), **Linhas** (evolucao no tempo), **Pizza** (proporcao), etc.
+3. O Word abre uma mini planilha — digite seus dados ali
+4. Feche a planilha e o grafico aparece no documento
+5. Para editar depois: clique no grafico e va em **Design de Grafico** e depois **Editar Dados**
 
-### Gráficos
-
-**Inserir → Gráfico → escolha o tipo**
-
-O Word abre uma mini planilha para digitar os dados. Para editar depois: **Design de Gráfico → Editar Dados**.
-
-| Tipo             | Quando usar                     |
-|------------------|---------------------------------|
-| Colunas / Barras | Comparar categorias             |
-| Linhas           | Tendências ao longo do tempo    |
-| Pizza            | Proporções de um total (%)      |
-| Dispersão        | Relação entre duas variáveis    |
-
----
-
-## Checklist da Aula
-
-- [ ] Inseri uma imagem com layout Quadrado
-- [ ] Recortei uma imagem para formato circular
-- [ ] Apliquei um estilo de imagem (borda ou sombra)
-- [ ] Criei um SmartArt de hierarquia (organograma)
-- [ ] Editei o SmartArt pelo painel de texto
-- [ ] Desenhei uma forma e adicionei texto
-- [ ] Inseri um gráfico de colunas com dados de exemplo
-
----
+> [!info]
+> Se voce ja tem os dados no Excel, copie la e cole no Word com `Ctrl + V`. O grafico vem pronto.
 
 ## Referências
 
-- [Trabalhando com Imagens (~11min)](https://www.youtube.com/watch?v=BSHPpwPz7O0)
-- [Componentes de Design (~11min)](https://www.youtube.com/watch?v=BkJpfmpVMxE)
+- [Trabalhando com Imagens (~11min)](https://www.youtube.com/watch?v=BSHPpwPz7O0) — inserir, redimensionar e recortar imagens
+- [Componentes de Design (~11min)](https://www.youtube.com/watch?v=BkJpfmpVMxE) — SmartArt, formas e graficos no Word
+- [Inserir um grafico — Microsoft Support](https://support.microsoft.com/pt-br/office/inserir-um-gr%C3%A1fico-do-in%C3%ADcio-ao-fim-0f4b68e7-9c7e-4aca-a469-e7abb9e92b2b)

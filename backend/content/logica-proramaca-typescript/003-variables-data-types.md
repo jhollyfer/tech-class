@@ -162,3 +162,9 @@ console.log(`Faltas após registro: ${faltas}`); // → Faltas após registro: 1
 ```
 
 `faltas` usa `let` porque muda. O resto usa `const` porque é fixo.
+
+## Referências
+
+- [Gramática e tipos - MDN Web Docs](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Grammar_and_types) — guia completo sobre variáveis, declarações e tipos de dados em JavaScript
+- [JavaScript Variables - W3Schools](https://www.w3schools.com/js/js_variables.asp) — tutorial interativo sobre let, const e tipos primitivos
+- [Variáveis e Tipos no TypeScript - Glaucia Lemos](https://www.youtube.com/watch?v=u7K1sdnCv5Y) — vídeo explicando variáveis e tipagem em TypeScript

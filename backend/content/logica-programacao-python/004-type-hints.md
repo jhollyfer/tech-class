@@ -28,9 +28,18 @@ quiz:
     explicacaoErrada: "Type hints não afetam performance, não convertem tipos e não impedem erros. São para documentação e ferramentas."
 ---
 
-## O que são Type Hints?
+## O que sao type hints?
 
-Type hints são etiquetas opcionais que dizem qual tipo uma variável ou função espera. Como colocar uma plaquinha na caixa dizendo "aqui vai texto".
+Type hints sao etiquetas opcionais que voce coloca no codigo pra dizer qual tipo uma variavel ou funcao espera. E como rotular uma caixa: "aqui vai texto", "aqui vai numero".
+
+O ponto mais importante: type hints **nao mudam** como o programa funciona. Python continua dinamico. As anotacoes servem pra voce, pra sua IDE e pra ferramentas como o mypy.
+
+> [!info]
+> Type hints sao opcionais. Voce pode comecar sem eles e ir adicionando conforme o projeto cresce.
+
+## Sintaxe basica em variaveis
+
+A sintaxe e simples: `variavel: tipo = valor`. O tipo vem depois dos dois-pontos:
 
 ```python
 # Sem type hints
@@ -40,34 +49,105 @@ idade = 25
 # Com type hints
 nome: str = "Ana"
 idade: int = 25
+altura: float = 1.75
+ativo: bool = True
+resultado: None = None
+```
+
+Funciona igualzinho com ou sem a anotacao. A diferenca e que sua IDE agora sabe o tipo e te ajuda com autocomplete.
+
+## Em funcoes -- parametros e retorno
+
+Type hints brilham de verdade em funcoes. Voce anota os parametros e o retorno com `->`:
+
+```python
+def saudacao(nome: str, idade: int) -> str:
+    return f"Ola, {nome}! Voce tem {idade} anos."
+
+print(saudacao("Ana", 22))
+# → Ola, Ana! Voce tem 22 anos.
+```
+
+Com valor padrao, o hint vem antes do `=`:
+
+```python
+def configurar(host: str = "localhost", porta: int = 8080) -> str:
+    return f"{host}:{porta}"
+
+print(configurar())  # → localhost:8080
+```
+
+Funcao que nao retorna nada usa `-> None`:
+
+```python
+def exibir(texto: str) -> None:
+    print(texto)
+```
+
+## Type hints sao ignorados na execucao
+
+Isso e importante: o Python **nao impede** voce de passar o tipo errado. Ele roda normalmente:
+
+```python
+idade: int = "vinte e cinco"  # anotou int, mas e str
+print(idade)  # → vinte e cinco (funciona!)
+
+nome: str = 42  # anotou str, mas e int
+print(nome)     # → 42 (funciona!)
+```
+
+> [!alerta]
+> Nao confie nos type hints pra evitar erros. O Python roda o codigo normalmente mesmo com tipos "errados". Use o mypy pra pegar esses problemas antes.
+
+## Tipos para colecoes (Python 3.9+)
+
+A partir do Python 3.9, voce pode usar os tipos de colecoes diretamente:
+
+```python
+nomes: list[str] = ["Ana", "Carlos", "Maria"]
+idades: dict[str, int] = {"Ana": 25, "Carlos": 30}
+coordenadas: tuple[float, float] = (23.5, -46.6)
+ids_unicos: set[int] = {1, 2, 3, 4}
+```
+
+| Tipo | Significado | Exemplo |
+|------|-------------|---------|
+| `list[str]` | Lista de strings | `["a", "b"]` |
+| `dict[str, int]` | Dict com chave str e valor int | `{"x": 1}` |
+| `tuple[int, int]` | Tupla com 2 inteiros | `(1, 2)` |
+| `set[int]` | Conjunto de inteiros | `{1, 2, 3}` |
+
+## Tipo opcional -- pode ser None (Python 3.10+)
+
+Quando um valor pode ser de um tipo **ou** `None`, use `|`:
+
+```python
+nome: str | None = None
+
+def buscar_usuario(id: int) -> str | None:
+    if id == 1:
+        return "Ana"
+    return None
+
+resultado = buscar_usuario(1)
+print(resultado)  # → Ana
+
+resultado = buscar_usuario(99)
+print(resultado)  # → None
 ```
 
 > [!info]
-> Type hints **não mudam** como o programa funciona. Python continua com tipagem dinâmica. As anotações são só informativas.
+> Antes do Python 3.10, a sintaxe era `Optional[str]` do modulo `typing`. A partir do 3.10, `str | None` e mais limpo.
 
-## Por que usar?
+## Verificacao com mypy
 
-**1. Legibilidade** — quem lê o código sabe o tipo esperado na hora:
-
-```python
-# Sem hints — que tipo é cada coisa?
-def calcular_desconto(preco, percentual):
-    return preco * (1 - percentual / 100)
-
-# Com hints — fica claro!
-def calcular_desconto(preco: float, percentual: float) -> float:
-    return preco * (1 - percentual / 100)
-```
-
-**2. IDE mais esperta** — o VS Code dá autocomplete melhor, avisa quando o tipo está errado e mostra documentação ao passar o mouse.
-
-**3. Verificação com mypy** — encontra erros antes de rodar o código:
+O mypy e uma ferramenta que analisa seu codigo e encontra erros de tipo **sem precisar rodar o programa**:
 
 ```python
 def saudacao(nome: str) -> str:
-    return f"Olá, {nome}!"
+    return f"Ola, {nome}!"
 
-resultado: int = saudacao("Ana")  # mypy: incompatível!
+resultado: int = saudacao("Ana")  # mypy aponta erro aqui
 ```
 
 ```bash
@@ -75,119 +155,34 @@ mypy verificar.py
 # → error: Incompatible types in assignment
 ```
 
-## Sintaxe básica
+> [!sucesso]
+> Com mypy voce encontra erros de tipo antes de rodar o programa. Instale com `pip install mypy`.
 
-### Em variáveis
-
-```python
-nome: str = "Carlos"
-idade: int = 30
-altura: float = 1.75
-ativo: bool = True
-resultado: None = None
-```
-
-### Em funções — parâmetros e retorno
+## Exemplo pratico: cadastro tipado
 
 ```python
-def saudacao(nome: str, idade: int) -> str:
-    return f"Olá, {nome}! Você tem {idade} anos."
+def criar_perfil(
+    nome: str,
+    idade: int,
+    email: str,
+    ativo: bool = True
+) -> dict[str, str | int | bool]:
+    return {
+        "nome": nome,
+        "idade": idade,
+        "email": email,
+        "ativo": ativo
+    }
 
-# Com valor padrão
-def configurar(host: str = "localhost", porta: int = 8080) -> str:
-    return f"{host}:{porta}"
-
-# Sem retorno
-def exibir(texto: str) -> None:
-    print(texto)
+perfil = criar_perfil("Ana", 22, "ana@email.com")
+print(perfil)
+# → {'nome': 'Ana', 'idade': 22, 'email': 'ana@email.com', 'ativo': True}
 ```
 
-## Type hints são ignorados na execução
+Cada parametro tem seu tipo anotado. O retorno mostra que o dicionario pode ter valores `str`, `int` ou `bool`. Quem ler a funcao sabe exatamente o que ela espera.
 
-Esse é o ponto principal: o Python **não** gera erro se o tipo real for diferente.
+## Referencias
 
-```python
-idade: int = "vinte e cinco"  # anotou int, mas é str
-print(idade)  # → vinte e cinco (funciona!)
-
-nome: str = 42  # anotou str, mas é int
-print(nome)     # → 42 (funciona!)
-```
-
-> [!info]
-> Type hints são como comentários organizados — ajudam humanos e ferramentas, mas o Python ignora durante a execução.
-
-## Tipos para coleções
-
-```python
-# Python 3.9+
-nomes: list[str] = ["Ana", "Carlos", "Maria"]
-idades: dict[str, int] = {"Ana": 25, "Carlos": 30}
-coordenadas: tuple[float, float] = (23.5, -46.6)
-ids_unicos: set[int] = {1, 2, 3, 4}
-```
-
-### Tipo opcional (pode ser None)
-
-```python
-# Python 3.10+
-nome: str | None = None
-
-def buscar_usuario(id: int) -> str | None:
-    if id == 1:
-        return "Ana"
-    return None
-```
-
-## Exemplo: Calculadora com type hints
-
-```python
-def somar(a: float, b: float) -> float:
-    return a + b
-
-def subtrair(a: float, b: float) -> float:
-    return a - b
-
-def multiplicar(a: float, b: float) -> float:
-    return a * b
-
-def dividir(a: float, b: float) -> float | None:
-    if b == 0:
-        print("Erro: divisão por zero!")
-        return None
-    return a / b
-
-def exibir_resultado(operacao: str, resultado: float | None) -> None:
-    if resultado is not None:
-        print(f"Resultado da {operacao}: {resultado:.2f}")
-
-numero1: float = float(input("Primeiro número: "))
-numero2: float = float(input("Segundo número: "))
-
-exibir_resultado("soma", somar(numero1, numero2))
-exibir_resultado("subtração", subtrair(numero1, numero2))
-exibir_resultado("multiplicação", multiplicar(numero1, numero2))
-exibir_resultado("divisão", dividir(numero1, numero2))
-```
-
-## Quando usar?
-
-| Situação | Usar? |
-| --- | --- |
-| Projetos grandes / em equipe | Sim, sempre |
-| Funções públicas / APIs | Sim, sempre |
-| Scripts rápidos / estudo | Opcional |
-| Variáveis óbvias (`x = 5`) | Pode pular |
-
-## Resumo
-
-| Conceito | Sintaxe |
-| --- | --- |
-| Variável com tipo | `nome: str = "Ana"` |
-| Parâmetro com tipo | `def f(x: int):` |
-| Retorno de função | `def f() -> str:` |
-| Sem retorno | `def f() -> None:` |
-| Tipo opcional | `valor: str \| None` |
-| Lista tipada | `nomes: list[str]` |
-| Dicionário tipado | `dados: dict[str, int]` |
-| Verificação | `mypy arquivo.py` |
+- [typing -- Support for type hints](https://docs.python.org/3/library/typing.html) -- documentacao oficial do modulo typing
+- [Python Type Checking Guide](https://realpython.com/python-type-checking/) -- guia completo no Real Python
+- [mypy Documentation](https://mypy.readthedocs.io/) -- documentacao oficial do mypy

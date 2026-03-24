@@ -159,3 +159,9 @@ const idade: number = 25;
 // Use if/else if/else para classificar a idade
 // e exiba a faixa etária no console
 ```
+
+## Referências
+
+- [if...else - MDN Web Docs](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/if...else) — documentação oficial do if/else com exemplos e boas práticas
+- [JavaScript if else - W3Schools](https://www.w3schools.com/js/js_if_else.asp) — tutorial interativo sobre condicionais if, else if e else
+- [Estruturas Condicionais em JavaScript - Curso em Vídeo](https://www.youtube.com/watch?v=cOLgevDpts8) — aula completa sobre if/else e operadores de comparação

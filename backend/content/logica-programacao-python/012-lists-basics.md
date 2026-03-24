@@ -33,77 +33,65 @@ quiz:
     explicacaoErrada: "Em Python, use o operador in: '7 in numeros'."
 ---
 
-## O que são Listas?
+## O que e uma lista?
 
-Lista é como uma gaveta com divisórias. Cada divisória guarda um item e tem um número (índice).
+Lista e a estrutura de dados mais usada em Python. Pense nela como uma gaveta com divisorias numeradas. Cada divisoria guarda um item e tem um indice que comeca em zero.
 
-Você pode guardar qualquer coisa: números, textos, booleanos, até outras listas.
+Listas sao mutaveis, ou seja, voce pode adicionar, remover e alterar itens depois de criar. Da pra guardar qualquer tipo: numeros, textos, booleanos, ate outras listas.
 
-## Criando Listas
+> [!info]
+> Use type hints como `list[int]` para deixar claro o tipo dos elementos.
+
+## Criando listas
 
 ```python
 numeros: list[int] = [1, 2, 3, 4, 5]
 nomes: list[str] = ["Ana", "Bruno", "Carla"]
-notas: list[float] = [8.5, 7.0, 9.2, 6.8]
-
-# Lista vazia
-tarefas: list[str] = []
+tarefas: list[str] = []  # lista vazia
 ```
 
-> [!info] Use type hints como `list[int]` para deixar claro o tipo de dado da lista.
+`list[int]` = lista de inteiros. `list[str]` = lista de strings.
 
-## Acessando por Índice
+## Acessando elementos (indice comeca em 0)
 
-Índices começam em **0**:
+Cada item tem uma posicao (indice), comecando do 0:
 
 ```python
-frutas: list[str] = ["maçã", "banana", "laranja", "uva", "manga"]
-#                      0        1         2        3       4
-#                     -5       -4        -3       -2      -1
+frutas: list[str] = ["maca", "banana", "laranja", "uva", "manga"]
 
-print(frutas[0])    # → "maçã"
-print(frutas[2])    # → "laranja"
-print(frutas[-1])   # → "manga"    (último)
-print(frutas[-2])   # → "uva"      (penúltimo)
+print(frutas[0])    # → "maca" (primeiro)
+print(frutas[-1])   # → "manga" (ultimo)
+print(frutas[-2])   # → "uva" (penultimo)
+print(len(frutas))  # → 5
 ```
 
-> [!info] Índices negativos contam de trás pra frente. -1 = último, -2 = penúltimo.
+Visualizando:
 
-## Tamanho da Lista
-
-```python
-notas: list[float] = [8.5, 7.0, 9.2, 6.8, 7.5]
-print(len(notas))   # → 5
+```
+Indice:   0        1         2        3       4
+Valor:  "maca"  "banana"  "laranja"  "uva"  "manga"
 ```
 
-## Slicing — Fatiando Listas
+> [!alerta]
+> `frutas[10]` da `IndexError`. Diferente de TypeScript, Python **nao** retorna `None` silenciosamente.
 
-Slicing corta um pedaço da lista:
+## Slicing -- fatiando a lista
+
+Com `lista[inicio:fim:passo]`, voce pega pedacos da lista. O inicio e incluso, o fim **nao**:
 
 ```python
-# lista[início:fim:passo]
-# início = incluso, fim = NÃO incluso
-
 numeros: list[int] = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
 
-print(numeros[2:5])     # → [20, 30, 40]
-print(numeros[:4])      # → [0, 10, 20, 30]
-print(numeros[6:])      # → [60, 70, 80, 90]
-print(numeros[::2])     # → [0, 20, 40, 60, 80]
-print(numeros[::-1])    # → [90, 80, 70, ..., 0]  (invertida!)
+print(numeros[2:5])   # → [20, 30, 40]
+print(numeros[:4])    # → [0, 10, 20, 30]
+print(numeros[6:])    # → [60, 70, 80, 90]
+print(numeros[::2])   # → [0, 20, 40, 60, 80]
+print(numeros[::-1])  # → [90, 80, 70, ..., 0] (invertida!)
 ```
 
-```python
-turma: list[str] = ["Ana", "Bruno", "Carla", "Diego", "Eva"]
+## Modificando valores
 
-top3: list[str] = turma[:3]       # → ["Ana", "Bruno", "Carla"]
-ultimos: list[str] = turma[-2:]   # → ["Diego", "Eva"]
-copia: list[str] = turma[:]       # cópia da lista inteira
-```
-
-## Modificando Listas
-
-Listas são **mutáveis** -- dá pra mudar direto:
+Basta atribuir direto no indice:
 
 ```python
 notas: list[float] = [8.5, 7.0, 9.2, 6.8]
@@ -111,79 +99,100 @@ notas[1] = 7.5
 print(notas)  # → [8.5, 7.5, 9.2, 6.8]
 ```
 
-### Adicionando
+## Adicionando elementos
 
 ```python
-frutas: list[str] = ["maçã", "banana"]
-
-# append() — adiciona no FINAL
-frutas.append("laranja")
-print(frutas)  # → ["maçã", "banana", "laranja"]
-
-# insert(posição, valor) — adiciona ONDE você quiser
-frutas.insert(0, "uva")
-print(frutas)  # → ["uva", "maçã", "banana", "laranja"]
+frutas: list[str] = ["maca", "banana"]
+frutas.append("laranja")        # adiciona no final
+frutas.insert(0, "uva")         # adiciona na posicao 0
+print(frutas)  # → ["uva", "maca", "banana", "laranja"]
 ```
 
-### Removendo
+## Removendo elementos
 
 ```python
-frutas: list[str] = ["maçã", "banana", "laranja", "uva", "banana"]
+frutas: list[str] = ["maca", "banana", "laranja", "uva"]
 
-# pop() — remove o ÚLTIMO e retorna ele
-ultimo: str = frutas.pop()
-print(ultimo)   # → "banana"
-print(frutas)   # → ["maçã", "banana", "laranja", "uva"]
-
-# pop(índice) — remove pela POSIÇÃO
-segundo: str = frutas.pop(1)
-print(segundo)  # → "banana"
-
-# remove(valor) — remove pelo VALOR (primeira ocorrência)
-frutas.remove("laranja")
-print(frutas)   # → ["maçã", "uva"]
+ultimo: str = frutas.pop()      # remove e retorna o ultimo
+segundo: str = frutas.pop(1)    # remove e retorna o indice 1
+frutas.remove("laranja")        # remove pelo valor (sem retorno)
 ```
 
-> [!alerta] `pop()` remove por posição. `remove()` remove por valor. Não confunda!
+| Metodo     | O que faz                 | Retorna             |
+| ---------- | ------------------------- | ------------------- |
+| `append()` | Adiciona no final         | None                |
+| `insert()` | Adiciona em posicao X     | None                |
+| `pop()`    | Remove por posicao        | Elemento removido   |
+| `remove()` | Remove por valor          | None                |
 
-## Operador in
+> [!alerta]
+> `pop()` remove por posicao e retorna o item. `remove()` remove por valor e nao retorna nada. Se o valor nao existir, `remove()` da erro.
 
-Verifica se algo existe na lista:
+## Verificando se existe
+
+O operador `in` checa se um valor esta na lista:
 
 ```python
-cores: list[str] = ["vermelho", "azul", "verde", "amarelo"]
+cores: list[str] = ["vermelho", "azul", "verde"]
 
 print("azul" in cores)      # → True
-print("roxo" in cores)      # → False
 print("roxo" not in cores)  # → True
-
-cor: str = "verde"
-if cor in cores:
-    print(f"{cor} está disponível!")
 ```
 
-## Método index()
-
-Encontra a posição de um valor:
+Para encontrar a posicao:
 
 ```python
-animais: list[str] = ["gato", "cachorro", "peixe", "gato"]
-
+animais: list[str] = ["gato", "cachorro", "peixe"]
 print(animais.index("cachorro"))  # → 1
-print(animais.index("gato"))      # → 0  (primeira ocorrência)
-
-# Se não existir, dá ValueError
-# animais.index("leão")  # → ValueError!
 ```
 
-## Resumo
+## Percorrendo listas
 
-| Método | O que faz |
-| --- | --- |
-| `append(x)` | Adiciona x no final |
-| `insert(i, x)` | Insere x na posição i |
-| `pop()` | Remove e retorna o último |
-| `pop(i)` | Remove e retorna o item na posição i |
-| `remove(x)` | Remove primeira ocorrência de x |
-| `index(x)` | Retorna posição de x |
-| `len(lista)` | Retorna o tamanho |
+Com `for` (mais limpo):
+
+```python
+alunos: list[str] = ["Ana", "Bob", "Carlos"]
+
+for aluno in alunos:
+    print(f"Aluno: {aluno}")
+# → Aluno: Ana
+# → Aluno: Bob
+# → Aluno: Carlos
+```
+
+Com `enumerate` (quando precisa do indice):
+
+```python
+for i, aluno in enumerate(alunos, start=1):
+    print(f"{i}. {aluno}")
+# → 1. Ana
+# → 2. Bob
+# → 3. Carlos
+```
+
+## Exercicio pratico
+
+Dada uma lista de notas:
+
+1. Calcule a media (soma / tamanho)
+2. Filtre os aprovados (nota >= 7) usando um loop
+3. Encontre a maior e a menor nota
+
+```python
+notas: list[float] = [8.5, 6.0, 9.2, 4.5, 7.0, 5.5, 8.0, 3.0]
+
+# 1. Some tudo com for, divida por len(notas)
+
+# 2. Crie uma lista vazia e use append para notas >= 7
+
+# 3. Use for para achar a maior e menor
+```
+
+> [!sucesso]
+> Na proxima aula, voce vai aprender metodos funcionais como `filter()` e `map()` para fazer isso em uma linha so.
+
+## Referencias
+
+- [Listas](https://docs.python.org/pt-br/3/tutorial/datastructures.html#more-on-lists) -- documentacao oficial Python
+- [Lists and Tuples in Python](https://realpython.com/python-lists-tuples/) -- guia completo no Real Python
+- [Curso Python #14 - Listas (Parte 1)](https://www.youtube.com/watch?v=nIHq1MtJaKs) -- Curso em Video

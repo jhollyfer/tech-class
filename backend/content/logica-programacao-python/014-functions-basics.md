@@ -33,24 +33,29 @@ quiz:
     explicacaoErrada: "Keyword arguments = passar pelo nome do parâmetro, não pela ordem."
 ---
 
-## Por que usar Funções?
+## O que e uma funcao?
 
-Função é como uma receita: você define os passos uma vez e usa quantas vezes quiser.
+Funcao e um bloco de codigo com nome que voce define uma vez e usa quantas vezes precisar. Em vez de copiar e colar o mesmo trecho, voce chama a funcao pelo nome.
 
-- **Organiza** o código em pedaços menores
-- **Reutiliza** lógica sem copiar e colar
-- **Facilita testes** de cada parte separadamente
+Funcoes organizam o codigo em pedacos menores, facilitam a reutilizacao e tornam tudo mais facil de testar. Toda funcao em Python comeca com `def`, seguida do nome, dos parametros entre parenteses e de dois pontos.
 
-## Criando com def
+> [!info]
+> Use type hints para documentar o que a funcao recebe e retorna. Nao sao obrigatorios, mas ajudam muito.
+
+## Funcao simples sem retorno
+
+Quando a funcao so executa algo (como imprimir), o retorno e `None`:
 
 ```python
 def saudar() -> None:
-    print("Olá, bem-vindo ao curso!")
+    print("Ola, bem-vindo ao curso!")
 
-saudar()  # → Olá, bem-vindo ao curso!
+saudar()  # → Ola, bem-vindo ao curso!
 ```
 
-### Com Parâmetros e Type Hints
+## Funcao com parametros e retorno
+
+Use type hints nos parametros (`: tipo`) e no retorno (`-> tipo`):
 
 ```python
 def somar(a: int, b: int) -> int:
@@ -58,101 +63,66 @@ def somar(a: int, b: int) -> int:
 
 resultado: int = somar(3, 5)
 print(resultado)  # → 8
-
-def calcular_area(base: float, altura: float) -> float:
-    return base * altura / 2
-
-area: float = calcular_area(10.0, 5.0)
-print(f"Área: {area}")  # → Área: 25.0
 ```
-
-> [!info] Type hints são opcionais, mas use sempre. Ajudam você e quem ler o código.
-
-## Tipo de Retorno
-
-`-> tipo` diz o que a função retorna:
 
 ```python
 def calcular_media(notas: list[float]) -> float:
     return sum(notas) / len(notas)
 
 media: float = calcular_media([8.5, 7.0, 9.2])
-print(f"Média: {media:.1f}")  # → Média: 8.2
+print(f"Media: {media:.1f}")  # → Media: 8.2
+```
 
+```python
 def e_aprovado(nota: float) -> bool:
     return nota >= 7.0
 
-print(e_aprovado(8.5))   # → True
-print(e_aprovado(5.0))   # → False
+print(e_aprovado(8.5))  # → True
+print(e_aprovado(5.0))  # → False
 ```
 
-Funções que não retornam nada usam `-> None`:
+## Valores padrao
+
+Parametros com valor padrao se tornam opcionais na chamada:
 
 ```python
-def exibir_resultado(nome: str, nota: float) -> None:
-    status: str = "Aprovado" if nota >= 7.0 else "Reprovado"
-    print(f"{nome}: {nota:.1f} — {status}")
-
-exibir_resultado("Ana", 8.5)    # → Ana: 8.5 — Aprovado
-exibir_resultado("Bruno", 5.0)  # → Bruno: 5.0 — Reprovado
-```
-
-## Valores Padrão
-
-Tornam parâmetros opcionais:
-
-```python
-def saudar(nome: str, saudacao: str = "Olá") -> str:
+def saudar(nome: str, saudacao: str = "Ola") -> str:
     return f"{saudacao}, {nome}!"
 
-print(saudar("Ana"))                # → Olá, Ana!
-print(saudar("Bruno", "Bom dia"))   # → Bom dia, Bruno!
+print(saudar("Ana"))               # → Ola, Ana!
+print(saudar("Bruno", "Bom dia"))  # → Bom dia, Bruno!
+```
 
+```python
 def calcular_desconto(preco: float, percentual: float = 10.0) -> float:
     desconto: float = preco * (percentual / 100)
     return preco - desconto
 
-print(calcular_desconto(100.0))        # → 90.0  (desconto padrão 10%)
-print(calcular_desconto(100.0, 25.0))  # → 75.0  (desconto 25%)
+print(calcular_desconto(100.0))        # → 90.0 (desconto padrao 10%)
+print(calcular_desconto(100.0, 25.0))  # → 75.0 (desconto 25%)
 ```
 
-> [!alerta] Parâmetros com valor padrão devem vir **depois** dos obrigatórios.
+> [!alerta]
+> Parametros com valor padrao devem vir depois dos obrigatorios. `def funcao(a, b=10)` funciona. `def funcao(b=10, a)` da erro.
 
-```python
-# Correto
-def criar_usuario(nome: str, idade: int, ativo: bool = True) -> None:
-    pass
+## Keyword arguments
 
-# Erro — padrão antes de obrigatório
-# def criar_usuario(ativo: bool = True, nome: str, idade: int) -> None:
-```
-
-## Keyword Arguments
-
-Passe argumentos **pelo nome**, sem se preocupar com a ordem:
+Voce pode passar argumentos pelo nome, sem se preocupar com a ordem:
 
 ```python
 def criar_perfil(nome: str, idade: int, cidade: str = "Manaus") -> str:
     return f"{nome}, {idade} anos, mora em {cidade}"
 
-# Pela ordem (posicional)
 print(criar_perfil("Ana", 25))
 # → Ana, 25 anos, mora em Manaus
 
-# Pelo nome (keyword) — ordem não importa
-print(criar_perfil(idade=30, nome="Bruno", cidade="São Paulo"))
-# → Bruno, 30 anos, mora em São Paulo
-
-# Misturando: posicionais primeiro, keyword depois
-print(criar_perfil("Carla", cidade="Rio", idade=28))
-# → Carla, 28 anos, mora em Rio
+print(criar_perfil(idade=30, nome="Bruno", cidade="Sao Paulo"))
+# → Bruno, 30 anos, mora em Sao Paulo
 ```
 
-> [!info] Keyword arguments são ótimos quando a função tem muitos parâmetros.
+## Retornando multiplos valores
 
-## Retornando Múltiplos Valores
-
-Use tuplas:
+Python permite retornar varios valores de uma vez usando tupla:
 
 ```python
 def calcular_estatisticas(notas: list[float]) -> tuple[float, float, float]:
@@ -162,58 +132,39 @@ def calcular_estatisticas(notas: list[float]) -> tuple[float, float, float]:
     return media, maior, menor
 
 media, maior, menor = calcular_estatisticas([8.5, 7.0, 9.2, 6.8])
-print(f"Média: {media:.1f}")  # → Média: 7.9
+print(f"Media: {media:.1f}")  # → Media: 7.9
 print(f"Maior: {maior}")      # → Maior: 9.2
 print(f"Menor: {menor}")      # → Menor: 6.8
 ```
 
-## Exemplo Completo
+> [!info]
+> O `return media, maior, menor` cria uma tupla automaticamente. Na chamada, voce desestrutura com `a, b, c = funcao()`.
+
+## Exercicio pratico
+
+Crie funcoes para um sistema de notas:
+
+1. `calcular_media(notas)` -- recebe lista de float, retorna a media
+2. `classificar(media)` -- retorna "Aprovado" se >= 7, senao "Reprovado"
+3. `exibir_resultado(nome, notas)` -- usa as outras duas e imprime o resultado
 
 ```python
-def calcular_media(notas: list[float], pesos: list[float] | None = None) -> float:
-    if pesos is None:
-        return sum(notas) / len(notas)
-    total_ponderado: float = sum(n * p for n, p in zip(notas, pesos))
-    return total_ponderado / sum(pesos)
+# 1. def calcular_media(notas: list[float]) -> float:
 
-def classificar(media: float) -> str:
-    if media >= 9.0:
-        return "Excelente"
-    elif media >= 7.0:
-        return "Aprovado"
-    elif media >= 5.0:
-        return "Recuperação"
-    else:
-        return "Reprovado"
+# 2. def classificar(media: float) -> str:
 
-notas: list[float] = [8.0, 7.5, 9.0]
-media: float = calcular_media(notas)
-print(f"Média: {media:.1f} — {classificar(media)}")  # → Média: 8.2 — Aprovado
+# 3. def exibir_resultado(nome: str, notas: list[float]) -> None:
 
-pesos: list[float] = [2.0, 3.0, 5.0]
-media_p: float = calcular_media(notas, pesos)
-print(f"Ponderada: {media_p:.1f} — {classificar(media_p)}")  # → Ponderada: 8.4 — Aprovado
+# Teste:
+# exibir_resultado("Ana", [8.5, 7.0, 9.2])
+# → Ana: 8.2 - Aprovado
 ```
 
-## Boas Práticas
+> [!sucesso]
+> Se voce consegue quebrar um problema em funcoes menores, ja esta aplicando o principio de responsabilidade unica. Na proxima aula, vamos ver lambda, callbacks e recursao.
 
-> [!sucesso] 4 regras de ouro para funções:
+## Referencias
 
-1. **Nome descritivo** — `calcular_media`, `e_aprovado`, `formatar_nome`
-2. **Type hints sempre** — documente entrada e saída
-3. **Uma responsabilidade** — cada função faz só uma coisa
-4. **Docstrings** — explique o que a função faz com `""" """`
-
-```python
-# Bom — cada função faz uma coisa
-def calcular_total(precos: list[float]) -> float:
-    return sum(precos)
-
-def aplicar_desconto(total: float, percentual: float) -> float:
-    return total * (1 - percentual / 100)
-
-# Ruim — faz coisas demais
-def processar_compra_completa(itens, desconto, cliente, email):
-    # calcula total, aplica desconto, envia email, salva no banco...
-    pass
-```
+- [Definindo funcoes](https://docs.python.org/pt-br/3/tutorial/controlflow.html#defining-functions) -- documentacao oficial Python
+- [Defining Your Own Python Function](https://realpython.com/defining-your-own-python-function/) -- guia completo no Real Python
+- [Curso Python #16 - Funcoes (Parte 1)](https://www.youtube.com/watch?v=ezfr9d7wd_k) -- Curso em Video

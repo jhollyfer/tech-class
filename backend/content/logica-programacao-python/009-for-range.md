@@ -33,32 +33,28 @@ quiz:
     explicacaoErrada: "O fim é sempre exclusivo. Para incluir o 5, use range(1, 6)."
 ---
 
-## O loop for
+## O que e o for com range?
 
-`for` repete um bloco de código. Pense nele como "para cada número de 0 a 4, faça isso":
+O `for` repete um bloco de codigo um numero determinado de vezes. Junto com `range()`, voce controla exatamente quantas repeticoes quer, de onde comecar e de quanto em quanto pular.
 
-```python
-for i in range(5):
-    print(f"Repetição {i}")
-# → Repetição 0
-# → Repetição 1
-# → Repetição 2
-# → Repetição 3
-# → Repetição 4
-```
+Pense no `range()` como um gerador de sequencias numericas. Voce define inicio, fim e passo, e ele entrega os numeros um por um para o `for`.
 
-## range() — gerando sequências de números
+> [!info]
+> O fim do `range()` e sempre **exclusivo**. `range(1, 5)` gera 1, 2, 3, 4. O 5 fica de fora. Para incluir o 5, use `range(1, 6)`.
 
-### range(fim) — um argumento
+## range com um argumento
 
-Gera de **0** até **fim - 1**:
+Quando voce passa so um numero, o range comeca em 0 e vai ate esse numero (sem incluir ele):
 
 ```python
 for i in range(5):
     print(i, end=" ")
 # → 0 1 2 3 4
+```
 
-# Não precisa da variável? Use _
+Se nao precisa da variavel do loop, use `_`:
+
+```python
 for _ in range(3):
     print("Python!")
 # → Python!
@@ -66,9 +62,9 @@ for _ in range(3):
 # → Python!
 ```
 
-### range(início, fim) — dois argumentos
+## range com dois argumentos
 
-Gera de **início** até **fim - 1**:
+Aqui voce define o inicio e o fim. O inicio e incluso, o fim e exclusivo:
 
 ```python
 for i in range(1, 6):
@@ -76,12 +72,9 @@ for i in range(1, 6):
 # → 1 2 3 4 5
 ```
 
-> [!alerta]
-> O fim é sempre **exclusivo**. Para contar de 1 a 10, use `range(1, 11)`.
+## range com tres argumentos
 
-### range(início, fim, passo) — três argumentos
-
-Pula de **passo** em **passo**:
+O terceiro argumento e o passo -- de quanto em quanto pular:
 
 ```python
 # Pares de 0 a 10
@@ -89,51 +82,50 @@ for i in range(0, 11, 2):
     print(i, end=" ")
 # → 0 2 4 6 8 10
 
-# Ímpares de 1 a 9
+# Impares de 1 a 9
 for i in range(1, 11, 2):
     print(i, end=" ")
 # → 1 3 5 7 9
-
-# De 10 em 10
-for i in range(0, 101, 10):
-    print(i, end=" ")
-# → 0 10 20 30 40 50 60 70 80 90 100
 ```
 
 ## Contagem regressiva
 
-Use passo negativo:
+Com passo negativo, voce conta de tras pra frente:
 
 ```python
 for i in range(10, 0, -1):
     print(i, end=" ")
-print("Lançar!")
-# → 10 9 8 7 6 5 4 3 2 1 Lançar!
+print("Lancar!")
+# → 10 9 8 7 6 5 4 3 2 1 Lancar!
 ```
 
 > [!alerta]
-> Com passo negativo, o início deve ser **maior** que o fim. Senão não gera nada.
+> Com passo negativo, o inicio deve ser maior que o fim. Senao o range nao gera nada e o loop nao executa.
 
 ## Acumuladores
 
-Padrão muito comum: juntar valores ao longo do loop.
+Um padrao super comum: usar uma variavel pra ir somando ou multiplicando a cada volta do loop.
 
 ```python
 # Somar de 1 a 100
-soma = 0
+soma: int = 0
 for i in range(1, 101):
     soma += i
-print(f"Soma: {soma}")  # → 5050
+print(f"Soma: {soma}")  # → Soma: 5050
+```
 
-# Fatorial (5! = 5 × 4 × 3 × 2 × 1)
-n = 5
-fatorial = 1
+```python
+# Fatorial (5! = 5 x 4 x 3 x 2 x 1)
+n: int = 5
+fatorial: int = 1
 for i in range(1, n + 1):
     fatorial *= i
 print(f"{n}! = {fatorial}")  # → 5! = 120
 ```
 
-## Loops aninhados (for dentro de for)
+## Loops aninhados
+
+Um `for` dentro de outro. O loop interno roda completo a cada volta do externo:
 
 ```python
 # Tabuada do 1 ao 3
@@ -143,103 +135,58 @@ for i in range(1, 4):
         print(f"{i} x {j:2d} = {i * j:3d}")
 ```
 
-### Padrão de asteriscos
-
 ```python
-n = 5
+# Padrao de asteriscos
+n: int = 5
 for i in range(1, n + 1):
     print("*" * i)
-# *
-# **
-# ***
-# ****
-# *****
+# → *
+# → **
+# → ***
+# → ****
+# → *****
 ```
 
-### Grade de coordenadas
+## While -- repeticao com condicao
+
+Diferente do `for`, o `while` repete enquanto uma condicao for verdadeira:
 
 ```python
-for linha in range(3):
-    for coluna in range(3):
-        print(f"({linha},{coluna})", end="  ")
-    print()
-# (0,0)  (0,1)  (0,2)
-# (1,0)  (1,1)  (1,2)
-# (2,0)  (2,1)  (2,2)
-```
-
-## O loop while
-
-`while` repete **enquanto** a condição for verdadeira:
-
-```python
-contador = 1
+contador: int = 1
 while contador <= 5:
     print(f"Contagem: {contador}")
     contador += 1
-# → Contagem: 1, 2, 3, 4, 5
-```
-
-### Loop até o usuário sair
-
-```python
-while True:
-    texto = input("Digite algo (ou 'sair'): ")
-    if texto == "sair":
-        break
-    print(f"Você digitou: {texto}")
+# → Contagem: 1
+# → Contagem: 2
+# → Contagem: 3
+# → Contagem: 4
+# → Contagem: 5
 ```
 
 > [!alerta]
-> Cuidado com loop infinito! Sempre atualize a condição ou use `break`.
+> Cuidado com loop infinito! Sempre atualize a condicao dentro do while ou use `break` para sair.
+
+## Exercicio pratico
+
+Use `for` e `range()` para:
+
+1. Imprimir todos os multiplos de 3 entre 1 e 50
+2. Calcular a soma dos numeros pares de 1 a 100
+3. Criar uma contagem regressiva de 20 ate 1 pulando de 2 em 2
 
 ```python
-# ❌ Loop infinito (esqueceu de incrementar)
-# contador = 1
-# while contador <= 5:
-#     print(contador)  # nunca para!
+# 1. Multiplos de 3: use range(3, 51, 3)
 
-# ✅ Correto
-contador = 1
-while contador <= 5:
-    print(contador)
-    contador += 1
+# 2. Soma dos pares: acumulador + range(2, 101, 2)
+
+# 3. Contagem regressiva: range(20, 0, -2)
 ```
 
-## Exemplo: Jogo de adivinhação
+> [!sucesso]
+> Se voce consegue montar o range certo pra cada caso, ja dominou a logica. Na proxima aula, vamos percorrer listas e strings com for.
 
-```python
-import random
+## Referencias
 
-numero_secreto = random.randint(1, 50)
-max_tentativas = 7
-
-print("=== Adivinhação ===")
-print(f"Número de 1 a 50. Você tem {max_tentativas} tentativas.\n")
-
-for tentativa in range(1, max_tentativas + 1):
-    palpite = int(input(f"Tentativa {tentativa}/{max_tentativas}: "))
-
-    if palpite == numero_secreto:
-        print(f"\nAcertou em {tentativa} tentativa(s)!")
-        break
-    elif palpite < numero_secreto:
-        print("Muito baixo!")
-    else:
-        print("Muito alto!")
-else:
-    # else do for = rodou tudo sem break
-    print(f"\nPerdeu! Era {numero_secreto}.")
-```
-
-## Resumo
-
-| Conceito | Sintaxe | Exemplo |
-| --- | --- | --- |
-| range simples | `range(fim)` | `range(5)` = 0,1,2,3,4 |
-| range com início | `range(início, fim)` | `range(1, 6)` = 1,2,3,4,5 |
-| range com passo | `range(início, fim, passo)` | `range(0, 11, 2)` = 0,2,4,6,8,10 |
-| Regressiva | `range(início, fim, -passo)` | `range(5, 0, -1)` = 5,4,3,2,1 |
-| while | `while condição:` | Repete enquanto True |
-| Variável descartável | `for _ in range(n):` | Quando não usa o índice |
-| Fim é **exclusivo** | `range(1, 5)` não inclui 5 | Sempre fim - 1 |
+- [for Statements](https://docs.python.org/3/tutorial/controlflow.html#for-statements) -- documentacao oficial do for
+- [range()](https://docs.python.org/3/library/stdtypes.html#range) -- documentacao oficial do range
+- [Curso Python #09 - Estruturas de Repeticao (for)](https://www.youtube.com/watch?v=cL4YDtFnCt4) -- Curso em Video

@@ -146,3 +146,9 @@ console.log(`Média: ${calcularMedia([8, 7, 9])}`);
 
 > [!sucesso]
 > Parâmetros opcionais, callbacks e type aliases deixam seu código mais flexível e organizado. Você vai usar tudo isso nos desafios.
+
+## Referências
+
+- [Funções de callback - MDN Web Docs](https://developer.mozilla.org/pt-BR/docs/Glossary/Callback_function) — explicação de callbacks e como funções são passadas como argumento
+- [JavaScript Function Parameters - W3Schools](https://www.w3schools.com/js/js_function_parameters.asp) — tutorial sobre parâmetros, valores padrão e argumentos em funções
+- [Callbacks e Type Aliases no TypeScript - Hora de Codar](https://www.youtube.com/watch?v=OXGVMpIMVKA) — vídeo sobre parâmetros opcionais, callbacks e criação de tipos customizados

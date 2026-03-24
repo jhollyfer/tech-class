@@ -33,58 +33,52 @@ quiz:
     explicacaoErrada: "Passar função = enviar a referência dela para outra função executar."
 ---
 
-## Lambda
+## O que sao funcoes avancadas?
 
-Lambda é uma função **mini** que cabe em uma linha:
+Lambda e uma funcao anonima que cabe em uma linha. Voce usa quando precisa de algo rapido, geralmente como argumento de outra funcao. Alem de lambda, Python permite passar funcoes como parametros (callbacks) e ate fazer funcoes que chamam a si mesmas (recursao).
+
+O conceito mais importante desta aula e o Principio de Responsabilidade Unica: cada funcao faz uma coisa so. Isso deixa o codigo mais facil de testar e manter.
+
+> [!info]
+> Se a lambda ficou complicada, use `def`. Lambda deve ser simples e curta.
+
+## Lambda -- funcao mini em uma linha
+
+A sintaxe e `lambda parametros: expressao`. Sem `def`, sem `return`, sem nome:
 
 ```python
-# Função normal
-def dobrar(x: int) -> int:
-    return x * 2
-
-# Mesma coisa com lambda
-dobrar_lambda = lambda x: x * 2
-
-print(dobrar(5))         # → 10
-print(dobrar_lambda(5))  # → 10
+dobrar = lambda x: x * 2
+print(dobrar(5))  # → 10
 ```
 
-Lambda brilha quando usada como argumento de outras funções:
+Lambda brilha como argumento de outras funcoes:
 
 ```python
 numeros: list[int] = [5, 2, 8, 1, 9, 3]
 
-# Ordenar por valor absoluto
-valores: list[int] = [-5, 3, -1, 8, -3]
-ordenados: list[int] = sorted(valores, key=lambda x: abs(x))
-print(ordenados)  # → [-1, 3, -3, -5, 8]
+ordenados: list[int] = sorted(numeros, key=lambda x: -x)
+print(ordenados)  # → [9, 8, 5, 3, 2, 1]
 
-# Filtrar maiores que 5
 maiores: list[int] = list(filter(lambda x: x > 5, numeros))
 print(maiores)  # → [8, 9]
 
-# Elevar ao quadrado
 quadrados: list[int] = list(map(lambda x: x ** 2, numeros))
 print(quadrados)  # → [25, 4, 64, 1, 81, 9]
 ```
 
-### Lambda com Múltiplos Parâmetros
+## Lambda com multiplos parametros
+
+Da pra usar mais de um parametro:
 
 ```python
-somar = lambda a, b: a + b
-print(somar(3, 5))  # → 8
-
-# Ordenar tuplas pelo segundo elemento
 alunos: list[tuple[str, float]] = [("Ana", 8.5), ("Bruno", 7.0), ("Carla", 9.2)]
-por_nota: list[tuple[str, float]] = sorted(alunos, key=lambda aluno: aluno[1], reverse=True)
+por_nota: list[tuple[str, float]] = sorted(alunos, key=lambda a: a[1], reverse=True)
 print(por_nota)  # → [('Carla', 9.2), ('Ana', 8.5), ('Bruno', 7.0)]
 ```
 
-> [!alerta] Se a lambda ficou complicada, use `def`. Lambda deve ser simples e curta.
+## Funcoes como parametros (callbacks)
 
-## Funções como Parâmetros (Callbacks)
-
-Funções são objetos em Python. Dá pra passar uma função como argumento de outra:
+Em Python, funcoes sao objetos. Voce pode passar uma funcao como argumento de outra:
 
 ```python
 def aplicar_operacao(a: float, b: float, operacao) -> float:
@@ -93,14 +87,13 @@ def aplicar_operacao(a: float, b: float, operacao) -> float:
 soma: float = aplicar_operacao(10, 5, lambda a, b: a + b)
 print(f"Soma: {soma}")  # → Soma: 15
 
-subtracao: float = aplicar_operacao(10, 5, lambda a, b: a - b)
-print(f"Subtração: {subtracao}")  # → Subtração: 5
-
-multiplicacao: float = aplicar_operacao(10, 5, lambda a, b: a * b)
-print(f"Multiplicação: {multiplicacao}")  # → Multiplicação: 50
+mult: float = aplicar_operacao(10, 5, lambda a, b: a * b)
+print(f"Multiplicacao: {mult}")  # → Multiplicacao: 50
 ```
 
-### Exemplo: Processamento de Lista
+## Callback com Callable tipado
+
+Para tipar corretamente o parametro que recebe uma funcao, use `Callable`:
 
 ```python
 from typing import Callable
@@ -112,22 +105,16 @@ def processar_lista(
     return [transformar(n) for n in numeros]
 
 valores: list[float] = [10, 20, 30, 40, 50]
-
 dobrados: list[float] = processar_lista(valores, lambda x: x * 2)
 print(dobrados)  # → [20, 40, 60, 80, 100]
-
-com_desconto: list[float] = processar_lista(valores, lambda x: x * 0.9)
-print(com_desconto)  # → [9.0, 18.0, 27.0, 36.0, 45.0]
 ```
 
-## Recursão
+> [!info]
+> `Callable[[float], float]` significa: recebe um `float` e retorna um `float`. O primeiro item e a lista de tipos dos parametros, o segundo e o tipo de retorno.
 
-Recursão é quando uma função chama **a si mesma**. Precisa de duas coisas:
+## Recursao -- funcao que chama a si mesma
 
-1. **Caso base** — quando parar
-2. **Caso recursivo** — chamar a si mesma com dados menores
-
-### Fatorial
+Toda recursao precisa de duas coisas: um **caso base** (quando parar) e um **caso recursivo** (chamar com dado menor):
 
 ```python
 def fatorial(n: int) -> int:
@@ -135,51 +122,15 @@ def fatorial(n: int) -> int:
         return 1
     return n * fatorial(n - 1)  # caso recursivo
 
-print(fatorial(5))   # → 120 (5 * 4 * 3 * 2 * 1)
-print(fatorial(0))   # → 1
+print(fatorial(5))  # → 120 (5 * 4 * 3 * 2 * 1)
 ```
 
-Como funciona `fatorial(4)`:
+> [!alerta]
+> Python tem limite de cerca de 1000 chamadas recursivas. Para problemas grandes, prefira loops. Toda recursao precisa de caso base, senao entra em loop infinito.
 
-```
-fatorial(4)
-  → 4 * fatorial(3)
-    → 4 * 3 * fatorial(2)
-      → 4 * 3 * 2 * fatorial(1)
-        → 4 * 3 * 2 * 1  (caso base!)
-        → 24
-```
+## Responsabilidade Unica (SRP)
 
-### Soma Recursiva
-
-```python
-def soma_recursiva(numeros: list[int]) -> int:
-    if len(numeros) == 0:  # caso base
-        return 0
-    return numeros[0] + soma_recursiva(numeros[1:])
-
-print(soma_recursiva([1, 2, 3, 4, 5]))  # → 15
-```
-
-### Contagem Regressiva
-
-```python
-def contagem_regressiva(n: int) -> None:
-    if n <= 0:
-        print("Lançar!")
-        return
-    print(n)
-    contagem_regressiva(n - 1)
-
-contagem_regressiva(5)
-# → 5, 4, 3, 2, 1, Lançar!
-```
-
-> [!alerta] Python tem limite de ~1000 chamadas recursivas. Para problemas grandes, prefira loops.
-
-## Responsabilidade Única (SRP)
-
-Cada função faz **uma coisa só**:
+Cada funcao faz UMA coisa. Compare:
 
 ```python
 # Ruim — faz tudo junto
@@ -187,8 +138,10 @@ def processar_aluno(nome: str, notas: list[float]) -> None:
     media = sum(notas) / len(notas)
     status = "Aprovado" if media >= 7 else "Reprovado"
     print(f"{nome}: {media:.1f} - {status}")
+```
 
-# Bom — cada função tem seu papel
+```python
+# Bom — cada funcao tem seu papel
 def calcular_media(notas: list[float]) -> float:
     return sum(notas) / len(notas)
 
@@ -197,40 +150,33 @@ def classificar(media: float) -> str:
 
 def exibir_resultado(nome: str, media: float, status: str) -> None:
     print(f"{nome}: {media:.1f} - {status}")
-
-# Usando
-notas: list[float] = [8.5, 7.0, 9.2]
-media: float = calcular_media(notas)
-status: str = classificar(media)
-exibir_resultado("Ana", media, status)
 ```
 
-> [!sucesso] Benefícios do SRP: mais fácil de testar, reutilizar e dar manutenção.
+## Exercicio pratico
 
-## Exemplo Completo: Pipeline
+Crie um mini sistema de calculadora usando callbacks:
+
+1. Uma funcao `calcular(a, b, operacao)` que recebe dois numeros e uma funcao
+2. Lambdas para soma, subtracao, multiplicacao e divisao
+3. Use `Callable` para tipar o parametro `operacao`
 
 ```python
 from typing import Callable
 
-def pipeline(
-    dados: list[float],
-    *operacoes: Callable[[list[float]], list[float]]
-) -> list[float]:
-    resultado: list[float] = dados
-    for operacao in operacoes:
-        resultado = operacao(resultado)
-    return resultado
+# 1. def calcular(a: float, b: float, operacao: Callable[[float, float], float]) -> float:
 
-def filtrar_positivos(nums: list[float]) -> list[float]:
-    return [n for n in nums if n > 0]
-
-def dobrar(nums: list[float]) -> list[float]:
-    return [n * 2 for n in nums]
-
-def ordenar(nums: list[float]) -> list[float]:
-    return sorted(nums)
-
-valores: list[float] = [5, -3, 8, -1, 2, 7, -4]
-resultado: list[float] = pipeline(valores, filtrar_positivos, dobrar, ordenar)
-print(resultado)  # → [4, 10, 14, 16]
+# 2. Teste com lambdas:
+# calcular(10, 3, lambda a, b: a + b)  → 13
+# calcular(10, 3, lambda a, b: a - b)  → 7
+# calcular(10, 3, lambda a, b: a * b)  → 30
+# calcular(10, 3, lambda a, b: a / b)  → 3.33
 ```
+
+> [!sucesso]
+> Se voce consegue passar funcoes como argumentos e entende recursao, ja domina os conceitos avancados de funcoes em Python.
+
+## Referencias
+
+- [Lambda Expressions](https://docs.python.org/pt-br/3/tutorial/controlflow.html#lambda-expressions) -- documentacao oficial Python
+- [Recursion in Python](https://realpython.com/python-recursion/) -- guia completo no Real Python
+- [Curso Python #16 - Funcoes (Parte 2)](https://www.youtube.com/watch?v=etjJ_4Eney0) -- Curso em Video

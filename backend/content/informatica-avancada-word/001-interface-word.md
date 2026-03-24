@@ -43,172 +43,86 @@ quiz:
     explicacaoErrada: "Pressione e solte Alt — letras aparecem sobre as abas."
 ---
 
-## Gerando Texto Automaticamente
+## O que voce vai ver aqui?
 
-Antes de formatar, você precisa de texto para praticar. O Word gera isso pra você.
+Antes de sair formatando qualquer coisa, voce precisa conhecer a tela do Word. Sao poucos elementos, mas cada um tem seu papel. Quando voce domina a interface, para de ficar perdido procurando botao e trabalha muito mais rapido.
 
-**Texto em latim:** digite `=lorem(2,3)` e pressione Enter.
-Resultado: 2 parágrafos, 3 frases cada.
+Uma dica legal pra praticar: o Word gera texto automatico. Digite `=rand(2,3)` e pressione **Enter** para texto em portugues, ou `=lorem(2,3)` para texto em latim. O primeiro numero e a quantidade de paragrafos, o segundo e a quantidade de frases por paragrafo.
 
-**Texto em português:** digite `=rand(2,3)` e pressione Enter.
-Resultado: 2 parágrafos, 3 frases cada, em português.
+## Barra de Titulo
 
-> [!info] O primeiro número é a quantidade de parágrafos, o segundo é a quantidade de frases.
+Fica no topo da janela. Mostra o nome do seu arquivo. Se aparecer um icone de nuvem, significa que o documento esta salvo no OneDrive.
 
----
+Parece simples, mas preste atencao: se o titulo diz "Documento1", voce ainda nao salvou. Salve logo com `Ctrl + S` pra nao perder nada.
 
-## 10 Dicas Essenciais
+## Barra de Ferramentas de Acesso Rapido (QAT)
 
-| #  | Dica                    | Como usar                                                        |
-|----|-------------------------|------------------------------------------------------------------|
-| 01 | Texto automático        | `=rand(p,f)` em PT · `=lorem(p,f)` em latim                     |
-| 02 | Aumentar/diminuir fonte | `Ctrl + ]` aumenta 1pt · `Ctrl + [` diminui 1pt                 |
-| 03 | Limpar formatação       | `Ctrl + Espaço` — volta ao estilo Normal                         |
-| 04 | Apagar palavra inteira  | `Ctrl + Backspace` — apaga a palavra à esquerda                  |
-| 05 | Área de transferência   | Guarda até 24 itens copiados · **Página Inicial → setinha**      |
-| 06 | Símbolos automáticos    | `(C)` vira © · `(R)` vira ®                                     |
-| 07 | Tabela pelo teclado     | Digite `+---+---+` e pressione Enter                            |
-| 08 | Editor de equações      | **Inserir → Equação à Tinta** — desenhe a fórmula com o mouse   |
-| 09 | Pesquisa inteligente    | Selecione a palavra → botão direito → **Pesquisa Inteligente**   |
-| 10 | Traduzir e ouvir texto  | **Revisão → Traduzir** · Botão Play lê o texto em voz alta      |
+Essa barrinha fica no canto superior esquerdo. Por padrao vem com tres botoes: **Salvar**, **Desfazer** e **Refazer**.
 
-### Detalhes sobre algumas dicas
+1. Clique na **setinha** no final da barra
+2. Marque os comandos que voce mais usa (ex: Impressao Rapida, Ortografia)
+3. Pronto — esses botoes ficam visiveis o tempo todo, nao importa em qual aba voce esteja
 
-**Dica 02 — Diferença nos atalhos de fonte:**
-- `Ctrl + ]` / `Ctrl + [` — muda 1 ponto por vez (18 → 19 → 20)
-- `Ctrl + Shift + >` / `Ctrl + Shift + <` — pula pelos tamanhos predefinidos (18 → 20 → 22)
+> [!info]
+> A QAT e o seu atalho visual. Coloque ali tudo que voce usa o tempo todo. Economiza cliques demais.
 
-**Dica 05 — Área de transferência:**
-- O `Ctrl + C` / `Ctrl + V` guarda só 1 item
-- Abrindo a Área de Transferência (**Página Inicial → setinha**), você copia vários trechos e cola um por um ou todos de vez
+## Faixa de Opcoes (Ribbon)
 
-**Dica 08 — Equação à tinta:**
-- **Inserir → Equação → Equação à Tinta** — desenhe a fórmula e o Word converte em fórmula editável
+O Ribbon e aquela area cheia de botoes organizada em abas: **Pagina Inicial**, **Inserir**, **Layout**, etc. Cada aba agrupa comandos relacionados.
 
----
+Repare nas **setinhas pequenas** no canto inferior direito de cada grupo (ex: grupo Fonte, grupo Paragrafo). Elas abrem caixas de dialogo com opcoes extras que nao cabem no Ribbon.
 
-## Elementos da Interface
-
-### Barra de Título
-
-Topo da janela — mostra o nome do arquivo.
-Ícone de nuvem = salvo no OneDrive.
-
-### Barra de Ferramentas de Acesso Rápido (QAT)
-
-Canto superior esquerdo. Botões padrão: Salvar, Desfazer e Refazer.
-
-Clique na **setinha** para adicionar botões. Recomendo: Impressão Rápida e Novo.
-
-> [!info] Coloque na QAT os botões que você mais usa — ficam visíveis o tempo todo.
-
-### Faixa de Opções — Ribbon
-
-Área com abas no topo. Cada aba agrupa comandos relacionados.
-
-No Office 2016+: campo **"Diga-me o que você quer fazer"** (atalho: `Alt + G`).
-
-Setinhas nos cantos dos grupos abrem opções extras.
-
-| Guia           | Para que serve                                |
-|----------------|-----------------------------------------------|
-| Página Inicial | Fonte, parágrafo, estilos — a mais usada      |
-| Inserir        | Imagens, tabelas, formas, cabeçalho/rodapé    |
-| Layout         | Margens, tamanho, orientação, colunas, quebras |
-| Referências    | Sumário, notas de rodapé, citações ABNT        |
-| Revisão        | Ortografia, comentários, controle de alterações|
-| Exibir         | Modos de exibição, régua, zoom, navegação      |
-
-### Navegando pelo Ribbon com o teclado
+**Navegando pelo Ribbon com o teclado:**
 
 1. Pressione e solte `Alt` — letras aparecem sobre cada aba
-2. Digite a letra da aba (ex: `C` para Página Inicial)
-3. Novas letras aparecem — digite para ativar o comando
+2. Digite a letra da aba desejada (ex: `C` para Pagina Inicial)
+3. Novas letras aparecem sobre os comandos — digite para ativar
 
-> [!sucesso] Use `Alt` para navegar no Ribbon sem tirar a mão do teclado. Muito mais rápido.
+> [!sucesso]
+> Use `Alt` para navegar no Ribbon sem tirar a mao do teclado. Muito mais rapido que clicar.
 
-### Modos de exibição do Ribbon
+## Margens ABNT
 
-| Modo              | Como funciona                               |
-|-------------------|---------------------------------------------|
-| Guias e comandos  | Padrão — tudo visível                       |
-| Somente guias     | Ribbon escondido, clique na aba para abrir  |
-| Ocultar tudo      | Tela limpa — `Alt` para reexibir            |
+Antes de comecar a digitar, configure as margens. Se voce vai fazer um trabalho academico, o padrao ABNT e obrigatorio:
 
-### Barra de Status
+1. Va em **Layout** e clique em **Margens** e depois **Margens Personalizadas**
+2. Configure os valores:
 
-Base da janela. Mostra: páginas, contagem de palavras, idioma.
+| Margem | Valor |
+|--------|-------|
+| Superior | 3 cm |
+| Inferior | 2 cm |
+| Esquerda | 3 cm |
+| Direita | 2 cm |
 
-Zoom no canto direito: arraste, clique + ou -, ou use `Ctrl + scroll`.
-Para voltar a 100%: **Exibir → 100%** ou `Alt + K + D`.
+3. Tamanho do papel: **A4** (21 x 29,7 cm)
+4. Orientacao: **Retrato** (vertical)
 
-> [!info] Use o **Layout de Impressão** — mostra o documento como vai ficar impresso. O **Modo de Leitura** é bom para ler sem editar.
+> [!alerta]
+> Margens padrao do Word nao sao ABNT. Sempre configure manualmente antes de comecar o documento.
 
----
+## Outras configuracoes uteis
 
-## Configuração Inicial do Documento
+Antes de sair digitando, ajuste mais algumas coisas:
 
-### Margens ABNT
+- **Idioma:** va em **Revisao** e depois **Idioma** e selecione **Portugues (Brasil)**. Sem isso, o corretor nao funciona direito
+- **Caracteres ocultos:** pressione `Ctrl + *` para ver marcas de paragrafo, espacos e tabulacoes. Isso ajuda muito a entender a formatacao
+- **Guia Desenvolvedor:** va em **Arquivo** e depois **Opcoes** e depois **Personalizar Faixa de Opcoes** e marque **Desenvolvedor**. Nao precisa agora, mas vai usar la na frente
 
-**Layout → Margens → Margens Personalizadas**
+## Atalhos essenciais da interface
 
-| Margem   | Valor |
-|----------|-------|
-| Superior | 3 cm  |
-| Inferior | 2 cm  |
-| Esquerda | 3 cm  |
-| Direita  | 2 cm  |
-
-### Outras configurações
-
-- **Tamanho do papel:** A4 (21 x 29,7 cm)
-- **Orientação:** Retrato (vertical)
-- **Idioma:** **Revisão → Idioma → Português (Brasil)**
-- **Caracteres ocultos:** `Ctrl + *` para mostrar/ocultar
-- **Tema do Office:** **Arquivo → Opções → Geral → Tema**
-
-### Ativar a guia Desenvolvedor
-
-**Arquivo → Opções → Personalizar Faixa de Opções → marcar Desenvolvedor → OK**
-
----
-
-## Atalhos Essenciais
-
-| Atalho             | Função                                      |
-|--------------------|---------------------------------------------|
-| `Ctrl + B`         | Salvar (PT-BR; `Ctrl + S` no inglês)        |
-| `Ctrl + Z`         | Desfazer                                    |
-| `Ctrl + R`         | Refazer / Repetir                           |
-| `Ctrl + T`         | Selecionar tudo                             |
-| `Ctrl + N`         | Negrito                                     |
-| `Ctrl + I`         | Itálico                                     |
-| `Ctrl + Backspace` | Apagar palavra inteira                      |
-| `Ctrl + *`         | Mostrar/ocultar caracteres ocultos          |
-| `Alt + G`          | "Diga-me o que você quer fazer"             |
-| `Alt` (soltar)     | Atalhos de letra no Ribbon                  |
-| `F12`              | Salvar como                                 |
-
----
-
-## Checklist da Aula
-
-- [ ] Gerei texto com `=rand(3,4)` e `=lorem(2,3)`
-- [ ] Identifiquei os elementos da interface
-- [ ] Adicionei botões na QAT
-- [ ] Personalizei o tema do Office
-- [ ] Naveguei pelo Ribbon usando `Alt` + letras
-- [ ] Ativei a guia Desenvolvedor
-- [ ] Configurei margens ABNT (3/2/3/2)
-- [ ] Configurei idioma como Português (Brasil)
-- [ ] Testei `Ctrl + Backspace` para apagar palavra
-- [ ] Testei `Ctrl + *` para caracteres ocultos
-- [ ] Testei o zoom pela Barra de Status
-- [ ] Experimentei o Modo de Leitura
-
----
+| Atalho | O que faz |
+|--------|-----------|
+| `Ctrl + S` | Salvar |
+| `Ctrl + Z` | Desfazer |
+| `Ctrl + Y` | Refazer |
+| `Ctrl + *` | Mostrar/ocultar caracteres ocultos |
+| `Alt` | Ativar navegacao por teclado no Ribbon |
+| `Ctrl + F` | Localizar texto |
+| `Ctrl + H` | Localizar e substituir |
 
 ## Referências
 
-- [10 Dicas para Word 2016 (~15min)](https://www.youtube.com/watch?v=qVoiU4MMCZ8)
-- [Primeiros Passos no Word 2016 (~13min)](https://www.youtube.com/watch?v=iOlONI3F300)
+- [10 Dicas para Word 2016 (~15min)](https://www.youtube.com/watch?v=qVoiU4MMCZ8) — dicas praticas para usar o Word melhor
+- [Primeiros Passos no Word 2016 (~13min)](https://www.youtube.com/watch?v=iOlONI3F300) — tour pela interface e configuracao inicial
+- [Conheca a Faixa de Opcoes — Microsoft Support](https://support.microsoft.com/pt-br/office/conheca-a-faixa-de-op%C3%A7%C3%B5es-8bbb8e40-e658-44c8-8175-96e9b8c30a50)

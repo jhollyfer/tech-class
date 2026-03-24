@@ -126,3 +126,9 @@ console.log("Olá"); // ✓ tudo minúsculo
 
 > [!info]
 > Erros fazem parte. Leia a mensagem de erro, veja a linha indicada e corrija.
+
+## Referências
+
+- [Console.log() - MDN Web Docs](https://developer.mozilla.org/pt-BR/docs/Web/API/console/log_static) — documentação oficial do console.log com exemplos práticos
+- [JavaScript Output - W3Schools](https://www.w3schools.com/js/js_output.asp) — formas de exibir dados em JavaScript, incluindo console.log
+- [Primeiro Programa em TypeScript - Rafaella Ballerini](https://www.youtube.com/watch?v=GMppyAPbLYk) — vídeo introdutório sobre como começar a programar com TypeScript

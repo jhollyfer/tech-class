@@ -165,3 +165,9 @@ De fora pra dentro: OK. De dentro pra fora: bloqueado.
 
 > [!sucesso]
 > Funções são a base de tudo. Domine elas e o resto fica mais fácil.
+
+## Referências
+
+- [Funções - MDN Web Docs](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Functions) — guia completo sobre funções, arrow functions, parâmetros e escopo
+- [JavaScript Functions - W3Schools](https://www.w3schools.com/js/js_functions.asp) — tutorial interativo sobre declaração de funções e arrow functions
+- [Arrow Functions em TypeScript - Glaucia Lemos](https://www.youtube.com/watch?v=yBBSM08NOCE) — vídeo sobre funções tradicionais e arrow functions com tipagem
