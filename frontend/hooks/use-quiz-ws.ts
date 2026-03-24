@@ -58,9 +58,8 @@ export function useQuizWs() {
   }, []);
 
   useEffect(() => {
-    const isDev = process.env.NODE_ENV === "development";
-    const url = process.env.NEXT_PUBLIC_WS_URL
-      ?? (isDev ? "http://localhost:3333" : window.location.origin);
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3333";
+    const url = process.env.NEXT_PUBLIC_WS_URL ?? API_URL;
 
     const socket = io(url, {
       transports: ["websocket"],

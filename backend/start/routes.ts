@@ -8,6 +8,20 @@
 */
 
 import router from '@adonisjs/core/services/router'
+import swagger from '#config/swagger'
+import AutoSwagger from 'adonis-autoswagger'
+
+// ─── Documentation ────────────────────────────────────────────────────────────
+
+router.get('/swagger', async () => {
+  return AutoSwagger.default.docs(router.toJSON(), swagger)
+})
+
+router.get('/documentation', async () => {
+  return AutoSwagger.default.scalar('/swagger')
+})
+
+router.get('/', (ctx) => ctx.response.redirect('/documentation'))
 
 // ─── Health ──────────────────────────────────────────────────────────────────
 
