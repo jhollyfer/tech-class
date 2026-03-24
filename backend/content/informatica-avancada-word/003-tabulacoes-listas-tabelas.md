@@ -2,75 +2,72 @@
 slug: "tabulacoes-listas-tabelas"
 modulo: "Módulo 2 — Organização e Estrutura"
 titulo: "Tabulações, Listas & Tabelas"
-subtitulo: "Organizando informações com tabulações avançadas, listas multinível e tabelas profissionais"
-descricao: "Organize informações visualmente com tabulações avançadas, listas multinível e tabelas estilizadas profissionais. Inclui Avaliação AV1."
+subtitulo: "Organize informações com tabulações, listas e tabelas"
+descricao: "Alinhe textos com tabulações, crie listas multinível e monte tabelas profissionais. Inclui Avaliação AV1."
 ordem: 3
 proximosPassos:
   - titulo: "Imagens, SmartArt & Gráficos"
-    descricao: "Insira e formate imagens, crie organogramas e gráficos"
+    descricao: "Insira imagens, crie organogramas e gráficos"
   - titulo: "Layout e Cabeçalho"
-    descricao: "Configure a estrutura completa de uma página profissional"
+    descricao: "Configure a estrutura de uma página profissional"
 quiz:
   - pergunta: "Por que NÃO se deve usar a barra de espaço para alinhar colunas?"
     opcoes: ["Porque é mais lento", "Porque parece certo na tela mas fica torto na impressão", "Porque o Word não permite", "Porque gasta mais memória"]
     correta: 1
-    explicacao: "Espaços têm largura variável dependendo da fonte. Tabulações garantem alinhamento preciso tanto na tela quanto na impressão."
-    explicacaoErrada: "A barra de espaço tem largura variável — parece alinhado na tela, mas desalinha na impressão. Use tabulações."
+    explicacao: "Espaços têm largura variável. Tabulações garantem alinhamento na tela e na impressão."
+    explicacaoErrada: "Espaço tem largura variável — parece alinhado na tela mas desalinha na impressão. Use tabulações."
   - pergunta: "Como descer um nível em uma lista multinível?"
     opcoes: ["Pressionar Enter", "Pressionar Tab no início da linha", "Pressionar Shift + Tab", "Clicar no botão Marcadores"]
     correta: 1
-    explicacao: "Tab no início da linha desce um nível, criando um subitem. Shift + Tab sobe um nível."
-    explicacaoErrada: "Para descer um nível (criar subitem), pressione Tab no início da linha. Shift + Tab faz o contrário."
+    explicacao: "Tab no início da linha desce um nível. Shift + Tab sobe."
+    explicacaoErrada: "Tab no início da linha = desce nível. Shift + Tab = sobe nível."
   - pergunta: "Qual tabulação é ideal para alinhar valores monetários?"
     opcoes: ["Esquerda", "Centralizada", "Direita", "Decimal"]
     correta: 3
-    explicacao: "A tabulação Decimal alinha pelo ponto/vírgula decimal, perfeita para colunas de preços e valores monetários."
-    explicacaoErrada: "Para valores monetários, use a tabulação Decimal — ela alinha os números pelo separador decimal."
+    explicacao: "Tabulação Decimal alinha pelo separador decimal — perfeita para preços."
+    explicacaoErrada: "Para valores monetários, use tabulação Decimal."
 ---
 
-## Tabulações Avançadas
+## Tabulações
 
-A tecla **Tab** leva o cursor a um ponto fixo predefinido na linha.
+A tecla **Tab** leva o cursor a um ponto fixo na linha.
 
-> **Nunca use a barra de espaço para alinhar colunas.** Parece certo na tela, mas fica torto na impressão. Use sempre tabulações.
+> [!alerta] Nunca use espaço para alinhar colunas. Parece certo na tela, mas fica torto na impressão. Use tabulações.
 
-### Os 5 tipos de tabulação
+### 5 tipos de tabulação
 
-Escolha o tipo clicando no **ícone no canto esquerdo da régua** antes de clicar nela.
+Escolha o tipo clicando no **ícone no canto esquerdo da régua**.
 
-| Tipo         | Quando usar                                       |
-| ------------ | ------------------------------------------------- |
-| Esquerda     | Texto cresce para a direita. O mais comum.        |
-| Centralizada | Texto centralizado no ponto. Títulos de colunas.  |
-| Direita      | Texto cresce para a esquerda. Valores monetários. |
-| Decimal      | Alinha pelo ponto decimal. Colunas de preços.     |
-| Barra        | Insere linha vertical — separador visual.         |
+| Tipo         | Quando usar                         |
+|--------------|-------------------------------------|
+| Esquerda     | Texto cresce para a direita. Padrão.|
+| Centralizada | Títulos de colunas.                 |
+| Direita      | Valores monetários.                 |
+| Decimal      | Alinha pelo ponto decimal. Preços.  |
+| Barra        | Insere linha vertical (separador).  |
 
-### Como definir tabulações
+### Como definir
 
-**Método rápido — clique na régua:**
+**Método rápido — na régua:**
 
-1. Escolha o tipo clicando no ícone no canto da régua
+1. Escolha o tipo no ícone do canto da régua
 2. Clique na régua no ponto desejado
-3. Pressione Tab no texto para ir até o ponto
+3. Pressione Tab no texto para ir até lá
 4. Para remover: arraste a marca para fora da régua
 
 **Método preciso — caixa de diálogo:**
-`Página Inicial → Parágrafo (setinha) → Tabulações...`
+**Página Inicial → Parágrafo (setinha) → Tabulações...**
 
 ### Líder de pontos
 
-O "Caractere de Preenchimento" preenche o espaço vazio entre o texto e o ponto de tabulação com pontos, hífens ou linha. Muito usado em sumários manuais.
+Preenche o espaço vazio com pontos, hífens ou linha. Muito usado em sumários.
 
-`Tabulações → Preenchimento → opção 2 (pontos)`
-
-**Exemplo:**
+**Tabulações → Preenchimento → opção 2 (pontos)**
 
 ```
 Introdução ...................................................... 3
 Desenvolvimento ........................................... 7
 Conclusão ........................................................ 25
-Referências ..................................................... 28
 ```
 
 ---
@@ -81,23 +78,21 @@ Os 3 botões ficam em **Página Inicial → grupo Parágrafo**.
 
 ### Marcadores personalizados
 
-`Setinha do botão → Definir Novo Marcador → Símbolo`
+**Setinha do botão → Definir Novo Marcador → Símbolo**
 Escolha da fonte Wingdings ou Symbol.
 
 ### Numeração personalizada
 
 | Formato    | Resultado | Uso                    |
-| ---------- | --------- | ---------------------- |
+|------------|-----------|------------------------|
 | 1, 2, 3    | 1. Item   | Passos, procedimentos  |
 | a, b, c    | a) Item   | Alternativas, subitens |
 | I, II, III | I. Item   | Capítulos formais      |
 
 ### Lista Multinível
 
-- **Tab no início da linha** = desce um nível (cria subitem)
+- **Tab** no início da linha = desce um nível
 - **Shift + Tab** = sobe um nível
-
-**Exemplo:**
 
 ```
 1. Competências técnicas
@@ -114,18 +109,18 @@ Escolha da fonte Wingdings ou Symbol.
 
 ## Tabelas no Word
 
-Tabelas no Word são para **organizar informação visualmente**. Cálculos ficam no Excel.
+Tabelas no Word organizam informação visualmente. Cálculos ficam no Excel.
 
 ### Criar uma tabela
 
-- `Inserir → Tabela → grade visual` (até 10x8)
-- `Inserir → Tabela → Inserir Tabela` (número exato)
-- `Inserir → Tabela → Desenhar Tabela` (formato livre)
+- **Inserir → Tabela → grade visual** (até 10x8)
+- **Inserir → Tabela → Inserir Tabela** (número exato)
+- **Inserir → Tabela → Desenhar Tabela** (formato livre)
 
 ### Navegar dentro da tabela
 
 | Ação                   | Como fazer                 |
-| ---------------------- | -------------------------- |
+|------------------------|----------------------------|
 | Próxima célula         | `Tab`                      |
 | Célula anterior        | `Shift + Tab`              |
 | Criar nova linha       | `Tab` na última célula     |
@@ -133,18 +128,18 @@ Tabelas no Word são para **organizar informação visualmente**. Cálculos fica
 
 ### Guias contextuais (aparecem ao clicar na tabela)
 
-- **Design de Tabela** — estilos prontos, linha de cabeçalho, faixas, preenchimento e bordas
-- **Layout** — mesclar células, inserir/excluir, tamanho e alinhamento
+- **Design de Tabela** — estilos prontos, faixas, preenchimento, bordas
+- **Layout** — mesclar, inserir/excluir, tamanho, alinhamento
 
 ### Operações essenciais
 
 | Operação             | Caminho                                        |
-| -------------------- | ---------------------------------------------- |
-| Mesclar células      | Selecione → Layout → Mesclar Células           |
-| Dividir células      | Layout → Dividir Células                       |
-| Inserir linha/coluna | Layout → Inserir Acima/Abaixo/Esquerda/Direita |
-| Centralizar texto    | Layout → Alinhamento → Centro                  |
-| Aplicar estilo       | Design de Tabela → escolha um estilo pronto    |
+|----------------------|------------------------------------------------|
+| Mesclar células      | Selecione → **Layout → Mesclar Células**       |
+| Dividir células      | **Layout → Dividir Células**                   |
+| Inserir linha/coluna | **Layout → Inserir Acima/Abaixo/Esquerda/Direita** |
+| Centralizar texto    | **Layout → Alinhamento → Centro**              |
+| Aplicar estilo       | **Design de Tabela → escolha um estilo**       |
 
 ---
 
@@ -153,7 +148,7 @@ Tabelas no Word são para **organizar informação visualmente**. Cálculos fica
 **Arquivo:** `AV1_[SeuNome]_Aula03.docx`
 
 | Critério                                                                                   | Pontos   |
-| ------------------------------------------------------------------------------------------ | -------- |
+|--------------------------------------------------------------------------------------------|----------|
 | Cabeçalho: Título 1 · Arial 16 Bold · Centralizado + Subtítulo Título 2 · Arial 12 Itálico | 2,0      |
 | Lista multinível: mínimo 3 itens com 2 subitens cada · marcador personalizado              | 2,0      |
 | Tabela: células mescladas no cabeçalho                                                     | 1,0      |
@@ -170,13 +165,13 @@ Tabelas no Word são para **organizar informação visualmente**. Cálculos fica
 
 ## Checklist pré-AV1
 
-- [ ] Sei definir tabulações clicando na régua
-- [ ] Sei usar o líder de pontos em tabulações
+- [ ] Sei definir tabulações na régua
+- [ ] Sei usar líder de pontos
 - [ ] Sei criar marcador personalizado com símbolo
 - [ ] Sei usar Tab / Shift+Tab na lista multinível
 - [ ] Sei mesclar células e criar cabeçalho da tabela
-- [ ] Sei aplicar estilo de tabela e ativar Linha de Cabeçalho
-- [ ] Sei centralizar texto nas células (Layout → Centro)
+- [ ] Sei aplicar estilo de tabela com Linha de Cabeçalho
+- [ ] Sei centralizar texto nas células
 
 ---
 

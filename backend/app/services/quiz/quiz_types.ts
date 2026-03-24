@@ -1,9 +1,36 @@
 import type { IQuizDataQuestion } from '#core/entity.core'
 
+// ─── Event Keys ───────────────────────────────────────────────────────────────
+
+export const CLIENT_EVENTS = {
+  CREATE_ROOM: 'create-room',
+  JOIN_ROOM: 'join-room',
+  START_QUIZ: 'start-quiz',
+  ANSWER: 'answer',
+  REVEAL: 'reveal',
+  NEXT_QUESTION: 'next-question',
+  REJOIN_ROOM: 'rejoin-room',
+} as const
+
+export const SERVER_EVENTS = {
+  ROOM_CREATED: 'room-created',
+  JOINED: 'joined',
+  STUDENT_JOINED: 'student-joined',
+  STUDENT_LEFT: 'student-left',
+  QUESTION: 'question',
+  STUDENT_ANSWERED: 'student-answered',
+  REVEALED: 'revealed',
+  FINISHED: 'finished',
+  REJOINED: 'rejoined',
+  ERROR: 'error',
+  ROOM_CLOSED: 'room-closed',
+} as const
+
 // Client -> Server
 export type ClientMessage =
-  | { type: 'create-room'; courseSlug: string }
+  | { type: 'create-room'; courseSlug: string; moduleName?: string; lessonSlug?: string }
   | { type: 'join-room'; roomCode: string; name: string }
+  | { type: 'rejoin-room'; roomCode: string; studentId: string }
   | { type: 'start-quiz' }
   | { type: 'answer'; questionIndex: number; selected: number }
   | { type: 'reveal' }
@@ -37,6 +64,15 @@ export type ServerMessage =
       results: Record<string, { studentName: string; selected: number; correct: boolean }>
     }
   | { type: 'finished'; ranking: RankingEntry[] }
+  | {
+      type: 'rejoined'
+      studentId: string
+      students: StudentInfo[]
+      phase: string
+      questionIndex?: number
+      totalQuestions?: number
+      question?: QuestionPayload
+    }
   | { type: 'error'; message: string }
   | { type: 'room-closed' }
 
@@ -66,11 +102,15 @@ export interface Student {
   id: string
   name: string
   wsId: string
+  disconnectedAt?: number
+  graceTimer?: ReturnType<typeof setTimeout>
 }
 
 export interface Room {
   code: string
   courseSlug: string
+  moduleName?: string
+  lessonSlug?: string
   teacherWsId: string
   students: Map<string, Student>
   questions: IQuizDataQuestion[]

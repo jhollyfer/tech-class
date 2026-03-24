@@ -3,7 +3,7 @@ slug: "multiplication-table"
 modulo: "Módulo 5 — Prática"
 titulo: "Desafio: Tabuada"
 subtitulo: "Gerando tabuadas com loops e formatação"
-descricao: "Gere a tabuada completa de qualquer número usando for loop, template literals e formatação com padStart."
+descricao: "Gere a tabuada de qualquer número usando for, template literals e padStart pra alinhar."
 ordem: 15
 proximosPassos:
   - titulo: "Desafio: Sistema de Aprovação"
@@ -14,25 +14,25 @@ quiz:
   - pergunta: "O que padStart(2) faz em uma string?"
     opcoes: ["Remove espaços", "Adiciona espaços no início até ter 2 caracteres", "Adiciona 2 espaços no final", "Converte para número"]
     correta: 1
-    explicacao: "✓ padStart(2) preenche o início da string com espaços até ela ter pelo menos 2 caracteres. '1' vira ' 1'."
-    explicacaoErrada: "✗ padStart(tamanho) preenche o início com espaços. '1'.padStart(2) resulta em ' 1' — útil para alinhar colunas."
+    explicacao: "'1'.padStart(2) vira ' 1'. Preenche o início até ter 2 caracteres."
+    explicacaoErrada: "padStart(2) preenche o início com espaços até a string ter 2 caracteres."
   - pergunta: "Quantas iterações tem um for de 1 a 10?"
     opcoes: ["9", "10", "11", "Depende"]
     correta: 1
-    explicacao: "✓ for (let i = 1; i <= 10; i++) executa 10 vezes: i = 1, 2, 3, ..., 10."
-    explicacaoErrada: "✗ De 1 até 10 (inclusive) são 10 iterações."
+    explicacao: "De 1 até 10 (com <=) são 10 iterações."
+    explicacaoErrada: "for (let i = 1; i <= 10; i++) roda 10 vezes."
   - pergunta: "O que toString() faz com um número?"
     opcoes: ["Arredonda o número", "Converte para string", "Converte para boolean", "Remove decimais"]
     correta: 1
-    explicacao: "✓ toString() converte qualquer valor para sua representação em texto (string)."
-    explicacaoErrada: "✗ toString() transforma o número em string. Necessário para usar métodos de string como padStart."
+    explicacao: "toString() transforma o número em texto."
+    explicacaoErrada: "toString() converte pra string. Necessário pra usar padStart."
 ---
 
 ## O desafio
 
-**Problema:** gere a tabuada completa de qualquer numero.
+**Problema:** gere a tabuada completa de qualquer número.
 
-### Solucao basica
+### Solução básica
 
 ```typescript
 function tabuada(n: number): void {
@@ -51,11 +51,11 @@ tabuada(7);
 // → 7 x 10 = 70
 ```
 
-Um `for` de 1 a 10, multiplicando `n` por cada valor de `i`. Simples e direto.
+Um `for` de 1 a 10 multiplicando `n` por `i`.
 
-### Versao formatada
+### Versão formatada
 
-Para alinhar os numeros em colunas, use `padStart`:
+Pra alinhar os números bonitinho, use `padStart`:
 
 ```typescript
 function tabuadaFormatada(n: number): void {
@@ -76,9 +76,9 @@ tabuadaFormatada(7);
 ```
 
 > [!info]
-> `padStart(n)` preenche o inicio de uma string com espacos ate ela ter pelo menos `n` caracteres. Isso alinha os numeros em colunas, deixando a saida mais profissional.
+> `padStart(n)` preenche o início com espaços até ter `n` caracteres. Ótimo pra alinhar colunas.
 
-### Versao interativa
+### Versão interativa
 
 ```typescript
 import PromptSync from "prompt-sync";
@@ -95,7 +95,7 @@ if (isNaN(numero)) {
 }
 ```
 
-## Exercicio extra
+## Exercício extra
 
 Gere as tabuadas de 1 a 10 de uma vez:
 
@@ -106,4 +106,4 @@ for (let n = 1; n <= 10; n++) {
 ```
 
 > [!sucesso]
-> Conceitos aplicados: funcoes com tipo void, for loop, template literals, `padStart` para formatacao e conversao de tipos com `toString()`.
+> Conceitos usados: funções void, for loop, template literals, `padStart` e `toString()`.

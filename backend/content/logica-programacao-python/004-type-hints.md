@@ -2,35 +2,35 @@
 slug: "type-hints"
 modulo: "Módulo 2 — Fundamentos da Linguagem"
 titulo: "Type Hints"
-subtitulo: "Anotações de tipo para código mais legível e seguro"
-descricao: "Aprenda a usar type hints para documentar os tipos esperados em variáveis, parâmetros e retornos de funções em Python."
+subtitulo: "Anotações de tipo para código mais claro"
+descricao: "Use type hints para documentar tipos em variáveis, parâmetros e retornos de funções."
 ordem: 4
 proximosPassos:
   - titulo: "Operadores Aritméticos e Relacionais"
-    descricao: "Aprenda a realizar cálculos e comparações em Python"
+    descricao: "Faça cálculos e comparações em Python"
   - titulo: "Operadores Lógicos e Ternário"
-    descricao: "Combine condições com and, or, not e expressões ternárias"
+    descricao: "Combine condições com and, or, not e ternário"
 quiz:
-  - pergunta: "O que acontece se atribuirmos um valor de tipo errado a uma variável com type hint?"
+  - pergunta: "O que acontece se atribuirmos um tipo errado a uma variável com type hint?"
     opcoes: ["O Python gera um erro na execução", "O programa não compila", "Nada — type hints não são obrigatórios em tempo de execução", "A variável é convertida automaticamente"]
     correta: 2
-    explicacao: "✓ Type hints em Python são apenas anotações. Eles não mudam o comportamento do programa — são ignorados em tempo de execução."
-    explicacaoErrada: "✗ Type hints não geram erros nem convertem valores. Eles são puramente informativos — servem para documentação e ferramentas externas."
-  - pergunta: "Qual é a sintaxe correta para anotar uma variável com type hint?"
+    explicacao: "Type hints são só anotações. O Python ignora eles na hora de rodar."
+    explicacaoErrada: "Type hints não geram erros nem convertem valores. São só informativos."
+  - pergunta: "Qual é a sintaxe correta para anotar uma variável?"
     opcoes: ["nome: str = 'Ana'", "str nome = 'Ana'", "nome = str('Ana')", "var nome: string = 'Ana'"]
     correta: 0
-    explicacao: "✓ A sintaxe é variavel: tipo = valor. O tipo vem após os dois-pontos, antes do sinal de atribuição."
-    explicacaoErrada: "✗ Em Python, a sintaxe de type hints é variavel: tipo = valor. Não é como Java (tipo variavel) nem TypeScript (var nome: string)."
-  - pergunta: "Para que servem os type hints em Python?"
-    opcoes: ["Melhorar a performance do código", "Converter tipos automaticamente", "Documentar tipos esperados e ajudar ferramentas como IDEs e mypy", "Impedir que tipos errados sejam usados"]
+    explicacao: "A sintaxe é variavel: tipo = valor. O tipo vem depois dos dois-pontos."
+    explicacaoErrada: "Em Python: variavel: tipo = valor. Não é como Java ou TypeScript."
+  - pergunta: "Para que servem os type hints?"
+    opcoes: ["Melhorar a performance", "Converter tipos automaticamente", "Documentar tipos esperados e ajudar ferramentas como IDEs e mypy", "Impedir que tipos errados sejam usados"]
     correta: 2
-    explicacao: "✓ Type hints servem como documentação, melhoram o autocomplete de IDEs e permitem verificação estática com ferramentas como mypy."
-    explicacaoErrada: "✗ Type hints não afetam performance, não convertem tipos e não impedem uso de tipos errados. Seu propósito é documentação e suporte a ferramentas."
+    explicacao: "Type hints melhoram autocomplete nas IDEs e permitem verificação com mypy."
+    explicacaoErrada: "Type hints não afetam performance, não convertem tipos e não impedem erros. São para documentação e ferramentas."
 ---
 
 ## O que são Type Hints?
 
-Type hints (dicas de tipo) são **anotações opcionais** que indicam qual tipo de dado uma variável, parâmetro ou retorno de função deve ter. Foram introduzidos no Python 3.5 e são cada vez mais usados em projetos profissionais.
+Type hints são etiquetas opcionais que dizem qual tipo uma variável ou função espera. Como colocar uma plaquinha na caixa dizendo "aqui vai texto".
 
 ```python
 # Sem type hints
@@ -42,144 +42,106 @@ nome: str = "Ana"
 idade: int = 25
 ```
 
-> **Importante:** Type hints **não mudam o comportamento** do programa. Python continua sendo uma linguagem de tipagem dinâmica. As anotações são puramente informativas.
+> [!info]
+> Type hints **não mudam** como o programa funciona. Python continua com tipagem dinâmica. As anotações são só informativas.
 
-## Por que usar Type Hints?
+## Por que usar?
 
-### 1. Legibilidade
-
-O código se torna auto-documentado — outro programador sabe imediatamente o tipo esperado:
+**1. Legibilidade** — quem lê o código sabe o tipo esperado na hora:
 
 ```python
-# Sem type hints — qual tipo é cada parâmetro?
+# Sem hints — que tipo é cada coisa?
 def calcular_desconto(preco, percentual):
     return preco * (1 - percentual / 100)
 
-# Com type hints — fica claro!
+# Com hints — fica claro!
 def calcular_desconto(preco: float, percentual: float) -> float:
     return preco * (1 - percentual / 100)
 ```
 
-### 2. Suporte da IDE
+**2. IDE mais esperta** — o VS Code dá autocomplete melhor, avisa quando o tipo está errado e mostra documentação ao passar o mouse.
 
-Com type hints, o VS Code oferece:
-
-- **Autocomplete** mais preciso (sugere métodos corretos para o tipo)
-- **Avisos** quando você passa um tipo errado
-- **Documentação** ao passar o mouse sobre variáveis
-
-### 3. Verificação estática com mypy
-
-O [mypy](https://mypy-lang.org/) é uma ferramenta que analisa type hints e encontra erros antes de executar o código:
+**3. Verificação com mypy** — encontra erros antes de rodar o código:
 
 ```python
-# verificar.py
 def saudacao(nome: str) -> str:
     return f"Olá, {nome}!"
 
-resultado: int = saudacao("Ana")  # mypy detecta: incompatível!
+resultado: int = saudacao("Ana")  # mypy: incompatível!
 ```
 
 ```bash
-# No terminal:
 mypy verificar.py
 # → error: Incompatible types in assignment
-#   (expression has type "str", variable has type "int")
 ```
 
 ## Sintaxe básica
 
-### Anotando variáveis
+### Em variáveis
 
 ```python
-# Tipos primitivos
 nome: str = "Carlos"
 idade: int = 30
 altura: float = 1.75
 ativo: bool = True
 resultado: None = None
-
-# Também é possível anotar sem atribuir valor
-sobrenome: str  # declarada mas não inicializada
 ```
 
-### Anotando parâmetros de funções
+### Em funções — parâmetros e retorno
 
 ```python
 def saudacao(nome: str, idade: int) -> str:
     return f"Olá, {nome}! Você tem {idade} anos."
 
-# Parâmetros com valor padrão
+# Com valor padrão
 def configurar(host: str = "localhost", porta: int = 8080) -> str:
     return f"{host}:{porta}"
-```
 
-### Anotando retorno de funções
-
-A seta `->` indica o tipo de retorno:
-
-```python
-def somar(a: int, b: int) -> int:
-    return a + b
-
-def dividir(a: float, b: float) -> float:
-    return a / b
-
-# Função que não retorna nada
-def exibir_mensagem(texto: str) -> None:
+# Sem retorno
+def exibir(texto: str) -> None:
     print(texto)
 ```
 
-## Type Hints não mudam o comportamento
+## Type hints são ignorados na execução
 
-Este é o ponto mais importante: type hints são **ignorados em tempo de execução**. O Python não gera erro se o tipo real for diferente do anotado.
+Esse é o ponto principal: o Python **não** gera erro se o tipo real for diferente.
 
 ```python
-# Isto NÃO gera erro!
-idade: int = "vinte e cinco"  # anotou int, mas atribuiu str
-print(idade)  # → vinte e cinco (funciona normalmente)
+idade: int = "vinte e cinco"  # anotou int, mas é str
+print(idade)  # → vinte e cinco (funciona!)
 
-nome: str = 42  # anotou str, mas atribuiu int
-print(nome)     # → 42 (funciona normalmente)
+nome: str = 42  # anotou str, mas é int
+print(nome)     # → 42 (funciona!)
 ```
 
-> Type hints são como **comentários estruturados** — ajudam humanos e ferramentas, mas o Python os ignora durante a execução.
+> [!info]
+> Type hints são como comentários organizados — ajudam humanos e ferramentas, mas o Python ignora durante a execução.
 
 ## Tipos para coleções
 
-Para listas, dicionários e outros tipos compostos, podemos especificar o tipo dos elementos:
-
 ```python
-# Python 3.9+: usar os tipos nativos diretamente
+# Python 3.9+
 nomes: list[str] = ["Ana", "Carlos", "Maria"]
 idades: dict[str, int] = {"Ana": 25, "Carlos": 30}
 coordenadas: tuple[float, float] = (23.5, -46.6)
-
-# Conjunto (set)
 ids_unicos: set[int] = {1, 2, 3, 4}
 ```
 
-### Tipos opcionais
-
-Quando uma variável pode ser de um tipo ou `None`:
+### Tipo opcional (pode ser None)
 
 ```python
-# Python 3.10+: usar o operador |
+# Python 3.10+
 nome: str | None = None
-idade: int | None = None
 
-# Exemplo prático
 def buscar_usuario(id: int) -> str | None:
     if id == 1:
         return "Ana"
-    return None  # usuário não encontrado
+    return None
 ```
 
-## Exemplo prático: Calculadora com type hints
+## Exemplo: Calculadora com type hints
 
 ```python
-# calculadora.py — Calculadora simples com type hints
-
 def somar(a: float, b: float) -> float:
     return a + b
 
@@ -199,7 +161,6 @@ def exibir_resultado(operacao: str, resultado: float | None) -> None:
     if resultado is not None:
         print(f"Resultado da {operacao}: {resultado:.2f}")
 
-# Programa principal
 numero1: float = float(input("Primeiro número: "))
 numero2: float = float(input("Segundo número: "))
 
@@ -209,14 +170,14 @@ exibir_resultado("multiplicação", multiplicar(numero1, numero2))
 exibir_resultado("divisão", dividir(numero1, numero2))
 ```
 
-## Quando usar Type Hints?
+## Quando usar?
 
-| Situação | Recomendação |
+| Situação | Usar? |
 | --- | --- |
-| Projetos grandes / em equipe | Fortemente recomendado |
-| Funções públicas / APIs | Fortemente recomendado |
-| Código de estudo / scripts rápidos | Opcional, mas é boa prática |
-| Variáveis locais óbvias | Pode omitir (`x = 5` já é claro) |
+| Projetos grandes / em equipe | Sim, sempre |
+| Funções públicas / APIs | Sim, sempre |
+| Scripts rápidos / estudo | Opcional |
+| Variáveis óbvias (`x = 5`) | Pode pular |
 
 ## Resumo
 

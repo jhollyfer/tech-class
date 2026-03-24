@@ -1,9 +1,9 @@
 ---
 slug: "arrays-basics"
 modulo: "Módulo 4 — Dados e Funções"
-titulo: "Arrays: Criação e Manipulação"
-subtitulo: "Agrupando dados em coleções ordenadas"
-descricao: "Arrays em TypeScript: criar, acessar, modificar, métodos (push, pop, includes, indexOf) e iteração com for."
+titulo: "Arrays"
+subtitulo: "Guardando vários valores em uma lista"
+descricao: "Criar, acessar, modificar e percorrer arrays em TypeScript."
 ordem: 10
 proximosPassos:
   - titulo: "Métodos funcionais"
@@ -14,18 +14,18 @@ quiz:
   - pergunta: "Qual é o índice do primeiro elemento de um array?"
     opcoes: ["1", "0", "-1", "Depende do array"]
     correta: 1
-    explicacao: "✓ Arrays começam no índice 0. O primeiro elemento é [0], o segundo é [1], e assim por diante."
-    explicacaoErrada: "✗ Em TypeScript/JavaScript (e na maioria das linguagens), o primeiro elemento de um array está no índice 0."
+    explicacao: "✓ Arrays começam no índice 0. Primeiro é [0], segundo é [1]."
+    explicacaoErrada: "✗ O primeiro elemento está no índice 0, sempre."
   - pergunta: "O que faz o método push()?"
     opcoes: ["Remove o primeiro elemento", "Adiciona um elemento no final", "Ordena o array", "Remove o último elemento"]
     correta: 1
-    explicacao: "✓ push() adiciona um ou mais elementos no final do array. Para remover do final, use pop()."
-    explicacaoErrada: "✗ push() adiciona no final. pop() remove do final. unshift() adiciona no início. shift() remove do início."
+    explicacao: "✓ push() adiciona no final. pop() remove do final."
+    explicacaoErrada: "✗ push = adiciona no final. pop = remove do final."
 ---
 
 ## O que e um array?
 
-Um array e uma lista ordenada de valores. Imagine uma sala de aula: em vez de criar uma variavel separada para cada nota de cada aluno, voce armazena todas em uma unica lista:
+Um array é uma lista ordenada. Em vez de criar 30 variáveis para 30 notas de alunos, você coloca tudo em uma lista:
 
 ```typescript
 const notas: number[] = [8.5, 7.0, 9.2, 6.8];
@@ -33,115 +33,85 @@ const nomes: string[] = ["Ana", "Bob", "Carlos"];
 const aprovados: boolean[] = [true, true, false, true];
 ```
 
-O tipo `number[]` indica um array de numeros. `string[]` indica um array de strings. `boolean[]` indica um array de booleanos. Em TypeScript, todos os elementos de um array tipado devem ser do mesmo tipo.
+`number[]` = lista de números. `string[]` = lista de strings.
 
 > [!info]
-> Voce tambem pode usar a sintaxe `Array<number>` em vez de `number[]`. Ambas sao equivalentes, mas `number[]` e mais comum por ser mais curta.
+> Também existe a sintaxe `Array<number>`, mas `number[]` é mais comum.
 
 ## Acessando elementos (indice comeca em 0)
 
-Cada elemento tem uma posicao chamada indice. O primeiro elemento esta no indice 0:
+Cada item tem uma posição (índice), começando do 0:
 
 ```typescript
 const frutas: string[] = ["maçã", "banana", "uva", "manga"];
 
-console.log(frutas[0]);     // "maçã" (primeiro)
-console.log(frutas[2]);     // "uva" (terceiro)
-console.log(frutas[3]);     // "manga" (quarto/último)
-console.log(frutas.length); // 4
+console.log(frutas[0]);     // → "maçã" (primeiro)
+console.log(frutas[2]);     // → "uva" (terceiro)
+console.log(frutas.length); // → 4
 ```
 
-Visualizando os indices:
+Visualizando:
 
 ```
 Índice:   0        1        2       3
 Valor:  "maçã"  "banana"  "uva"  "manga"
 ```
 
-> [!alerta]
-> Cuidado ao acessar um indice que nao existe. `frutas[10]` retorna `undefined` em vez de dar erro. Sempre verifique se o indice esta dentro do limite (`indice < array.length`).
-
-Para acessar o ultimo elemento sem saber o tamanho:
+Para pegar o último sem saber o tamanho:
 
 ```typescript
-const ultimo: string = frutas[frutas.length - 1]; // "manga"
+const ultimo = frutas[frutas.length - 1]; // → "manga"
 ```
+
+> [!alerta]
+> `frutas[10]` não dá erro — retorna `undefined`. Sempre verifique se o índice existe.
 
 ## Modificando arrays
 
-Mesmo declarado com `const`, o **conteudo** de um array pode ser alterado (o `const` impede apenas reatribuir a variavel para outro array). Voce pode adicionar, remover e alterar elementos:
+Mesmo com `const`, o conteúdo pode mudar (o `const` só impede trocar o array inteiro):
 
 ```typescript
 const lista: string[] = ["a", "b", "c"];
 
-lista.push("d");          // adiciona no final → ["a","b","c","d"]
-lista.pop();               // remove do final → ["a","b","c"]
-lista.unshift("z");        // adiciona no início → ["z","a","b","c"]
-lista.shift();             // remove do início → ["a","b","c"]
-lista[1] = "X";           // modifica posição 1 → ["a","X","c"]
+lista.push("d");       // adiciona no final    → ["a","b","c","d"]
+lista.pop();            // remove do final      → ["a","b","c"]
+lista.unshift("z");     // adiciona no início   → ["z","a","b","c"]
+lista.shift();          // remove do início     → ["a","b","c"]
+lista[1] = "X";        // muda posição 1       → ["a","X","c"]
 ```
 
-Resumo dos metodos de modificacao:
+| Método      | O que faz               | Retorna                |
+| ----------- | ----------------------- | ---------------------- |
+| `push()`    | Adiciona no final       | Novo tamanho           |
+| `pop()`     | Remove do final         | Elemento removido      |
+| `unshift()` | Adiciona no início      | Novo tamanho           |
+| `shift()`   | Remove do início        | Elemento removido      |
+| `splice()`  | Remove/insere no meio   | Array dos removidos    |
 
-| Metodo      | Acao                    | Retorno                    |
-| ----------- | ----------------------- | -------------------------- |
-| `push()`    | Adiciona no final       | Novo tamanho do array      |
-| `pop()`     | Remove do final         | Elemento removido          |
-| `unshift()` | Adiciona no inicio      | Novo tamanho do array      |
-| `shift()`   | Remove do inicio        | Elemento removido          |
-| `splice()`  | Remove/insere no meio   | Array dos removidos        |
-
-### Removendo e inserindo no meio com splice
-
-O `splice` e versátil --- remove elementos de qualquer posicao e, opcionalmente, insere novos:
+### splice --- mexendo no meio
 
 ```typescript
 const cores: string[] = ["vermelho", "azul", "verde", "amarelo"];
 
-// Remove 1 elemento a partir do índice 1
-cores.splice(1, 1); // ["vermelho", "verde", "amarelo"]
+cores.splice(1, 1);           // remove 1 a partir do índice 1
+// → ["vermelho", "verde", "amarelo"]
 
-// Insere "roxo" no índice 1 (sem remover nada)
-cores.splice(1, 0, "roxo"); // ["vermelho", "roxo", "verde", "amarelo"]
+cores.splice(1, 0, "roxo");   // insere "roxo" no índice 1
+// → ["vermelho", "roxo", "verde", "amarelo"]
 ```
 
-## Metodos que retornam novos valores
-
-Estes metodos **nao modificam** o array original --- eles retornam um novo valor. Isso e importante porque manter os dados originais intactos ajuda a evitar bugs:
-
-### Somando elementos com for
-
-Para acumular valores de um array, use um `for...of` com uma variavel acumuladora:
+## Metodos uteis
 
 ```typescript
-const numeros: number[] = [1, 2, 3, 4, 5];
-let soma: number = 0;
+const numeros: number[] = [3, 1, 4, 1, 5, 9];
 
-for (const n of numeros) {
-  soma = soma + n;
-}
-
-console.log(soma); // 15
+numeros.includes(5);  // → true (contém 5?)
+numeros.indexOf(4);   // → 2 (em qual posição?)
 ```
 
-> [!sucesso]
-> **Resumo rapido:** Para acumular valores de um array, use um `for` simples com uma variavel acumuladora.
+## Percorrendo arrays
 
-## Outros metodos uteis
-
-```typescript
-const numeros: number[] = [3, 1, 4, 1, 5, 9, 2, 6];
-
-// includes — verifica se contém
-console.log(numeros.includes(5)); // true
-
-// indexOf — encontra a posição
-console.log(numeros.indexOf(4)); // 2
-```
-
-## Iterando sobre arrays
-
-A forma mais direta de percorrer um array:
+Com `for...of` (mais limpo):
 
 ```typescript
 const alunos: string[] = ["Ana", "Bob", "Carlos"];
@@ -149,20 +119,23 @@ const alunos: string[] = ["Ana", "Bob", "Carlos"];
 for (const aluno of alunos) {
   console.log(`Aluno: ${aluno}`);
 }
+// → Aluno: Ana
+// → Aluno: Bob
+// → Aluno: Carlos
 ```
 
-Se precisar do indice junto com o valor, use o `for` classico:
+Com `for` clássico (quando precisa do índice):
 
 ```typescript
 for (let i: number = 0; i < alunos.length; i++) {
   console.log(`${i + 1}. ${alunos[i]}`);
 }
-// 1. Ana
-// 2. Bob
-// 3. Carlos
+// → 1. Ana
+// → 2. Bob
+// → 3. Carlos
 ```
 
-## Padroes comuns com arrays
+## Padroes comuns
 
 ### Encontrar o maior valor
 
@@ -171,12 +144,10 @@ const valores: number[] = [45, 12, 78, 34, 91, 23];
 let maior: number = valores[0];
 
 for (const valor of valores) {
-  if (valor > maior) {
-    maior = valor;
-  }
+  if (valor > maior) maior = valor;
 }
 
-console.log(`Maior valor: ${maior}`); // 91
+console.log(maior); // → 91
 ```
 
 ### Contar ocorrencias
@@ -189,10 +160,10 @@ for (const voto of votos) {
   if (voto === "A") votosA++;
 }
 
-console.log(`Candidato A: ${votosA} votos`); // 4
+console.log(votosA); // → 4
 ```
 
-### Criar um novo array a partir de outro
+### Criar array a partir de outro
 
 ```typescript
 const celsius: number[] = [0, 20, 37, 100];
@@ -202,26 +173,26 @@ for (const c of celsius) {
   fahrenheit.push((c * 9) / 5 + 32);
 }
 
-console.log(fahrenheit); // [32, 68, 98.6, 212]
+console.log(fahrenheit); // → [32, 68, 98.6, 212]
 ```
 
 ## Exercicio pratico
 
-Dado um array de notas de alunos, escreva um programa que:
+Dado um array de notas:
 
-1. Calcule a media da turma
-2. Filtre os alunos aprovados (nota >= 7)
+1. Calcule a média
+2. Filtre os aprovados (nota >= 7)
 3. Encontre a maior e a menor nota
 
 ```typescript
 const notas: number[] = [8.5, 6.0, 9.2, 4.5, 7.0, 5.5, 8.0, 3.0];
 
-// 1. Use um for para calcular a soma, depois divida por notas.length
+// 1. Some tudo com for, divida por notas.length
 
-// 2. Use um for para obter apenas as notas >= 7 (adicione em um novo array com push)
+// 2. Crie um novo array e use push para notas >= 7
 
-// 3. Use um for para encontrar a maior e a menor nota
+// 3. Use for para achar a maior e menor
 ```
 
 > [!info]
-> Na proxima aula sobre funcoes, voce aprendera a encapsular essa logica em funcoes reutilizaveis, tornando o codigo mais organizado e facil de testar.
+> Na próxima aula, você vai aprender a encapsular essa lógica em funções reutilizáveis.

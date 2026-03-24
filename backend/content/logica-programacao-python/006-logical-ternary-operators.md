@@ -2,68 +2,64 @@
 slug: "logical-ternary-operators"
 modulo: "Módulo 2 — Fundamentos da Linguagem"
 titulo: "Operadores Lógicos e Ternário"
-subtitulo: "Combinando condições com and, or, not e expressões condicionais"
-descricao: "Aprenda a combinar condições com operadores lógicos (and, or, not), entenda tabelas verdade e use o operador ternário em Python."
+subtitulo: "Combinando condições com and, or, not e ternário"
+descricao: "Combine condições com and, or, not, entenda curto-circuito e use o operador ternário."
 ordem: 6
 proximosPassos:
   - titulo: "Estruturas Condicionais"
-    descricao: "Aprenda a tomar decisões com if, elif e else"
+    descricao: "Tome decisões com if, elif e else"
   - titulo: "Match/Case e Condições Combinadas"
     descricao: "Pattern matching e valores falsy em Python"
 quiz:
   - pergunta: "Qual é o operador lógico E em Python?"
     opcoes: ["&&", "AND", "and", "&"]
     correta: 2
-    explicacao: "✓ Python usa a palavra and (minúscula) como operador lógico E. Diferente de JavaScript/C que usam &&."
-    explicacaoErrada: "✗ Em Python, os operadores lógicos são palavras em inglês minúsculas: and, or, not. Não usamos &&, || ou !."
+    explicacao: "Python usa and (minúsculo). Diferente de JavaScript que usa &&."
+    explicacaoErrada: "Em Python os operadores lógicos são palavras: and, or, not. Não &&, || ou !."
   - pergunta: "Qual é o resultado de not True?"
     opcoes: ["0", "None", "False", "true"]
     correta: 2
-    explicacao: "✓ not inverte o valor booleano. not True resulta em False."
-    explicacaoErrada: "✗ O operador not inverte o booleano: not True = False e not False = True."
+    explicacao: "not inverte o booleano. not True = False."
+    explicacaoErrada: "not inverte: not True = False, not False = True."
   - pergunta: "Qual é a sintaxe do operador ternário em Python?"
     opcoes: ["condition ? a : b", "a if condition else b", "if condition then a else b", "condition && a || b"]
     correta: 1
-    explicacao: "✓ Em Python, a expressão ternária é: valor_se_verdadeiro if condição else valor_se_falso."
-    explicacaoErrada: "✗ A sintaxe ternária em Python é diferente: valor_se_verdadeiro if condição else valor_se_falso. Não usa ? : como JavaScript."
+    explicacao: "Em Python: valor_verdadeiro if condição else valor_falso."
+    explicacaoErrada: "A sintaxe é: valor_verdadeiro if condição else valor_falso. Não usa ? : como JavaScript."
   - pergunta: "O que True and False or True retorna?"
     opcoes: ["True", "False", "None", "Erro"]
     correta: 0
-    explicacao: "✓ and tem prioridade sobre or. Primeiro: True and False = False. Depois: False or True = True."
-    explicacaoErrada: "✗ A precedência é: and primeiro, or depois. True and False = False, depois False or True = True."
+    explicacao: "and tem prioridade. True and False = False. Depois: False or True = True."
+    explicacaoErrada: "Precedência: and primeiro, or depois. True and False = False, depois False or True = True."
 ---
 
 ## Operadores Lógicos
 
-Python usa **palavras em inglês** para operadores lógicos, diferente de muitas linguagens que usam símbolos:
+Python usa palavras em vez de símbolos:
 
 | Python | Outras linguagens | Significado |
 | --- | --- | --- |
-| `and` | `&&` | E lógico — ambos devem ser verdadeiros |
-| `or` | `\|\|` | OU lógico — pelo menos um deve ser verdadeiro |
-| `not` | `!` | NÃO lógico — inverte o valor |
+| `and` | `&&` | E — ambos verdadeiros |
+| `or` | `\|\|` | OU — pelo menos um verdadeiro |
+| `not` | `!` | NÃO — inverte |
 
 ```python
-# and — AMBOS devem ser True
-print(True and True)     # → True
-print(True and False)    # → False
-print(False and True)    # → False
-print(False and False)   # → False
+# and — os DOIS precisam ser True
+print(True and True)    # → True
+print(True and False)   # → False
 
-# or — pelo menos UM deve ser True
-print(True or True)      # → True
-print(True or False)     # → True
-print(False or True)     # → True
-print(False or False)    # → False
+# or — pelo menos UM precisa ser True
+print(True or False)    # → True
+print(False or False)   # → False
 
-# not — inverte o valor
-print(not True)          # → False
-print(not False)         # → True
+# not — inverte
+print(not True)         # → False
+print(not False)        # → True
 ```
 
 ## Tabelas Verdade
 
-### and (E lógico)
+### and
 
 | A | B | A and B |
 | --- | --- | --- |
@@ -72,9 +68,10 @@ print(not False)         # → True
 | False | True | False |
 | False | False | False |
 
-> **Regra:** `and` só retorna `True` quando **ambos** são `True`.
+> [!info]
+> `and` só dá True quando **os dois** são True.
 
-### or (OU lógico)
+### or
 
 | A | B | A or B |
 | --- | --- | --- |
@@ -83,211 +80,153 @@ print(not False)         # → True
 | False | True | True |
 | False | False | **False** |
 
-> **Regra:** `or` só retorna `False` quando **ambos** são `False`.
+> [!info]
+> `or` só dá False quando **os dois** são False.
 
-### not (NÃO lógico)
-
-| A | not A |
-| --- | --- |
-| True | False |
-| False | True |
-
-## Exemplos práticos
+## Exemplos do dia a dia
 
 ```python
 idade = 25
 tem_carteira = True
 saldo = 1500.0
 
-# Verificar se pode alugar um carro
+# Pode alugar carro? (precisa dos dois)
 pode_alugar = idade >= 21 and tem_carteira
-print(f"Pode alugar carro: {pode_alugar}")  # → True
+print(f"Pode alugar: {pode_alugar}")  # → True
 
-# Verificar se tem desconto (jovem OU idoso)
+# Tem desconto? (jovem OU idoso)
 tem_desconto = idade < 18 or idade >= 65
-print(f"Tem desconto: {tem_desconto}")  # → False
+print(f"Desconto: {tem_desconto}")  # → False
 
-# Verificar se NÃO está endividado
-nao_endividado = not (saldo < 0)
-print(f"Não endividado: {nao_endividado}")  # → True
-
-# Combinando múltiplas condições
-aprovado = idade >= 18 and tem_carteira and saldo >= 500
-print(f"Aprovado: {aprovado}")  # → True
+# Está no verde? (saldo positivo)
+no_verde = not (saldo < 0)
+print(f"No verde: {no_verde}")  # → True
 ```
 
-## Precedência dos operadores lógicos
-
-A ordem de prioridade é: `not` > `and` > `or`
+## Precedência: not > and > or
 
 ```python
-# not é avaliado primeiro, depois and, depois or
 resultado = True or False and not False
-# Passo 1: not False → True
-# Passo 2: False and True → False
-# Passo 3: True or False → True
-print(resultado)  # → True
-
-# Use parênteses para deixar a intenção clara!
-resultado = (True or False) and (not False)
+# 1. not False → True
+# 2. False and True → False
+# 3. True or False → True
 print(resultado)  # → True
 ```
 
-> **Dica:** Sempre use parênteses quando combinar `and` e `or` na mesma expressão. Isso torna o código mais legível e evita bugs.
+> [!sucesso]
+> Use parênteses quando misturar `and` e `or`. Fica mais claro e evita bugs.
 
-## Avaliação de curto-circuito (short-circuit)
+## Curto-circuito
 
-Python usa **avaliação de curto-circuito**: se o resultado já está determinado, ele não avalia o restante.
+Python é esperto: se já sabe o resultado, não avalia o resto.
 
 ### and — para no primeiro False
 
 ```python
-# Se o primeiro valor é False, o segundo nem é avaliado
-# Porque False and (qualquer coisa) é sempre False
-resultado = False and print("Isto não aparece")
-# print() não é executado!
-
-# Exemplo prático: verificar antes de dividir
+# Se o primeiro é False, nem olha o segundo
 divisor = 0
 if divisor != 0 and 10 / divisor > 2:
     print("OK")
-# 10 / divisor NÃO é avaliado porque divisor != 0 já é False
+# divisor != 0 já é False, então 10/divisor NÃO é avaliado (evita erro!)
 ```
 
 ### or — para no primeiro True
 
 ```python
-# Se o primeiro valor é True, o segundo nem é avaliado
-# Porque True or (qualquer coisa) é sempre True
-resultado = True or print("Isto não aparece")
-# print() não é executado!
-
-# Exemplo prático: valor padrão
+# Se o primeiro é True, nem olha o segundo
 nome = "" or "Anônimo"
-print(nome)  # → Anônimo (string vazia é falsy)
+print(nome)  # → Anônimo (string vazia é "falso")
 
 nome = "Carlos" or "Anônimo"
-print(nome)  # → Carlos (string não vazia é truthy)
+print(nome)  # → Carlos
 ```
 
-### Valores retornados (não é sempre True/False!)
-
-Em Python, `and` e `or` retornam **o valor real**, não necessariamente `True`/`False`:
+### and e or retornam o valor real, não só True/False
 
 ```python
-# and retorna o primeiro valor falsy ou o último valor
-print(1 and 2 and 3)     # → 3 (todos truthy, retorna o último)
-print(1 and 0 and 3)     # → 0 (0 é falsy, para ali)
-print("" and "texto")    # → "" (string vazia é falsy)
-
-# or retorna o primeiro valor truthy ou o último valor
-print(0 or "" or "Olá")  # → "Olá" (primeiro truthy)
-print(0 or "" or None)   # → None (nenhum truthy, retorna o último)
-print("Ana" or "Carlos") # → "Ana" (primeiro truthy)
+print(1 and 2 and 3)     # → 3 (todos "verdadeiros", retorna o último)
+print(1 and 0 and 3)     # → 0 (0 é "falso", para ali)
+print(0 or "" or "Olá")  # → "Olá" (primeiro "verdadeiro")
 ```
 
 ## Operador Ternário
 
-O operador ternário em Python permite escrever um `if/else` em uma única linha:
+Um `if/else` em uma linha só:
 
 ```python
-# Sintaxe:
-# valor_se_verdadeiro if condição else valor_se_falso
+# Sintaxe: valor_se_true if condição else valor_se_false
 
 idade = 20
 status = "maior" if idade >= 18 else "menor"
 print(status)  # → maior
 ```
 
-### Comparação com outras linguagens
-
-```python
-# JavaScript/C: condição ? valor_verdadeiro : valor_falso
-# Python:       valor_verdadeiro if condição else valor_falso
-
-# Note que a ordem é diferente!
-# Em Python, o valor desejado vem PRIMEIRO
-```
-
 ### Exemplos práticos
 
 ```python
-# Classificação simples
 nota = 7.5
 resultado = "Aprovado" if nota >= 7 else "Reprovado"
 print(resultado)  # → Aprovado
 
-# Paridade
 numero = 15
 paridade = "par" if numero % 2 == 0 else "ímpar"
 print(f"{numero} é {paridade}")  # → 15 é ímpar
-
-# Formatação condicional
-quantidade = 1
-texto = f"{quantidade} item" if quantidade == 1 else f"{quantidade} itens"
-print(texto)  # → 1 item
-
-quantidade = 5
-texto = f"{quantidade} item" if quantidade == 1 else f"{quantidade} itens"
-print(texto)  # → 5 itens
 
 # Dentro de f-strings
 saldo = -50
 print(f"Status: {'positivo' if saldo >= 0 else 'negativo'}")
 # → Status: negativo
+
+# Singular/plural
+qtd = 1
+print(f"{qtd} item" if qtd == 1 else f"{qtd} itens")
+# → 1 item
 ```
 
 ### Ternário encadeado (use com moderação)
 
 ```python
 nota = 8.5
-conceito = "A" if nota >= 9 else "B" if nota >= 7 else "C" if nota >= 5 else "D"
-print(conceito)  # → B
-
-# Mais legível com parênteses:
 conceito = (
     "A" if nota >= 9 else
     "B" if nota >= 7 else
     "C" if nota >= 5 else
     "D"
 )
+print(conceito)  # → B
 ```
 
-> **Atenção:** Ternários encadeados podem ficar confusos. Se a lógica for complexa, prefira `if/elif/else` convencional.
+> [!alerta]
+> Se ficar confuso, use `if/elif/else` normal. Legibilidade vem primeiro.
 
-## Exemplo prático: Validação de formulário
+## Exemplo: Validação de formulário
 
 ```python
-# validacao.py — Validando dados com operadores lógicos
-
-print("=== Cadastro de Usuário ===\n")
+print("=== Cadastro ===\n")
 
 nome = input("Nome: ")
 email = input("E-mail: ")
 idade = int(input("Idade: "))
 senha = input("Senha: ")
 
-# Validações com operadores lógicos
-nome_valido = len(nome) >= 2
-email_valido = "@" in email and "." in email
-idade_valida = 13 <= idade <= 120
-senha_valida = len(senha) >= 6
+nome_ok = len(nome) >= 2
+email_ok = "@" in email and "." in email
+idade_ok = 13 <= idade <= 120
+senha_ok = len(senha) >= 6
 
-# Resultado
 print("\n--- Validação ---")
-print(f"Nome válido:  {'Sim' if nome_valido else 'Não (mínimo 2 caracteres)'}")
-print(f"E-mail válido: {'Sim' if email_valido else 'Não (deve conter @ e .)'}")
-print(f"Idade válida: {'Sim' if idade_valida else 'Não (entre 13 e 120)'}")
-print(f"Senha válida: {'Sim' if senha_valida else 'Não (mínimo 6 caracteres)'}")
+print(f"Nome:  {'OK' if nome_ok else 'Mínimo 2 caracteres'}")
+print(f"Email: {'OK' if email_ok else 'Deve conter @ e .'}")
+print(f"Idade: {'OK' if idade_ok else 'Entre 13 e 120'}")
+print(f"Senha: {'OK' if senha_ok else 'Mínimo 6 caracteres'}")
 
-# Tudo válido?
-tudo_ok = nome_valido and email_valido and idade_valida and senha_valida
-print(f"\nCadastro: {'Aprovado!' if tudo_ok else 'Corrija os erros acima.'}")
+tudo_ok = nome_ok and email_ok and idade_ok and senha_ok
+print(f"\nCadastro: {'Aprovado!' if tudo_ok else 'Corrija os erros.'}")
 ```
 
 ## Resumo
 
-| Conceito | Sintaxe | Descrição |
+| Conceito | Sintaxe | O que faz |
 | --- | --- | --- |
 | E lógico | `and` | Ambos devem ser True |
 | OU lógico | `or` | Pelo menos um True |

@@ -27,10 +27,9 @@ const COURSES: Record<string, ICourseConfig> = {
 
 const PRACTICE_MODULES: Record<string, string[]> = {
   'logica-programacao-typescript': ['Módulo 5 — Prática'],
-  'logica-programacao-python': ['Módulo 6 — Projetos Práticos'],
 }
 
-export default class ContentService {
+class ContentService {
   private cache: Map<string, ILesson[]> = new Map()
 
   constructor() {
@@ -117,4 +116,47 @@ export default class ContentService {
 
     return questions
   }
+
+  getLessonQuizQuestions(courseSlug: string, lessonSlug: string): IQuizDataQuestion[] | null {
+    const lesson = this.getLesson(courseSlug, lessonSlug)
+    if (!lesson) return null
+    return lesson.quiz.map((q) => ({
+      lessonTitulo: lesson.titulo,
+      lessonDescricao: lesson.descricao,
+      lessonModulo: lesson.modulo,
+      pergunta: q.pergunta,
+      opcoes: q.opcoes,
+      correta: q.correta,
+      explicacao: q.explicacao,
+      explicacaoErrada: q.explicacaoErrada,
+    }))
+  }
+
+  getModuleQuizQuestions(courseSlug: string, moduleName: string): IQuizDataQuestion[] | null {
+    const all = this.getQuizQuestions(courseSlug, false)
+    if (!all) return null
+    return all.filter((q) => q.lessonModulo === moduleName)
+  }
+
+  getModules(courseSlug: string) {
+    const lessons = this.getLessons(courseSlug)
+    if (!lessons) return null
+
+    const moduleMap = new Map<string, { lessonCount: number; questionCount: number }>()
+    for (const lesson of lessons) {
+      const entry = moduleMap.get(lesson.modulo) ?? { lessonCount: 0, questionCount: 0 }
+      entry.lessonCount++
+      entry.questionCount += lesson.quiz.length
+      moduleMap.set(lesson.modulo, entry)
+    }
+
+    return Array.from(moduleMap.entries()).map(([name, info]) => ({
+      name,
+      lessonCount: info.lessonCount,
+      questionCount: info.questionCount,
+    }))
+  }
 }
+
+const contentService = new ContentService()
+export default contentService

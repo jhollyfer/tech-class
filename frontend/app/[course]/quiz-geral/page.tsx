@@ -1,8 +1,8 @@
-import { notFound } from "next/navigation";
-import { getCourseConfig, getAllCourseKeys } from "@/lib/courses";
+import { QuizApp } from "@/components/common/quiz/quiz-app";
 import { apiFetch } from "@/lib/api";
+import { getAllCourseKeys, getCourseConfig } from "@/lib/courses";
 import type { Metadata } from "next";
-import { QuizGeralApp } from "@/components/quiz-geral/quiz-geral-app";
+import { notFound } from "next/navigation";
 
 interface PageProps {
   params: Promise<{ course: string }>;
@@ -20,7 +20,7 @@ export async function generateMetadata({
   if (!config) return { title: "Curso não encontrado" };
   return {
     title: `Quiz Geral — ${config.label} com ${config.language}`,
-    description: `Quiz geral de ${config.label} com ${config.language} — tempo real com WebSocket.`,
+    description: `Quiz geral de ${config.label} com ${config.language} — tempo real.`,
   };
 }
 
@@ -32,7 +32,7 @@ export default async function QuizGeralPage({ params }: PageProps) {
   let questionCount = 0;
   try {
     const data = await apiFetch<{ questionCount: number }>(
-      `/api/courses/${course}/quiz-questions`
+      `/api/courses/${course}/quiz-questions`,
     );
     questionCount = data.questionCount;
   } catch {
@@ -40,11 +40,13 @@ export default async function QuizGeralPage({ params }: PageProps) {
   }
 
   return (
-    <QuizGeralApp
+    <QuizApp
       courseSlug={course}
       courseLabel={config.label}
       courseLanguage={config.language}
       questionCount={questionCount}
+      title="Quiz Geral"
+      backHref={`/${course}/lessons`}
     />
   );
 }

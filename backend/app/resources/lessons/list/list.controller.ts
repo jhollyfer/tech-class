@@ -1,7 +1,5 @@
 import type { HttpContext } from '@adonisjs/core/http'
-import ContentService from '#services/content_service'
-
-const contentService = new ContentService()
+import contentService from '#services/content_service'
 
 export default class ListLessonsController {
   async handle({ params, response }: HttpContext) {

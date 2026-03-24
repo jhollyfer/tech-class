@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-export function useUrgencySound(shouldPlay: boolean, secondsLeft: number) {
+export function useUrgencySound(shouldPlay: boolean, secondsLeft: number, isCritical: boolean = secondsLeft <= 5) {
   const ctxRef = useRef<AudioContext | null>(null);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
@@ -39,11 +39,10 @@ export function useUrgencySound(shouldPlay: boolean, secondsLeft: number) {
       osc.stop(now + 0.1);
     }
 
-    // Play initial beep immediately
+    // Set interval based on urgency level — first beep after interval (no immediate double-beep)
+    const ms = isCritical ? 1000 : 2000;
     beep();
-
-    // Set interval based on urgency level
-    const ms = secondsLeft <= 10 ? 1000 : 2000;
+    if (intervalRef.current) clearInterval(intervalRef.current);
     intervalRef.current = setInterval(beep, ms);
 
     return () => {
@@ -52,7 +51,7 @@ export function useUrgencySound(shouldPlay: boolean, secondsLeft: number) {
         intervalRef.current = null;
       }
     };
-  }, [shouldPlay, secondsLeft <= 10]);
+  }, [shouldPlay, isCritical]);
 
   // Cleanup on unmount
   useEffect(() => {

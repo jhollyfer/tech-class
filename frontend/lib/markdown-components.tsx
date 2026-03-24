@@ -1,8 +1,8 @@
-import type { Components } from "react-markdown";
-import { AulaCallout } from "@/components/aula/aula-callout";
-import { MermaidDiagram } from "@/components/aula/mermaid-diagram";
-import { VideoCard } from "@/components/aula/video-card";
+import { AulaCallout } from "@/components/common/aula/aula-callout";
+import { MermaidDiagram } from "@/components/common/aula/mermaid-diagram";
+import { VideoCard } from "@/components/common/aula/video-card";
 import { slugify } from "@/lib/slugify";
+import type { Components } from "react-markdown";
 
 function TruthTableCell({ children }: { children: React.ReactNode }) {
   const text = String(children).trim();
@@ -24,7 +24,11 @@ function TruthTableCell({ children }: { children: React.ReactNode }) {
   }
 
   // Contains check mark or CONSISTENTE
-  if (text.includes("\u2713") || text === "CONSISTENTE" || text === "CONSISTENTE!") {
+  if (
+    text.includes("\u2713") ||
+    text === "CONSISTENTE" ||
+    text === "CONSISTENTE!"
+  ) {
     return (
       <span className="inline-block px-2 py-0.5 rounded text-xs font-bold bg-[var(--color-success)]/15 text-[var(--color-success)]">
         {children}
@@ -33,7 +37,11 @@ function TruthTableCell({ children }: { children: React.ReactNode }) {
   }
 
   // Contains cross mark or CONTRADICAO
-  if (text.includes("\u2717") || text === "CONTRADI\u00c7\u00c3O" || text === "CONTRADI\u00c7\u00c3O!") {
+  if (
+    text.includes("\u2717") ||
+    text === "CONTRADI\u00c7\u00c3O" ||
+    text === "CONTRADI\u00c7\u00c3O!"
+  ) {
     return (
       <span className="inline-block px-2 py-0.5 rounded text-xs font-bold bg-[var(--color-error)]/15 text-[var(--color-error)]">
         {children}
@@ -61,7 +69,7 @@ function TruthTableCell({ children }: { children: React.ReactNode }) {
 }
 
 export function createMarkdownComponents(
-  highlightedCode?: Record<string, string>
+  highlightedCode?: Record<string, string>,
 ): Components {
   return {
     h2: ({ children }) => {
@@ -134,9 +142,7 @@ export function createMarkdownComponents(
         );
       }
       if (alertaMatch) {
-        return (
-          <AulaCallout tipo="alerta">{alertaMatch[1].trim()}</AulaCallout>
-        );
+        return <AulaCallout tipo="alerta">{alertaMatch[1].trim()}</AulaCallout>;
       }
 
       return <AulaCallout tipo="info">{children}</AulaCallout>;

@@ -19,6 +19,18 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#resources/courses/list/list.controller').default['handle']>>>
     }
   }
+  'list_modules': {
+    methods: ["GET","HEAD"]
+    pattern: '/api/courses/:courseSlug/modules'
+    types: {
+      body: {}
+      paramsTuple: [ParamValue]
+      params: { courseSlug: ParamValue }
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#resources/courses/modules/modules.controller').default['handle']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#resources/courses/modules/modules.controller').default['handle']>>>
+    }
+  }
   'list_lessons': {
     methods: ["GET","HEAD"]
     pattern: '/api/courses/:courseSlug/lessons'
@@ -31,6 +43,18 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#resources/lessons/list/list.controller').default['handle']>>>
     }
   }
+  'lesson_quiz_questions': {
+    methods: ["GET","HEAD"]
+    pattern: '/api/courses/:courseSlug/lessons/:lessonSlug/quiz-questions'
+    types: {
+      body: {}
+      paramsTuple: [ParamValue, ParamValue]
+      params: { courseSlug: ParamValue; lessonSlug: ParamValue }
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#resources/quiz/lesson-questions/lesson-questions.controller').default['handle']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#resources/quiz/lesson-questions/lesson-questions.controller').default['handle']>>>
+    }
+  }
   'show_lesson': {
     methods: ["GET","HEAD"]
     pattern: '/api/courses/:courseSlug/lessons/:lessonSlug'
@@ -41,6 +65,18 @@ export interface Registry {
       query: {}
       response: ExtractResponse<Awaited<ReturnType<import('#resources/lessons/show/show.controller').default['handle']>>>
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#resources/lessons/show/show.controller').default['handle']>>>
+    }
+  }
+  'module_quiz_questions': {
+    methods: ["GET","HEAD"]
+    pattern: '/api/courses/:courseSlug/modules/:moduleName/quiz-questions'
+    types: {
+      body: {}
+      paramsTuple: [ParamValue, ParamValue]
+      params: { courseSlug: ParamValue; moduleName: ParamValue }
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#resources/quiz/module-questions/module-questions.controller').default['handle']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#resources/quiz/module-questions/module-questions.controller').default['handle']>>>
     }
   }
   'quiz_questions': {

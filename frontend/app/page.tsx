@@ -1,10 +1,24 @@
-import { getAllLessons } from "@/lib/lessons";
+import type { Metadata } from "next";
+import { apiFetch } from "@/lib/api";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Tech Class — Aprenda programação do zero",
+  description: "Plataforma educacional com aulas interativas de programação, banco de dados e informática. Quizzes em tempo real, exercícios práticos e conteúdo gratuito.",
+};
 import { BookOpen, Layers, Infinity, Play, TrendingUp, Terminal, CheckCircle, ArrowRight, Code, FileText } from "lucide-react";
+
+interface CourseData {
+  slug: string;
+  label: string;
+  language: string;
+  lessonCount: number;
+  moduleCount: number;
+}
 
 const cursos = [
   {
-    id: "lpii",
+    id: "logica-programacao-typescript",
     titulo: "Lógica de Programação",
     linguagem: "TypeScript" as const,
     descricao: "Fundamentos essenciais para qualquer linguagem de programação.",
@@ -13,7 +27,7 @@ const cursos = [
     icon: Code,
   },
   {
-    id: "lpii-py",
+    id: "logica-programacao-python",
     titulo: "Lógica de Programação",
     linguagem: "Python" as const,
     descricao: "Os mesmos fundamentos, agora com a linguagem mais popular do mundo.",
@@ -22,7 +36,7 @@ const cursos = [
     icon: Code,
   },
   {
-    id: "info-word",
+    id: "informatica-avancada-word",
     titulo: "Informática Avançada",
     linguagem: "Word" as const,
     descricao: "Domine o Microsoft Word: formatação profissional, tabelas, mala direta e documentos ABNT.",
@@ -60,13 +74,17 @@ const cursos = [
 ];
 
 export default async function Home() {
-  let lessonCount = 0;
+  let coursesData: CourseData[] = [];
   try {
-    const lessons = await getAllLessons("logica-programacao-typescript");
-    lessonCount = lessons.length;
+    const res = await apiFetch<{ courses: CourseData[] }>("/api/courses");
+    coursesData = res.courses;
   } catch {
     // fallback if backend not available
   }
+
+  const courseMap = new Map(coursesData.map((c) => [c.slug, c]));
+  const totalLessons = coursesData.reduce((sum, c) => sum + c.lessonCount, 0);
+  const totalModules = coursesData.reduce((sum, c) => sum + c.moduleCount, 0);
 
   return (
     <div className="grid-bg relative z-10">
@@ -169,7 +187,7 @@ export default async function Home() {
                 <BookOpen size={28} />
               </div>
               <div>
-                <p className="font-mono text-3xl font-bold leading-none mb-1">{lessonCount}</p>
+                <p className="font-mono text-3xl font-bold leading-none mb-1">{totalLessons || "—"}</p>
                 <p className="text-sm text-[var(--color-muted)] uppercase font-bold tracking-tight">Aulas</p>
               </div>
             </div>
@@ -178,7 +196,7 @@ export default async function Home() {
                 <Layers size={28} />
               </div>
               <div>
-                <p className="font-mono text-3xl font-bold leading-none mb-1">05</p>
+                <p className="font-mono text-3xl font-bold leading-none mb-1">{String(totalModules || 0).padStart(2, "0")}</p>
                 <p className="text-sm text-[var(--color-muted)] uppercase font-bold tracking-tight">Módulos</p>
               </div>
             </div>
@@ -259,11 +277,11 @@ export default async function Home() {
                     <div className="flex items-center gap-4 text-sm text-[var(--color-muted)] font-semibold font-mono">
                       <span className="flex items-center gap-1.5">
                         <BookOpen size={16} />
-                        {lessonCount} aulas
+                        {courseMap.get(curso.id)?.lessonCount ?? "—"} aulas
                       </span>
                       <span className="flex items-center gap-1.5">
                         <Layers size={16} />
-                        5 módulos
+                        {courseMap.get(curso.id)?.moduleCount ?? "—"} módulos
                       </span>
                     </div>
                   </Link>
@@ -401,7 +419,7 @@ export default async function Home() {
             <div>
               <h4 className="font-bold text-lg mb-6">Plataforma</h4>
               <ul className="space-y-4 text-[var(--color-muted)] font-semibold">
-                <li><Link href="/logica-programacao-typescript/lessons/environment-setup" className="hover:text-[var(--color-primary)] transition-colors">Primeira aula</Link></li>
+                <li><Link href="/logica-programacao-typescript/lessons/first-program" className="hover:text-[var(--color-primary)] transition-colors">Primeira aula</Link></li>
               </ul>
             </div>
           </div>

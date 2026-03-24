@@ -3,85 +3,77 @@ slug: "conditionals"
 modulo: "Módulo 3 — Estruturas de Controle"
 titulo: "Estruturas Condicionais"
 subtitulo: "Tomando decisões com if, elif e else"
-descricao: "Aprenda a usar if, elif e else para controlar o fluxo do seu programa, entenda a indentação como delimitador de blocos e evite erros comuns."
+descricao: "Use if, elif e else para controlar o fluxo do programa. Entenda indentação e evite erros comuns."
 ordem: 7
 proximosPassos:
   - titulo: "Match/Case e Condições Combinadas"
-    descricao: "Aprenda pattern matching e valores falsy em Python"
+    descricao: "Pattern matching e valores falsy em Python"
   - titulo: "Loop For com Range"
-    descricao: "Crie repetições controladas com for e range()"
+    descricao: "Repetições controladas com for e range()"
 quiz:
   - pergunta: "Qual palavra-chave é usada para 'senão se' em Python?"
     opcoes: ["else if", "elseif", "elif", "elsif"]
     correta: 2
-    explicacao: "✓ Python usa elif (abreviação de else if). Escrever 'else if' como duas palavras causa erro de sintaxe."
-    explicacaoErrada: "✗ Em Python é elif (tudo junto). Diferente de JavaScript (else if) ou Ruby (elsif)."
+    explicacao: "Python usa elif (tudo junto). 'else if' separado dá erro."
+    explicacaoErrada: "Em Python é elif. Diferente de JavaScript (else if) ou Ruby (elsif)."
   - pergunta: "O que define um bloco de código em Python?"
     opcoes: ["Chaves {}", "Parênteses ()", "Indentação (4 espaços)", "Ponto e vírgula ;"]
     correta: 2
-    explicacao: "✓ Python usa indentação (geralmente 4 espaços) para delimitar blocos de código. Não usa chaves como JavaScript/C."
-    explicacaoErrada: "✗ Python é única nesse aspecto: os blocos de código são definidos pela indentação (4 espaços por nível). Chaves não são usadas."
+    explicacao: "Python usa indentação (4 espaços) para definir blocos. Sem chaves."
+    explicacaoErrada: "Em Python, blocos são definidos pela indentação (4 espaços). Nada de chaves."
   - pergunta: "Por que a ordem dos elif importa?"
-    opcoes: ["Não importa, a ordem é irrelevante", "Python executa TODOS os elif que forem verdadeiros", "Python executa apenas o PRIMEIRO bloco verdadeiro e ignora os demais", "Os elif são executados de baixo para cima"]
+    opcoes: ["Não importa, a ordem é irrelevante", "Python executa TODOS os elif verdadeiros", "Python executa apenas o PRIMEIRO bloco verdadeiro e ignora os demais", "Os elif são executados de baixo para cima"]
     correta: 2
-    explicacao: "✓ Python verifica de cima para baixo e executa apenas o primeiro bloco cuja condição for verdadeira. Os demais são ignorados."
-    explicacaoErrada: "✗ A ordem importa! Python avalia de cima para baixo e para no primeiro verdadeiro. Se a ordem estiver errada, condições mais específicas podem nunca ser alcançadas."
-  - pergunta: "O que acontece se a indentação estiver inconsistente?"
+    explicacao: "Python vai de cima para baixo e para no primeiro verdadeiro. O resto é ignorado."
+    explicacaoErrada: "A ordem importa! Python avalia de cima para baixo e para no primeiro verdadeiro."
+  - pergunta: "O que acontece se a indentação estiver errada?"
     opcoes: ["O Python corrige automaticamente", "O programa roda mas com resultado errado", "Ocorre um IndentationError", "O bloco é ignorado"]
     correta: 2
-    explicacao: "✓ Indentação inconsistente gera IndentationError e o programa não executa. Python é rigoroso quanto à indentação."
-    explicacaoErrada: "✗ Python gera IndentationError quando a indentação é inconsistente. Isso impede a execução do programa."
+    explicacao: "Indentação errada = IndentationError. O programa nem roda."
+    explicacaoErrada: "Python gera IndentationError e o programa não executa."
 ---
 
-## A estrutura if
+## O if
 
-O `if` executa um bloco de código somente se a condição for verdadeira:
+`if` é como uma portaria: só deixa passar se a condição for verdadeira.
 
 ```python
 idade = 18
 
 if idade >= 18:
-    print("Você é maior de idade")
-    print("Pode tirar carteira de motorista")
+    print("Maior de idade")
+    print("Pode tirar carteira")
 
-print("Fim do programa")  # sempre executa (fora do if)
+print("Fim")  # sempre executa (está fora do if)
 ```
 
-### Indentação define os blocos
+### Indentação define o bloco
 
-Em Python, **a indentação é obrigatória** e define quais linhas pertencem ao bloco:
+Em Python, o que está "para dentro" (4 espaços) pertence ao bloco:
 
 ```python
 if True:
-    print("Linha 1 — dentro do if")
-    print("Linha 2 — dentro do if")
-    print("Linha 3 — dentro do if")
-print("Linha 4 — FORA do if (sempre executa)")
+    print("Dentro do if")   # 4 espaços
+    print("Ainda dentro")   # 4 espaços
+print("Fora do if")         # sem espaço = fora
 ```
 
-> **Convenção:** Use **4 espaços** por nível de indentação. Evite usar Tab, pois pode causar problemas de consistência.
-
-### IndentationError — o erro mais comum para iniciantes
+> [!alerta]
+> Indentação errada = erro! Python é rigoroso com isso.
 
 ```python
-# ❌ ERRO: falta de indentação
+# ❌ ERRO
 if True:
-print("Olá")  # IndentationError: expected an indented block
+print("Olá")  # IndentationError!
 
-# ❌ ERRO: indentação inconsistente
+# ✅ CORRETO
 if True:
-    print("Linha 1")
-      print("Linha 2")  # IndentationError: unexpected indent
-
-# ✅ CORRETO: indentação consistente
-if True:
-    print("Linha 1")
-    print("Linha 2")
+    print("Olá")
 ```
 
 ## if / else
 
-O `else` executa quando a condição do `if` é falsa:
+`else` é o "senão" — roda quando a condição é falsa:
 
 ```python
 idade = 15
@@ -92,23 +84,12 @@ else:
     print("Menor de idade")
 ```
 
-### Exemplo: Par ou ímpar
-
-```python
-numero = int(input("Digite um número: "))
-
-if numero % 2 == 0:
-    print(f"{numero} é par")
-else:
-    print(f"{numero} é ímpar")
-```
-
 ## if / elif / else
 
-O `elif` (abreviação de "else if") permite testar múltiplas condições em sequência:
+`elif` testa outra condição. Pode ter quantos quiser:
 
 ```python
-nota = float(input("Digite sua nota: "))
+nota = float(input("Sua nota: "))
 
 if nota >= 9:
     conceito = "A"
@@ -124,103 +105,86 @@ else:
 print(f"Nota: {nota} — Conceito: {conceito}")
 ```
 
-### A ordem dos elif importa!
+### A ordem importa!
 
-Python avalia de cima para baixo e **para no primeiro verdadeiro**:
+Python para no **primeiro** que for verdadeiro:
 
 ```python
 nota = 9.5
 
-# ❌ Ordem ERRADA — nota >= 5 é True para 9.5!
+# ❌ Ordem errada
 if nota >= 5:
-    print("C")    # Isto seria impresso! (9.5 >= 5 é True)
-elif nota >= 7:
-    print("B")    # Nunca alcançado para notas >= 5
+    print("C")    # 9.5 >= 5 é True, para aqui!
 elif nota >= 9:
-    print("A")    # Nunca alcançado para notas >= 5
+    print("A")    # nunca chega aqui
 
-# ✅ Ordem CORRETA — do mais restritivo ao menos restritivo
+# ✅ Ordem certa — do mais específico ao mais genérico
 if nota >= 9:
-    print("A")    # → A (correto!)
+    print("A")    # → A
 elif nota >= 7:
     print("B")
 elif nota >= 5:
     print("C")
 ```
 
-> **Regra:** Sempre ordene as condições da **mais específica** para a **mais genérica**.
+> [!sucesso]
+> Sempre ordene do mais específico para o mais genérico.
 
 ## Condicionais aninhados
 
-Você pode colocar `if` dentro de outro `if`:
+`if` dentro de `if`:
 
 ```python
 idade = 20
 tem_carteira = True
 
 if idade >= 18:
-    print("Maior de idade")
     if tem_carteira:
         print("Pode dirigir")
     else:
         print("Precisa tirar a carteira")
 else:
-    print("Menor de idade — não pode dirigir")
+    print("Menor de idade")
 ```
 
-> **Dica:** Evite mais de 2-3 níveis de aninhamento. Se o código ficar muito aninhado, considere reorganizar usando `and`/`or` ou funções.
-
-### Simplificando com operadores lógicos
+Mas dá para simplificar com `and`:
 
 ```python
-# Em vez de aninhar...
-if idade >= 18:
-    if tem_carteira:
-        print("Pode dirigir")
-
-# ...combine as condições:
 if idade >= 18 and tem_carteira:
     print("Pode dirigir")
 ```
 
-## Exemplo prático: Classificação de triângulo
+> [!info]
+> Evite mais de 2-3 níveis de aninhamento. Use `and`/`or` para simplificar.
+
+## Exemplo: Classificação de triângulo
 
 ```python
-# triangulo.py — Classificar um triângulo pelos lados
-
-print("=== Classificador de Triângulos ===\n")
-
 a = float(input("Lado A: "))
 b = float(input("Lado B: "))
 c = float(input("Lado C: "))
 
-# Primeiro: verificar se forma um triângulo válido
-# (cada lado deve ser menor que a soma dos outros dois)
+# Cada lado deve ser menor que a soma dos outros dois
 if a < b + c and b < a + c and c < a + b:
     if a == b == c:
-        print("Triângulo EQUILÁTERO (todos os lados iguais)")
+        print("EQUILÁTERO (todos iguais)")
     elif a == b or b == c or a == c:
-        print("Triângulo ISÓSCELES (dois lados iguais)")
+        print("ISÓSCELES (dois iguais)")
     else:
-        print("Triângulo ESCALENO (todos os lados diferentes)")
+        print("ESCALENO (todos diferentes)")
 else:
-    print("Estes valores NÃO formam um triângulo válido!")
+    print("NÃO forma um triângulo!")
 ```
 
-## Exemplo prático: Calculadora de frete
+## Exemplo: Calculadora de frete
 
 ```python
-# frete.py — Cálculo de frete por região
-
-print("=== Calculadora de Frete ===\n")
-
 valor_compra = float(input("Valor da compra (R$): "))
 regiao = input("Região (N/NE/CO/SE/S): ").upper()
 
-# Frete grátis acima de R$ 200
 if valor_compra >= 200:
     frete = 0.0
-    print("Frete grátis! (compra acima de R$ 200)")
+    print("Frete grátis!")
 elif regiao == "SE" or regiao == "S":
     frete = 15.0
 elif regiao == "CO":
@@ -235,78 +199,59 @@ else:
 
 if frete >= 0:
     total = valor_compra + frete
-    print(f"\nValor da compra: R$ {valor_compra:.2f}")
-    print(f"Frete:           R$ {frete:.2f}")
-    print(f"Total:           R$ {total:.2f}")
+    print(f"\nCompra:  R$ {valor_compra:.2f}")
+    print(f"Frete:   R$ {frete:.2f}")
+    print(f"Total:   R$ {total:.2f}")
 ```
 
-## Exemplo prático: Sistema de login simplificado
+## Exemplo: Sistema de login
 
 ```python
-# login.py — Verificação de credenciais
-
 USUARIO_CORRETO = "admin"
 SENHA_CORRETA = "python123"
 MAX_TENTATIVAS = 3
 
-print("=== Sistema de Login ===\n")
-
-tentativas = 0
+print("=== Login ===\n")
 logado = False
 
-while tentativas < MAX_TENTATIVAS:
+for tentativa in range(1, MAX_TENTATIVAS + 1):
     usuario = input("Usuário: ")
     senha = input("Senha: ")
-    tentativas += 1
 
     if usuario == USUARIO_CORRETO and senha == SENHA_CORRETA:
         logado = True
         break
     else:
-        restantes = MAX_TENTATIVAS - tentativas
+        restantes = MAX_TENTATIVAS - tentativa
         if restantes > 0:
-            print(f"Credenciais inválidas. {restantes} tentativa(s) restante(s).\n")
-        else:
-            print("Credenciais inválidas.")
+            print(f"Errado. {restantes} tentativa(s) restante(s).\n")
 
 if logado:
     print(f"\nBem-vindo, {usuario}!")
 else:
-    print("\nConta bloqueada por excesso de tentativas.")
+    print("\nConta bloqueada.")
 ```
 
-## Dicas importantes
-
-### 1. Não esqueça os dois-pontos
+## Erros comuns
 
 ```python
-# ❌ Erro comum: esquecer o : no final
+# ❌ Esquecer os dois-pontos
 # if idade >= 18   # SyntaxError!
 
 # ✅ Correto
 if idade >= 18:
     print("OK")
-```
 
-### 2. Cuidado com == vs =
-
-```python
-# ❌ = é atribuição, não comparação!
+# ❌ Usar = em vez de ==
 # if idade = 18:   # SyntaxError!
 
-# ✅ == é comparação
+# ✅ Correto
 if idade == 18:
     print("Tem 18 anos")
-```
 
-### 3. Bloco vazio com pass
-
-```python
-# Se precisar de um bloco vazio (para implementar depois):
+# Bloco vazio? Use pass
 if idade >= 18:
-    pass  # TODO: implementar lógica
-else:
-    print("Menor de idade")
+    pass  # TODO: implementar depois
 ```
 
 ## Resumo

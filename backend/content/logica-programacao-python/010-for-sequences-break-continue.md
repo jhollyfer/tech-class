@@ -2,68 +2,63 @@
 slug: "for-sequences-break-continue"
 modulo: "Módulo 3 — Estruturas de Controle"
 titulo: "For em Sequências, Break e Continue"
-subtitulo: "Iterando listas, strings e controlando o fluxo do loop"
-descricao: "Aprenda a iterar listas e strings com for, usar enumerate() para obter índice e valor, controlar o fluxo com break e continue, e entender o else no loop."
+subtitulo: "Percorrendo listas, strings e controlando o loop"
+descricao: "Percorra listas e strings com for, use enumerate() para índice + valor, e controle o fluxo com break, continue e else."
 ordem: 10
 proximosPassos:
   - titulo: "Listas e Tuplas"
-    descricao: "Aprenda a criar e manipular coleções de dados em Python"
+    descricao: "Crie e manipule coleções de dados"
   - titulo: "Funções"
-    descricao: "Organize seu código em blocos reutilizáveis com def"
+    descricao: "Organize código em blocos reutilizáveis com def"
 quiz:
-  - pergunta: "O que enumerate() retorna ao iterar uma lista?"
+  - pergunta: "O que enumerate() retorna?"
     opcoes: ["Apenas os valores", "Apenas os índices", "Tuplas com (índice, valor)", "Um dicionário"]
     correta: 2
-    explicacao: "✓ enumerate() retorna pares (índice, valor) a cada iteração, permitindo acessar tanto a posição quanto o elemento."
-    explicacaoErrada: "✗ enumerate() gera tuplas (índice, valor). Exemplo: enumerate(['a', 'b']) produz (0, 'a'), (1, 'b')."
-  - pergunta: "Qual é a diferença entre break e continue?"
+    explicacao: "enumerate() dá pares (índice, valor) a cada volta do loop."
+    explicacaoErrada: "enumerate() gera tuplas (índice, valor). Ex: enumerate(['a', 'b']) dá (0, 'a'), (1, 'b')."
+  - pergunta: "Qual a diferença entre break e continue?"
     opcoes: ["São a mesma coisa", "break pausa e continue retoma", "break sai do loop, continue pula para a próxima iteração", "break pula uma iteração, continue sai do loop"]
     correta: 2
-    explicacao: "✓ break encerra o loop completamente. continue pula o restante da iteração atual e vai para a próxima."
-    explicacaoErrada: "✗ break = sair do loop inteiro. continue = pular o resto da iteração atual e ir para a próxima. São comportamentos diferentes."
-  - pergunta: "Quando o bloco else de um loop for é executado?"
-    opcoes: ["Sempre, após o loop", "Nunca — else não funciona com for", "Somente quando o loop termina SEM break", "Somente quando o loop termina COM break"]
+    explicacao: "break sai do loop inteiro. continue pula o resto da volta atual e vai pra próxima."
+    explicacaoErrada: "break = sair do loop. continue = pular pra próxima volta."
+  - pergunta: "Quando o else de um for executa?"
+    opcoes: ["Sempre", "Nunca", "Quando o loop termina SEM break", "Quando o loop termina COM break"]
     correta: 2
-    explicacao: "✓ O else do loop executa somente se o loop terminou normalmente (sem break). Se break foi usado, o else é ignorado."
-    explicacaoErrada: "✗ O else de um loop é exclusivo do Python. Ele executa quando o loop termina sem break. Se houve break, o else é pulado."
-  - pergunta: "Como iterar uma string caractere por caractere?"
-    opcoes: ["for char in string.split():", "for char in string:", "for char in list(string):", "Não é possível iterar strings"]
+    explicacao: "else do loop executa só se o loop terminou sem break."
+    explicacaoErrada: "O else executa quando o loop termina normalmente (sem break). Se teve break, o else é pulado."
+  - pergunta: "Como percorrer uma string caractere por caractere?"
+    opcoes: ["for char in string.split():", "for char in string:", "for char in list(string):", "Não é possível"]
     correta: 1
-    explicacao: "✓ Strings são iteráveis em Python. for char in 'Python': percorre cada caractere: P, y, t, h, o, n."
-    explicacaoErrada: "✗ Em Python, strings são sequências iteráveis. Basta usar for char in string: para percorrer cada caractere."
+    explicacao: "Strings são iteráveis. for char in 'Python': percorre P, y, t, h, o, n."
+    explicacaoErrada: "Basta usar for char in string:. Strings são sequências em Python."
 ---
 
-## Iterando sequências com for
-
-Em Python, o `for` pode percorrer **qualquer sequência iterável**: listas, strings, tuplas, dicionários e mais.
-
-### Iterando listas
+## Percorrendo listas
 
 ```python
 frutas = ["maçã", "banana", "laranja", "uva"]
 
 for fruta in frutas:
     print(f"Eu gosto de {fruta}")
-
-# Saída:
-# Eu gosto de maçã
-# Eu gosto de banana
-# Eu gosto de laranja
-# Eu gosto de uva
+# → Eu gosto de maçã
+# → Eu gosto de banana
+# → Eu gosto de laranja
+# → Eu gosto de uva
 ```
 
-### Iterando strings
+## Percorrendo strings
 
-Strings são sequências de caracteres e podem ser percorridas diretamente:
+Cada volta do loop pega um caractere:
 
 ```python
-palavra = "Python"
-
-for letra in palavra:
+for letra in "Python":
     print(letra, end=" ")
 # → P y t h o n
+```
 
-# Contando vogais
+### Contando vogais
+
+```python
 texto = "Programação em Python"
 vogais = "aeiouáéíóúãõâêô"
 contador = 0
@@ -72,157 +67,100 @@ for char in texto.lower():
     if char in vogais:
         contador += 1
 
-print(f"\nTotal de vogais: {contador}")  # → Total de vogais: 8
+print(f"Vogais: {contador}")  # → 8
 ```
 
-### Iterando listas de números
+## enumerate() — índice + valor
+
+Quando precisa saber a **posição** e o **valor** ao mesmo tempo:
 
 ```python
-notas = [8.5, 7.0, 9.2, 6.8, 8.0]
+frutas = ["maçã", "banana", "laranja"]
 
-soma = 0
-for nota in notas:
-    soma += nota
-
-media = soma / len(notas)
-print(f"Média: {media:.1f}")  # → Média: 7.9
-```
-
-## enumerate() — Índice + Valor
-
-Quando você precisa do **índice** e do **valor** ao mesmo tempo, use `enumerate()`:
-
-```python
-frutas = ["maçã", "banana", "laranja", "uva"]
-
-# Sem enumerate — funciona, mas é feio
+# ❌ Funciona, mas é feio
 for i in range(len(frutas)):
     print(f"{i}: {frutas[i]}")
 
-# Com enumerate — Pythônico e elegante!
+# ✅ Com enumerate — limpo!
 for i, fruta in enumerate(frutas):
     print(f"{i}: {fruta}")
-
-# Saída (ambos):
-# 0: maçã
-# 1: banana
-# 2: laranja
-# 3: uva
+# → 0: maçã
+# → 1: banana
+# → 2: laranja
 ```
 
-### Começando o índice em outro valor
+### Começando de outro número
 
 ```python
-# Índice começando em 1 (útil para exibir ao usuário)
-alunos = ["Ana", "Carlos", "Maria", "João"]
+alunos = ["Ana", "Carlos", "Maria"]
 
-for numero, aluno in enumerate(alunos, start=1):
-    print(f"Aluno {numero}: {aluno}")
-
-# Saída:
-# Aluno 1: Ana
-# Aluno 2: Carlos
-# Aluno 3: Maria
-# Aluno 4: João
+for num, aluno in enumerate(alunos, start=1):
+    print(f"Aluno {num}: {aluno}")
+# → Aluno 1: Ana
+# → Aluno 2: Carlos
+# → Aluno 3: Maria
 ```
 
-### Encontrando a posição de um elemento
+## break — saindo do loop
+
+`break` encerra o loop na hora:
 
 ```python
-temperaturas = [22.5, 28.3, 31.0, 19.8, 25.4, 33.2, 27.1]
-
-# Encontrar o dia mais quente
-maior_temp = temperaturas[0]
-dia_mais_quente = 0
-
-for i, temp in enumerate(temperaturas):
-    if temp > maior_temp:
-        maior_temp = temp
-        dia_mais_quente = i
-
-print(f"Dia mais quente: dia {dia_mais_quente + 1} ({maior_temp}°C)")
-# → Dia mais quente: dia 6 (33.2°C)
-```
-
-## break — Saindo do loop
-
-O `break` encerra o loop **imediatamente**, pulando todas as iterações restantes:
-
-```python
-# Procurar um número específico
-numeros = [10, 25, 37, 42, 58, 63, 71]
+numeros = [10, 25, 37, 42, 58, 63]
 
 for num in numeros:
-    print(f"Verificando {num}...")
     if num == 42:
-        print(f"Encontrei o {num}!")
-        break  # sai do loop
-
-print("Busca encerrada.")
-
-# Saída:
-# Verificando 10...
-# Verificando 25...
-# Verificando 37...
-# Verificando 42...
-# Encontrei o 42!
-# Busca encerrada.
+        print(f"Achei o {num}!")
+        break
+    print(f"Verificando {num}...")
+# → Verificando 10...
+# → Verificando 25...
+# → Verificando 37...
+# → Achei o 42!
 ```
 
-### break em loops de entrada
+### Coletando dados até "fim"
 
 ```python
-# Coletar nomes até digitar 'fim'
 nomes = []
 
 while True:
-    nome = input("Digite um nome (ou 'fim'): ")
+    nome = input("Nome (ou 'fim'): ")
     if nome.lower() == "fim":
         break
     nomes.append(nome)
 
-print(f"\nNomes cadastrados: {nomes}")
+print(f"Cadastrados: {nomes}")
 ```
 
-## continue — Pulando para a próxima iteração
+## continue — pulando para a próxima volta
 
-O `continue` pula o **restante da iteração atual** e vai direto para a próxima:
+`continue` pula o resto da volta atual:
 
 ```python
-# Imprimir apenas números pares
+# Só números pares
 for i in range(1, 11):
     if i % 2 != 0:
-        continue  # pula ímpares
+        continue
     print(i, end=" ")
 # → 2 4 6 8 10
-
-# Ignorar valores negativos
-valores = [10, -3, 25, -7, 8, -1, 30]
-soma_positivos = 0
-
-for v in valores:
-    if v < 0:
-        continue  # ignora negativos
-    soma_positivos += v
-
-print(f"\nSoma dos positivos: {soma_positivos}")  # → 73
 ```
 
-### Diferença visual: break vs continue
+### break vs continue
 
 ```python
 print("--- break ---")
 for i in range(1, 6):
     if i == 3:
-        break      # SAI do loop no 3
+        break       # SAI do loop
     print(i)
 # → 1
 # → 2
 
-print("\n--- continue ---")
+print("--- continue ---")
 for i in range(1, 6):
     if i == 3:
-        continue   # PULA o 3
+        continue    # PULA o 3
     print(i)
 # → 1
 # → 2
@@ -230,60 +168,47 @@ for i in range(1, 6):
 # → 5
 ```
 
-## else no loop — Exclusivo do Python!
+## else no loop
 
-Python tem um recurso único: o bloco `else` em loops. Ele é executado **somente quando o loop termina normalmente** (sem `break`).
+Recurso exclusivo do Python: o `else` roda **só se o loop terminou sem break**.
 
 ```python
-# else é executado (loop terminou sem break)
+# Sem break → else executa
 for i in range(5):
     print(i, end=" ")
 else:
-    print("\nLoop completou normalmente!")
+    print("\nTerminou normalmente!")
 # → 0 1 2 3 4
-# → Loop completou normalmente!
+# → Terminou normalmente!
 
-# else NÃO é executado (loop terminou com break)
+# Com break → else NÃO executa
 for i in range(5):
     if i == 3:
         break
     print(i, end=" ")
 else:
-    print("\nLoop completou normalmente!")  # não imprime!
+    print("\nTerminou normalmente!")  # não aparece!
 # → 0 1 2
 ```
 
-### Uso prático: Busca com confirmação
-
-O `else` no loop é perfeito para buscas — ele executa quando o item **não foi encontrado**:
+### Uso perfeito: busca
 
 ```python
-# Verificar se um número é primo
+# Verificar se é primo
 numero = 17
 
 for divisor in range(2, numero):
     if numero % divisor == 0:
-        print(f"{numero} NÃO é primo (divisível por {divisor})")
+        print(f"{numero} NÃO é primo (÷ por {divisor})")
         break
 else:
-    # Só executa se nenhum divisor foi encontrado (sem break)
     print(f"{numero} É primo!")
 # → 17 É primo!
-
-numero = 15
-for divisor in range(2, numero):
-    if numero % divisor == 0:
-        print(f"{numero} NÃO é primo (divisível por {divisor})")
-        break
-else:
-    print(f"{numero} É primo!")
-# → 15 NÃO é primo (divisível por 3)
 ```
 
-### Busca em lista com else
-
 ```python
-alunos = ["Ana", "Carlos", "Maria", "João"]
+# Buscar em lista
+alunos = ["Ana", "Carlos", "Maria"]
 busca = "Pedro"
 
 for aluno in alunos:
@@ -291,15 +216,13 @@ for aluno in alunos:
         print(f"Encontrado: {aluno}")
         break
 else:
-    print(f"'{busca}' não foi encontrado na lista.")
-# → 'Pedro' não foi encontrado na lista.
+    print(f"'{busca}' não encontrado.")
+# → 'Pedro' não encontrado.
 ```
 
-## Exemplo prático: Processador de notas
+## Exemplo: Boletim escolar
 
 ```python
-# notas.py — Processar e classificar notas dos alunos
-
 alunos = [
     ("Ana", 8.5),
     ("Carlos", 6.2),
@@ -309,13 +232,12 @@ alunos = [
     ("Lucia", 3.2),
 ]
 
-print("=== Boletim Escolar ===\n")
+print("=== Boletim ===\n")
 
 aprovados = 0
 reprovados = 0
 
 for i, (nome, nota) in enumerate(alunos, start=1):
-    # Pular notas inválidas
     if nota < 0 or nota > 10:
         continue
 
@@ -326,68 +248,36 @@ for i, (nome, nota) in enumerate(alunos, start=1):
     else:
         reprovados += 1
 
-    print(f"{i}. {nome:<10} | Nota: {nota:.1f} | {status}")
+    print(f"{i}. {nome:<10} | {nota:.1f} | {status}")
 
 print(f"\nAprovados: {aprovados}")
 print(f"Reprovados: {reprovados}")
-print(f"Taxa de aprovação: {aprovados / len(alunos) * 100:.0f}%")
+print(f"Aprovação: {aprovados / len(alunos) * 100:.0f}%")
 ```
 
-**Saída:**
-
-```
-=== Boletim Escolar ===
-
-1. Ana        | Nota: 8.5 | Aprovado
-2. Carlos     | Nota: 6.2 | Reprovado
-3. Maria      | Nota: 9.8 | Aprovado
-4. João       | Nota: 4.5 | Reprovado
-5. Pedro      | Nota: 7.0 | Aprovado
-6. Lucia      | Nota: 3.2 | Reprovado
-
-Aprovados: 3
-Reprovados: 3
-Taxa de aprovação: 50%
-```
-
-## Exemplo prático: Validador de senhas
+## Exemplo: Validador de senhas
 
 ```python
-# validador.py — Verificar força de senhas
-
 senhas = ["abc", "Python123!", "12345678", "Senh@Fort3", "aa"]
-
-print("=== Validador de Senhas ===\n")
 
 for senha in senhas:
     problemas = []
 
     if len(senha) < 8:
-        problemas.append("mínimo 8 caracteres")
+        problemas.append("curta demais")
 
-    tem_maiuscula = False
-    tem_minuscula = False
-    tem_numero = False
-    tem_especial = False
+    tem_maiuscula = tem_minuscula = tem_numero = tem_especial = False
 
     for char in senha:
-        if char.isupper():
-            tem_maiuscula = True
-        elif char.islower():
-            tem_minuscula = True
-        elif char.isdigit():
-            tem_numero = True
-        else:
-            tem_especial = True
+        if char.isupper():    tem_maiuscula = True
+        elif char.islower():  tem_minuscula = True
+        elif char.isdigit():  tem_numero = True
+        else:                 tem_especial = True
 
-    if not tem_maiuscula:
-        problemas.append("falta letra maiúscula")
-    if not tem_minuscula:
-        problemas.append("falta letra minúscula")
-    if not tem_numero:
-        problemas.append("falta número")
-    if not tem_especial:
-        problemas.append("falta caractere especial")
+    if not tem_maiuscula: problemas.append("sem maiúscula")
+    if not tem_minuscula: problemas.append("sem minúscula")
+    if not tem_numero:    problemas.append("sem número")
+    if not tem_especial:  problemas.append("sem especial")
 
     if not problemas:
         print(f"'{senha}' — FORTE")
@@ -395,42 +285,37 @@ for senha in senhas:
         print(f"'{senha}' — FRACA ({', '.join(problemas)})")
 ```
 
-## List Comprehension — Prévia
+## List Comprehension (prévia)
 
-Python oferece uma forma compacta de criar listas a partir de loops, chamada **list comprehension**:
+Uma forma compacta de criar listas com loop:
 
 ```python
-# Forma tradicional
+# Tradicional
 quadrados = []
 for i in range(1, 6):
     quadrados.append(i ** 2)
-print(quadrados)  # → [1, 4, 9, 16, 25]
 
-# List comprehension — mesma coisa, uma linha!
+# List comprehension — mesma coisa, uma linha
 quadrados = [i ** 2 for i in range(1, 6)]
 print(quadrados)  # → [1, 4, 9, 16, 25]
 
-# Com condição (filtro)
+# Com filtro
 pares = [i for i in range(1, 11) if i % 2 == 0]
 print(pares)  # → [2, 4, 6, 8, 10]
-
-# Transformando strings
-nomes = ["ana", "carlos", "maria"]
-maiusculos = [nome.upper() for nome in nomes]
-print(maiusculos)  # → ['ANA', 'CARLOS', 'MARIA']
 ```
 
-> List comprehension será estudada em mais detalhes quando abordarmos listas.
+> [!info]
+> Vamos estudar list comprehension em detalhes na aula de listas.
 
 ## Resumo
 
-| Conceito | Sintaxe | Descrição |
+| Conceito | Sintaxe | O que faz |
 | --- | --- | --- |
-| Iterar lista | `for item in lista:` | Percorre cada elemento |
-| Iterar string | `for char in texto:` | Percorre cada caractere |
-| Índice + valor | `for i, val in enumerate(seq):` | Acessa posição e valor |
-| Início do índice | `enumerate(seq, start=1)` | Começa em outro número |
+| Percorrer lista | `for item in lista:` | Cada elemento |
+| Percorrer string | `for char in texto:` | Cada caractere |
+| Índice + valor | `for i, val in enumerate(seq):` | Posição e valor |
+| Início do índice | `enumerate(seq, start=1)` | Começa de outro número |
 | Sair do loop | `break` | Encerra o loop |
-| Pular iteração | `continue` | Vai para a próxima |
-| else no loop | `for..else` / `while..else` | Executa se não teve break |
-| List comprehension | `[expr for x in seq]` | Criar lista em uma linha |
+| Pular volta | `continue` | Vai pra próxima |
+| else no loop | `for..else` | Executa se não teve break |
+| List comprehension | `[expr for x in seq]` | Lista em uma linha |

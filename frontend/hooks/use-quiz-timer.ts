@@ -40,8 +40,8 @@ export function useQuizTimer(durationSeconds: number, enabled: boolean): QuizTim
 
   return {
     secondsLeft,
-    isUrgent: secondsLeft <= 30,
-    isCritical: secondsLeft <= 10,
+    isUrgent: secondsLeft <= 15,
+    isCritical: secondsLeft <= 5,
     isExpired: secondsLeft <= 0,
   };
 }

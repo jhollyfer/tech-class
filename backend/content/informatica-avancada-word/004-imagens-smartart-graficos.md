@@ -2,134 +2,136 @@
 slug: "imagens-smartart-graficos"
 modulo: "Módulo 2 — Organização e Estrutura"
 titulo: "Imagens, SmartArt & Gráficos"
-subtitulo: "Inserindo e formatando imagens, organogramas e gráficos no Word"
-descricao: "Inserir e formatar imagens corretamente, criar organogramas e diagramas com SmartArt, e adicionar gráficos para enriquecer documentos visualmente."
+subtitulo: "Insira imagens, organogramas e gráficos no Word"
+descricao: "Aprenda a inserir imagens, criar organogramas com SmartArt e adicionar gráficos aos seus documentos."
 ordem: 4
 proximosPassos:
   - titulo: "Layout, Colunas & Cabeçalho"
-    descricao: "Configure margens, colunas, quebras de seção e cabeçalho/rodapé"
+    descricao: "Configure margens, colunas, quebras e cabeçalho/rodapé"
   - titulo: "Referências & ABNT"
     descricao: "Gere sumário automático, citações e bibliografia ABNT"
 quiz:
   - pergunta: "Qual layout de imagem é o mais recomendado para a maioria dos documentos?"
     opcoes: ["Em linha com o texto", "Quadrado", "Atrás do texto", "Superior e inferior"]
     correta: 1
-    explicacao: "O layout Quadrado permite mover a imagem livremente enquanto o texto se ajusta automaticamente ao redor dela."
-    explicacaoErrada: "O layout Quadrado é o mais versátil — a imagem pode ser movida livremente e o texto contorna automaticamente."
+    explicacao: "O layout Quadrado permite mover a imagem livremente e o texto se ajusta ao redor."
+    explicacaoErrada: "Layout Quadrado é o mais versátil — a imagem move livremente e o texto contorna."
   - pergunta: "Como manter a proporção ao redimensionar uma imagem?"
     opcoes: ["Arrastar as alças laterais", "Arrastar as alças dos cantos", "Usar o menu Formatar", "Clicar duas vezes na imagem"]
     correta: 1
-    explicacao: "As alças dos cantos mantêm a proporção original da imagem. As alças laterais distorcem."
-    explicacaoErrada: "Sempre arraste pelas alças dos cantos para manter a proporção. As alças laterais esticam/achatam a imagem."
-  - pergunta: "Qual categoria de SmartArt é mais usada para criar organogramas?"
+    explicacao: "Alças dos cantos mantêm a proporção. Alças laterais distorcem."
+    explicacaoErrada: "Arraste pelas alças dos cantos para manter a proporção."
+  - pergunta: "Qual categoria de SmartArt é mais usada para organogramas?"
     opcoes: ["Lista", "Processo", "Hierarquia", "Ciclo"]
     correta: 2
-    explicacao: "A categoria Hierarquia é a ideal para organogramas, mostrando a estrutura hierárquica de uma organização."
-    explicacaoErrada: "Organogramas usam a categoria Hierarquia do SmartArt — ela mostra relações de subordinação entre cargos."
+    explicacao: "Hierarquia mostra a estrutura de uma organização com cargos e subordinação."
+    explicacaoErrada: "Organogramas usam a categoria Hierarquia do SmartArt."
 ---
 
 ## Trabalhando com Imagens
 
 ### Como inserir
 
-- `Inserir → Imagens → Deste Dispositivo`
+- **Inserir → Imagens → Deste Dispositivo**
 - `Ctrl + V` de uma imagem copiada
 - Arrastar o arquivo direto para o documento
 
-### Layout de imagem — o ponto mais importante
+### Layout de imagem
 
 Por padrão a imagem fica **"Em linha com o texto"** — difícil de mover. Clique na imagem → ícone de layout → escolha o tipo.
 
-| Layout               | Comportamento                      | Recomendação                        |
-| -------------------- | ---------------------------------- | ----------------------------------- |
-| Em linha com o texto | Imagem é tratada como caractere    | Evitar                              |
-| **Quadrado**         | Texto contorna a caixa da imagem   | Mais usado                          |
-| Bem justo            | Texto contorna o formato da imagem | Para imagens com fundo transparente |
-| Atrás do texto       | Imagem fica como fundo             | Decorativo                          |
-| Superior e inferior  | Texto acima e abaixo               | Documentos formais                  |
+| Layout               | Comportamento                    | Quando usar                   |
+|----------------------|----------------------------------|-------------------------------|
+| Em linha com o texto | Tratada como caractere           | Evitar                        |
+| **Quadrado**         | Texto contorna a imagem          | **Mais usado**                |
+| Bem justo            | Contorna o formato da imagem     | Fundo transparente            |
+| Atrás do texto       | Imagem fica como fundo           | Decorativo                    |
+| Superior e inferior  | Texto só acima e abaixo          | Documentos formais            |
 
-> **Use o layout Quadrado para a maioria dos documentos.** A imagem pode ser movida livremente e o texto se ajusta automaticamente.
+> [!sucesso] Use **Quadrado** na maioria dos casos. A imagem move livremente e o texto se ajusta.
 
 ### Redimensionamento
 
-- Arraste as alças dos **cantos** (mantém proporção)
-- Tamanho exato: `Formato de Imagem → grupo Tamanho`
+- Arraste pelas alças dos **cantos** (mantém proporção)
+- Tamanho exato: **Formato de Imagem → grupo Tamanho**
+
+> [!alerta] Nunca arraste pelas alças laterais — distorce a imagem.
 
 ### Recorte
 
-`Selecione a imagem → Formato de Imagem → Recortar`
+**Selecione a imagem → Formato de Imagem → Recortar**
 
-| Tipo                    | O que faz                                   |
-| ----------------------- | ------------------------------------------- |
-| Recorte livre           | Arraste as alças para definir a área        |
-| Recortar para forma     | Círculo, estrela, hexágono — qualquer forma |
-| Recortar para proporção | 16:9, 4:3, 1:1 — padroniza imagens          |
+| Tipo                    | O que faz                              |
+|-------------------------|----------------------------------------|
+| Recorte livre           | Arraste as alças para definir a área   |
+| Recortar para forma     | Círculo, estrela, hexágono             |
+| Recortar para proporção | 16:9, 4:3, 1:1                         |
 
 ### Ferramentas de formatação
 
-| Ferramenta        | Função                                 |
-| ----------------- | -------------------------------------- |
-| Correções         | Nitidez, brilho e contraste            |
-| Cor               | Saturação, tom, escala de cinza, sépia |
-| Estilos de Imagem | Bordas e sombras prontas               |
-| Compactar Imagens | Reduz o tamanho do arquivo             |
+| Ferramenta        | Função                           |
+|-------------------|----------------------------------|
+| Correções         | Nitidez, brilho e contraste      |
+| Cor               | Saturação, tom, escala de cinza  |
+| Estilos de Imagem | Bordas e sombras prontas         |
+| Compactar Imagens | Reduz o tamanho do arquivo       |
 
 ---
 
 ## SmartArt — Organogramas e Diagramas
 
-`Inserir → SmartArt → escolha a categoria`
+**Inserir → SmartArt → escolha a categoria**
 
 ### Categorias principais
 
-| Categoria      | Quando usar                                           |
-| -------------- | ----------------------------------------------------- |
-| Lista          | Itens visuais sem hierarquia                          |
-| Processo       | Etapas sequenciais — fluxogramas                      |
-| **Hierarquia** | Organograma — o mais usado em documentos corporativos |
-| Ciclo          | Processos que se repetem                              |
-| Relação        | Comparações e conexões entre elementos                |
-| Matriz         | 4 quadrantes — análise SWOT                           |
-| Pirâmide       | Hierarquia por tamanho                                |
+| Categoria      | Quando usar                        |
+|----------------|------------------------------------|
+| Lista          | Itens sem hierarquia               |
+| Processo       | Etapas sequenciais, fluxogramas    |
+| **Hierarquia** | Organograma — o mais usado         |
+| Ciclo          | Processos que se repetem           |
+| Relação        | Comparações e conexões             |
+| Matriz         | 4 quadrantes (ex: análise SWOT)    |
+| Pirâmide       | Hierarquia por tamanho             |
 
 ### Editando o SmartArt
 
-- **Painel de texto** (à esquerda): digitar o conteúdo de cada forma
-- `Tab` no painel = cria subitem (desce um nível)
+- **Painel de texto** (esquerda): digite o conteúdo de cada forma
+- `Tab` no painel = desce um nível
 - `Shift + Tab` = sobe um nível
-- **Guia Design de SmartArt** → mudar o layout sem perder o conteúdo
-- **Guia Formatar** → cores, efeitos e tamanho
+- **Design de SmartArt** → mude o layout sem perder conteúdo
+- **Formatar** → cores, efeitos e tamanho
 
 ---
 
 ## Formas e Gráficos
 
-### Formas (Shapes)
+### Formas
 
-`Inserir → Formas → escolha e arraste`
+**Inserir → Formas → escolha e arraste**
 
-- Segure **Shift** ao arrastar = forma perfeita (círculo exato, quadrado exato)
-- Para adicionar texto: **clique direito na forma → Adicionar Texto**
-- Agrupar várias formas: `Ctrl + clique` nas formas → **Agrupar**
+- Segure **Shift** = forma perfeita (círculo, quadrado)
+- Adicionar texto: botão direito → **Adicionar Texto**
+- Agrupar: `Ctrl + clique` nas formas → **Agrupar**
 
-### Gráficos no Word
+### Gráficos
 
-`Inserir → Gráfico → escolha o tipo`
+**Inserir → Gráfico → escolha o tipo**
 
-O Word abre uma mini planilha integrada para digitar os dados. Para editar depois: `Design de Gráfico → Editar Dados`.
+O Word abre uma mini planilha para digitar os dados. Para editar depois: **Design de Gráfico → Editar Dados**.
 
-| Tipo              | Quando usar                            |
-| ----------------- | -------------------------------------- |
-| Colunas / Barras  | Comparar categorias                    |
-| Linhas            | Tendências ao longo do tempo           |
-| Pizza             | Proporções de um total (%)             |
-| Dispersão         | Relação entre duas variáveis numéricas |
+| Tipo             | Quando usar                     |
+|------------------|---------------------------------|
+| Colunas / Barras | Comparar categorias             |
+| Linhas           | Tendências ao longo do tempo    |
+| Pizza            | Proporções de um total (%)      |
+| Dispersão        | Relação entre duas variáveis    |
 
 ---
 
 ## Checklist da Aula
 
-- [ ] Inseri uma imagem e configurei o layout como Quadrado
+- [ ] Inseri uma imagem com layout Quadrado
 - [ ] Recortei uma imagem para formato circular
 - [ ] Apliquei um estilo de imagem (borda ou sombra)
 - [ ] Criei um SmartArt de hierarquia (organograma)

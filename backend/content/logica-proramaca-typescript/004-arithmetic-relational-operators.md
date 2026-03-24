@@ -2,76 +2,76 @@
 slug: "arithmetic-relational-operators"
 modulo: "Módulo 2 — Operadores"
 titulo: "Operadores Aritméticos e Relacionais"
-subtitulo: "Cálculos, comparações e atribuições em TypeScript"
-descricao: "Operadores aritméticos (+, -, *, /, %, **), relacionais (===, !==, >, <, >=, <=) e de atribuição (+=, -=, *=) em TypeScript."
+subtitulo: "Calcule, compare e atualize valores"
+descricao: "Operadores de conta (+, -, *, /), comparação (===, >, <) e atalhos de atribuição (+=, -=) em TypeScript."
 ordem: 4
 proximosPassos:
   - titulo: "Operadores lógicos"
-    descricao: "Combine condições com &&, || e operador ternário"
+    descricao: "Combine condições com &&, || e ternário"
   - titulo: "Condicionais"
-    descricao: "Tome decisões no código com if/else"
+    descricao: "Tome decisões com if/else"
 quiz:
   - pergunta: "O que o operador % (módulo) retorna?"
     opcoes: ["O resultado da divisão", "O resto da divisão", "A porcentagem", "O quociente"]
     correta: 1
-    explicacao: "✓ O operador % retorna o resto da divisão. Exemplo: 10 % 3 = 1, porque 10 ÷ 3 = 3 com resto 1."
-    explicacaoErrada: "✗ O % não calcula porcentagem — ele retorna o resto da divisão inteira."
+    explicacao: "✓ % retorna o resto. 10 % 3 = 1 (10 ÷ 3 = 3, sobra 1)."
+    explicacaoErrada: "✗ % não é porcentagem — é o resto da divisão."
   - pergunta: "Qual a diferença entre == e === em TypeScript?"
     opcoes: ["São iguais", "== compara valor e tipo, === só valor", "=== compara valor e tipo sem coerção, == faz coerção", "== é mais seguro"]
     correta: 2
-    explicacao: "✓ === (igualdade estrita) compara valor E tipo sem conversão. == faz coerção de tipo e pode gerar bugs."
-    explicacaoErrada: "✗ Use sempre === (estrito). O == converte tipos automaticamente: \"5\" == 5 é true, mas \"5\" === 5 é false."
+    explicacao: "✓ === compara valor E tipo. == converte tipos e pode causar bugs."
+    explicacaoErrada: "✗ Use sempre ===. O == converte tipos: \"5\" == 5 é true, mas \"5\" === 5 é false."
   - pergunta: "O que x += 5 faz?"
     opcoes: ["Compara x com 5", "Atribui 5 a x", "Soma 5 ao valor atual de x", "Subtrai 5 de x"]
     correta: 2
-    explicacao: "✓ x += 5 é o mesmo que x = x + 5. É um atalho de atribuição composta."
-    explicacaoErrada: "✗ += é atribuição com soma. x += 5 equivale a x = x + 5."
+    explicacao: "✓ x += 5 é atalho pra x = x + 5."
+    explicacaoErrada: "✗ += soma ao valor atual. x += 5 = x = x + 5."
   - pergunta: "Qual o resultado de 2 ** 3?"
     opcoes: ["6", "8", "5", "23"]
     correta: 1
-    explicacao: "✓ ** é o operador de potenciação. 2 ** 3 = 2³ = 8."
-    explicacaoErrada: "✗ O operador ** eleva à potência. 2 ** 3 significa 2 elevado a 3, que é 8."
+    explicacao: "✓ ** é potência. 2 ** 3 = 2³ = 8."
+    explicacaoErrada: "✗ ** eleva à potência. 2 ** 3 = 2 × 2 × 2 = 8."
 ---
 
-## Operadores aritmeticos
+## Operadores aritméticos
 
-Operadores aritmeticos realizam calculos matematicos com numeros:
+As operações matemáticas básicas:
 
 ```typescript
 const a = 10;
 const b = 3;
 
-console.log(a + b);   // 13  — soma
-console.log(a - b);   // 7   — subtração
-console.log(a * b);   // 30  — multiplicação
-console.log(a / b);   // 3.333... — divisão
-console.log(a % b);   // 1   — resto da divisão (módulo)
-console.log(a ** b);  // 1000 — potenciação (10³)
+console.log(a + b);  // → 13 (soma)
+console.log(a - b);  // → 7  (subtração)
+console.log(a * b);  // → 30 (multiplicação)
+console.log(a / b);  // → 3.333... (divisão)
+console.log(a % b);  // → 1  (resto da divisão)
+console.log(a ** b); // → 1000 (potência: 10³)
 ```
 
 > [!info]
-> O operador `%` (modulo) e extremamente util para verificar se um numero e par (`n % 2 === 0`) ou para criar ciclos.
+> `%` (módulo) retorna o resto da divisão. Muito útil pra saber se um número é par: `n % 2 === 0`.
 
-### Ordem das operacoes
+### Ordem das operações
 
-TypeScript segue a mesma ordem da matematica: potenciacao, multiplicacao/divisao, soma/subtracao. Use parenteses para alterar a ordem:
+Mesma regra da matemática: potência primeiro, depois multiplicação/divisão, depois soma/subtração.
 
 ```typescript
-console.log(2 + 3 * 4);     // 14 (multiplica primeiro)
-console.log((2 + 3) * 4);   // 20 (parenteses alteram a ordem)
+console.log(2 + 3 * 4);   // → 14 (multiplica primeiro)
+console.log((2 + 3) * 4); // → 20 (parênteses mudam a ordem)
 ```
 
-## Operadores relacionais (de comparacao)
+## Operadores relacionais
 
-Sempre retornam `boolean` (`true` ou `false`). Sao a base de toda decisao no codigo:
+Comparam valores e retornam `true` ou `false`:
 
 ```typescript
-console.log(5 > 3);    // true
-console.log(5 < 3);    // false
-console.log(5 >= 5);   // true
-console.log(5 <= 4);   // false
-console.log(5 === 5);  // true  — igual em valor E tipo
-console.log(5 !== 3);  // true  — diferente
+console.log(5 > 3);   // → true
+console.log(5 < 3);   // → false
+console.log(5 >= 5);  // → true
+console.log(5 <= 4);  // → false
+console.log(5 === 5); // → true  (igual em valor E tipo)
+console.log(5 !== 3); // → true  (diferente)
 ```
 
 | Operador | Significado | Exemplo | Resultado |
@@ -84,28 +84,28 @@ console.log(5 !== 3);  // true  — diferente
 | `<=` | Menor ou igual | `3 <= 2` | `false` |
 
 > [!alerta]
-> Use sempre `===` em vez de `==`. O `==` faz coercao de tipo e gera bugs sutis:
+> Sempre use `===`, nunca `==`. O `==` converte tipos e causa bugs:
 >
 > ```typescript
-> console.log(5 == "5");   // true  ← perigoso
-> console.log(5 === "5");  // false ← correto
+> console.log(5 == "5");  // → true  (perigoso!)
+> console.log(5 === "5"); // → false (correto)
 > ```
 
-## Operadores de atribuicao
+## Operadores de atribuição
 
-Atalhos para modificar o valor de uma variavel:
+Atalhos pra atualizar variáveis:
 
 ```typescript
 let x = 10;
-x += 5;   // x = x + 5  → 15
-x -= 3;   // x = x - 3  → 12
-x *= 2;   // x = x * 2  → 24
-x /= 4;   // x = x / 4  → 6
-x **= 2;  // x = x ** 2 → 36
-x %= 5;   // x = x % 5  → 1
+x += 5;  // x = x + 5  → 15
+x -= 3;  // x = x - 3  → 12
+x *= 2;  // x = x * 2  → 24
+x /= 4;  // x = x / 4  → 6
+x **= 2; // x = x ** 2 → 36
+x %= 5;  // x = x % 5  → 1
 ```
 
-Os operadores de atribuicao sao uteis em loops e acumuladores. Em vez de escrever `soma = soma + valor`, escreva `soma += valor`.
+Em vez de `soma = soma + valor`, escreva `soma += valor`. Mais curto e mais claro.
 
 > [!sucesso]
-> Estes operadores sao a base de tudo que vem a seguir. Aritmeticos fazem calculos, relacionais comparam valores (retornando boolean), e atribuicao atualiza variaveis. Domine esses tres grupos antes de avancar.
+> Aritméticos fazem contas, relacionais comparam (retornam true/false), atribuição atualiza variáveis. Domine esses três antes de avançar.

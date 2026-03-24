@@ -1,17 +1,11 @@
-import { notFound } from "next/navigation";
-import { getAllLessons, getLesson } from "@/lib/lessons";
-import { getCourseConfig, getAllCourseKeys } from "@/lib/courses";
+import { Aula } from "@/components/common/aula";
+import { getAllCourseKeys, getCourseConfig } from "@/lib/courses";
 import { highlightCodeBlocks } from "@/lib/highlight";
-import { AulaHeader } from "@/components/aula/aula-header";
-import { AulaNextSteps } from "@/components/aula/aula-next-steps";
-import { AulaProgressBar } from "@/components/aula/aula-progress-bar";
-import { AulaQuiz } from "@/components/aula/aula-quiz";
-import { AulaSidebar } from "@/components/aula/aula-sidebar";
-import { BackToTop } from "@/components/aula/back-to-top";
-import { MarkdownContent } from "@/components/aula/markdown-content";
-import Link from "next/link";
-import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import { getAllLessons, getLesson } from "@/lib/lessons";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
 
 interface PageProps {
   params: Promise<{ course: string; slug: string }>;
@@ -30,7 +24,9 @@ export async function generateStaticParams() {
   return params;
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { course, slug } = await params;
   const config = getCourseConfig(course);
   if (!config) return { title: "Aula não encontrada" };
@@ -47,23 +43,30 @@ export default async function CourseAulaPage({ params }: PageProps) {
   const config = getCourseConfig(course);
   if (!config) notFound();
 
-  const lesson = await getLesson(course, slug);
+  const [lesson, allLessons] = await Promise.all([
+    getLesson(course, slug),
+    getAllLessons(course),
+  ]);
   if (!lesson) notFound();
 
-  const allLessons = await getAllLessons(course);
   const currentIndex = allLessons.findIndex((l) => l.slug === slug);
   const prevLesson = currentIndex > 0 ? allLessons[currentIndex - 1] : null;
-  const nextLesson = currentIndex < allLessons.length - 1 ? allLessons[currentIndex + 1] : null;
+  const nextLesson =
+    currentIndex < allLessons.length - 1 ? allLessons[currentIndex + 1] : null;
 
-  const readingTime = Math.max(5, Math.ceil(lesson.content.split(/\s+/).length / 200));
+  const readingTime = Math.max(
+    5,
+    Math.ceil(lesson.content.split(/\s+/).length / 200),
+  );
   const highlightedCode = await highlightCodeBlocks(lesson.content);
 
   return (
     <>
-      <AulaProgressBar />
+      <Aula.ProgressBar />
 
       <div className="max-w-[1440px] mx-auto flex min-h-screen relative">
-        <AulaSidebar
+        <Aula.Sidebar
+          courseSlug={course}
           modulo={lesson.modulo}
           titulo={lesson.titulo}
           contentHtml={lesson.content}
@@ -81,11 +84,12 @@ export default async function CourseAulaPage({ params }: PageProps) {
               Todas as aulas
             </Link>
             <span className="text-xs font-mono text-[var(--color-muted)]">
-              {String(currentIndex + 1).padStart(2, "0")}/{String(allLessons.length).padStart(2, "0")}
+              {String(currentIndex + 1).padStart(2, "0")}/
+              {String(allLessons.length).padStart(2, "0")}
             </span>
           </div>
 
-          <AulaHeader
+          <Aula.Header
             modulo={lesson.modulo}
             titulo={lesson.titulo}
             subtitulo={lesson.subtitulo}
@@ -95,12 +99,30 @@ export default async function CourseAulaPage({ params }: PageProps) {
           />
 
           <div className="prose-aula">
-            <MarkdownContent content={lesson.content} highlightedCode={highlightedCode} />
+            <Aula.Markdown
+              content={lesson.content}
+              highlightedCode={highlightedCode}
+            />
           </div>
 
-          <AulaQuiz questoes={lesson.quiz} />
+          {lesson.quiz.length > 0 && (
+            <div className="mt-16 p-8 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] text-center">
+              <h3 className="text-xl font-bold mb-2">Quiz da Aula</h3>
+              <p className="text-[var(--color-muted)] mb-6">
+                {lesson.quiz.length} perguntas &middot; Tempo real com o
+                professor
+              </p>
+              <Link
+                href={`/${course}/lessons/${slug}/quiz`}
+                className="inline-flex items-center gap-2 bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white font-bold py-3 px-8 rounded-xl shadow-lg transition-all"
+              >
+                Iniciar Quiz
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          )}
 
-          <AulaNextSteps passos={lesson.proximosPassos} />
+          <Aula.NextSteps passos={lesson.proximosPassos} />
 
           <nav className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6">
             {prevLesson ? (
@@ -133,7 +155,8 @@ export default async function CourseAulaPage({ params }: PageProps) {
                 </span>
                 <div className="flex items-center justify-end gap-4">
                   <p className="font-bold text-base leading-tight">
-                    {String(currentIndex + 2).padStart(2, "0")}. {nextLesson.titulo}
+                    {String(currentIndex + 2).padStart(2, "0")}.{" "}
+                    {nextLesson.titulo}
                   </p>
                   <div className="w-10 h-10 rounded-full bg-[var(--color-border)] flex items-center justify-center group-hover:bg-[var(--color-primary)] group-hover:text-white transition-colors shrink-0">
                     <ChevronRight className="w-5 h-5" />
@@ -163,7 +186,7 @@ export default async function CourseAulaPage({ params }: PageProps) {
         </main>
       </div>
 
-      <BackToTop />
+      <Aula.BackToTop />
     </>
   );
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import { TechClassNavbar } from "@/components/tech-class-navbar";
 
 const nunito = Nunito({
@@ -42,14 +43,16 @@ export default function RootLayout({
       </head>
       <body className={`${nunito.variable} antialiased`}>
         <ThemeProvider>
-          <a
-            href="#inicio"
-            className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:bg-primary focus:text-white focus:px-4 focus:py-2 focus:rounded-lg"
-          >
-            Pular para o conteúdo
-          </a>
-          <TechClassNavbar />
-          {children}
+          <TooltipProvider delayDuration={300}>
+            <a
+              href="#inicio"
+              className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:bg-primary focus:text-white focus:px-4 focus:py-2 focus:rounded-lg"
+            >
+              Pular para o conteúdo
+            </a>
+            <TechClassNavbar />
+            {children}
+          </TooltipProvider>
         </ThemeProvider>
       </body>
     </html>

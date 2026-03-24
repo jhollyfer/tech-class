@@ -91,27 +91,27 @@ export default async function CourseLessonsPage({ params }: PageProps) {
           </div>
         </div>
 
-        <div className="mt-6">
-          <Link
-            href={`/${course}/quiz-geral`}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-primary)] text-white font-bold text-sm hover:opacity-90 transition-all transform hover:-translate-y-0.5 active:scale-95 shadow-lg"
-          >
-            <ClipboardList className="w-4 h-4" />
-            Quiz Geral
-          </Link>
-        </div>
       </header>
 
       <div className="max-w-4xl mx-auto px-6 pb-16 space-y-12 relative z-10">
         {modulos.map(([modulo, aulasDoModulo]) => (
           <section key={modulo}>
-            <div className="flex items-center gap-3 mb-5">
-              <h2 className="text-sm font-mono font-bold text-[var(--color-primary)] uppercase tracking-wider">
-                {modulo}
-              </h2>
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-muted)]">
-                {aulasDoModulo.length} {aulasDoModulo.length === 1 ? "aula" : "aulas"}
-              </span>
+            <div className="flex items-center justify-between mb-5">
+              <div className="flex items-center gap-3">
+                <h2 className="text-sm font-mono font-bold text-[var(--color-primary)] uppercase tracking-wider">
+                  {modulo}
+                </h2>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-muted)]">
+                  {aulasDoModulo.length} {aulasDoModulo.length === 1 ? "aula" : "aulas"}
+                </span>
+              </div>
+              <Link
+                href={`/${course}/modulo/${encodeURIComponent(modulo)}/quiz`}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-wider bg-[var(--color-primary)]/10 text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white transition-colors"
+              >
+                <ClipboardList className="w-3 h-3" />
+                Quiz
+              </Link>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
               {aulasDoModulo.map((aula) => {
@@ -142,6 +142,16 @@ export default async function CourseLessonsPage({ params }: PageProps) {
             </div>
           </section>
         ))}
+      </div>
+
+      <div className="max-w-4xl mx-auto px-6 pb-12 relative z-10 text-center">
+        <Link
+          href={`/${course}/quiz-geral`}
+          className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-[var(--color-primary)] text-white font-bold text-sm hover:opacity-90 transition-all transform hover:-translate-y-0.5 active:scale-95 shadow-lg"
+        >
+          <ClipboardList className="w-4 h-4" />
+          Quiz Geral — Todas as perguntas do curso
+        </Link>
       </div>
 
       <footer className="border-t border-[var(--color-border)] py-8 text-center text-xs text-[var(--color-muted)] relative z-10">

@@ -1,7 +1,8 @@
 // Client -> Server
 export type ClientMessage =
-  | { type: "create-room"; courseSlug: string }
+  | { type: "create-room"; courseSlug: string; moduleName?: string; lessonSlug?: string }
   | { type: "join-room"; roomCode: string; name: string }
+  | { type: "rejoin-room"; roomCode: string; studentId: string }
   | { type: "start-quiz" }
   | { type: "answer"; questionIndex: number; selected: number }
   | { type: "reveal" }
@@ -38,6 +39,15 @@ export type ServerMessage =
       >;
     }
   | { type: "finished"; ranking: RankingEntry[] }
+  | {
+      type: "rejoined";
+      studentId: string;
+      students: StudentInfo[];
+      phase: string;
+      questionIndex?: number;
+      totalQuestions?: number;
+      question?: QuestionPayload;
+    }
   | { type: "error"; message: string }
   | { type: "room-closed" };
 
@@ -54,6 +64,8 @@ export interface QuestionPayload {
   opcoes: string[];
   correta?: number; // only sent to teacher
 }
+
+export type RevealedMessage = Extract<ServerMessage, { type: "revealed" }>;
 
 export interface RankingEntry {
   studentId: string;

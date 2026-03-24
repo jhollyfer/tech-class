@@ -2,29 +2,29 @@
 slug: "exercises"
 modulo: "Módulo 5 — Prática"
 titulo: "Caderno de Exercícios"
-subtitulo: "37 desafios práticos do iniciante ao intermediário"
-descricao: "Coletânea completa de exercícios de lógica de programação com TypeScript: variáveis, operadores, decisão, repetição, arrays e funções — com enunciados, exemplos de entrada/saída e dicas."
+subtitulo: "37 desafios do iniciante ao intermediário"
+descricao: "Exercícios de lógica com TypeScript: variáveis, operadores, decisão, repetição, arrays e funções — com exemplos de entrada/saída e dicas."
 ordem: 20
 proximosPassos:
   - titulo: "Revisitar aulas anteriores"
-    descricao: "Volte às lições de conceitos sempre que precisar relembrar a teoria por trás de um exercício"
+    descricao: "Volte às lições quando precisar relembrar a teoria"
   - titulo: "Criar seus próprios testes"
-    descricao: "Para cada desafio, invente casos extremos: zero, negativo, vazio, valores muito grandes"
+    descricao: "Invente casos extremos: zero, negativo, vazio, valores grandes"
 quiz:
   - pergunta: "Qual é a melhor estratégia antes de começar a escrever código para resolver um desafio?"
     opcoes: ["Copiar código de exemplos prontos", "Esboçar o algoritmo em português (pseudocódigo) antes de codar", "Escrever tudo de uma vez e torcer para funcionar", "Começar pelo desafio mais difícil"]
     correta: 1
-    explicacao: "✓ Planejar a solução em pseudocódigo ajuda a entender o problema e organizar a lógica antes de se preocupar com a sintaxe."
-    explicacaoErrada: "✗ Esboçar o algoritmo em português primeiro ajuda a separar o raciocínio lógico da sintaxe, evitando erros e retrabalho."
+    explicacao: "✓ Planejar em pseudocódigo ajuda a organizar a lógica antes de pensar na sintaxe."
+    explicacaoErrada: "✗ Esboçar em português primeiro separa o raciocínio da sintaxe, evitando retrabalho."
   - pergunta: "Por que é importante testar com 'casos extremos' como zero, valores negativos ou strings vazias?"
     opcoes: ["Porque o professor exige", "Porque esses casos revelam bugs que entradas normais não mostram", "Porque o TypeScript obriga", "Não é importante, basta testar com um exemplo"]
     correta: 1
-    explicacao: "✓ Casos extremos (edge cases) frequentemente expõem falhas de lógica que entradas comuns não revelam, como divisão por zero ou arrays vazios."
-    explicacaoErrada: "✗ Entradas extremas — zero, negativo, vazio — testam os limites da sua lógica e revelam bugs que valores 'normais' escondem."
+    explicacao: "✓ Casos extremos expõem falhas que entradas comuns escondem, como divisão por zero ou array vazio."
+    explicacaoErrada: "✗ Zero, negativo, vazio — testam os limites da sua lógica e revelam bugs escondidos."
 ---
 
-Cada desafio tem: **enunciado**, **exemplo de entrada/saída esperada** e **dica de raciocínio**.
-Tente resolver antes de buscar qualquer solução. O erro faz parte do aprendizado.
+Cada desafio tem: **enunciado**, **exemplo de entrada/saída** e **dica**.
+Tente resolver antes de buscar qualquer solução. Errar faz parte.
 
 ---
 
@@ -32,7 +32,7 @@ Tente resolver antes de buscar qualquer solução. O erro faz parte do aprendiza
 
 ### Desafio 1.1 — Ficha de Aluno
 
-Declare variáveis para armazenar as informações de um aluno: nome, idade, matrícula, nota média e se está ativo. Exiba todas as informações em uma única string formatada usando template literal.
+Declare variáveis de um aluno: nome, idade, matrícula, nota média e se está ativo. Exiba tudo com template literal.
 
 ```
 // Saída esperada:
@@ -40,13 +40,13 @@ Declare variáveis para armazenar as informações de um aluno: nome, idade, mat
 // Nota Média: 8.5 | Status: Ativo
 ```
 
-> **Dica:** use `const` para dados fixos e escolha o tipo correto para cada informação.
+> **Dica:** use `const` para dados fixos e o tipo certo para cada info.
 
 ---
 
 ### Desafio 1.2 — Conversor de Temperatura
 
-Declare uma variável com temperatura em Celsius e converta para Fahrenheit e Kelvin. Exiba os três valores.
+Converta uma temperatura de Celsius para Fahrenheit e Kelvin.
 
 ```
 // Entrada: 100 (Celsius)
@@ -62,20 +62,20 @@ Declare uma variável com temperatura em Celsius e converta para Fahrenheit e Ke
 
 ### Desafio 1.3 — Troca de Valores
 
-Declare duas variáveis `a` e `b` com valores diferentes. Troque os valores entre elas **sem usar uma terceira variável auxiliar**. Exiba antes e depois.
+Troque os valores de `a` e `b` **sem variável auxiliar**.
 
 ```
 // Antes: a = 10, b = 25
 // Depois: a = 25, b = 10
 ```
 
-> **Dica:** pesquise sobre destructuring assignment do TypeScript/JavaScript.
+> **Dica:** pesquise destructuring assignment.
 
 ---
 
 ### Desafio 1.4 — Detector de Tipo em Runtime
 
-Crie variáveis de tipos diferentes (`string`, `number`, `boolean`). Para cada uma, use `typeof` para detectar e exibir o tipo junto com o valor.
+Use `typeof` para detectar e exibir o tipo de variáveis diferentes.
 
 ```
 // Saída esperada:
@@ -84,13 +84,11 @@ Crie variáveis de tipos diferentes (`string`, `number`, `boolean`). Para cada u
 // true     → tipo: boolean
 ```
 
-> **Dica:** o operador `typeof` retorna uma string com o nome do tipo.
-
 ---
 
 ### Desafio 1.5 — Calculadora de IMC
 
-Declare variáveis para peso (kg) e altura (m). Calcule o IMC e armazene o resultado em uma variável com o tipo correto. Exiba o valor com 2 casas decimais.
+Calcule o IMC com peso e altura. Exiba com 2 casas decimais.
 
 ```
 // Entrada: peso = 75, altura = 1.78
@@ -103,7 +101,7 @@ Declare variáveis para peso (kg) e altura (m). Calcule o IMC e armazene o resul
 
 ### Desafio 1.6 — Informações de Produto
 
-Declare variáveis para: nome do produto, preço unitário, quantidade em estoque e se está disponível. Calcule o valor total em estoque e exiba um resumo formatado.
+Declare dados de um produto, calcule o valor total em estoque e exiba formatado.
 
 ```
 // Saída esperada:
@@ -117,7 +115,7 @@ Declare variáveis para: nome do produto, preço unitário, quantidade em estoqu
 
 ### Desafio 2.1 — Calculadora Básica
 
-Dados dois números `a` e `b`, calcule e exiba o resultado das 5 operações aritméticas básicas (`+`, `-`, `*`, `/`, `%`).
+Dados `a` e `b`, mostre o resultado das 5 operações: `+`, `-`, `*`, `/`, `%`.
 
 ```
 // Entrada: a = 17, b = 5
@@ -133,11 +131,11 @@ Dados dois números `a` e `b`, calcule e exiba o resultado das 5 operações ari
 
 ### Desafio 2.2 — Verificador de Acesso
 
-Dados: idade, se tem cadastro e se assinou o plano premium. Usando **somente operadores lógicos** (sem if/else), crie expressões booleanas que respondam:
+Dados idade, cadastro e plano premium, use **só operadores lógicos** (sem if/else) para responder:
 
-- Pode acessar conteúdo básico? (apenas precisa ter cadastro)
-- Pode acessar conteúdo premium? (precisa ter cadastro E plano premium)
-- Está bloqueado? (não tem cadastro E é menor de 18)
+- Acesso básico? (ter cadastro)
+- Acesso premium? (cadastro E premium)
+- Bloqueado? (sem cadastro E menor de 18)
 
 ```
 // Entrada: idade = 17, temCadastro = true, premium = false
@@ -151,7 +149,7 @@ Dados: idade, se tem cadastro e se assinou o plano premium. Usando **somente ope
 
 ### Desafio 2.3 — Tabela Verdade do AND
 
-Sem usar variáveis booleanas prontas, gere as 4 combinações possíveis do operador `&&` com dois operandos e exiba o resultado de cada uma.
+Gere as 4 combinações do `&&` e exiba cada resultado.
 
 ```
 // Saída:
@@ -165,7 +163,7 @@ Sem usar variáveis booleanas prontas, gere as 4 combinações possíveis do ope
 
 ### Desafio 2.4 — Calculadora de Troco
 
-Dados o valor de uma compra e o valor pago pelo cliente, calcule se o troco é necessário, o valor do troco e se o cliente pagou exatamente.
+Dados valor da compra e valor pago, calcule o troco.
 
 ```
 // Entrada: compra = 47.50, pago = 50.00
@@ -180,7 +178,7 @@ Dados o valor de uma compra e o valor pago pelo cliente, calcule se o troco é n
 
 ### Desafio 2.5 — Verificador de Divisibilidade
 
-Dado um número, verifique usando o operador `%` se ele é divisível por 2, 3, 5 e 10. Exiba `true` ou `false` para cada.
+Use `%` pra checar se um número é divisível por 2, 3, 5 e 10.
 
 ```
 // Entrada: 60
@@ -195,7 +193,7 @@ Dado um número, verifique usando o operador `%` se ele é divisível por 2, 3, 
 
 ### Desafio 2.6 — Comparador de Senhas
 
-Dados dois campos de senha (como strings), use operadores relacionais e lógicos para verificar: se são iguais, se ambas têm mais de 8 caracteres e se a confirmação é válida.
+Verifique se duas senhas são iguais, se têm mais de 8 caracteres e se o cadastro pode ser liberado.
 
 ```
 // Entrada: senha = "minhasenha123", confirmacao = "minhasenha123"
@@ -211,7 +209,7 @@ Dados dois campos de senha (como strings), use operadores relacionais e lógicos
 
 ### Desafio 3.1 — Classificador de Notas
 
-Dado um valor de nota (0–10), classifique o aluno em: Excelente (≥9), Aprovado (≥7), Recuperação (≥5) ou Reprovado (<5). Use `if/else if/else`.
+Classifique uma nota (0-10): Excelente (>=9), Aprovado (>=7), Recuperação (>=5) ou Reprovado (<5).
 
 ```
 // Entrada: 6.5
@@ -222,7 +220,7 @@ Dado um valor de nota (0–10), classifique o aluno em: Excelente (≥9), Aprova
 
 ### Desafio 3.2 — Calculadora com Operação Escolhida
 
-Dados dois números e um símbolo de operação (`+`, `-`, `*`, `/`), use `switch` para calcular e exibir o resultado. Trate a divisão por zero como caso especial.
+Use `switch` pra calcular com base no símbolo (`+`, `-`, `*`, `/`). Trate divisão por zero.
 
 ```
 // Entrada: 10, "/", 0
@@ -236,7 +234,7 @@ Dados dois números e um símbolo de operação (`+`, `-`, `*`, `/`), use `switc
 
 ### Desafio 3.3 — Classificador de Triângulo
 
-Dados três lados, verifique primeiro se formam um triângulo válido. Se sim, classifique como: Equilátero (todos iguais), Isósceles (dois iguais) ou Escaleno (todos diferentes).
+Dados 3 lados, verifique se forma triângulo. Se sim: Equilátero, Isósceles ou Escaleno.
 
 ```
 // Entrada: a = 5, b = 5, c = 8
@@ -246,18 +244,17 @@ Dados três lados, verifique primeiro se formam um triângulo válido. Se sim, c
 // Saída: Não forma um triângulo
 ```
 
-> **Dica de triângulo válido:** cada lado deve ser menor que a soma dos outros dois.
+> **Dica:** cada lado deve ser menor que a soma dos outros dois.
 
 ---
 
 ### Desafio 3.4 — Calculadora de Frete
 
-Dado o peso de um pacote (kg) e o estado de destino, calcule o frete com base nas regras:
+Calcule o frete pelo peso. Mesmo estado = 20% de desconto.
 
-- Até 1kg: R$ 15,00
-- 1kg a 5kg: R$ 30,00
-- Acima de 5kg: R$ 50,00
-- Se o destino for o mesmo estado: desconto de 20%
+- Até 1kg: R$ 15
+- 1-5kg: R$ 30
+- Acima de 5kg: R$ 50
 
 ```
 // Entrada: peso = 3, destino = "AM", origem = "AM"
@@ -271,23 +268,20 @@ Dado o peso de um pacote (kg) e o estado de destino, calcule o frete com base na
 
 ### Desafio 3.5 — Verificador de Ano Bissexto
 
-Dado um ano, verifique se é bissexto. A regra é: divisível por 4, **exceto** os divisíveis por 100, **a menos que** também sejam divisíveis por 400.
+Regra: divisível por 4, **exceto** por 100, **a menos que** por 400.
 
 ```
-// Entrada: 2000 → Bissexto (divisível por 400)
-// Entrada: 1900 → Não bissexto (divisível por 100, mas não por 400)
-// Entrada: 2024 → Bissexto (divisível por 4 e não por 100)
-// Entrada: 2023 → Não bissexto
+// 2000 → Bissexto (divisível por 400)
+// 1900 → Não bissexto (divisível por 100, mas não por 400)
+// 2024 → Bissexto (divisível por 4 e não por 100)
+// 2023 → Não bissexto
 ```
 
 ---
 
 ### Desafio 3.6 — Semáforo Inteligente
 
-Dado o estado atual do semáforo (`"verde"`, `"amarelo"` ou `"vermelho"`), use switch para:
-
-- Exibir a instrução ao motorista
-- Exibir o próximo estado do semáforo
+Use switch pra exibir instrução e próximo estado do semáforo.
 
 ```
 // Entrada: "verde"
@@ -302,7 +296,7 @@ Dado o estado atual do semáforo (`"verde"`, `"amarelo"` ou `"vermelho"`), use s
 
 ### Desafio 4.1 — Tabuada Completa
 
-Dado um número, exiba a tabuada completa de 1 a 10 usando `for`. Formate a saída de forma alinhada.
+Exiba a tabuada de 1 a 10 de um número usando `for`.
 
 ```
 // Entrada: 7
@@ -315,9 +309,9 @@ Dado um número, exiba a tabuada completa de 1 a 10 usando `for`. Formate a saí
 
 ---
 
-### Desafio 4.2 — Contagem Regressiva com Mensagem Final
+### Desafio 4.2 — Contagem Regressiva
 
-Use um loop `while` para fazer uma contagem regressiva de N até 0. Ao chegar em 0, exiba "Lançamento!".
+Use `while` pra contar de N até 0. No final: "Lançamento!".
 
 ```
 // Entrada: 5
@@ -334,20 +328,20 @@ Use um loop `while` para fazer uma contagem regressiva de N até 0. Ao chegar em
 
 ### Desafio 4.3 — Soma de Dígitos
 
-Dado um número inteiro positivo, use um loop para somar todos os seus dígitos.
+Some todos os dígitos de um número inteiro.
 
 ```
 // Entrada: 4523
 // Saída: Soma dos dígitos de 4523 = 14  (4+5+2+3)
 ```
 
-> **Dica:** use `%` e `Math.floor()` para extrair os dígitos um por um, ou converta para string e percorra os caracteres.
+> **Dica:** use `%` e `Math.floor()` ou converta pra string.
 
 ---
 
 ### Desafio 4.4 — Sequência de Fibonacci
 
-Gere os primeiros N termos da sequência de Fibonacci (cada número é a soma dos dois anteriores: 0, 1, 1, 2, 3, 5, 8...).
+Gere os primeiros N termos (cada número = soma dos 2 anteriores).
 
 ```
 // Entrada: 10
@@ -358,20 +352,20 @@ Gere os primeiros N termos da sequência de Fibonacci (cada número é a soma do
 
 ### Desafio 4.5 — Números Primos até N
 
-Liste todos os números primos de 2 até N. Um número é primo se for divisível apenas por 1 e por ele mesmo.
+Liste todos os primos de 2 até N.
 
 ```
 // Entrada: 30
 // Saída: 2 3 5 7 11 13 17 19 23 29
 ```
 
-> **Dica de otimização:** para verificar se N é primo, você só precisa testar divisores até `Math.sqrt(N)`.
+> **Dica:** teste divisores só até `Math.sqrt(N)`.
 
 ---
 
-### Desafio 4.6 — Validador com Tentativas Limitadas
+### Desafio 4.6 — Validador com Tentativas
 
-Simule um sistema de login com senha fixa. O usuário tem 3 tentativas. Se acertar, exiba "Acesso concedido". Se esgotar, exiba "Conta bloqueada". (Use variáveis para simular as tentativas.)
+Simule login com 3 tentativas. Acertou = "Acesso concedido". Esgotou = "Conta bloqueada".
 
 ```
 // Senha correta: "ts2024"
@@ -380,13 +374,13 @@ Simule um sistema de login com senha fixa. O usuário tem 3 tentativas. Se acert
 // Tentativa 3: "ts2024"  → "Acesso concedido!"
 ```
 
-> **Dica:** use um array de tentativas pré-definidas e `do...while` ou `for` com `break`.
+> **Dica:** use um array de tentativas e `for` com `break`.
 
 ---
 
 ### Desafio 4.7 — Padrão de Asteriscos
 
-Use loops aninhados (`for` dentro de `for`) para imprimir um triângulo de asteriscos.
+Use loops aninhados pra imprimir um triângulo.
 
 ```
 // Entrada: 5
@@ -398,7 +392,7 @@ Use loops aninhados (`for` dentro de `for`) para imprimir um triângulo de aster
 // *****
 ```
 
-> **Desafio extra:** inverta o triângulo (começa com 5 asteriscos e vai diminuindo).
+> **Extra:** inverta o triângulo.
 
 ---
 
@@ -406,7 +400,7 @@ Use loops aninhados (`for` dentro de `for`) para imprimir um triângulo de aster
 
 ### Desafio 5.1 — Estatísticas de Notas
 
-Dado um array de notas, calcule e exiba: maior nota, menor nota, média da turma e quantos alunos foram aprovados (nota >= 7).
+Dado um array de notas: maior, menor, média e quantos aprovados (>= 7).
 
 ```
 // Entrada: [8.5, 6.0, 9.5, 5.0, 7.0, 4.5, 10.0]
@@ -421,33 +415,33 @@ Dado um array de notas, calcule e exiba: maior nota, menor nota, média da turma
 
 ### Desafio 5.2 — Remover Duplicatas
 
-Dado um array com valores repetidos, retorne um novo array apenas com os valores únicos, mantendo a ordem de aparição.
+Retorne um array só com valores únicos, na ordem original.
 
 ```
 // Entrada: [1, 2, 2, 3, 4, 3, 5, 1]
 // Saída:   [1, 2, 3, 4, 5]
 ```
 
-> **Dica:** use o método `includes()` para verificar se o valor já foi adicionado.
+> **Dica:** use `includes()` pra checar se já foi adicionado.
 
 ---
 
 ### Desafio 5.3 — Inverter Array
 
-Inverta a ordem dos elementos de um array **sem usar o método `.reverse()`**.
+Inverta **sem usar `.reverse()`**.
 
 ```
 // Entrada: ["a", "b", "c", "d", "e"]
 // Saída:   ["e", "d", "c", "b", "a"]
 ```
 
-> **Dica:** percorra o array de trás para frente com um `for`.
+> **Dica:** percorra de trás pra frente com `for`.
 
 ---
 
 ### Desafio 5.4 — Segundo Maior Valor
 
-Dado um array de números, encontre o segundo maior valor sem usar `.sort()`.
+Ache o segundo maior **sem `.sort()`**.
 
 ```
 // Entrada: [3, 1, 7, 4, 7, 2, 5]
@@ -456,9 +450,9 @@ Dado um array de números, encontre o segundo maior valor sem usar `.sort()`.
 
 ---
 
-### Desafio 5.5 — Achatar Array de Notas por Aluno
+### Desafio 5.5 — Alunos com Todas as Notas Acima de 6
 
-Dado um array de objetos com nome e notas, retorne apenas os nomes dos alunos que têm **todas** as notas acima de 6.
+Retorne os nomes dos alunos que têm **todas** as notas > 6.
 
 ```typescript
 // Entrada:
@@ -471,13 +465,13 @@ const turma = [
 // Saída: ["Ana", "Carol"]
 ```
 
-> **Dica:** use `.filter()` combinado com `.every()`.
+> **Dica:** `.filter()` + `.every()`.
 
 ---
 
 ### Desafio 5.6 — Contador de Ocorrências
 
-Dado um array de strings (ex: lista de frutas), conte quantas vezes cada elemento aparece e exiba o resultado.
+Conte quantas vezes cada elemento aparece num array.
 
 ```
 // Entrada: ["maçã", "banana", "maçã", "laranja", "banana", "maçã"]
@@ -487,13 +481,13 @@ Dado um array de strings (ex: lista de frutas), conte quantas vezes cada element
 // laranja: 1 vez(es)
 ```
 
-> **Dica:** percorra o array e use um objeto como dicionário `{ [fruta]: contagem }`.
+> **Dica:** use um objeto como dicionário `{ [fruta]: contagem }`.
 
 ---
 
 ### Desafio 5.7 — Mesclar e Ordenar Arrays
 
-Dados dois arrays de números ordenados, mescle-os em um único array também ordenado, **sem usar `.sort()`**.
+Mescle dois arrays ordenados em um só, também ordenado, **sem `.sort()`**.
 
 ```
 // Entrada: [1, 3, 5, 7] e [2, 4, 6, 8]
@@ -504,21 +498,20 @@ Dados dois arrays de números ordenados, mescle-os em um único array também or
 
 ## Módulo 6 — Funções
 
-### Desafio 6.1 — Funções Matemáticas Puras
+### Desafio 6.1 — Funções Matemáticas
 
-Crie as funções: `somar`, `subtrair`, `multiplicar`, `dividir` e `potencia`, cada uma recebendo dois parâmetros `number` e retornando `number`. A função `dividir` deve lançar um erro se o divisor for zero.
+Crie: `somar`, `subtrair`, `multiplicar`, `dividir` e `potencia`. `dividir` deve dar erro se divisor for zero.
 
 ```typescript
-// Assinaturas esperadas:
 function somar(a: number, b: number): number;
-function dividir(a: number, b: number): number; // lança Error se b === 0
+function dividir(a: number, b: number): number; // erro se b === 0
 ```
 
 ---
 
-### Desafio 6.2 — Função de Validação de CPF (formato)
+### Desafio 6.2 — Validação de CPF (formato)
 
-Crie uma função que receba um CPF como string e valide **somente o formato** `"000.000.000-00"`. Retorne `true` se for válido ou `false` caso contrário.
+Valide se o CPF está no formato `"000.000.000-00"`. Retorne `true` ou `false`.
 
 ```
 // "123.456.789-09" → true
@@ -526,30 +519,30 @@ Crie uma função que receba um CPF como string e valide **somente o formato** `
 // "123.456.789-0"  → false
 ```
 
-> **Dica:** verifique o `length`, os pontos nas posições corretas e o traço.
+> **Dica:** cheque `length`, posição dos pontos e do traço.
 
 ---
 
 ### Desafio 6.3 — Fábrica de Saudações
 
-Crie uma função `criarSaudacao` que recebe o turno (`"manhã"`, `"tarde"` ou `"noite"`) e retorna **outra função** que recebe um nome e retorna a saudação completa.
+Crie `criarSaudacao` que recebe o turno e retorna **outra função** que recebe o nome.
 
 ```typescript
 const saudacaoManha = criarSaudacao("manhã");
-console.log(saudacaoManha("Marcos")); // "Bom dia, Marcos!"
-console.log(saudacaoManha("Ana")); // "Bom dia, Ana!"
+console.log(saudacaoManha("Marcos")); // → "Bom dia, Marcos!"
+console.log(saudacaoManha("Ana")); // → "Bom dia, Ana!"
 
 const saudacaoNoite = criarSaudacao("noite");
-console.log(saudacaoNoite("Bruno")); // "Boa noite, Bruno!"
+console.log(saudacaoNoite("Bruno")); // → "Boa noite, Bruno!"
 ```
 
-> **Conceito:** isso é chamado de **closure** — uma função que "lembra" do contexto em que foi criada.
+> **Conceito:** isso é uma **closure** — a função "lembra" do turno.
 
 ---
 
-### Desafio 6.4 — Calculadora de Desconto Genérica
+### Desafio 6.4 — Calculadora de Desconto
 
-Crie uma função `aplicarDesconto` que recebe um valor, um percentual de desconto e uma função de arredondamento opcional (padrão: `Math.floor`). Retorne o valor com desconto aplicado.
+Receba valor, percentual e uma função de arredondamento opcional (padrão: `Math.floor`).
 
 ```typescript
 aplicarDesconto(100, 15); // → 85
@@ -561,7 +554,7 @@ aplicarDesconto(99.9, 10, Math.round); // → 90
 
 ### Desafio 6.5 — Pipeline de Transformação
 
-Crie uma função `pipeline` que recebe um valor inicial e um **array de funções**. Aplique cada função em sequência, passando o resultado de uma para a próxima.
+Receba um valor e um array de funções. Aplique cada uma em sequência.
 
 ```typescript
 const resultado = pipeline(5, [
@@ -569,16 +562,16 @@ const resultado = pipeline(5, [
   (n: number) => n + 3, // 13
   (n: number) => n ** 2, // 169
 ]);
-console.log(resultado); // 169
+console.log(resultado); // → 169
 ```
 
-> **Dica:** use `.reduce()` para encadear as funções.
+> **Dica:** use `.reduce()`.
 
 ---
 
-### Desafio 6.6 — Função Recursiva: Fatorial
+### Desafio 6.6 — Fatorial Recursivo
 
-Crie uma função recursiva `fatorial(n)` que calcule `n!` sem usar nenhum loop.
+Calcule `n!` sem nenhum loop.
 
 ```
 // fatorial(0) → 1
@@ -587,19 +580,19 @@ Crie uma função recursiva `fatorial(n)` que calcule `n!` sem usar nenhum loop.
 // fatorial(10) → 3628800
 ```
 
-> **Regra da recursão:** a função chama a si mesma com um valor **menor** e tem um **caso base** que para a recursão.
+> **Regra:** a função chama a si mesma com valor menor e tem um caso base que para.
 
 ---
 
-### Desafio 6.7 — Memoização Simples
+### Desafio 6.7 — Memoização
 
-Crie uma função `memoizar` que recebe uma função e retorna uma versão "memorizada" dela — ou seja, se já foi chamada com os mesmos argumentos, retorna o resultado em cache em vez de recalcular.
+Crie `memoizar` que retorna uma versão com cache da função — se já foi chamada com os mesmos argumentos, retorna do cache.
 
 ```typescript
 const fatorialMemo = memoizar(fatorial);
 
-fatorialMemo(10); // calcula e guarda no cache
-fatorialMemo(10); // retorna do cache sem recalcular
+fatorialMemo(10); // calcula e guarda
+fatorialMemo(10); // retorna do cache
 ```
 
 > **Dica:** use um objeto como cache `{ [args]: resultado }`.
@@ -610,13 +603,7 @@ fatorialMemo(10); // retorna do cache sem recalcular
 
 ### Desafio 7.1 — Sistema de Estoque
 
-Crie um sistema simples com as funções:
-
-- `adicionarProduto` — adiciona ou atualiza quantidade
-- `removerProduto` — remove um produto pelo nome
-- `buscarProduto` — retorna o produto ou `undefined`
-- `listarEstoque` — exibe todos os produtos formatados
-- `calcularValorTotal` — retorna o valor total do estoque
+Crie: `adicionarProduto`, `removerProduto`, `buscarProduto`, `listarEstoque` e `calcularValorTotal`.
 
 ```typescript
 type Produto = { nome: string; preco: number; quantidade: number };
@@ -626,7 +613,7 @@ type Produto = { nome: string; preco: number; quantidade: number };
 
 ### Desafio 7.2 — Jogo de Adivinhação
 
-Simule um jogo onde o computador "sorteia" um número entre 1 e 100 (pode declarar fixo para testar) e o usuário tem 7 tentativas para adivinhar. A cada tentativa, informe se o palpite é maior, menor ou correto.
+O computador "sorteia" um número (1-100). O jogador tem 7 tentativas. A cada palpite: "maior", "menor" ou "acertou".
 
 ```
 // Número secreto: 42
@@ -635,19 +622,13 @@ Simule um jogo onde o computador "sorteia" um número entre 1 e 100 (pode declar
 // Tentativa 3: 42 → "Acertou em 3 tentativas!"
 ```
 
-> **Dica:** use um array com as tentativas pré-definidas para simular sem input do usuário.
+> **Dica:** use um array com tentativas pré-definidas pra testar.
 
 ---
 
 ### Desafio 7.3 — Analisador de Texto
 
-Dada uma string de texto, crie funções que retornem:
-
-- Número de palavras
-- Número de caracteres (sem espaços)
-- Palavra mais longa
-- Número de vogais
-- As 3 palavras mais frequentes
+Dada uma string, retorne: total de palavras, caracteres (sem espaços), palavra mais longa, vogais e 3 palavras mais frequentes.
 
 ```
 // Entrada: "o rato roeu a roupa do rei de roma"
@@ -663,7 +644,7 @@ Dada uma string de texto, crie funções que retornem:
 
 ### Desafio 7.4 — Conversor de Bases Numéricas
 
-Crie funções para converter um número entre as bases: decimal, binário, octal e hexadecimal. Não use `parseInt()` ou `.toString(base)` — implemente a lógica manualmente.
+Converta entre decimal, binário, octal e hexadecimal. **Sem** `parseInt()` ou `.toString(base)`.
 
 ```
 // decimalParaBinario(10)  → "1010"
@@ -673,9 +654,9 @@ Crie funções para converter um número entre as bases: decimal, binário, octa
 
 ---
 
-### Desafio 7.5 — Mini Banco de Dados em Memória
+### Desafio 7.5 — Mini Banco de Dados
 
-Crie um sistema de cadastro de usuários com as operações: `criar`, `ler`, `atualizar`, `deletar` e `listar` (CRUD completo). Use um array como banco de dados e funções tipadas.
+CRUD completo de usuários com array como banco.
 
 ```typescript
 type Usuario = { id: number; nome: string; email: string; ativo: boolean };
@@ -691,7 +672,7 @@ type Usuario = { id: number; nome: string; email: string; ativo: boolean };
 
 ### Desafio 7.6 — Calculadora de Parcelamentos
 
-Dado o valor de uma compra, número de parcelas e taxa de juros mensal, calcule o valor de cada parcela e o total pago com juros. Exiba a tabela completa de parcelas.
+Dado valor, parcelas e juros mensal, calcule cada parcela e o total com juros.
 
 ```
 // Entrada: valor = 1000, parcelas = 3, jurosMensal = 2%
@@ -708,7 +689,7 @@ Dado o valor de uma compra, número de parcelas e taxa de juros mensal, calcule 
 
 ### Desafio 7.7 — Validador de Formulário
 
-Crie um conjunto de funções de validação e uma função principal `validarFormulario` que recebe um objeto com os dados e retorna um objeto com os erros encontrados (campo vazio = campo válido).
+Crie funções de validação e `validarFormulario` que retorna os erros encontrados.
 
 ```typescript
 type FormularioCadastro = {
@@ -720,7 +701,7 @@ type FormularioCadastro = {
 
 // Regras:
 // nome: mínimo 3 caracteres, sem números
-// email: precisa conter "@" e "."
+// email: precisa ter "@" e "."
 // senha: mínimo 8 caracteres, pelo menos 1 número
 // idade: entre 18 e 120
 

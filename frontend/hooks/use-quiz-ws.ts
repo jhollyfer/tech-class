@@ -1,9 +1,11 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
+import { io, type Socket } from "socket.io-client";
 import type {
   ClientMessage,
   ServerMessage,
+  RevealedMessage,
   StudentInfo,
   QuestionPayload,
   RankingEntry,
@@ -34,35 +36,60 @@ export function useQuizWs() {
   const [myAnswer, setMyAnswer] = useState<number | null>(null);
   const [answeredCount, setAnsweredCount] = useState(0);
   const [answeredStudents, setAnsweredStudents] = useState<string[]>([]);
-  const [revealData, setRevealData] = useState<ServerMessage | null>(null);
+  const [revealData, setRevealData] = useState<RevealedMessage | null>(null);
   const [ranking, setRanking] = useState<RankingEntry[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [myStudentId, setMyStudentId] = useState<string | null>(null);
 
-  const wsRef = useRef<WebSocket | null>(null);
+  const socketRef = useRef<Socket | null>(null);
+  const roleRef = useRef<Role>("none");
+  const roomCodeRef = useRef<string | null>(null);
+  const myStudentIdRef = useRef<string | null>(null);
+
+  // Keep refs in sync with state
+  useEffect(() => { roleRef.current = role; }, [role]);
+  useEffect(() => { roomCodeRef.current = roomCode; }, [roomCode]);
+  useEffect(() => { myStudentIdRef.current = myStudentId; }, [myStudentId]);
 
   const sendMsg = useCallback((msg: ClientMessage) => {
-    if (wsRef.current?.readyState === WebSocket.OPEN) {
-      wsRef.current.send(JSON.stringify(msg));
+    if (socketRef.current?.connected) {
+      socketRef.current.emit("message", msg);
     }
   }, []);
 
   useEffect(() => {
     const isDev = process.env.NODE_ENV === "development";
-    const wsUrl = isDev
-      ? "ws://localhost:3333/ws"
-      : `${window.location.protocol === "https:" ? "wss:" : "ws:"}//${window.location.host}/ws`;
-    const ws = new WebSocket(wsUrl);
-    wsRef.current = ws;
+    const url = process.env.NEXT_PUBLIC_WS_URL
+      ?? (isDev ? "http://localhost:3333" : window.location.origin);
 
-    ws.onopen = () => setConnected(true);
-    ws.onclose = () => {
-      setConnected(false);
-    };
+    const socket = io(url, {
+      transports: ["websocket"],
+      reconnection: true,
+      reconnectionAttempts: 10,
+      reconnectionDelay: 1000,
+      reconnectionDelayMax: 5000,
+    });
+    socketRef.current = socket;
 
-    ws.onmessage = (event) => {
-      const msg: ServerMessage = JSON.parse(event.data);
+    socket.on("connect", () => {
+      setConnected(true);
+      // Auto-rejoin if student was in a room
+      if (
+        roleRef.current === "student" &&
+        roomCodeRef.current &&
+        myStudentIdRef.current
+      ) {
+        socket.emit("message", {
+          type: "rejoin-room",
+          roomCode: roomCodeRef.current,
+          studentId: myStudentIdRef.current,
+        });
+      }
+    });
 
+    socket.on("disconnect", () => setConnected(false));
+
+    socket.on("message", (msg: ServerMessage) => {
       switch (msg.type) {
         case "room-created":
           setRoomCode(msg.roomCode);
@@ -110,6 +137,25 @@ export function useQuizWs() {
           setPhase("finished");
           break;
 
+        case "rejoined":
+          setMyStudentId(msg.studentId);
+          setStudents(msg.students);
+          if (msg.phase === "question" && msg.question) {
+            setCurrentQuestion(msg.question);
+            setQuestionIndex(msg.questionIndex!);
+            setTotalQuestions(msg.totalQuestions!);
+            setMyAnswer(null);
+            setPhase("question");
+          } else if (msg.phase === "revealed") {
+            // No reveal data available on rejoin — show waiting state
+            setPhase("waiting");
+          } else if (msg.phase === "lobby") {
+            setPhase("waiting");
+          } else if (msg.phase === "finished") {
+            setPhase("finished");
+          }
+          break;
+
         case "error":
           setError(msg.message);
           setTimeout(() => setError(null), 5000);
@@ -123,17 +169,17 @@ export function useQuizWs() {
           setTimeout(() => setError(null), 5000);
           break;
       }
-    };
+    });
 
     return () => {
-      ws.close();
+      socket.disconnect();
     };
   }, []);
 
   const createRoom = useCallback(
-    (courseSlug: string) => {
+    (courseSlug: string, opts?: { moduleName?: string; lessonSlug?: string }) => {
       setRole("teacher");
-      sendMsg({ type: "create-room", courseSlug });
+      sendMsg({ type: "create-room", courseSlug, ...opts });
     },
     [sendMsg],
   );

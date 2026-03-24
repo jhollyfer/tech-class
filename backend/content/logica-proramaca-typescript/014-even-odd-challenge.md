@@ -2,8 +2,8 @@
 slug: "even-odd-challenge"
 modulo: "Módulo 5 — Prática"
 titulo: "Desafio: Par ou Ímpar"
-subtitulo: "Classificando números e lendo entrada do usuário"
-descricao: "Primeiro desafio prático: classificar números como par ou ímpar, introdução ao prompt-sync para ler entrada do usuário no terminal."
+subtitulo: "Classificando números com entrada do usuário"
+descricao: "Classifique números como par ou ímpar e aprenda a ler entrada do usuário no terminal com prompt-sync."
 ordem: 14
 proximosPassos:
   - titulo: "Desafio: Tabuada"
@@ -14,32 +14,32 @@ quiz:
   - pergunta: "Como verificar se um número é par em TypeScript?"
     opcoes: ["n / 2 === 0", "n % 2 === 0", "n * 2 === 0", "n == par"]
     correta: 1
-    explicacao: "✓ O operador % (módulo) retorna o resto da divisão. Se n % 2 === 0, o número é par."
-    explicacaoErrada: "✗ Use o operador módulo: n % 2 === 0 significa que n dividido por 2 tem resto 0 — ou seja, é par."
+    explicacao: "% dá o resto da divisão. Se n % 2 é 0, o número é par."
+    explicacaoErrada: "Use n % 2 === 0. Resto zero na divisão por 2 = par."
   - pergunta: "O que o prompt-sync faz?"
     opcoes: ["Exibe mensagens no terminal", "Lê entrada do usuário no terminal", "Cria arquivos", "Conecta à internet"]
     correta: 1
-    explicacao: "✓ prompt-sync permite ler texto digitado pelo usuário no terminal, similar ao input() do Python."
-    explicacaoErrada: "✗ prompt-sync é uma biblioteca para ler entrada do teclado no terminal em Node.js/TypeScript."
+    explicacao: "prompt-sync lê o que o usuário digita no terminal."
+    explicacaoErrada: "prompt-sync é uma biblioteca pra ler entrada do teclado no terminal."
   - pergunta: "O que parseInt('42') retorna?"
     opcoes: ["'42' (string)", "42 (number)", "undefined", "NaN"]
     correta: 1
-    explicacao: "✓ parseInt() converte uma string numérica em número inteiro. '42' vira 42."
-    explicacaoErrada: "✗ parseInt() transforma texto em número inteiro. Se a string não for numérica, retorna NaN."
+    explicacao: "parseInt() transforma texto em número inteiro. '42' vira 42."
+    explicacaoErrada: "parseInt() converte string pra número. Se não for numérica, retorna NaN."
 ---
 
-## Configurando entrada do usuario
+## Lendo entrada do usuário
 
-Ate agora, todos os valores estavam fixos no codigo. Para tornar os programas interativos, vamos usar o `prompt-sync` para ler dados do teclado.
+Até agora, os valores estavam fixos no código. Vamos deixar o programa interativo com `prompt-sync`.
 
-### Instalando o prompt-sync
+### Instalação
 
 ```bash
 npm install prompt-sync
 npm install -D @types/prompt-sync
 ```
 
-### Usando no codigo
+### Como usar
 
 ```typescript
 import PromptSync from "prompt-sync";
@@ -55,13 +55,13 @@ console.log(`Você tem ${idade} anos`);
 ```
 
 > [!info]
-> O `prompt()` sempre retorna uma **string**. Para trabalhar com numeros, use `parseInt()` (inteiros) ou `parseFloat()` (decimais) para converter.
+> `prompt()` sempre devolve uma **string**. Pra números, converta com `parseInt()` (inteiro) ou `parseFloat()` (decimal).
 
 ## O desafio
 
-**Problema:** dada uma lista de numeros, classifique cada um como par ou impar.
+**Problema:** classifique cada número de uma lista como par ou ímpar.
 
-### Versao com array fixo
+### Versão com array fixo
 
 ```typescript
 function parOuImpar(n: number): string {
@@ -80,11 +80,9 @@ for (const n of numeros) {
 // → ...
 ```
 
-O operador `%` (modulo) retorna o resto da divisao. Se `n % 2 === 0`, o numero e par. Se nao, e impar. O ternario transforma isso em uma unica linha.
+`%` dá o resto da divisão. Resto 0 ao dividir por 2 = par.
 
-### Versao interativa
-
-Agora com entrada do usuario:
+### Versão interativa
 
 ```typescript
 import PromptSync from "prompt-sync";
@@ -119,17 +117,17 @@ console.log("Programa encerrado.");
 ```
 
 > [!sucesso]
-> Conceitos aplicados: funcoes, operador ternario, operador modulo, while loop, break/continue, prompt-sync e validacao de entrada.
+> Conceitos usados: funções, operador ternário, operador módulo, while, continue, prompt-sync e validação.
 
-## Exercicio extra
+## Exercício extra
 
-Modifique o programa para contar quantos numeros pares e quantos impares o usuario digitou antes de sair:
+Modifique o programa pra contar quantos pares e ímpares o usuário digitou:
 
 ```typescript
 let pares = 0;
 let impares = 0;
 
-// Use a versão interativa acima como base
+// Use a versão interativa como base
 // Incremente pares ou impares conforme a classificação
 // Exiba o total ao final
 ```
