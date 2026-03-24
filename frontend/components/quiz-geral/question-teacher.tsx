@@ -1,7 +1,9 @@
 "use client";
 
-import { Eye, BookOpen, CheckCircle, Users } from "lucide-react";
+import { useEffect, useRef } from "react";
+import { BookOpen, CheckCircle, Users } from "lucide-react";
 import type { QuestionPayload } from "@/lib/ws-protocol";
+import { useQuizTimer } from "@/hooks/use-quiz-timer";
 
 interface QuestionTeacherProps {
   question: QuestionPayload;
@@ -22,6 +24,37 @@ export function QuestionTeacher({
   answeredStudents,
   onReveal,
 }: QuestionTeacherProps) {
+  const timer = useQuizTimer(60, true);
+  const autoRevealedRef = useRef(false);
+
+  // Reset on new question
+  useEffect(() => {
+    autoRevealedRef.current = false;
+  }, [questionIndex]);
+
+  // Auto-reveal when timer expires
+  useEffect(() => {
+    if (timer.isExpired && !autoRevealedRef.current) {
+      autoRevealedRef.current = true;
+      onReveal();
+    }
+  }, [timer.isExpired, onReveal]);
+
+  const timerColor = timer.isCritical
+    ? "text-[var(--color-error)]"
+    : timer.isUrgent
+      ? "text-amber-500"
+      : "text-[var(--color-success)]";
+
+  const timerPulse = timer.isCritical || timer.isUrgent ? "animate-pulse" : "";
+
+  const timerPercent = (timer.secondsLeft / 60) * 100;
+  const timerBarColor = timer.isCritical
+    ? "bg-[var(--color-error)]"
+    : timer.isUrgent
+      ? "bg-amber-500"
+      : "bg-[var(--color-success)]";
+
   return (
     <div className="max-w-3xl mx-auto space-y-6">
       {/* Top bar */}
@@ -29,13 +62,28 @@ export function QuestionTeacher({
         <span className="text-sm font-mono text-[var(--color-muted)]">
           Pergunta {questionIndex + 1}/{totalQuestions}
         </span>
-        <div className="flex items-center gap-2 text-sm">
-          <Users className="w-4 h-4 text-[var(--color-primary)]" />
-          <span className="font-bold text-[var(--color-primary)]">
-            {answeredCount}/{totalStudents}
+        <div className="flex items-center gap-4">
+          <span
+            className={`text-2xl font-black font-mono tabular-nums ${timerColor} ${timerPulse}`}
+          >
+            {timer.secondsLeft}s
           </span>
-          <span className="text-[var(--color-muted)]">responderam</span>
+          <div className="flex items-center gap-2 text-sm">
+            <Users className="w-4 h-4 text-[var(--color-primary)]" />
+            <span className="font-bold text-[var(--color-primary)]">
+              {answeredCount}/{totalStudents}
+            </span>
+            <span className="text-[var(--color-muted)]">responderam</span>
+          </div>
         </div>
+      </div>
+
+      {/* Timer bar */}
+      <div className="w-full h-2 rounded-full bg-[var(--color-border)] overflow-hidden">
+        <div
+          className={`h-full rounded-full transition-all duration-1000 ease-linear ${timerBarColor}`}
+          style={{ width: `${timerPercent}%` }}
+        />
       </div>
 
       {/* Progress */}
@@ -116,17 +164,6 @@ export function QuestionTeacher({
           ))}
         </div>
       )}
-
-      {/* Reveal button */}
-      <div className="text-center pt-2">
-        <button
-          onClick={onReveal}
-          className="px-10 py-4 rounded-2xl bg-[var(--color-primary)] text-white font-bold text-sm hover:opacity-90 transition-all transform hover:-translate-y-0.5 active:scale-95 cursor-pointer shadow-lg flex items-center gap-2 mx-auto"
-        >
-          <Eye className="w-5 h-5" />
-          Revelar Resposta
-        </button>
-      </div>
     </div>
   );
 }

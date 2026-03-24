@@ -1,8 +1,10 @@
 "use client";
 
-import { CheckCircle, XCircle, ChevronRight } from "lucide-react";
+import { useEffect, useRef } from "react";
+import { CheckCircle, XCircle } from "lucide-react";
 import type { ServerMessage } from "@/lib/ws-protocol";
 import type { Role } from "@/hooks/use-quiz-ws";
+import { useQuizTimer } from "@/hooks/use-quiz-timer";
 
 interface RevealViewProps {
   revealData: ServerMessage & { type: "revealed" };
@@ -22,6 +24,21 @@ export function RevealView({
   onNext,
 }: RevealViewProps) {
   const isLast = questionIndex >= totalQuestions - 1;
+  const timer = useQuizTimer(15, true);
+  const autoAdvancedRef = useRef(false);
+
+  // Reset on new reveal
+  useEffect(() => {
+    autoAdvancedRef.current = false;
+  }, [questionIndex]);
+
+  // Auto-advance when timer expires (teacher triggers the WS message)
+  useEffect(() => {
+    if (timer.isExpired && role === "teacher" && !autoAdvancedRef.current) {
+      autoAdvancedRef.current = true;
+      onNext();
+    }
+  }, [timer.isExpired, role, onNext]);
 
   // For student: show their own result
   const myResult =
@@ -34,6 +51,22 @@ export function RevealView({
 
   return (
     <div className="max-w-3xl mx-auto space-y-6">
+      {/* Auto-advance countdown */}
+      <div className="text-center">
+        <span className="text-xs font-mono text-[var(--color-muted)]">
+          {isLast ? "Ranking final" : "Próxima pergunta"} em{" "}
+          <span className="font-bold text-[var(--color-primary)]">
+            {timer.secondsLeft}s
+          </span>
+        </span>
+        <div className="w-full max-w-xs mx-auto h-1 rounded-full bg-[var(--color-border)] mt-2 overflow-hidden">
+          <div
+            className="h-full rounded-full bg-[var(--color-primary)] transition-all duration-1000 ease-linear"
+            style={{ width: `${(timer.secondsLeft / 15) * 100}%` }}
+          />
+        </div>
+      </div>
+
       {/* Student personal result */}
       {myResult && (
         <div
@@ -115,26 +148,6 @@ export function RevealView({
             </p>
           </div>
         </div>
-      )}
-
-      {/* Next button (teacher only) */}
-      {role === "teacher" && (
-        <div className="text-center pt-2">
-          <button
-            onClick={onNext}
-            className="px-10 py-4 rounded-2xl bg-[var(--color-primary)] text-white font-bold text-sm hover:opacity-90 transition-all transform hover:-translate-y-0.5 active:scale-95 cursor-pointer shadow-lg flex items-center gap-2 mx-auto"
-          >
-            {isLast ? "Ver Ranking Final" : "Próxima Pergunta"}
-            <ChevronRight className="w-5 h-5" />
-          </button>
-        </div>
-      )}
-
-      {/* Student: waiting for next */}
-      {role === "student" && (
-        <p className="text-center text-sm text-[var(--color-muted)]">
-          Aguardando professor avançar...
-        </p>
       )}
     </div>
   );
