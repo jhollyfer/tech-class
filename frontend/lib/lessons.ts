@@ -1,6 +1,4 @@
-import fs from "fs";
-import matter from "gray-matter";
-import path from "path";
+import { apiFetch } from "@/lib/api";
 
 export interface QuizQuestion {
   pergunta: string;
@@ -27,36 +25,38 @@ export interface Lesson {
   proximosPassos: ProximoPasso[];
 }
 
-export function getAllLessonsByDir(dir: string): Lesson[] {
-  const directory = path.join(process.cwd(), "content", dir);
-  if (!fs.existsSync(directory)) return [];
-  const files = fs.readdirSync(directory).filter((f) => f.endsWith(".md"));
-  const lessons = files.map((filename) => {
-    const filePath = path.join(directory, filename);
-    const fileContents = fs.readFileSync(filePath, "utf8");
-    const { data, content } = matter(fileContents);
-    return {
-      slug: data.slug as string,
-      modulo: data.modulo as string,
-      titulo: data.titulo as string,
-      subtitulo: data.subtitulo as string,
-      descricao: data.descricao as string,
-      ordem: data.ordem as number,
-      content,
-      quiz: (data.quiz ?? []) as QuizQuestion[],
-      proximosPassos: (data.proximosPassos ?? []) as ProximoPasso[],
-    };
-  });
-  return lessons.sort((a, b) => a.ordem - b.ordem);
+export interface LessonSummary {
+  slug: string;
+  modulo: string;
+  titulo: string;
+  subtitulo: string;
+  descricao: string;
+  ordem: number;
+  quizCount: number;
 }
 
-export function getLessonByDirAndSlug(
-  dir: string,
-  slug: string,
-): Lesson | undefined {
-  return getAllLessonsByDir(dir).find((l) => l.slug === slug);
+export async function getAllLessons(courseSlug: string): Promise<LessonSummary[]> {
+  const data = await apiFetch<{ lessons: LessonSummary[] }>(
+    `/api/courses/${courseSlug}/lessons`
+  );
+  return data.lessons;
 }
 
-export function getAllSlugsByDir(dir: string): string[] {
-  return getAllLessonsByDir(dir).map((l) => l.slug);
+export async function getLesson(
+  courseSlug: string,
+  lessonSlug: string
+): Promise<Lesson | null> {
+  try {
+    const data = await apiFetch<{ lesson: Lesson }>(
+      `/api/courses/${courseSlug}/lessons/${lessonSlug}`
+    );
+    return data.lesson;
+  } catch {
+    return null;
+  }
+}
+
+export async function getAllLessonSlugs(courseSlug: string): Promise<string[]> {
+  const lessons = await getAllLessons(courseSlug);
+  return lessons.map((l) => l.slug);
 }

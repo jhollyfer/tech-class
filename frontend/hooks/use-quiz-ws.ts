@@ -50,7 +50,7 @@ export function useQuizWs() {
   useEffect(() => {
     const isDev = process.env.NODE_ENV === "development";
     const wsUrl = isDev
-      ? "ws://localhost:3001/ws"
+      ? "ws://localhost:3333/ws"
       : `${window.location.protocol === "https:" ? "wss:" : "ws:"}//${window.location.host}/ws`;
     const ws = new WebSocket(wsUrl);
     wsRef.current = ws;

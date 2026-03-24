@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
-import { getAllLessonsByDir } from "@/lib/lessons";
 import { getCourseConfig, getAllCourseKeys } from "@/lib/courses";
+import { apiFetch } from "@/lib/api";
 import type { Metadata } from "next";
 import { QuizGeralApp } from "@/components/quiz-geral/quiz-geral-app";
 
@@ -29,8 +29,15 @@ export default async function QuizGeralPage({ params }: PageProps) {
   const config = getCourseConfig(course);
   if (!config) notFound();
 
-  const lessons = getAllLessonsByDir(config.dir);
-  const questionCount = lessons.reduce((sum, l) => sum + l.quiz.length, 0);
+  let questionCount = 0;
+  try {
+    const data = await apiFetch<{ questionCount: number }>(
+      `/api/courses/${course}/quiz-questions`
+    );
+    questionCount = data.questionCount;
+  } catch {
+    // fallback to 0 if backend is not available at build time
+  }
 
   return (
     <QuizGeralApp

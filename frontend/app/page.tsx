@@ -1,5 +1,4 @@
-import { getAllLessonsByDir } from "@/lib/lessons";
-import { getCourseConfig } from "@/lib/courses";
+import { getAllLessons } from "@/lib/lessons";
 import Link from "next/link";
 import { BookOpen, Layers, Infinity, Play, TrendingUp, Terminal, CheckCircle, ArrowRight, Code, FileText } from "lucide-react";
 
@@ -60,9 +59,14 @@ const cursos = [
   },
 ];
 
-export default function Home() {
-  const tsConfig = getCourseConfig("logica-programacao-typescript");
-  const lessons = tsConfig ? getAllLessonsByDir(tsConfig.dir) : [];
+export default async function Home() {
+  let lessonCount = 0;
+  try {
+    const lessons = await getAllLessons("logica-programacao-typescript");
+    lessonCount = lessons.length;
+  } catch {
+    // fallback if backend not available
+  }
 
   return (
     <div className="grid-bg relative z-10">
@@ -165,7 +169,7 @@ export default function Home() {
                 <BookOpen size={28} />
               </div>
               <div>
-                <p className="font-mono text-3xl font-bold leading-none mb-1">{lessons.length}</p>
+                <p className="font-mono text-3xl font-bold leading-none mb-1">{lessonCount}</p>
                 <p className="text-sm text-[var(--color-muted)] uppercase font-bold tracking-tight">Aulas</p>
               </div>
             </div>
@@ -255,7 +259,7 @@ export default function Home() {
                     <div className="flex items-center gap-4 text-sm text-[var(--color-muted)] font-semibold font-mono">
                       <span className="flex items-center gap-1.5">
                         <BookOpen size={16} />
-                        {lessons.length} aulas
+                        {lessonCount} aulas
                       </span>
                       <span className="flex items-center gap-1.5">
                         <Layers size={16} />

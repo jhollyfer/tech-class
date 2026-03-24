@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
-import { getAllLessonsByDir } from "@/lib/lessons";
+import { getAllLessons } from "@/lib/lessons";
 import { getCourseConfig, getAllCourseKeys } from "@/lib/courses";
-import type { Lesson } from "@/lib/lessons";
+import type { LessonSummary } from "@/lib/lessons";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BookOpen, Layers, Infinity, ArrowRight, ClipboardList } from "lucide-react";
@@ -24,8 +24,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-function groupByModulo(lessons: Lesson[]) {
-  const groups: Record<string, Lesson[]> = {};
+function groupByModulo(lessons: LessonSummary[]) {
+  const groups: Record<string, LessonSummary[]> = {};
   for (const lesson of lessons) {
     if (!groups[lesson.modulo]) groups[lesson.modulo] = [];
     groups[lesson.modulo].push(lesson);
@@ -38,7 +38,7 @@ export default async function CourseLessonsPage({ params }: PageProps) {
   const config = getCourseConfig(course);
   if (!config) notFound();
 
-  const lessons = getAllLessonsByDir(config.dir);
+  const lessons = await getAllLessons(course);
   const modulos = groupByModulo(lessons);
   let aulaIndex = 0;
 

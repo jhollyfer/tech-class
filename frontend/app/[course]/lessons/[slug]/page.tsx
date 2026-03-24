@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getAllLessonsByDir, getLessonByDirAndSlug } from "@/lib/lessons";
+import { getAllLessons, getLesson } from "@/lib/lessons";
 import { getCourseConfig, getAllCourseKeys } from "@/lib/courses";
 import { highlightCodeBlocks } from "@/lib/highlight";
 import { AulaHeader } from "@/components/aula/aula-header";
@@ -22,7 +22,7 @@ export async function generateStaticParams() {
   for (const course of getAllCourseKeys()) {
     const config = getCourseConfig(course);
     if (!config) continue;
-    const lessons = getAllLessonsByDir(config.dir);
+    const lessons = await getAllLessons(course);
     for (const lesson of lessons) {
       params.push({ course, slug: lesson.slug });
     }
@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { course, slug } = await params;
   const config = getCourseConfig(course);
   if (!config) return { title: "Aula não encontrada" };
-  const lesson = getLessonByDirAndSlug(config.dir, slug);
+  const lesson = await getLesson(course, slug);
   if (!lesson) return { title: "Aula não encontrada" };
   return {
     title: `${lesson.titulo} — Tech Class`,
@@ -47,13 +47,13 @@ export default async function CourseAulaPage({ params }: PageProps) {
   const config = getCourseConfig(course);
   if (!config) notFound();
 
-  const lesson = getLessonByDirAndSlug(config.dir, slug);
+  const lesson = await getLesson(course, slug);
   if (!lesson) notFound();
 
-  const lessons = getAllLessonsByDir(config.dir);
-  const currentIndex = lessons.findIndex((l) => l.slug === slug);
-  const prevLesson = currentIndex > 0 ? lessons[currentIndex - 1] : null;
-  const nextLesson = currentIndex < lessons.length - 1 ? lessons[currentIndex + 1] : null;
+  const allLessons = await getAllLessons(course);
+  const currentIndex = allLessons.findIndex((l) => l.slug === slug);
+  const prevLesson = currentIndex > 0 ? allLessons[currentIndex - 1] : null;
+  const nextLesson = currentIndex < allLessons.length - 1 ? allLessons[currentIndex + 1] : null;
 
   const readingTime = Math.max(5, Math.ceil(lesson.content.split(/\s+/).length / 200));
   const highlightedCode = await highlightCodeBlocks(lesson.content);
@@ -68,7 +68,7 @@ export default async function CourseAulaPage({ params }: PageProps) {
           titulo={lesson.titulo}
           contentHtml={lesson.content}
           currentIndex={currentIndex + 1}
-          totalAulas={lessons.length}
+          totalAulas={allLessons.length}
         />
 
         <main className="flex-1 w-full max-w-4xl mx-auto px-6 lg:px-12 py-12 pb-32">
@@ -81,7 +81,7 @@ export default async function CourseAulaPage({ params }: PageProps) {
               Todas as aulas
             </Link>
             <span className="text-xs font-mono text-[var(--color-muted)]">
-              {String(currentIndex + 1).padStart(2, "0")}/{String(lessons.length).padStart(2, "0")}
+              {String(currentIndex + 1).padStart(2, "0")}/{String(allLessons.length).padStart(2, "0")}
             </span>
           </div>
 
@@ -90,7 +90,7 @@ export default async function CourseAulaPage({ params }: PageProps) {
             titulo={lesson.titulo}
             subtitulo={lesson.subtitulo}
             ordem={lesson.ordem}
-            totalAulas={lessons.length}
+            totalAulas={allLessons.length}
             readingTime={readingTime}
           />
 
