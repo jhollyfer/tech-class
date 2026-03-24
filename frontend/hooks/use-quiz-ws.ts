@@ -22,6 +22,29 @@ export type Phase =
 
 export type Role = "none" | "teacher" | "student";
 
+const SESSION_KEY = "quiz-session";
+
+interface QuizSession {
+  role: Role;
+  roomCode: string;
+  studentId?: string;
+}
+
+function saveSession(data: QuizSession) {
+  try { sessionStorage.setItem(SESSION_KEY, JSON.stringify(data)); } catch {}
+}
+
+function loadSession(): QuizSession | null {
+  try {
+    const raw = sessionStorage.getItem(SESSION_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch { return null; }
+}
+
+function clearSession() {
+  try { sessionStorage.removeItem(SESSION_KEY); } catch {}
+}
+
 export function useQuizWs() {
   const [connected, setConnected] = useState(false);
   const [role, setRole] = useState<Role>("none");
@@ -72,7 +95,7 @@ export function useQuizWs() {
 
     socket.on("connect", () => {
       setConnected(true);
-      // Auto-rejoin if student was in a room
+      // Auto-rejoin from in-memory state (socket reconnect without reload)
       if (
         roleRef.current === "student" &&
         roomCodeRef.current &&
@@ -82,6 +105,19 @@ export function useQuizWs() {
           type: "rejoin-room",
           roomCode: roomCodeRef.current,
           studentId: myStudentIdRef.current,
+        });
+        return;
+      }
+      // Auto-rejoin from sessionStorage (page reload)
+      const session = loadSession();
+      if (session && session.studentId && session.roomCode) {
+        setRole(session.role);
+        setRoomCode(session.roomCode);
+        setMyStudentId(session.studentId);
+        socket.emit("message", {
+          type: "rejoin-room",
+          roomCode: session.roomCode,
+          studentId: session.studentId,
         });
       }
     });
@@ -94,12 +130,14 @@ export function useQuizWs() {
           setRoomCode(msg.roomCode);
           setQuestionCount(msg.questionCount);
           setPhase("lobby");
+          saveSession({ role: "teacher", roomCode: msg.roomCode });
           break;
 
         case "joined":
           setMyStudentId(msg.studentId);
           setStudents(msg.students);
           setPhase("waiting");
+          saveSession({ role: "student", roomCode: roomCodeRef.current!, studentId: msg.studentId });
           break;
 
         case "student-joined":
@@ -134,6 +172,7 @@ export function useQuizWs() {
         case "finished":
           setRanking(msg.ranking);
           setPhase("finished");
+          clearSession();
           break;
 
         case "rejoined":
@@ -164,6 +203,7 @@ export function useQuizWs() {
           setPhase("idle");
           setRole("none");
           setRoomCode(null);
+          clearSession();
           setError("O professor encerrou a sala.");
           setTimeout(() => setError(null), 5000);
           break;
@@ -186,6 +226,7 @@ export function useQuizWs() {
   const joinRoom = useCallback(
     (roomCode: string, name: string) => {
       setRole("student");
+      setRoomCode(roomCode);
       sendMsg({ type: "join-room", roomCode, name });
     },
     [sendMsg],
