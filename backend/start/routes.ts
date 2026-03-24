@@ -22,18 +22,23 @@ const ListModulesController = () => import('#resources/courses/modules/modules.c
 const ListLessonsController = () => import('#resources/lessons/list/list.controller')
 const ShowLessonController = () => import('#resources/lessons/show/show.controller')
 const QuizQuestionsController = () => import('#resources/quiz/questions/questions.controller')
-const LessonQuizQuestionsController = () => import('#resources/quiz/lesson-questions/lesson-questions.controller')
-const ModuleQuizQuestionsController = () => import('#resources/quiz/module-questions/module-questions.controller')
+const LessonQuizQuestionsController = () =>
+  import('#resources/quiz/lesson-questions/lesson-questions.controller')
+const ModuleQuizQuestionsController = () =>
+  import('#resources/quiz/module-questions/module-questions.controller')
 
 router
   .group(() => {
     router.get('courses', [ListCoursesController])
     router.get('courses/:courseSlug/modules', [ListModulesController])
     router.get('courses/:courseSlug/lessons', [ListLessonsController])
-    router.get('courses/:courseSlug/lessons/:lessonSlug/quiz-questions', [LessonQuizQuestionsController])
+    router.get('courses/:courseSlug/lessons/:lessonSlug/quiz-questions', [
+      LessonQuizQuestionsController,
+    ])
     router.get('courses/:courseSlug/lessons/:lessonSlug', [ShowLessonController])
-    router.get('courses/:courseSlug/modules/:moduleName/quiz-questions', [ModuleQuizQuestionsController])
+    router.get('courses/:courseSlug/modules/:moduleName/quiz-questions', [
+      ModuleQuizQuestionsController,
+    ])
     router.get('courses/:courseSlug/quiz-questions', [QuizQuestionsController])
   })
   .prefix('/api')
-
