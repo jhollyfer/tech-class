@@ -2,7 +2,7 @@ name: ${ENVIRONMENT:-production}-tech-class
 
 services:
   api:
-    image: ${DOCKER_USERNAME}/tech-class-api:${ENVIRONMENT:-latest}
+    image: ${DOCKER_USERNAME}/tech-class-api:${IMAGE_TAG:-latest}
     restart: unless-stopped
     mem_limit: 256m
     environment:
@@ -43,7 +43,7 @@ services:
       - "traefik.http.routers.tech-class-api-http.middlewares=https-only@file"
 
   app:
-    image: ${DOCKER_USERNAME}/tech-class-app:${ENVIRONMENT:-latest}
+    image: ${DOCKER_USERNAME}/tech-class-app:${IMAGE_TAG:-latest}
     restart: unless-stopped
     mem_limit: 256m
     environment:
