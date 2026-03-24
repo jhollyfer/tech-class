@@ -25,6 +25,7 @@ jobs:
         working-directory: ./frontend
         env:
           NEXT_PUBLIC_API_URL: https://api.tech-class.maiyu.com.br
+          NODE_OPTIONS: "--max-old-space-size=8192"
         run: npm run build
 
       - name: Upload build artifact
@@ -35,4 +36,4 @@ jobs:
             frontend/.next/standalone/
             frontend/.next/static/
             frontend/public/
-          retention-days: 3
+          retention-days: 1

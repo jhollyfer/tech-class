@@ -58,6 +58,7 @@ jobs:
             cd /home/${{ secrets.VPS_USER }}/tech-class
 
             cat > .env << EOF
+            ENVIRONMENT=production
             DOCKER_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}
             NODE_ENV=production
             APP_KEY=${{ secrets.APP_KEY }}
@@ -66,6 +67,10 @@ jobs:
             DB_USER=${{ secrets.DB_USER }}
             DB_PASSWORD=${{ secrets.DB_PASSWORD }}
             DB_DATABASE=${{ secrets.DB_DATABASE }}
+            APP_URL=https://api.tech-class.maiyu.com.br
+            CORS_ORIGIN=https://tech-class.maiyu.com.br
+            API_HOST=api.tech-class.maiyu.com.br
+            APP_HOST=tech-class.maiyu.com.br
             EOF
 
             docker compose -f docker-compose.production.yml pull
