@@ -1,0 +1,389 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Tech Class API",
+    "version": "0.0.1",
+    "description": ""
+  },
+  "components": {
+    "responses": {
+      "Forbidden": {
+        "description": "Access token is missing or invalid"
+      },
+      "Accepted": {
+        "description": "The request was accepted"
+      },
+      "Created": {
+        "description": "The resource has been created"
+      },
+      "NotFound": {
+        "description": "The resource has been created"
+      },
+      "NotAcceptable": {
+        "description": "The resource has been created"
+      }
+    },
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      },
+      "BasicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      },
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-Key"
+      }
+    },
+    "schemas": {
+      "Any": {
+        "description": "Any JSON object not defined as schema"
+      },
+      "PaginationMeta": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "number",
+            "example": 100,
+            "nullable": false
+          },
+          "page": {
+            "type": "number",
+            "example": 2,
+            "nullable": false
+          },
+          "perPage": {
+            "type": "number",
+            "example": 10,
+            "nullable": false
+          },
+          "currentPage": {
+            "type": "number",
+            "example": 3,
+            "nullable": false
+          },
+          "lastPage": {
+            "type": "number",
+            "example": 10,
+            "nullable": false
+          },
+          "firstPage": {
+            "type": "number",
+            "example": 1,
+            "nullable": false
+          },
+          "lastPageUrl": {
+            "type": "string",
+            "example": "/?page=10",
+            "nullable": false
+          },
+          "firstPageUrl": {
+            "type": "string",
+            "example": "/?page=1",
+            "nullable": false
+          },
+          "nextPageUrl": {
+            "type": "string",
+            "example": "/?page=6",
+            "nullable": false
+          },
+          "previousPageUrl": {
+            "type": "string",
+            "example": "/?page=5",
+            "nullable": false
+          }
+        }
+      },
+      "Admin": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "current_access_token": {
+            "$ref": "#/components/schemas/AccessToken",
+            "example": null
+          },
+          "id": {
+            "type": "string",
+            "example": "Lorem Ipsum"
+          },
+          "name": {
+            "type": "string",
+            "example": "John Doe"
+          },
+          "email": {
+            "type": "string",
+            "example": "johndoe@example.com",
+            "format": "email"
+          },
+          "active": {
+            "type": "boolean",
+            "example": true
+          },
+          "created_at": {
+            "type": "string",
+            "example": "2021-03-23T16:13:08.489+01:00",
+            "format": "date-time"
+          }
+        },
+        "description": "Admin (Model)"
+      }
+    }
+  },
+  "paths": {
+    "/documentation": {
+      "get": {
+        "summary": "route",
+        "description": "\n\n __ - ****",
+        "parameters": [],
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/health-check": {
+      "get": {
+        "summary": "route",
+        "description": "\n\n __ - ****",
+        "parameters": [],
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/courses": {
+      "get": {
+        "summary": " (handle)",
+        "description": "\n\n _app/resources/courses/list/list.controller.ts_ - **handle**",
+        "parameters": [],
+        "tags": [
+          ""
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/courses/{courseSlug}/modules": {
+      "get": {
+        "summary": " (handle)",
+        "description": "\n\n _app/resources/courses/modules/modules.controller.ts_ - **handle**",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "courseSlug",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "tags": [
+          ":COURSESLUG"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/courses/{courseSlug}/lessons": {
+      "get": {
+        "summary": " (handle)",
+        "description": "\n\n _app/resources/lessons/list/list.controller.ts_ - **handle**",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "courseSlug",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "tags": [
+          ":COURSESLUG"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/courses/{courseSlug}/lessons/{lessonSlug}/quiz-questions": {
+      "get": {
+        "summary": " (handle)",
+        "description": "\n\n _app/resources/quiz/lesson-questions/lesson-questions.controller.ts_ - **handle**",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "courseSlug",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "lessonSlug",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "tags": [
+          ":COURSESLUG"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/courses/{courseSlug}/lessons/{lessonSlug}": {
+      "get": {
+        "summary": " (handle)",
+        "description": "\n\n _app/resources/lessons/show/show.controller.ts_ - **handle**",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "courseSlug",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "lessonSlug",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "tags": [
+          ":COURSESLUG"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/courses/{courseSlug}/modules/{moduleName}/quiz-questions": {
+      "get": {
+        "summary": " (handle)",
+        "description": "\n\n _app/resources/quiz/module-questions/module-questions.controller.ts_ - **handle**",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "courseSlug",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "moduleName",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "tags": [
+          ":COURSESLUG"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/courses/{courseSlug}/quiz-questions": {
+      "get": {
+        "summary": " (handle)",
+        "description": "\n\n _app/resources/quiz/questions/questions.controller.ts_ - **handle**",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "courseSlug",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "tags": [
+          ":COURSESLUG"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": []
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": ":COURSESLUG",
+      "description": "Everything related to :COURSESLUG"
+    }
+  ]
+}

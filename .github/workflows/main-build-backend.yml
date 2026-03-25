@@ -25,6 +25,10 @@ jobs:
         working-directory: ./backend
         run: npm run build
 
+      - name: Generate Swagger docs
+        working-directory: ./backend
+        run: node ace docs:generate && cp swagger.yml build/
+
       - name: Prune dev dependencies
         working-directory: ./backend
         run: npm prune --production
