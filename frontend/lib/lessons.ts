@@ -35,21 +35,26 @@ export interface LessonSummary {
   quizCount: number;
 }
 
-export async function getAllLessons(courseSlug: string): Promise<LessonSummary[]> {
+export async function getAllLessons(
+  courseSlug: string,
+): Promise<LessonSummary[]> {
   const data = await apiFetch<{ lessons: LessonSummary[] }>(
-    `/api/courses/${courseSlug}/lessons`
+    `/api/courses/${courseSlug}/lessons`,
   );
+
+  console.log("Fetched lessons:", data.lessons);
   return data.lessons;
 }
 
 export async function getLesson(
   courseSlug: string,
-  lessonSlug: string
+  lessonSlug: string,
 ): Promise<Lesson | null> {
   try {
     const data = await apiFetch<{ lesson: Lesson }>(
-      `/api/courses/${courseSlug}/lessons/${lessonSlug}`
+      `/api/courses/${courseSlug}/lessons/${lessonSlug}`,
     );
+    console.log("Fetched lesson:", data.lesson);
     return data.lesson;
   } catch {
     return null;
@@ -58,5 +63,9 @@ export async function getLesson(
 
 export async function getAllLessonSlugs(courseSlug: string): Promise<string[]> {
   const lessons = await getAllLessons(courseSlug);
+  console.log(
+    "Fetched lesson slugs:",
+    lessons.map((l) => l.slug),
+  );
   return lessons.map((l) => l.slug);
 }
