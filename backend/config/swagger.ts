@@ -3,7 +3,7 @@ import url from 'node:url'
 
 export default {
   path: path.dirname(url.fileURLToPath(import.meta.url)) + '/../',
-  tagIndex: 3,
+  tagIndex: 2,
   snakeCase: true,
   debug: false,
   ignore: ['/swagger', '/docs', '/'],
@@ -26,6 +26,6 @@ export default {
   info: {
     title: 'Tech Class API',
     version: '0.0.1',
-    description: '',
+    description: 'API da plataforma Tech Class — cursos, aulas e quizzes interativos.',
   },
 }

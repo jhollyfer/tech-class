@@ -3,7 +3,7 @@
   "info": {
     "title": "Tech Class API",
     "version": "0.0.1",
-    "description": ""
+    "description": "API da plataforma Tech Class — cursos, aulas e quizzes interativos."
   },
   "components": {
     "responses": {
@@ -170,18 +170,50 @@
     },
     "/api/courses": {
       "get": {
-        "summary": " (handle)",
-        "description": "\n\n _app/resources/courses/list/list.controller.ts_ - **handle**",
+        "summary": "Lista todos os cursos disponíveis (handle)",
+        "description": "Returns **200** (OK) as **application/json**\n\n _app/resources/courses/list/list.controller.ts_ - **handle**",
         "parameters": [],
         "tags": [
-          ""
+          "COURSES"
         ],
         "responses": {
           "200": {
-            "description": "OK",
             "content": {
-              "application/json": {}
-            }
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "courses": {
+                      "type": "object",
+                      "properties": {
+                        "0": {
+                          "type": "object",
+                          "properties": {
+                            "slug": "logica-programacao-typescript",
+                            "label": "Lógica de Programação",
+                            "language": "TypeScript",
+                            "lessonCount": 10,
+                            "moduleCount": 3
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "courses": [
+                    {
+                      "slug": "logica-programacao-typescript",
+                      "label": "Lógica de Programação",
+                      "language": "TypeScript",
+                      "lessonCount": 10,
+                      "moduleCount": 3
+                    }
+                  ]
+                }
+              }
+            },
+            "description": "Returns **200** (OK) as **application/json**"
           }
         },
         "security": []
@@ -189,27 +221,73 @@
     },
     "/api/courses/{courseSlug}/modules": {
       "get": {
-        "summary": " (handle)",
-        "description": "\n\n _app/resources/courses/modules/modules.controller.ts_ - **handle**",
+        "summary": "Lista módulos de um curso (handle)",
+        "description": "Returns **200** (OK) as **application/json**\n\n _app/resources/courses/modules/modules.controller.ts_ - **handle**",
         "parameters": [
           {
             "in": "path",
             "name": "courseSlug",
+            "description": "Slug do curso",
             "schema": {
+              "example": "",
               "type": "string"
             },
             "required": true
           }
         ],
         "tags": [
-          ":COURSESLUG"
+          "MODULES"
         ],
         "responses": {
           "200": {
-            "description": "OK",
             "content": {
-              "application/json": {}
-            }
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "modules": {
+                      "type": "object",
+                      "properties": {
+                        "0": {
+                          "type": "object",
+                          "properties": {
+                            "name": "Módulo 1 — Fundamentos",
+                            "lessonCount": 5,
+                            "questionCount": 12
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "modules": [
+                    {
+                      "name": "Módulo 1 — Fundamentos",
+                      "lessonCount": 5,
+                      "questionCount": 12
+                    }
+                  ]
+                }
+              }
+            },
+            "description": "Returns **200** (OK) as **application/json**"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": "Curso não encontrado."
+                  }
+                },
+                "example": {
+                  "message": "Curso não encontrado."
+                }
+              }
+            },
+            "description": "Returns **404** (Not Found) as **application/json**"
           }
         },
         "security": []
@@ -217,27 +295,81 @@
     },
     "/api/courses/{courseSlug}/lessons": {
       "get": {
-        "summary": " (handle)",
-        "description": "\n\n _app/resources/lessons/list/list.controller.ts_ - **handle**",
+        "summary": "Lista aulas de um curso (handle)",
+        "description": "Returns **200** (OK) as **application/json**\n\n _app/resources/lessons/list/list.controller.ts_ - **handle**",
         "parameters": [
           {
             "in": "path",
             "name": "courseSlug",
+            "description": "Slug do curso",
             "schema": {
+              "example": "",
               "type": "string"
             },
             "required": true
           }
         ],
         "tags": [
-          ":COURSESLUG"
+          "LESSONS"
         ],
         "responses": {
           "200": {
-            "description": "OK",
             "content": {
-              "application/json": {}
-            }
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "lessons": {
+                      "type": "object",
+                      "properties": {
+                        "0": {
+                          "type": "object",
+                          "properties": {
+                            "slug": "variaveis",
+                            "modulo": "Módulo 1",
+                            "titulo": "Variáveis",
+                            "subtitulo": "",
+                            "descricao": "Aprenda sobre variáveis",
+                            "ordem": 1,
+                            "quizCount": 3
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "lessons": [
+                    {
+                      "slug": "variaveis",
+                      "modulo": "Módulo 1",
+                      "titulo": "Variáveis",
+                      "subtitulo": "",
+                      "descricao": "Aprenda sobre variáveis",
+                      "ordem": 1,
+                      "quizCount": 3
+                    }
+                  ]
+                }
+              }
+            },
+            "description": "Returns **200** (OK) as **application/json**"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": "Curso não encontrado."
+                  }
+                },
+                "example": {
+                  "message": "Curso não encontrado."
+                }
+              }
+            },
+            "description": "Returns **404** (Not Found) as **application/json**"
           }
         },
         "security": []
@@ -245,13 +377,15 @@
     },
     "/api/courses/{courseSlug}/lessons/{lessonSlug}/quiz-questions": {
       "get": {
-        "summary": " (handle)",
-        "description": "\n\n _app/resources/quiz/lesson-questions/lesson-questions.controller.ts_ - **handle**",
+        "summary": "Questões de quiz de uma aula específica (handle)",
+        "description": "Returns **200** (OK) as **application/json**\n\n _app/resources/quiz/lesson-questions/lesson-questions.controller.ts_ - **handle**",
         "parameters": [
           {
             "in": "path",
             "name": "courseSlug",
+            "description": "Slug do curso",
             "schema": {
+              "example": "",
               "type": "string"
             },
             "required": true
@@ -259,21 +393,92 @@
           {
             "in": "path",
             "name": "lessonSlug",
+            "description": "Slug da aula",
             "schema": {
+              "example": "",
               "type": "string"
             },
             "required": true
           }
         ],
         "tags": [
-          ":COURSESLUG"
+          "QUIZ"
         ],
         "responses": {
           "200": {
-            "description": "OK",
             "content": {
-              "application/json": {}
-            }
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "questionCount": 3,
+                    "questions": {
+                      "type": "object",
+                      "properties": {
+                        "0": {
+                          "type": "object",
+                          "properties": {
+                            "lessonTitulo": "Variáveis",
+                            "lessonDescricao": "Aprenda variáveis",
+                            "lessonModulo": "Módulo 1",
+                            "pergunta": "O que é?",
+                            "opcoes": {
+                              "type": "object",
+                              "properties": {
+                                "0": "A",
+                                "1": "B",
+                                "2": "C",
+                                "3": "D"
+                              }
+                            },
+                            "correta": 0,
+                            "explicacao": "Porque...",
+                            "explicacaoErrada": "Errado porque..."
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "questionCount": 3,
+                  "questions": [
+                    {
+                      "lessonTitulo": "Variáveis",
+                      "lessonDescricao": "Aprenda variáveis",
+                      "lessonModulo": "Módulo 1",
+                      "pergunta": "O que é?",
+                      "opcoes": [
+                        "A",
+                        "B",
+                        "C",
+                        "D"
+                      ],
+                      "correta": 0,
+                      "explicacao": "Porque...",
+                      "explicacaoErrada": "Errado porque..."
+                    }
+                  ]
+                }
+              }
+            },
+            "description": "Returns **200** (OK) as **application/json**"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": "Aula não encontrada."
+                  }
+                },
+                "example": {
+                  "message": "Aula não encontrada."
+                }
+              }
+            },
+            "description": "Returns **404** (Not Found) as **application/json**"
           }
         },
         "security": []
@@ -281,13 +486,15 @@
     },
     "/api/courses/{courseSlug}/lessons/{lessonSlug}": {
       "get": {
-        "summary": " (handle)",
-        "description": "\n\n _app/resources/lessons/show/show.controller.ts_ - **handle**",
+        "summary": "Detalhes de uma aula específica (handle)",
+        "description": "Returns **200** (OK) as **application/json**\n\n _app/resources/lessons/show/show.controller.ts_ - **handle**",
         "parameters": [
           {
             "in": "path",
             "name": "courseSlug",
+            "description": "Slug do curso",
             "schema": {
+              "example": "",
               "type": "string"
             },
             "required": true
@@ -295,21 +502,123 @@
           {
             "in": "path",
             "name": "lessonSlug",
+            "description": "Slug da aula",
             "schema": {
+              "example": "",
               "type": "string"
             },
             "required": true
           }
         ],
         "tags": [
-          ":COURSESLUG"
+          "LESSONS"
         ],
         "responses": {
           "200": {
-            "description": "OK",
             "content": {
-              "application/json": {}
-            }
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "lesson": {
+                      "type": "object",
+                      "properties": {
+                        "slug": "variaveis",
+                        "modulo": "Módulo 1",
+                        "titulo": "Variáveis",
+                        "subtitulo": "",
+                        "descricao": "Aprenda sobre variáveis",
+                        "ordem": 1,
+                        "content": "# Conteúdo em Markdown",
+                        "quiz": {
+                          "type": "object",
+                          "properties": {
+                            "0": {
+                              "type": "object",
+                              "properties": {
+                                "pergunta": "O que é uma variável?",
+                                "opcoes": {
+                                  "type": "object",
+                                  "properties": {
+                                    "0": "A",
+                                    "1": "B",
+                                    "2": "C",
+                                    "3": "D"
+                                  }
+                                },
+                                "correta": 0,
+                                "explicacao": "Explicação",
+                                "explicacaoErrada": "Explicação do erro"
+                              }
+                            }
+                          }
+                        },
+                        "proximosPassos": {
+                          "type": "object",
+                          "properties": {
+                            "0": {
+                              "type": "object",
+                              "properties": {
+                                "titulo": "Próximo passo",
+                                "descricao": "Descrição"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "lesson": {
+                    "slug": "variaveis",
+                    "modulo": "Módulo 1",
+                    "titulo": "Variáveis",
+                    "subtitulo": "",
+                    "descricao": "Aprenda sobre variáveis",
+                    "ordem": 1,
+                    "content": "# Conteúdo em Markdown",
+                    "quiz": [
+                      {
+                        "pergunta": "O que é uma variável?",
+                        "opcoes": [
+                          "A",
+                          "B",
+                          "C",
+                          "D"
+                        ],
+                        "correta": 0,
+                        "explicacao": "Explicação",
+                        "explicacaoErrada": "Explicação do erro"
+                      }
+                    ],
+                    "proximosPassos": [
+                      {
+                        "titulo": "Próximo passo",
+                        "descricao": "Descrição"
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "description": "Returns **200** (OK) as **application/json**"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": "Aula não encontrada."
+                  }
+                },
+                "example": {
+                  "message": "Aula não encontrada."
+                }
+              }
+            },
+            "description": "Returns **404** (Not Found) as **application/json**"
           }
         },
         "security": []
@@ -317,13 +626,15 @@
     },
     "/api/courses/{courseSlug}/modules/{moduleName}/quiz-questions": {
       "get": {
-        "summary": " (handle)",
-        "description": "\n\n _app/resources/quiz/module-questions/module-questions.controller.ts_ - **handle**",
+        "summary": "Questões de quiz de um módulo específico (handle)",
+        "description": "Returns **200** (OK) as **application/json**\n\n _app/resources/quiz/module-questions/module-questions.controller.ts_ - **handle**",
         "parameters": [
           {
             "in": "path",
             "name": "courseSlug",
+            "description": "Slug do curso",
             "schema": {
+              "example": "",
               "type": "string"
             },
             "required": true
@@ -331,21 +642,92 @@
           {
             "in": "path",
             "name": "moduleName",
+            "description": "Nome do módulo (URL encoded)",
             "schema": {
+              "example": "",
               "type": "string"
             },
             "required": true
           }
         ],
         "tags": [
-          ":COURSESLUG"
+          "QUIZ"
         ],
         "responses": {
           "200": {
-            "description": "OK",
             "content": {
-              "application/json": {}
-            }
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "questionCount": 5,
+                    "questions": {
+                      "type": "object",
+                      "properties": {
+                        "0": {
+                          "type": "object",
+                          "properties": {
+                            "lessonTitulo": "Variáveis",
+                            "lessonDescricao": "Aprenda variáveis",
+                            "lessonModulo": "Módulo 1",
+                            "pergunta": "O que é?",
+                            "opcoes": {
+                              "type": "object",
+                              "properties": {
+                                "0": "A",
+                                "1": "B",
+                                "2": "C",
+                                "3": "D"
+                              }
+                            },
+                            "correta": 0,
+                            "explicacao": "Porque...",
+                            "explicacaoErrada": "Errado porque..."
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "questionCount": 5,
+                  "questions": [
+                    {
+                      "lessonTitulo": "Variáveis",
+                      "lessonDescricao": "Aprenda variáveis",
+                      "lessonModulo": "Módulo 1",
+                      "pergunta": "O que é?",
+                      "opcoes": [
+                        "A",
+                        "B",
+                        "C",
+                        "D"
+                      ],
+                      "correta": 0,
+                      "explicacao": "Porque...",
+                      "explicacaoErrada": "Errado porque..."
+                    }
+                  ]
+                }
+              }
+            },
+            "description": "Returns **200** (OK) as **application/json**"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": "Módulo não encontrado."
+                  }
+                },
+                "example": {
+                  "message": "Módulo não encontrado."
+                }
+              }
+            },
+            "description": "Returns **404** (Not Found) as **application/json**"
           }
         },
         "security": []
@@ -353,27 +735,98 @@
     },
     "/api/courses/{courseSlug}/quiz-questions": {
       "get": {
-        "summary": " (handle)",
-        "description": "\n\n _app/resources/quiz/questions/questions.controller.ts_ - **handle**",
+        "summary": "Todas as questões de quiz de um curso (handle)",
+        "description": "Returns **200** (OK) as **application/json**\n\n _app/resources/quiz/questions/questions.controller.ts_ - **handle**",
         "parameters": [
           {
             "in": "path",
             "name": "courseSlug",
+            "description": "Slug do curso",
             "schema": {
+              "example": "",
               "type": "string"
             },
             "required": true
           }
         ],
         "tags": [
-          ":COURSESLUG"
+          "QUIZ"
         ],
         "responses": {
           "200": {
-            "description": "OK",
             "content": {
-              "application/json": {}
-            }
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "questionCount": 15,
+                    "questions": {
+                      "type": "object",
+                      "properties": {
+                        "0": {
+                          "type": "object",
+                          "properties": {
+                            "lessonTitulo": "Variáveis",
+                            "lessonDescricao": "Aprenda variáveis",
+                            "lessonModulo": "Módulo 1",
+                            "pergunta": "O que é?",
+                            "opcoes": {
+                              "type": "object",
+                              "properties": {
+                                "0": "A",
+                                "1": "B",
+                                "2": "C",
+                                "3": "D"
+                              }
+                            },
+                            "correta": 0,
+                            "explicacao": "Porque...",
+                            "explicacaoErrada": "Errado porque..."
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "questionCount": 15,
+                  "questions": [
+                    {
+                      "lessonTitulo": "Variáveis",
+                      "lessonDescricao": "Aprenda variáveis",
+                      "lessonModulo": "Módulo 1",
+                      "pergunta": "O que é?",
+                      "opcoes": [
+                        "A",
+                        "B",
+                        "C",
+                        "D"
+                      ],
+                      "correta": 0,
+                      "explicacao": "Porque...",
+                      "explicacaoErrada": "Errado porque..."
+                    }
+                  ]
+                }
+              }
+            },
+            "description": "Returns **200** (OK) as **application/json**"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": "Curso não encontrado."
+                  }
+                },
+                "example": {
+                  "message": "Curso não encontrado."
+                }
+              }
+            },
+            "description": "Returns **404** (Not Found) as **application/json**"
           }
         },
         "security": []
@@ -382,8 +835,36 @@
   },
   "tags": [
     {
-      "name": ":COURSESLUG",
-      "description": "Everything related to :COURSESLUG"
+      "name": "COURSES",
+      "description": "Everything related to COURSES"
+    },
+    {
+      "name": "COURSES",
+      "description": "Everything related to COURSES"
+    },
+    {
+      "name": "MODULES",
+      "description": "Everything related to MODULES"
+    },
+    {
+      "name": "LESSONS",
+      "description": "Everything related to LESSONS"
+    },
+    {
+      "name": "QUIZ",
+      "description": "Everything related to QUIZ"
+    },
+    {
+      "name": "LESSONS",
+      "description": "Everything related to LESSONS"
+    },
+    {
+      "name": "QUIZ",
+      "description": "Everything related to QUIZ"
+    },
+    {
+      "name": "QUIZ",
+      "description": "Everything related to QUIZ"
     }
   ]
 }
