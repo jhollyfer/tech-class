@@ -1,0 +1,25 @@
+name: Deploy to Coolify
+
+on:
+  workflow_call:
+    secrets:
+      COOLIFY_TOKEN:
+        required: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy API to Coolify
+        run: |
+          curl -s -X GET \
+            "https://coolify.maiyu.com.br/api/v1/deploy?uuid=ojeyubw2upcdyh49dfxyxc9o&force=false" \
+            -H "Authorization: Bearer ${{ secrets.COOLIFY_TOKEN }}" \
+            -H "Content-Type: application/json"
+
+      - name: Deploy App to Coolify
+        run: |
+          curl -s -X GET \
+            "https://coolify.maiyu.com.br/api/v1/deploy?uuid=jyi6az3eh6s7p9l742ids8q2&force=false" \
+            -H "Authorization: Bearer ${{ secrets.COOLIFY_TOKEN }}" \
+            -H "Content-Type: application/json"
