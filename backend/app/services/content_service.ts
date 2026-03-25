@@ -23,6 +23,12 @@ const COURSES: Record<string, ICourseConfig> = {
     label: 'Informática Avançada',
     language: 'Word',
   },
+  'empreendedorismo': {
+    slug: 'empreendedorismo',
+    dir: 'empreendedorismo',
+    label: 'Empreendedorismo',
+    language: 'Saúde',
+  },
 }
 
 const PRACTICE_MODULES: Record<string, string[]> = {

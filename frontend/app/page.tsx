@@ -59,6 +59,16 @@ const cursos = [
     icon: FileText,
   },
   {
+    id: "empreendedorismo",
+    titulo: "Empreendedorismo",
+    linguagem: "Saúde" as const,
+    descricao:
+      "Desenvolva mentalidade empreendedora e aprenda a identificar oportunidades na área da saúde.",
+    status: "disponivel" as const,
+    href: "/empreendedorismo/lessons",
+    icon: TrendingUp,
+  },
+  {
     id: "bd",
     titulo: "Banco de Dados",
     linguagem: null as string | null,

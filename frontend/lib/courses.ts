@@ -20,6 +20,11 @@ export const courses: Record<string, CourseConfig> = {
     label: "Informática Avançada",
     language: "Word",
   },
+  "empreendedorismo": {
+    dir: "empreendedorismo",
+    label: "Empreendedorismo",
+    language: "Saúde",
+  },
 };
 
 export function getCourseConfig(course: string): CourseConfig | undefined {
