@@ -1,5 +1,6 @@
 import type { Socket } from 'socket.io'
 import contentService from '#services/content_service'
+import type { IQuizDataQuestion } from '#core/entity.core'
 import {
   CLIENT_EVENTS,
   SERVER_EVENTS,
@@ -9,6 +10,25 @@ import {
   type ClientMessage,
   type RankingEntry,
 } from '#services/quiz/quiz_types'
+
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array]
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+  }
+  return shuffled
+}
+
+function shuffleQuestionOptions(q: IQuizDataQuestion): IQuizDataQuestion {
+  const indices = q.opcoes.map((_, i) => i)
+  const shuffledIndices = shuffleArray(indices)
+  return {
+    ...q,
+    opcoes: shuffledIndices.map((i) => q.opcoes[i]),
+    correta: shuffledIndices.indexOf(q.correta),
+  }
+}
 
 const MAX_ROOMS = 10
 const ROOM_CLEANUP_MS = 5 * 60 * 1000
@@ -76,6 +96,8 @@ function handleCreateRoom(ws: Socket, courseSlug: string, moduleName?: string, l
     }
     return send(ws, { type: SERVER_EVENTS.ERROR, message })
   }
+
+  questions = shuffleArray(questions).map(shuffleQuestionOptions)
 
   const roomCode = generateRoomCode()
   const room: Room = {
