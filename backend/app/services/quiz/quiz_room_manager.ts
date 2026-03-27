@@ -97,7 +97,7 @@ function handleCreateRoom(ws: Socket, courseSlug: string, moduleName?: string, l
     return send(ws, { type: SERVER_EVENTS.ERROR, message })
   }
 
-  questions = shuffleArray(questions).map(shuffleQuestionOptions)
+  questions = questions.map(shuffleQuestionOptions)
 
   const roomCode = generateRoomCode()
   const room: Room = {
