@@ -89,6 +89,7 @@ function handleCreateRoom(ws: Socket, courseSlug: string, moduleName?: string, l
     currentQuestionIndex: -1,
     answers: new Map(),
     phase: 'lobby',
+    questionDurationSeconds: 60,
   }
 
   rooms.set(roomCode, room)
@@ -150,7 +151,9 @@ function handleJoinRoom(ws: Socket, roomCode: string, name: string) {
   broadcastToRoom(roomCode, { type: SERVER_EVENTS.STUDENT_JOINED, students: studentList }, ws.id)
 }
 
-function handleStartQuiz(ws: Socket) {
+const ALLOWED_DURATIONS = [60, 180, 300]
+
+function handleStartQuiz(ws: Socket, questionDurationSeconds?: number) {
   const client = clients.get(ws.id)
   if (!client || client.info.role !== 'teacher') return
 
@@ -160,6 +163,11 @@ function handleStartQuiz(ws: Socket) {
   if (room.students.size === 0) {
     return send(ws, { type: SERVER_EVENTS.ERROR, message: 'Nenhum aluno na sala.' })
   }
+
+  room.questionDurationSeconds =
+    questionDurationSeconds && ALLOWED_DURATIONS.includes(questionDurationSeconds)
+      ? questionDurationSeconds
+      : 60
 
   room.phase = 'question'
   room.currentQuestionIndex = 0
@@ -175,6 +183,7 @@ function sendQuestion(room: Room) {
       type: SERVER_EVENTS.QUESTION,
       questionIndex: room.currentQuestionIndex,
       totalQuestions: room.questions.length,
+      questionDurationSeconds: room.questionDurationSeconds,
       question: {
         lessonTitulo: q.lessonTitulo,
         lessonDescricao: q.lessonDescricao,
@@ -193,6 +202,7 @@ function sendQuestion(room: Room) {
         type: SERVER_EVENTS.QUESTION,
         questionIndex: room.currentQuestionIndex,
         totalQuestions: room.questions.length,
+        questionDurationSeconds: room.questionDurationSeconds,
         question: {
           lessonTitulo: q.lessonTitulo,
           lessonDescricao: q.lessonDescricao,
@@ -449,7 +459,7 @@ export function handleConnection(ws: Socket) {
         handleRejoinRoom(ws, data.roomCode, data.studentId)
         break
       case CLIENT_EVENTS.START_QUIZ:
-        handleStartQuiz(ws)
+        handleStartQuiz(ws, data.questionDurationSeconds)
         break
       case CLIENT_EVENTS.ANSWER:
         handleAnswer(ws, data.questionIndex, data.selected)

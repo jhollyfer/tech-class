@@ -11,6 +11,7 @@ interface QuestionStudentProps {
   question: QuestionPayload;
   questionIndex: number;
   totalQuestions: number;
+  questionDuration: number;
   phase: Phase;
   myAnswer: number | null;
   onAnswer: (selected: number) => void;
@@ -20,6 +21,7 @@ export function QuestionStudent({
   question,
   questionIndex,
   totalQuestions,
+  questionDuration,
   phase,
   myAnswer,
   onAnswer,
@@ -28,12 +30,12 @@ export function QuestionStudent({
   const isActive = phase === "question";
 
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
-  const timer = useQuizTimer(30, isActive);
+  const timer = useQuizTimer(questionDuration, isActive);
   const autoSubmittedRef = useRef(false);
 
-  // Sound plays only when: timer ≤15s AND student hasn't selected anything AND question is active
+  // Som toca quando: tempo restante ≤15% da duração E o aluno ainda não selecionou nada
   useUrgencySound(
-    timer.secondsLeft <= 10 && timer.secondsLeft > 0 && isActive && selectedOption === null,
+    timer.isUrgent && timer.secondsLeft > 0 && isActive && selectedOption === null,
     timer.secondsLeft
   );
 
@@ -76,7 +78,7 @@ export function QuestionStudent({
       : "";
 
   // Timer bar percentage
-  const timerPercent = (timer.secondsLeft / 30) * 100;
+  const timerPercent = (timer.secondsLeft / questionDuration) * 100;
   const timerBarColor = timer.isCritical
     ? "bg-[var(--color-error)]"
     : timer.isUrgent
@@ -94,7 +96,9 @@ export function QuestionStudent({
           <span
             className={`text-2xl font-black font-mono tabular-nums ${timerColor} ${timerPulse}`}
           >
-            {timer.secondsLeft}s
+            {timer.secondsLeft >= 60
+              ? `${Math.floor(timer.secondsLeft / 60)}:${String(timer.secondsLeft % 60).padStart(2, "0")}`
+              : `${timer.secondsLeft}s`}
           </span>
         )}
       </div>

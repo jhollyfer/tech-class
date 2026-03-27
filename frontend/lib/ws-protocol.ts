@@ -3,7 +3,7 @@ export type ClientMessage =
   | { type: "create-room"; courseSlug: string; moduleName?: string; lessonSlug?: string }
   | { type: "join-room"; roomCode: string; name: string }
   | { type: "rejoin-room"; roomCode: string; studentId: string }
-  | { type: "start-quiz" }
+  | { type: "start-quiz"; questionDurationSeconds: number }
   | { type: "answer"; questionIndex: number; selected: number }
   | { type: "reveal" }
   | { type: "next-question" };
@@ -18,6 +18,7 @@ export type ServerMessage =
       type: "question";
       questionIndex: number;
       totalQuestions: number;
+      questionDurationSeconds: number;
       question: QuestionPayload;
     }
   | {

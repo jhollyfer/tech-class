@@ -61,6 +61,7 @@ export function useQuizWs() {
   const [answeredStudents, setAnsweredStudents] = useState<string[]>([]);
   const [revealData, setRevealData] = useState<RevealedMessage | null>(null);
   const [ranking, setRanking] = useState<RankingEntry[]>([]);
+  const [questionDuration, setQuestionDuration] = useState(60);
   const [error, setError] = useState<string | null>(null);
   const [myStudentId, setMyStudentId] = useState<string | null>(null);
 
@@ -152,6 +153,7 @@ export function useQuizWs() {
           setCurrentQuestion(msg.question);
           setQuestionIndex(msg.questionIndex);
           setTotalQuestions(msg.totalQuestions);
+          setQuestionDuration(msg.questionDurationSeconds);
           setMyAnswer(null);
           setAnsweredCount(0);
           setAnsweredStudents([]);
@@ -232,8 +234,8 @@ export function useQuizWs() {
     [sendMsg],
   );
 
-  const startQuiz = useCallback(() => {
-    sendMsg({ type: "start-quiz" });
+  const startQuiz = useCallback((questionDurationSeconds: number) => {
+    sendMsg({ type: "start-quiz", questionDurationSeconds });
   }, [sendMsg]);
 
   const submitAnswer = useCallback(
@@ -265,6 +267,7 @@ export function useQuizWs() {
     totalQuestions,
     myAnswer,
     myStudentId,
+    questionDuration,
     answeredCount,
     answeredStudents,
     revealData,

@@ -59,7 +59,7 @@ export function QuizPhaseRouter(): React.JSX.Element {
           roomCode={ws.roomCode!}
           questionCount={ws.questionCount}
           students={ws.students}
-          onStart={ws.startQuiz}
+          onStart={(durationSeconds) => ws.startQuiz(durationSeconds)}
         />
       )}
 
@@ -79,6 +79,7 @@ export function QuizPhaseRouter(): React.JSX.Element {
           question={ws.currentQuestion}
           questionIndex={ws.questionIndex}
           totalQuestions={ws.totalQuestions}
+          questionDuration={ws.questionDuration}
           answeredCount={ws.answeredCount}
           totalStudents={ws.students.length}
           answeredStudents={ws.answeredStudents}
@@ -95,6 +96,7 @@ export function QuizPhaseRouter(): React.JSX.Element {
             question={ws.currentQuestion}
             questionIndex={ws.questionIndex}
             totalQuestions={ws.totalQuestions}
+            questionDuration={ws.questionDuration}
             phase={ws.phase}
             myAnswer={ws.myAnswer}
             onAnswer={ws.submitAnswer}

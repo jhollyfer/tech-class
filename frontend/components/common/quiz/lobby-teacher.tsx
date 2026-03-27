@@ -1,14 +1,20 @@
 "use client";
 
-import { Play, Users, Copy, Check } from "lucide-react";
+import { Play, Users, Copy, Check, Clock } from "lucide-react";
 import { useState } from "react";
 import type { StudentInfo } from "@/lib/ws-protocol";
+
+const DURATION_OPTIONS = [
+  { label: "1 min", value: 60 },
+  { label: "3 min", value: 180 },
+  { label: "5 min", value: 300 },
+] as const;
 
 interface LobbyTeacherProps {
   roomCode: string;
   questionCount: number;
   students: StudentInfo[];
-  onStart: () => void;
+  onStart: (questionDurationSeconds: number) => void;
 }
 
 export function LobbyTeacher({
@@ -18,6 +24,7 @@ export function LobbyTeacher({
   onStart,
 }: LobbyTeacherProps) {
   const [copied, setCopied] = useState(false);
+  const [duration, setDuration] = useState(60);
 
   async function copyCode() {
     try {
@@ -91,10 +98,33 @@ export function LobbyTeacher({
         )}
       </div>
 
+      {/* Duration selector */}
+      <div className="space-y-3">
+        <div className="flex items-center gap-2">
+          <Clock className="w-4 h-4 text-[var(--color-primary)]" />
+          <span className="text-sm font-bold">Tempo por pergunta</span>
+        </div>
+        <div className="grid grid-cols-3 gap-3">
+          {DURATION_OPTIONS.map((opt) => (
+            <button
+              key={opt.value}
+              onClick={() => setDuration(opt.value)}
+              className={`p-3 rounded-xl border-2 text-sm font-bold transition-all cursor-pointer ${
+                duration === opt.value
+                  ? "border-[var(--color-primary)] bg-[var(--color-primary)]/10 text-[var(--color-primary)]"
+                  : "border-[var(--color-border)] hover:border-[var(--color-primary)]/40"
+              }`}
+            >
+              {opt.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
       {/* Start button */}
       <div className="text-center pt-2">
         <button
-          onClick={onStart}
+          onClick={() => onStart(duration)}
           disabled={students.length === 0}
           className="px-10 py-4 rounded-2xl bg-[var(--color-primary)] text-white font-bold text-sm hover:opacity-90 transition-all transform hover:-translate-y-0.5 active:scale-95 cursor-pointer shadow-lg disabled:opacity-40 disabled:cursor-default disabled:transform-none disabled:shadow-none flex items-center gap-3 mx-auto"
         >

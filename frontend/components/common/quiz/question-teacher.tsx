@@ -9,6 +9,7 @@ interface QuestionTeacherProps {
   question: QuestionPayload;
   questionIndex: number;
   totalQuestions: number;
+  questionDuration: number;
   answeredCount: number;
   totalStudents: number;
   answeredStudents: string[];
@@ -19,12 +20,13 @@ export function QuestionTeacher({
   question,
   questionIndex,
   totalQuestions,
+  questionDuration,
   answeredCount,
   totalStudents,
   answeredStudents,
   onReveal,
 }: QuestionTeacherProps) {
-  const timer = useQuizTimer(30, true);
+  const timer = useQuizTimer(questionDuration, true);
   const autoRevealedRef = useRef(false);
 
   // Reset on new question
@@ -48,7 +50,7 @@ export function QuestionTeacher({
 
   const timerPulse = timer.isCritical || timer.isUrgent ? "animate-pulse" : "";
 
-  const timerPercent = (timer.secondsLeft / 30) * 100;
+  const timerPercent = (timer.secondsLeft / questionDuration) * 100;
   const timerBarColor = timer.isCritical
     ? "bg-[var(--color-error)]"
     : timer.isUrgent
@@ -66,7 +68,9 @@ export function QuestionTeacher({
           <span
             className={`text-2xl font-black font-mono tabular-nums ${timerColor} ${timerPulse}`}
           >
-            {timer.secondsLeft}s
+            {timer.secondsLeft >= 60
+              ? `${Math.floor(timer.secondsLeft / 60)}:${String(timer.secondsLeft % 60).padStart(2, "0")}`
+              : `${timer.secondsLeft}s`}
           </span>
           <div className="flex items-center gap-2 text-sm">
             <Users className="w-4 h-4 text-[var(--color-primary)]" />
