@@ -1,14 +1,14 @@
 ---
 slug: "for-of-break-continue"
 modulo: "Módulo 3 — Controle de Fluxo"
-titulo: "for...of, break e continue"
+título: "for...of, break e continue"
 subtitulo: "Percorrendo arrays e controlando loops"
 descricao: "for...of para iterar arrays, break para parar e continue para pular."
 ordem: 9
 proximosPassos:
-  - titulo: "Arrays"
+  - título: "Arrays"
     descricao: "Crie e manipule arrays"
-  - titulo: "Métodos funcionais"
+  - título: "Métodos funcionais"
     descricao: "filter, map, reduce e mais"
 quiz:
   - pergunta: "Qual a vantagem do for...of sobre o for clássico?"
@@ -55,8 +55,8 @@ for (const nota of notas) {
   total += nota;
 }
 
-const media: number = total / notas.length;
-console.log(`Média: ${media.toFixed(1)}`); // → Média: 7.9
+const média: number = total / notas.length;
+console.log(`Média: ${média.toFixed(1)}`); // → Média: 7.9
 ```
 
 > [!info]
@@ -64,7 +64,7 @@ console.log(`Média: ${media.toFixed(1)}`); // → Média: 7.9
 
 ## break --- parar o loop
 
-O `break` encerra o loop na hora. É como achar o que procurava e parar de procurar:
+O `break` encerra o loop na hora. É como achar o que procurava é parar de procurar:
 
 ```typescript
 const nomes: string[] = ["Ana", "Bob", "Carlos", "Diana"];
@@ -92,9 +92,9 @@ for (let i = 1; i <= 10; i++) {
 O `continue` pula o resto da volta atual e vai para a próxima. É como ignorar algo que não interessa:
 
 ```typescript
-const numeros: number[] = [12, -5, 8, -3, 20, 0, 15];
+const números: number[] = [12, -5, 8, -3, 20, 0, 15];
 
-for (const num of numeros) {
+for (const num of números) {
   if (num <= 0) continue; // pula negativos e zero
   console.log(num);        // → 12, 8, 20, 15
 }
@@ -122,14 +122,14 @@ for (let i: number = 1; i <= 10; i++) {
 > [!alerta]
 > Use `break` e `continue` com moderação. Muitos deles no mesmo loop dificultam a leitura. Se ficou confuso, extraia a lógica para uma função.
 
-## Exercicio pratico
+## Exercício prático
 
-Encontre o primeiro número primo no array e pare:
+Encontre o primeiro número primo no array é pare:
 
 ```typescript
-const numeros: number[] = [4, 6, 8, 9, 11, 15, 17];
+const números: number[] = [4, 6, 8, 9, 11, 15, 17];
 
-for (const n of numeros) {
+for (const n of números) {
   // Pule números menores que 2 com continue
   // Verifique se é primo
   // Se for primo, exiba e use break

@@ -1,14 +1,14 @@
 ---
-slug: "inovacao-saude"
+slug: "inovação-saúde"
 modulo: "Módulo 2 — Planejamento e Inovação"
-titulo: "Inovação em Saúde"
+título: "Inovação em Saúde"
 subtitulo: "Tipos de inovação e tendências tecnológicas no setor"
 descricao: "Compreenda a diferença entre inovação incremental e disruptiva, e conheça as principais tecnologias e tendências em saúde."
 ordem: 4
 proximosPassos:
-  - titulo: "Modelagem de Negócios"
+  - título: "Modelagem de Negócios"
     descricao: "Estruture sua ideia em um modelo sustentável com o Canvas"
-  - titulo: "Planejamento Básico"
+  - título: "Planejamento Básico"
     descricao: "Transforme seu sonho em um plano de ação concreto"
 quiz:
   - pergunta: "Qual a diferença entre invenção e inovação?"
@@ -38,107 +38,107 @@ quiz:
     explicacaoErrada: "Inovação não precisa de alta tecnologia. Um checklist ou grupo educativo no WhatsApp já é inovação."
 ---
 
-## O que voce vai ver aqui?
+## O que você vai ver aqui?
 
-Inovar nao e so coisa de startup de tecnologia. Na saude, inovacao pode ser tao simples quanto criar um checklist para reduzir erros na farmacia ou um grupo de WhatsApp para orientar pacientes. Nesta aula voce vai entender os tipos de inovacao e conhecer as tendencias que estao transformando o setor.
+Inovar não é só coisa de startup de tecnologia. Na saúde, inovação pode ser tao simples quanto criar um checklist para reduzir erros na farmácia ou um grupo de WhatsApp para orientar pacientes. Nesta aula você vai entender os tipos de inovação e conhecer as tendencias que estão transformando o setor.
 
-## O Que e Inovacao?
+## O Que é Inovacao?
 
-Inovacao e a **aplicacao pratica de novas ideias** que geram valor. Diferente da invencao (criar algo inedito), a inovacao pode surgir de uma **melhoria em algo ja existente**.
+Inovacao e a **aplicação prática de novas ideias** que geram valor. Diferente da invenção (criar algo inedito), a inovação pode surgir de uma **melhoria em algo já existente**.
 
 > [!info]
-> **Invencao** = criar algo novo. **Inovacao** = colocar em pratica algo que gera valor real.
+> **Invencao** = criar algo novo. **Inovacao** = colocar em prática algo que gera valor real.
 
 ## Tipos de Inovacao
 
 ### Inovacao Incremental
 
-Melhorias graduais em produtos ou servicos ja existentes.
+Melhorias graduais em produtos ou serviços já existentes.
 
-**Exemplos na saude:**
+**Exemplos na saúde:**
 
 - Atualizacao de um protocolo de curativo
 - Melhoria no processo de agendamento de consultas
-- Novo layout da farmacia para melhorar a experiencia do paciente
+- Novo layout da farmácia para melhorar a experiência do paciente
 
 ### Inovacao Disruptiva
 
 Mudancas radicais que transformam o mercado e criam novos modelos.
 
-**Exemplos na saude:**
+**Exemplos na saúde:**
 
-- Telemedicina substituindo consultas presenciais em areas remotas
-- Inteligencia Artificial para diagnostico de imagens
+- Telemedicina substituindo consultas presenciais em áreas remotas
+- Inteligencia Artificial para diagnóstico de imagens
 - Farmacias inteligentes com dispensa automatizada
 
 > [!sucesso]
-> Voce nao precisa inventar algo revolucionario. A maioria das inovacoes de sucesso na saude sao incrementais — pequenas melhorias que fazem grande diferenca no dia a dia.
+> Você não precisa inventar algo revolucionario. A maioria das inovações de sucesso na saúde são incrementais — pequenas melhorias que fazem grande diferença no dia a dia.
 
-## Inovacao em Servicos de Saude
+## Inovacao em Serviços de Saúde
 
-Inovar em saude nao exige tecnologia de ponta — pode ser:
+Inovar em saúde não exige tecnologia de ponta — pode ser:
 
 - **Processo:** modo de fazer as coisas (exemplo: triagem por WhatsApp)
-- **Produto:** novo servico ou produto ofertado (exemplo: kit de primeiros socorros personalizado)
-- **Modelo de negocio:** nova forma de gerar receita (exemplo: assinatura mensal de home care)
-- **Marketing:** nova forma de se comunicar (exemplo: educacao em saude no Instagram)
+- **Produto:** novo serviço ou produto ofertado (exemplo: kit de primeiros socorros personalizado)
+- **Modelo de negócio:** nova forma de gerar receita (exemplo: assinatura mensal de home care)
+- **Marketing:** nova forma de se comunicar (exemplo: educação em saúde no Instagram)
 
-## Tecnologias e Tendencias na Saude
+## Tecnologias e Tendencias na Saúde
 
 ### O Cenario Atual
 
-O mercado global de tecnologia em saude projeta crescimento de **15% ao ano**. No Brasil, as healthtechs movimentaram **R$ 799 milhoes em 2024** (Liga Ventures).
+O mercado global de tecnologia em saúde projeta crescimento de **15% ao ano**. No Brasil, as healthtechs movimentaram **R$ 799 milhoes em 2024** (Liga Ventures).
 
 ### Principais Tendencias
 
-| Tecnologia                  | O que e                  | Aplicacao                                  |
+| Tecnologia                  | O que é                  | Aplicacao                                  |
 | --------------------------- | ------------------------ | ------------------------------------------ |
 | **Telemedicina**            | Consultas online         | Areas remotas, acompanhamento pos-alta     |
-| **Inteligencia Artificial** | Algoritmos que aprendem  | Diagnostico de imagens, previsao de riscos |
+| **Inteligencia Artificial** | Algoritmos que aprendem  | Diagnóstico de imagens, previsao de riscos |
 | **Wearables**               | Dispositivos vestiveis   | Monitoramento de sinais vitais continuo    |
-| **Big Data**                | Analise de grandes dados | Gestao hospitalar, epidemiologia           |
-| **Apps de saude**           | Aplicativos moveis       | Adesao ao tratamento, educacao em saude    |
-| **IoT na saude**            | Objetos conectados       | Monitoramento de temperatura de vacinas    |
+| **Big Data**                | Análise de grandes dados | Gestão hospitalar, epidemiologia           |
+| **Apps de saúde**           | Aplicativos moveis       | Adesao ao tratamento, educação em saúde    |
+| **IoT na saúde**            | Objetos conectados       | Monitoramento de temperatura de vacinas    |
 | **Blockchain**              | Registro distribuido     | Rastreabilidade de medicamentos            |
 
 > [!info]
-> "Ferramentas como inteligencia artificial, big data, internet das coisas e telemedicina ajudam a tornar os cuidados de saude mais eficientes, personalizados e acessiveis." — Saude Business, 2024
+> "Ferramentas como inteligencia artificial, big data, internet das coisas e telemedicina ajudam a tornar os cuidados de saúde mais eficientes, personalizados e acessíveis." — Saúde Business, 2024
 
 ### Dados do Ecossistema Healthtech no Brasil (2024)
 
 - **602 healthtechs ativas** mapeadas no Brasil
-- **Principais categorias:** bem-estar fisico e mental (10%), planos e financiamento (9%), gestao de processos (8%)
+- **Principais categorias:** bem-estar fisico e mental (10%), planos e financiamento (9%), gestão de processos (8%)
 - **Tecnologias mais usadas:** Data Analytics (24%), Telemedicina (22%), Inteligencia Artificial (21%)
 - Brasil lidera o mercado de healthtechs na America Latina, com **64,8%** dos investimentos
 
-## Inovacao ao Alcance do Tecnico
+## Inovacao ao Alcance do Técnico
 
-Voce nao precisa ser uma startup para inovar! Exemplos praticos:
+Você não precisa ser uma startup para inovar! Exemplos praticos:
 
 - Criar **grupos de WhatsApp** para orientar pacientes com doencas cronicas
-- Desenvolver um **fluxograma visual** de administracao de medicamentos para pacientes idosos
-- Propor ao gestor uma **rotina de checklist** para reduzir erros na farmacia
-- Criar conteudo educativo de saude nas **redes sociais**
+- Desenvolver um **fluxograma visual** de administração de medicamentos para pacientes idosos
+- Propor ao gestor uma **rotina de checklist** para reduzir erros na farmácia
+- Criar conteúdo educativo de saúde nas **redes sociais**
 
 > [!alerta]
-> Lembre-se: qualquer inovacao na saude deve respeitar os limites eticos e legais da profissao. Na proxima aula sobre legislacao voce vai entender melhor esses limites.
+> Lembre-se: qualquer inovação na saúde deve respeitar os limites eticos e legais da profissão. Na próxima aula sobre legislação você vai entender melhor esses limites.
 
-## Atividade Pratica
+## Atividade Prática
 
-**Analise de Inovacao**
+**Análise de Inovacao**
 
 **Tempo:** 25 minutos | **Individual ou dupla**
 
-Escolha **uma healthtech brasileira** (Beep Saude, Pega Plantao, Sami, Mevo, Alice, Pickcells) e responda:
+Escolha **uma healthtech brasileira** (Beep Saúde, Pega Plantao, Sami, Mevo, Alice, Pickcells) e responda:
 
 1. Qual problema ela resolve?
-2. O tipo de inovacao e incremental ou disruptiva? Por que?
-3. Quem e o publico-alvo?
-4. Voce conseguiria adaptar essa ideia para a realidade local?
+2. O tipo de inovação e incremental ou disruptiva? Por que?
+3. Quem é o público-alvo?
+4. Você conseguiria adaptar essa ideia para a realidade local?
 
-## Referencias
+## Referências
 
-- SAUDE BUSINESS. _Tendencias em tecnologia e saude digital para 2025_. Disponivel em: https://www.saudebusiness.com/ti-e-inovao/saude-digital-tecnologia-tendencias-2025/
-- PHILIPS. _10 tendencias de tecnologia de saude para 2025_. Disponivel em: https://www.philips.com.br/a-w/about/news/archive/standard/article/2025/20250205-10-trends-in-healthcare-technology-for-2025.html
+- SAUDE BUSINESS. _Tendencias em tecnologia e saúde digital para 2025_. Disponivel em: https://www.saudebusiness.com/ti-e-inovao/saúde-digital-tecnologia-tendencias-2025/
+- PHILIPS. _10 tendencias de tecnologia de saúde para 2025_. Disponivel em: https://www.philips.com.br/a-w/about/news/archive/standard/article/2025/20250205-10-trends-in-healthcare-technology-for-2025.html
 - SAUDE BUSINESS. _Investimentos em healthtechs crescem 37,6% em 2024_. Disponivel em: https://www.saudebusiness.com/healthtechs/investimentos-em-healthtechs-crescem-376-em-2024-e-brasil-lidera-mercado-na-america-latina/
-- HOSPITAL SIRIO-LIBANES. _Tendencias da Saude para 2025_. Disponivel em: https://www.hospitalsiriolibanes.org.br/blog/paranegocios/tendencias-saude-2025-novidades/
+- HOSPITAL SIRIO-LIBANES. _Tendencias da Saúde para 2025_. Disponivel em: https://www.hospitalsiriolibanes.org.br/blog/paranegocios/tendencias-saúde-2025-novidades/

@@ -1,14 +1,14 @@
 ---
 slug: "intro-empreendedorismo"
 modulo: "Módulo 1 — Mentalidade Empreendedora"
-titulo: "Introdução ao Empreendedorismo na Saúde"
+título: "Introdução ao Empreendedorismo na Saúde"
 subtitulo: "Entenda o que é empreendedorismo e como ele se aplica à área da saúde"
 descricao: "Compreenda o conceito de empreendedorismo, o perfil do profissional empreendedor e as oportunidades para técnicos em enfermagem e farmácia."
 ordem: 1
 proximosPassos:
-  - titulo: "Comportamento Empreendedor"
+  - título: "Comportamento Empreendedor"
     descricao: "Conheça as características que fazem a diferença no profissional empreendedor"
-  - titulo: "Identificação de Oportunidades"
+  - título: "Identificação de Oportunidades"
     descricao: "Aprenda a enxergar negócios onde outros veem apenas problemas"
 quiz:
   - pergunta: "Qual a diferença entre empreendedorismo e intraempreendedorismo?"
@@ -30,7 +30,7 @@ quiz:
     opcoes: ["Prescrever medicamentos de forma autônoma", "Home care e cuidado domiciliar", "Realizar cirurgias simples", "Abrir uma faculdade de medicina"]
     correta: 1
     explicacao: "Home care é uma das principais oportunidades para técnicos em enfermagem empreenderem."
-    explicacaoErrada: "Home care e cuidado domiciliar é uma oportunidade real e regulamentada para técnicos."
+    explicacaoErrada: "Home care e cuidado domiciliar é uma oportunidade real é regulamentada para técnicos."
   - pergunta: "Por que o setor de saúde é considerado resistente a crises?"
     opcoes: ["Porque os salários são muito altos", "Porque serviços de saúde são necessidade básica da população", "Porque o governo subsidia todos os negócios de saúde", "Porque não existe concorrência no setor"]
     correta: 1
@@ -38,88 +38,88 @@ quiz:
     explicacaoErrada: "A saúde é um setor resiliente porque é uma necessidade essencial da população."
 ---
 
-## O que voce vai ver aqui?
+## O que você vai ver aqui?
 
-Empreendedorismo nao e so abrir empresa. E uma mentalidade — uma forma de enxergar problemas como oportunidades de melhoria. Nesta aula voce vai entender como isso se aplica diretamente ao seu trabalho na area da saude, seja criando seu proprio negocio ou inovando dentro da instituicao onde trabalha.
+Empreendedorismo não é só abrir empresa. É uma mentalidade — uma forma de enxergar problemas como oportunidades de melhoria. Nesta aula você vai entender como isso se aplica diretamente ao seu trabalho na área da saúde, seja criando seu próprio negócio ou inovando dentro da instituição onde trabalha.
 
-## O Que e Empreendedorismo?
+## O Que é Empreendedorismo?
 
-Empreendedorismo e a capacidade de **transformar ideias e oportunidades em acoes concretas**, gerando valor para a sociedade. Nao se trata apenas de abrir um negocio — e uma mentalidade de enxergar problemas como oportunidades de melhoria.
+Empreendedorismo é a capacidade de **transformar ideias e oportunidades em ações concretas**, gerando valor para a sociedade. Não se trata apenas de abrir um negócio — é uma mentalidade de enxergar problemas como oportunidades de melhoria.
 
 > [!info]
-> "Empreender e a capacidade de transformar ideias e oportunidades em acoes, criando valor para a sociedade, o que na enfermagem esta na saude e bem-estar das pessoas." — COREN-SC, 2021
+> "Empreender é a capacidade de transformar ideias e oportunidades em ações, criando valor para a sociedade, o que na enfermagem está na saúde e bem-estar das pessoas." — COREN-SC, 2021
 
-Na saude, o empreendedorismo se manifesta de duas formas principais:
+Na saúde, o empreendedorismo se manifesta de duas formas principais:
 
-| Tipo                      | Definicao                                  | Exemplo                                   |
+| Tipo                      | Definição                                  | Exemplo                                   |
 | ------------------------- | ------------------------------------------ | ----------------------------------------- |
-| **Empreendedorismo**      | Criar um novo negocio autonomo             | Abrir uma clinica de home care            |
-| **Intraempreendedorismo** | Inovar dentro da instituicao onde trabalha | Propor protocolo de seguranca do paciente |
+| **Empreendedorismo**      | Criar um novo negócio autônomo             | Abrir uma clínica de home care            |
+| **Intraempreendedorismo** | Inovar dentro da instituição onde trabalha | Propor protocolo de segurança do paciente |
 
-## Perfil do Profissional Empreendedor na Saude
+## Perfil do Profissional Empreendedor na Saúde
 
-Profissionais empreendedores da saude combinam **conhecimento tecnico** com **habilidades de gestao**. Algumas caracteristicas fundamentais:
+Profissionais empreendedores da saúde combinam **conhecimento técnico** com **habilidades de gestão**. Algumas características fundamentais:
 
-- **Capacidade de observar** necessidades nao atendidas
-- **Criatividade** para propor solucoes inovadoras
-- **Habilidade de comunicacao** com pacientes e equipes
-- **Senso etico** e responsabilidade profissional
-- **Visao de negocio** (custos, clientes, sustentabilidade)
+- **Capacidade de observar** necessidades não atendidas
+- **Criatividade** para propor soluções inovadoras
+- **Habilidade de comunicação** com pacientes e equipes
+- **Senso ético** e responsabilidade profissional
+- **Visão de negócio** (custos, clientes, sustentabilidade)
 
 > [!info]
-> "O enfermeiro empreendedor usa seu conhecimento tecnico, sua experiencia e demandas da area da saude para desenvolver seu proprio negocio." — IPOG, 2021
+> "O enfermeiro empreendedor usa seu conhecimento técnico, sua experiência e demandas da área da saúde para desenvolver seu próprio negócio." — IPOG, 2021
 
 ## Emprego x Empregabilidade x Empreendedorismo
 
-| Conceito              | Caracteristica                | Risco         |
+| Conceito              | Característica                | Risco         |
 | --------------------- | ----------------------------- | ------------- |
-| **Emprego**           | Vinculo formal, salario fixo  | Menor risco   |
+| **Emprego**           | Vínculo formal, salário fixo  | Menor risco   |
 | **Empregabilidade**   | Capacidade de ser contratado  | Risco moderado|
-| **Empreendedorismo**  | Criacao de valor por conta propria | Maior risco/retorno |
+| **Empreendedorismo**  | Criação de valor por conta própria | Maior risco/retorno |
 
 > [!sucesso]
-> A boa noticia: essas tres coisas nao sao excludentes. Voce pode ter um emprego formal e desenvolver mentalidade empreendedora ao mesmo tempo.
+> A boa notícia: essas três coisas não são excludentes. Você pode ter um emprego formal e desenvolver mentalidade empreendedora ao mesmo tempo.
 
-## Panorama do Mercado para Tecnicos em Enfermagem e Farmacia
+## Panorama do Mercado para Técnicos em Enfermagem e Farmácia
 
-O setor de saude no Brasil e **resistente a crises** — servicos de saude sao necessidade basica da populacao. Oportunidades para tecnicos:
+O setor de saúde no Brasil é **resistente a crises** — serviços de saúde são necessidade básica da população. Oportunidades para técnicos:
 
-**Tecnico em Enfermagem:**
+**Técnico em Enfermagem:**
 
 - Home care e cuidado domiciliar
-- Clinicas de vacinacao
-- Atendimento a empresas (saude ocupacional)
+- Clinicas de vacinação
+- Atendimento a empresas (saúde ocupacional)
 - Consultorias e treinamentos
-- Projetos educacionais em saude
-- Estetica (com especializacao)
+- Projetos educacionais em saúde
+- Estetica (com especialização)
 
-**Tecnico em Farmacia:**
+**Técnico em Farmácia:**
 
-- Farmacia de manipulacao
+- Farmácia de manipulação
 - Consultoria farmaceutica
-- Dispensacao e gestao de medicamentos
-- Farmacia clinica
+- Dispensacao e gestão de medicamentos
+- Farmácia clínica
 - Distribuidoras e importadoras
 
 > [!info]
-> O Brasil possui mais de **87.794 farmacias e drogarias privadas** e e um dos maiores mercados farmaceuticos do mundo.
+> O Brasil possui mais de **87.794 farmácias e drogarias privadas** e é um dos maiores mercados farmacêuticos do mundo.
 
-## Atividade Pratica
+## Atividade Prática
 
 **Dinamica: "Onde Esta a Oportunidade?"**
 
 **Tempo:** 20 minutos | **Grupo:** duplas ou trios
 
-1. Pense em **um problema real** que voce ja observou em hospitais, clinicas ou farmacias
+1. Pense em **um problema real** que você já observou em hospitais, clínicas ou farmácias
 2. Descreva esse problema em 2-3 frases
-3. Pense: como voce poderia **resolver** esse problema de forma criativa?
+3. Pense: como você poderia **resolver** esse problema de forma criativa?
 4. Compartilhe com a turma
 
 > [!sucesso]
-> Voce acabou de praticar o primeiro passo do empreendedorismo — identificar problemas!
+> Você acabou de praticar o primeiro passo do empreendedorismo — identificar problemas!
 
-## Referencias
+## Referências
 
-- COREN-SC. _Empreendedorismo na Enfermagem pode trazer solucoes para a saude publica_. Disponivel em: https://www.corensc.gov.br/empreendedorismo-na-enfermagem-pode-trazer-solucoes-para-a-saude-publica/
-- MORSCH, Jose Aldair. _Empreendedorismo na Saude: dicas, oportunidades e desafios no Brasil_. Telemedicina Morsch, 2024. Disponivel em: https://telemedicinamorsch.com.br/blog/empreendedorismo-na-saude
-- CONCLINICA. _10 Exemplos de Empreendedorismo na Area da Saude_. Disponivel em: https://conclinica.com.br/exemplos-de-empreendedorismo-na-area-da-saude/
+- COREN-SC. _Empreendedorismo na Enfermagem pode trazer soluções para a saúde publica_. Disponivel em: https://www.corensc.gov.br/empreendedorismo-na-enfermagem-pode-trazer-soluções-para-a-saúde-pública/
+- MORSCH, Jose Aldair. _Empreendedorismo na Saúde: dicas, oportunidades e desafios no Brasil_. Telemedicina Morsch, 2024. Disponivel em: https://telemedicinamorsch.com.br/blog/empreendedorismo-na-saúde
+- CONCLINICA. _10 Exemplos de Empreendedorismo na Área da Saude_. Disponivel em: https://conclinica.com.br/exemplos-de-empreendedorismo-na-área-da-saúde/

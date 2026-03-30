@@ -1,14 +1,14 @@
 ---
 slug: "comportamento-empreendedor"
 modulo: "Módulo 1 — Mentalidade Empreendedora"
-titulo: "Comportamento Empreendedor"
+título: "Comportamento Empreendedor"
 subtitulo: "As características que fazem a diferença no profissional de saúde"
 descricao: "Identifique as principais características do empreendedor de sucesso e desenvolva proatividade, criatividade e tomada de decisão."
 ordem: 2
 proximosPassos:
-  - titulo: "Identificação de Oportunidades"
+  - título: "Identificação de Oportunidades"
     descricao: "Aprenda a enxergar negócios onde outros veem apenas problemas"
-  - titulo: "Inovação em Saúde"
+  - título: "Inovação em Saúde"
     descricao: "Entenda os tipos de inovação e as tendências do setor"
 quiz:
   - pergunta: "Comportamento empreendedor é um dom nato ou uma competência que pode ser desenvolvida?"
@@ -38,95 +38,95 @@ quiz:
     explicacaoErrada: "SCAMPER é uma ferramenta de criatividade com 7 ações: Substituir, Combinar, Adaptar, Modificar, Put (outro uso), Eliminar, Reorganizar."
 ---
 
-## O que voce vai ver aqui?
+## O que você vai ver aqui?
 
-Nao existe um "tipo unico" de empreendedor. Mas existem **competencias comuns** que aparecem em profissionais de sucesso — e a boa noticia e que todas elas podem ser desenvolvidas. Nesta aula voce vai conhecer essas caracteristicas e comecar a identificar quais ja sao seus pontos fortes.
+Não existe um "tipo único" de empreendedor. Mas existem **competências comuns** que aparecem em profissionais de sucesso — é a boa notícia e que todas elas podem ser desenvolvidas. Nesta aula você vai conhecer essas características e começar a identificar quais já são seus pontos fortes.
 
 ## As Caracteristicas do Empreendedor
 
-Estudos identificam competencias comuns entre profissionais empreendedores de sucesso:
+Estudos identificam competências comuns entre profissionais empreendedores de sucesso:
 
-| Caracteristica           | O que significa na pratica                                |
+| Característica           | O que significa na prática                                |
 | ------------------------ | --------------------------------------------------------- |
 | **Proatividade**         | Agir sem esperar ser mandado; antecipar problemas         |
-| **Criatividade**         | Encontrar solucoes novas para problemas antigos           |
+| **Criatividade**         | Encontrar soluções novas para problemas antigos           |
 | **Resiliencia**          | Superar fracassos e aprender com eles                     |
-| **Autoconfianca**        | Acreditar na propria capacidade sem arrogancia            |
+| **Autoconfianca**        | Acreditar na própria capacidade sem arrogancia            |
 | **Lideranca**            | Inspirar e conduzir pessoas em torno de um objetivo       |
-| **Foco no cliente**      | Priorizar a experiencia e necessidade do paciente/cliente |
-| **Visao de longo prazo** | Pensar no futuro sem negligenciar o presente              |
+| **Foco no cliente**      | Priorizar a experiência e necessidade do paciente/cliente |
+| **Visão de longo prazo** | Pensar no futuro sem negligenciar o presente              |
 
 ## Proatividade: A Base do Comportamento Empreendedor
 
-Proatividade e **agir antes que os problemas acontecam**. Na saude, isso significa:
+Proatividade é **agir antes que os problemas aconteçam**. Na saúde, isso significa:
 
 - Identificar falhas nos protocolos antes de um incidente
 - Propor melhorias sem esperar ordens superiores
-- Buscar atualizacao profissional continuamente
+- Buscar atualização profissional continuamente
 - Antecipar necessidades dos pacientes
 
 > [!sucesso]
-> **Exemplo pratico:** Um tecnico em enfermagem que percebe que a farmacia do hospital demora a entregar medicamentos e propoe um sistema de solicitacao antecipada — isso e proatividade!
+> **Exemplo prático:** Um técnico em enfermagem que percebe que a farmácia do hospital demora a entregar medicamentos e propoe um sistema de solicitação antecipada — isso é proatividade!
 
 ## Criatividade e Inovacao: Ferramentas do Empreendedor
 
-**Criatividade** e gerar novas ideias. **Inovacao** e colocar essas ideias em pratica com resultado.
+**Criatividade** e gerar novas ideias. **Inovacao** e colocar essas ideias em prática com resultado.
 
-### Exercicio mental: SCAMPER
+### Exercício mental: SCAMPER
 
 | Letra | Acao        | Pergunta                               |
 | ----- | ----------- | -------------------------------------- |
 | **S** | Substituir  | O que posso substituir neste processo? |
 | **C** | Combinar    | O que posso combinar para melhorar?    |
-| **A** | Adaptar     | O que posso adaptar de outra area?     |
+| **A** | Adaptar     | O que posso adaptar de outra área?     |
 | **M** | Modificar   | O que posso modificar ou ampliar?      |
 | **P** | Outro uso   | Para que mais posso usar isso?         |
 | **E** | Eliminar    | O que posso eliminar para simplificar? |
 | **R** | Reorganizar | O que posso reorganizar ou inverter?   |
 
 > [!info]
-> O SCAMPER e uma ferramenta simples que voce pode aplicar a qualquer processo do seu dia a dia — desde a organizacao do estoque da farmacia ate o fluxo de atendimento de pacientes.
+> O SCAMPER é uma ferramenta simples que você pode aplicar a qualquer processo do seu dia a dia — desde a organização do estoque da farmácia até o fluxo de atendimento de pacientes.
 
 ## Autoconfianca e Tomada de Decisao
 
-A tomada de decisao envolve cinco etapas:
+A tomada de decisão envolve cinco etapas:
 
 1. **Identificar o problema** com clareza
-2. **Levantar alternativas** possiveis
-3. **Avaliar riscos e beneficios** de cada alternativa
+2. **Levantar alternativas** possíveis
+3. **Avaliar riscos e benefícios** de cada alternativa
 4. **Decidir e agir** com responsabilidade
-5. **Avaliar os resultados** e ajustar se necessario
+5. **Avaliar os resultados** e ajustar se necessário
 
 > [!alerta]
-> O medo de errar paralisa. Empreendedores de sucesso tomam decisoes com as informacoes disponiveis — e aprendem com os erros.
+> O medo de errar paralisa. Empreendedores de sucesso tomam decisões com as informações disponíveis — e aprendem com os erros.
 
-## Mentalidade Empreendedora no Setor da Saude
+## Mentalidade Empreendedora no Setor da Saúde
 
-A saude publica brasileira enfrenta desafios reais: falta de leitos, tempo de espera, qualificacao de profissionais. Isso **cria espaco para empreendedores** que querem fazer a diferenca.
+A saúde pública brasileira enfrenta desafios reais: falta de leitos, tempo de espera, qualificação de profissionais. Isso **cria espaço para empreendedores** que querem fazer a diferença.
 
 > [!info]
-> "Empreender na Enfermagem e necessario por varios aspectos cruciais, inovando nos cuidados com a saude, consolidando a profissao com a ciencia, tecnologia e inovacoes." — Borges et al., 2024
+> "Empreender na Enfermagem é necessário por vários aspectos cruciais, inovando nos cuidados com a saúde, consolidando a profissão com a ciencia, tecnologia e inovações." — Borges et al., 2024
 
-## Atividade Pratica
+## Atividade Prática
 
 **Autoavaliacao do Perfil Empreendedor**
 
-Avalie-se de 1 a 5 em cada caracteristica:
+Avalie-se de 1 a 5 em cada característica:
 
-| Caracteristica    | Minha nota (1-5) |
+| Característica    | Minha nota (1-5) |
 | ----------------- | ---------------- |
 | Proatividade      |                  |
 | Criatividade      |                  |
 | Resiliencia       |                  |
 | Autoconfianca     |                  |
 | Comunicacao       |                  |
-| Organizacao       |                  |
-| Visao estrategica |                  |
+| Organização       |                  |
+| Visão estratégica |                  |
 
 > [!sucesso]
-> Qual sua maior fortaleza? Qual ponto voce precisa desenvolver? Use essa reflexao como ponto de partida para sua jornada empreendedora.
+> Qual sua maior fortaleza? Qual ponto você precisa desenvolver? Use essa reflexao como ponto de partida para sua jornada empreendedora.
 
-## Referencias
+## Referências
 
 - BORGES, C.S. et al. _Empreendedorismo na Enfermagem: Oportunidade de Autonomia e Visibilidade Profissional_. Science and Connections, 2024. Disponivel em: https://sevenpubl.com.br/editora/article/download/6193/11261/24714
-- GERANDO EMPREENDEDORES. _10 atividades para empreender na area da saude_. Disponivel em: https://gerandoempreendedores.com.br/10-atividades-para-empreender-na-area-da-saude/
+- GERANDO EMPREENDEDORES. _10 atividades para empreender na área da saude_. Disponivel em: https://gerandoempreendedores.com.br/10-atividades-para-empreender-na-área-da-saúde/

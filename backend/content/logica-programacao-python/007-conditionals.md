@@ -1,14 +1,14 @@
 ---
 slug: "conditionals"
 modulo: "Módulo 3 — Estruturas de Controle"
-titulo: "Estruturas Condicionais"
+título: "Estruturas Condicionais"
 subtitulo: "Tomando decisões com if, elif e else"
 descricao: "Use if, elif e else para controlar o fluxo do programa. Entenda indentação e evite erros comuns."
 ordem: 7
 proximosPassos:
-  - titulo: "Match/Case e Condições Combinadas"
+  - título: "Match/Case e Condições Combinadas"
     descricao: "Pattern matching e valores falsy em Python"
-  - titulo: "Loop For com Range"
+  - título: "Loop For com Range"
     descricao: "Repetições controladas com for e range()"
 quiz:
   - pergunta: "Qual palavra-chave é usada para 'senão se' em Python?"
@@ -30,21 +30,21 @@ quiz:
     opcoes: ["O Python corrige automaticamente", "O programa roda mas com resultado errado", "Ocorre um IndentationError", "O bloco é ignorado"]
     correta: 2
     explicacao: "Indentação errada = IndentationError. O programa nem roda."
-    explicacaoErrada: "Python gera IndentationError e o programa não executa."
+    explicacaoErrada: "Python gera IndentationError é o programa não executa."
 ---
 
-## O que sao condicionais?
+## O que são condicionais?
 
-Condicionais permitem que o programa tome decisoes. O `if` funciona como uma portaria: so deixa o codigo passar se a condicao for verdadeira. Com `elif` voce testa alternativas e com `else` cobre o caso em que nada deu certo.
+Condicionais permitem que o programa tome decisões. O `if` funciona como uma portaria: só deixa o código passar se a condição for verdadeira. Com `elif` você testa alternativas e com `else` cobre o caso em que nada deu certo.
 
-Em Python, o que define um bloco de codigo e a **indentacao** (4 espacos). Nada de chaves como em outras linguagens.
+Em Python, o que define um bloco de código e a **indentação** (4 espaços). Nada de chaves como em outras linguagens.
 
 > [!info]
-> Sempre ordene seus `elif` do mais especifico pro mais generico. Python para no primeiro que for verdadeiro e ignora o resto.
+> Sempre ordene seus `elif` do mais específico para o mais generico. Python para no primeiro que for verdadeiro e ignora o resto.
 
 ## if simples
 
-A forma mais basica: se a condicao for verdadeira, executa o bloco. Senao, pula:
+A forma mais básica: se a condição for verdadeira, executa o bloco. Senao, pula:
 
 ```python
 idade = 18
@@ -53,14 +53,14 @@ if idade >= 18:
     print("Maior de idade")     # → Maior de idade
     print("Pode tirar carteira")
 
-print("Fim")  # sempre executa (esta fora do if)
+print("Fim")  # sempre executa (está fora do if)
 ```
 
-Tudo que esta indentado (4 espacos pra dentro) pertence ao `if`. A linha `print("Fim")` esta fora -- roda sempre.
+Tudo que está indentado (4 espaços para dentro) pertence ao `if`. A linha `print("Fim")` está fora -- roda sempre.
 
 ## if / else
 
-Quando voce quer tratar os dois caminhos -- verdadeiro **e** falso:
+Quando você quer tratar os dois caminhos -- verdadeiro **e** falso:
 
 ```python
 idade = 15
@@ -73,7 +73,7 @@ else:
 
 ## if / elif / else
 
-Quando existem varias possibilidades, use `elif` (abreviacao de "else if"):
+Quando existem várias possibilidades, use `elif` (abreviação de "else if"):
 
 ```python
 nota = 8.5
@@ -93,22 +93,22 @@ print(f"Nota: {nota} - Conceito: {conceito}")
 # → Nota: 8.5 - Conceito: B
 ```
 
-Python avalia de cima pra baixo e para no **primeiro** verdadeiro. `8.5 >= 9`? Nao. `8.5 >= 7`? Sim -- entra ali e ignora o resto.
+Python avalia de cima para baixo e para no **primeiro** verdadeiro. `8.5 >= 9`? Não. `8.5 >= 7`? Sim -- entra ali e ignora o resto.
 
 ## A ordem importa!
 
-Se voce colocar a condicao mais generica primeiro, ela "engole" as mais especificas:
+Se você colocar a condição mais genérica primeiro, ela "engole" as mais específicas:
 
 ```python
 nota = 9.5
 
-# Errado -- ordem generica primeiro
+# Errado -- ordem genérica primeiro
 if nota >= 5:
-    print("C")    # 9.5 >= 5 e True, para aqui!
+    print("C")    # 9.5 >= 5 é True, para aqui!
 elif nota >= 9:
     print("A")    # nunca chega aqui
 
-# Correto -- do mais especifico ao mais generico
+# Correto -- do mais específico ao mais generico
 if nota >= 9:
     print("A")    # → A
 elif nota >= 7:
@@ -118,25 +118,25 @@ elif nota >= 5:
 ```
 
 > [!alerta]
-> Sempre va do mais especifico pro mais generico. Se a primeira condicao for muito ampla, as de baixo nunca executam.
+> Sempre vá do mais específico para o mais generico. Se a primeira condição for muito ampla, as de baixo nunca executam.
 
 ## Indentacao
 
-Em Python, indentacao nao e estetica -- e **obrigatoria**. Ela define o que pertence a cada bloco:
+Em Python, indentação não é estetica -- e **obrigatória**. Ela define o que pertence a cada bloco:
 
 ```python
 if True:
-    print("Dentro do if")     # 4 espacos = pertence ao if
-    print("Ainda dentro")     # 4 espacos = pertence ao if
-print("Fora do if")           # 0 espacos = fora
+    print("Dentro do if")     # 4 espaços = pertence ao if
+    print("Ainda dentro")     # 4 espaços = pertence ao if
+print("Fora do if")           # 0 espaços = fora
 ```
 
 > [!alerta]
-> Indentacao errada gera `IndentationError` e o programa nem roda. Cuidado tambem pra nao esquecer os dois-pontos `:` depois da condicao.
+> Indentacao errada gera `IndentationError` é o programa nem roda. Cuidado também para não esquecer os dois-pontos `:` depois da condição.
 
 ## Condicionais aninhados vs and
 
-Voce pode aninhar `if` dentro de `if`, mas na maioria dos casos `and` fica mais limpo:
+Você pode aninhar `if` dentro de `if`, mas na maioria dos casos `and` fica mais limpo:
 
 ```python
 idade = 20
@@ -159,21 +159,21 @@ if idade >= 18 and tem_carteira:
 # if idade >= 18   # SyntaxError!
 
 # Usar = em vez de ==
-# if idade = 18:   # SyntaxError! (= e atribuicao, == e comparacao)
+# if idade = 18:   # SyntaxError! (= e atribuição, == e comparação)
 
 # Bloco vazio? Use pass
 if idade >= 18:
     pass  # TODO: implementar depois
 ```
 
-## Exemplo pratico: classificador de faixa etaria
+## Exemplo prático: classificador de faixa etaria
 
 ```python
 nome = input("Nome: ")
 idade = int(input("Idade: "))
 
 if idade < 0:
-    faixa = "Idade invalida"
+    faixa = "Idade inválida"
 elif idade <= 12:
     faixa = "Crianca"
 elif idade <= 17:
@@ -189,10 +189,10 @@ print(f"{nome}, {idade} anos - {faixa}")
 # → Ana, 22 anos - Adulto
 ```
 
-Cada faixa e exclusiva -- so uma delas executa. O `else` no final pega todos acima de 59.
+Cada faixa e exclusiva -- só uma delas executa. O `else` no final pega todos acima de 59.
 
-## Referencias
+## Referências
 
-- [if Statements](https://docs.python.org/3/tutorial/controlflow.html#if-statements) -- documentacao oficial
+- [if Statements](https://docs.python.org/3/tutorial/controlflow.html#if-statements) -- documentação oficial
 - [Conditional Statements in Python](https://realpython.com/python-conditional-statements/) -- guia no Real Python
 - [Curso Python #11 - Condicoes (if/elif/else)](https://www.youtube.com/watch?v=K10u3XIf1-Q) -- Curso em Video, PT-BR

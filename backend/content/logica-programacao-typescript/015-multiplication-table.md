@@ -1,15 +1,15 @@
 ---
 slug: "multiplication-table"
 modulo: "Módulo 5 — Prática"
-titulo: "Desafio: Tabuada"
+título: "Desafio: Tabuada"
 subtitulo: "Gerando tabuadas com loops e formatação"
-descricao: "Gere a tabuada de qualquer número usando for, template literals e padStart pra alinhar."
+descricao: "Gere a tabuada de qualquer número usando for, template literals e padStart para alinhar."
 ordem: 15
 proximosPassos:
-  - titulo: "Desafio: Sistema de Aprovação"
+  - título: "Desafio: Sistema de Aprovação"
     descricao: "Classifique alunos por nota"
-  - titulo: "Desafio: Números Primos"
-    descricao: "Verifique e liste números primos"
+  - título: "Desafio: Números Primos"
+    descricao: "Verifique é liste números primos"
 quiz:
   - pergunta: "O que padStart(2) faz em uma string?"
     opcoes: ["Remove espaços", "Adiciona espaços no início até ter 2 caracteres", "Adiciona 2 espaços no final", "Converte para número"]
@@ -25,7 +25,7 @@ quiz:
     opcoes: ["Arredonda o número", "Converte para string", "Converte para boolean", "Remove decimais"]
     correta: 1
     explicacao: "toString() transforma o número em texto."
-    explicacaoErrada: "toString() converte pra string. Necessário pra usar padStart."
+    explicacaoErrada: "toString() converte para string. Necessário para usar padStart."
 ---
 
 ## O desafio
@@ -55,7 +55,7 @@ Um `for` de 1 a 10 multiplicando `n` por `i`.
 
 ### Versão formatada
 
-Pra alinhar os números bonitinho, use `padStart`:
+Para alinhar os números bonitinho, use `padStart`:
 
 ```typescript
 function tabuadaFormatada(n: number): void {
@@ -76,7 +76,7 @@ tabuadaFormatada(7);
 ```
 
 > [!info]
-> `padStart(n)` preenche o início com espaços até ter `n` caracteres. Ótimo pra alinhar colunas.
+> `padStart(n)` preenche o início com espaços até ter `n` caracteres. Ótimo para alinhar colunas.
 
 ### Versão interativa
 
@@ -86,12 +86,12 @@ import PromptSync from "prompt-sync";
 const prompt = PromptSync();
 
 const entrada = prompt("Digite um número para ver a tabuada: ");
-const numero = parseInt(entrada);
+const número = parseInt(entrada);
 
-if (isNaN(numero)) {
+if (isNaN(número)) {
   console.log("Número inválido!");
 } else {
-  tabuadaFormatada(numero);
+  tabuadaFormatada(número);
 }
 ```
 

@@ -1,14 +1,14 @@
 ---
 slug: "switch-combining"
 modulo: "Módulo 3 — Controle de Fluxo"
-titulo: "switch/case e Operadores Lógicos"
+título: "switch/case e Operadores Lógicos"
 subtitulo: "Comparando valores fixos e combinando condições"
 descricao: "switch/case, operadores lógicos (&&, ||, !) e guard clauses."
 ordem: 7
 proximosPassos:
-  - titulo: "Loops"
+  - título: "Loops"
     descricao: "Repita ações automaticamente"
-  - titulo: "Arrays"
+  - título: "Arrays"
     descricao: "Agrupe dados em listas"
 quiz:
   - pergunta: "Quando usar switch em vez de if/else if?"
@@ -65,9 +65,9 @@ Cada `case` compara o valor. O `break` encerra o switch. O `default` funciona co
 Outro exemplo — menu de opções:
 
 ```typescript
-const opcao: number = 2;
+const opção: number = 2;
 
-switch (opcao) {
+switch (opção) {
   case 1:
     console.log("Cadastrar aluno");
     break;
@@ -85,7 +85,7 @@ switch (opcao) {
 > [!sucesso]
 > Use `switch` para valores fixos (dias da semana, opções de menu). Para comparações com `>`, `<`, `>=`, use `if/else`.
 
-## Operadores logicos
+## Operadores lógicos
 
 Combinam condições. Pense assim:
 - `&&` (E) — as duas precisam ser verdadeiras
@@ -102,7 +102,7 @@ Combinam condições. Pense assim:
 const idade: number = 20;
 const temCarteira: boolean = true;
 
-const podeConduizir = idade >= 18 && temCarteira; // → true
+const podeConduzir = idade >= 18 && temCarteira; // → true
 const podeEntrar = idade >= 18 || temCarteira;    // → true
 const menorIdade = !(idade >= 18);                // → false
 ```
@@ -124,9 +124,9 @@ if ((idade >= 18 && temIngresso) || ehVIP) {
 Traduzindo: maior de idade COM ingresso, OU VIP.
 
 > [!alerta]
-> Sempre use parênteses ao misturar `&&` e `||`. Sem eles, `&&` tem prioridade e o resultado pode te surpreender.
+> Sempre use parênteses ao misturar `&&` e `||`. Sem eles, `&&` tem prioridade é o resultado pode te surpreender.
 
-### Exemplo pratico
+### Exemplo prático
 
 ```typescript
 const chovendo: boolean = false;
@@ -196,7 +196,7 @@ function podeVotar(idade: number, tituloAtivo: boolean): string {
 }
 ```
 
-## Resumo: quando usar cada tecnica
+## Resumo: quando usar cada técnica
 
 | Situação | Use |
 | -------- | --- |

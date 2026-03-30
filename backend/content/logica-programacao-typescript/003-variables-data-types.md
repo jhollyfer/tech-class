@@ -1,14 +1,14 @@
 ---
 slug: "variables-data-types"
 modulo: "Módulo 1 — Começando a Programar"
-titulo: "Variáveis e Tipos de Dados"
+título: "Variáveis e Tipos de Dados"
 subtitulo: "Guardando informações no programa"
 descricao: "let, const, tipos (string, number, boolean), tipagem e inferência em TypeScript."
 ordem: 3
 proximosPassos:
-  - titulo: "Operadores aritméticos"
+  - título: "Operadores aritméticos"
     descricao: "Faça cálculos e comparações"
-  - titulo: "Operadores lógicos"
+  - título: "Operadores lógicos"
     descricao: "Combine condições com &&, || e !"
 quiz:
   - pergunta: "Qual a diferença entre let e const?"
@@ -29,18 +29,18 @@ quiz:
   - pergunta: "O que acontece ao tentar reatribuir uma const?"
     opcoes: ["O valor muda normalmente", "O programa ignora", "Dá erro", "O valor vira undefined"]
     correta: 2
-    explicacao: "✓ Reatribuir const dá erro. Ela existe pra garantir que o valor não mude."
+    explicacao: "✓ Reatribuir const dá erro. Ela existe para garantir que o valor não mude."
     explicacaoErrada: "✗ const = constante. Tentar mudar gera erro."
   - pergunta: "Qual a forma correta de declarar uma variável com tipo em TypeScript?"
     opcoes: ["var nome = string \"Ana\"", "let nome: string = \"Ana\"", "let string nome = \"Ana\"", "nome: string = \"Ana\""]
     correta: 1
-    explicacao: "✓ Sintaxe: let nome: tipo = valor. Dois pontos separam nome e tipo."
+    explicacao: "✓ Sintaxe: let nome: tipo = valor. Dois pontos separam nome é tipo."
     explicacaoErrada: "✗ Em TypeScript, tipo vem depois dos dois pontos: let nome: string = \"Ana\"."
 ---
 
 ## O que são variáveis?
 
-Variáveis guardam valores. Pense nelas como gavetas com etiqueta — cada uma tem um nome e guarda algo dentro.
+Variáveis guardam valores. Pense nelas como gavetas com etiqueta — cada uma tem um nome é guarda algo dentro.
 
 ```typescript
 let nome: string = "Maria";   // pode mudar depois
@@ -96,7 +96,7 @@ let contador: number = 0;
 ```
 
 > [!sucesso]
-> TypeScript pega erros ANTES de rodar. É como um corretor ortográfico pro seu código.
+> TypeScript pega erros ANTES de rodar. É como um corretor ortográfico para o seu código.
 
 ## Inferência de tipo
 
@@ -108,7 +108,7 @@ let sobrenome = "Silva";     // TypeScript sabe que é string
 ```
 
 > [!info]
-> Pra quem tá aprendendo, declare o tipo sempre. Ajuda a fixar o conceito.
+> Para quem tá aprendendo, declare o tipo sempre. Ajuda a fixar o conceito.
 
 ## Erros comuns
 
@@ -146,14 +146,14 @@ console.log(typeof null);      // → "object" (bug histórico!)
 ```typescript
 const nome: string = "Maria Silva";
 const idade: number = 22;
-const matricula: string = "2024001";
+const matrícula: string = "2024001";
 const ativo: boolean = true;
 let faltas: number = 0;
 
 console.log("=== Ficha do Aluno ===");
 console.log(`Nome: ${nome}`);           // → Nome: Maria Silva
 console.log(`Idade: ${idade} anos`);    // → Idade: 22 anos
-console.log(`Matrícula: ${matricula}`); // → Matrícula: 2024001
+console.log(`Matrícula: ${matrícula}`); // → Matrícula: 2024001
 console.log(`Situação: ${ativo ? "Ativo" : "Inativo"}`); // → Situação: Ativo
 console.log(`Faltas: ${faltas}`);       // → Faltas: 0
 

@@ -1,14 +1,14 @@
 ---
 slug: "arithmetic-relational-operators"
 modulo: "Módulo 2 — Operadores"
-titulo: "Operadores Aritméticos e Relacionais"
+título: "Operadores Aritméticos e Relacionais"
 subtitulo: "Calcule, compare e atualize valores"
 descricao: "Operadores de conta (+, -, *, /), comparação (===, >, <) e atalhos de atribuição (+=, -=) em TypeScript."
 ordem: 4
 proximosPassos:
-  - titulo: "Operadores lógicos"
+  - título: "Operadores lógicos"
     descricao: "Combine condições com &&, || e ternário"
-  - titulo: "Condicionais"
+  - título: "Condicionais"
     descricao: "Tome decisões com if/else"
 quiz:
   - pergunta: "O que o operador % (módulo) retorna?"
@@ -17,14 +17,14 @@ quiz:
     explicacao: "✓ % retorna o resto. 10 % 3 = 1 (10 ÷ 3 = 3, sobra 1)."
     explicacaoErrada: "✗ % não é porcentagem — é o resto da divisão."
   - pergunta: "Qual a diferença entre == e === em TypeScript?"
-    opcoes: ["São iguais", "== compara valor e tipo, === só valor", "=== compara valor e tipo sem coerção, == faz coerção", "== é mais seguro"]
+    opcoes: ["São iguais", "== compara valor é tipo, === só valor", "=== compara valor é tipo sem coerção, == faz coerção", "== é mais seguro"]
     correta: 2
     explicacao: "✓ === compara valor E tipo. == converte tipos e pode causar bugs."
     explicacaoErrada: "✗ Use sempre ===. O == converte tipos: \"5\" == 5 é true, mas \"5\" === 5 é false."
   - pergunta: "O que x += 5 faz?"
     opcoes: ["Compara x com 5", "Atribui 5 a x", "Soma 5 ao valor atual de x", "Subtrai 5 de x"]
     correta: 2
-    explicacao: "✓ x += 5 é atalho pra x = x + 5."
+    explicacao: "✓ x += 5 é atalho para x = x + 5."
     explicacaoErrada: "✗ += soma ao valor atual. x += 5 = x = x + 5."
   - pergunta: "Qual o resultado de 2 ** 3?"
     opcoes: ["6", "8", "5", "23"]
@@ -50,7 +50,7 @@ console.log(a ** b); // → 1000 (potência: 10³)
 ```
 
 > [!info]
-> `%` (módulo) retorna o resto da divisão. Muito útil pra saber se um número é par: `n % 2 === 0`.
+> `%` (módulo) retorna o resto da divisão. Muito útil para saber se um número é par: `n % 2 === 0`.
 
 ### Ordem das operações
 
@@ -93,7 +93,7 @@ console.log(5 !== 3); // → true  (diferente)
 
 ## Operadores de atribuição
 
-Atalhos pra atualizar variáveis:
+Atalhos para atualizar variáveis:
 
 ```typescript
 let x = 10;
@@ -105,7 +105,7 @@ x **= 2; // x = x ** 2 → 36
 x %= 5;  // x = x % 5  → 1
 ```
 
-Em vez de `soma = soma + valor`, escreva `soma += valor`. Mais curto e mais claro.
+Em vez de `soma = soma + valor`, escreva `soma += valor`. Mais curto é mais claro.
 
 > [!sucesso]
 > Aritméticos fazem contas, relacionais comparam (retornam true/false), atribuição atualiza variáveis. Domine esses três antes de avançar.

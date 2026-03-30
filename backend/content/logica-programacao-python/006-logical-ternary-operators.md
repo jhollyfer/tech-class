@@ -1,14 +1,14 @@
 ---
 slug: "logical-ternary-operators"
 modulo: "Módulo 2 — Fundamentos da Linguagem"
-titulo: "Operadores Lógicos e Ternário"
+título: "Operadores Lógicos e Ternário"
 subtitulo: "Combinando condições com and, or, not e ternário"
 descricao: "Combine condições com and, or, not, entenda curto-circuito e use o operador ternário."
 ordem: 6
 proximosPassos:
-  - titulo: "Estruturas Condicionais"
+  - título: "Estruturas Condicionais"
     descricao: "Tome decisões com if, elif e else"
-  - titulo: "Match/Case e Condições Combinadas"
+  - título: "Match/Case e Condições Combinadas"
     descricao: "Pattern matching e valores falsy em Python"
 quiz:
   - pergunta: "Qual é o operador lógico E em Python?"
@@ -33,16 +33,16 @@ quiz:
     explicacaoErrada: "Precedência: and primeiro, or depois. True and False = False, depois False or True = True."
 ---
 
-## O que sao operadores logicos?
+## O que são operadores lógicos?
 
-Operadores logicos combinam condicoes. Em vez de simbolos como `&&` e `||`, Python usa palavras: `and`, `or` e `not`. Mais facil de ler, mais facil de entender.
+Operadores lógicos combinam condições. Em vez de símbolos como `&&` e `||`, Python usa palavras: `and`, `or` e `not`. Mais fácil de ler, mais fácil de entender.
 
 > [!info]
-> Precedencia dos operadores logicos: `not` primeiro, depois `and`, depois `or`. Na duvida, use parenteses.
+> Precedencia dos operadores lógicos: `not` primeiro, depois `and`, depois `or`. Na duvida, use parênteses.
 
 ## and -- os dois precisam ser True
 
-`and` so retorna `True` se **ambas** as condicoes forem verdadeiras:
+`and` só retorna `True` se **ambas** as condições forem verdadeiras:
 
 ```python
 print(True and True)    # → True
@@ -51,7 +51,7 @@ print(False and True)   # → False
 print(False and False)  # → False
 ```
 
-Na pratica:
+Na prática:
 
 ```python
 idade = 25
@@ -63,7 +63,7 @@ print(f"Pode alugar: {pode_alugar}")  # → Pode alugar: True
 
 ## or -- pelo menos um precisa ser True
 
-`or` retorna `True` se **qualquer uma** das condicoes for verdadeira:
+`or` retorna `True` se **qualquer uma** das condições for verdadeira:
 
 ```python
 print(True or False)    # → True
@@ -71,7 +71,7 @@ print(False or True)    # → True
 print(False or False)   # → False
 ```
 
-Na pratica:
+Na prática:
 
 ```python
 idade = 25
@@ -94,14 +94,14 @@ print(f"No verde: {no_verde}")  # → No verde: True
 
 ## Curto-circuito
 
-Python e esperto: se ja sabe o resultado, ele **para de avaliar** o resto da expressao. Isso se chama curto-circuito.
+Python é esperto: se já sabe o resultado, ele **para de avaliar** o resto da expressao. Isso se chama curto-circuito.
 
 ```python
 # and para no primeiro False
 divisor = 0
 if divisor != 0 and 10 / divisor > 2:
     print("OK")
-# divisor != 0 ja e False, entao 10/divisor NAO e avaliado (evita erro!)
+# divisor != 0 já é False, então 10/divisor NÃO é avaliado (evita erro!)
 
 # or para no primeiro True
 nome = "" or "Anonimo"
@@ -111,20 +111,20 @@ nome = "Carlos" or "Anonimo"
 print(nome)  # → Carlos
 ```
 
-Detalhe importante: `and` e `or` retornam o **valor real**, nao so `True`/`False`:
+Detalhe importante: `and` e `or` retornam o **valor real**, não só `True`/`False`:
 
 ```python
 print(1 and 2 and 3)     # → 3
 print(1 and 0 and 3)     # → 0
-print(0 or "" or "Ola")  # → Ola
+print(0 or "" or "Olá")  # → Olá
 ```
 
 > [!sucesso]
-> Use `valor or "padrao"` como um valor padrao rapido. Se `valor` for falsy (vazio, zero, None), o padrao entra no lugar.
+> Use `valor or "padrão"` como um valor padrão rápido. Se `valor` for falsy (vazio, zero, None), o padrão entra no lugar.
 
-## Operador ternario
+## Operador ternário
 
-O ternario e um atalho pra escrever um `if/else` em uma linha so. A sintaxe e: `valor_se_true if condicao else valor_se_false`.
+O ternário é um atalho para escrever um `if/else` em uma linha só. A sintaxe e: `valor_se_true if condição else valor_se_false`.
 
 ```python
 idade = 20
@@ -136,7 +136,7 @@ resultado = "Aprovado" if nota >= 7 else "Reprovado"
 print(resultado)  # → Aprovado
 ```
 
-Funciona dentro de f-strings tambem:
+Funciona dentro de f-strings também:
 
 ```python
 saldo = -50
@@ -150,7 +150,7 @@ print(f"{qtd} item" if qtd == 1 else f"{qtd} itens")
 ```
 
 > [!alerta]
-> Se o ternario ficar confuso ou longo demais, use `if/elif/else` normal. Legibilidade vem primeiro.
+> Se o ternário ficar confuso ou longo demais, use `if/elif/else` normal. Legibilidade vem primeiro.
 
 ## Tabela resumo
 
@@ -159,9 +159,9 @@ print(f"{qtd} item" if qtd == 1 else f"{qtd} itens")
 | `and` | Ambos True | `True and False` | `False` |
 | `or` | Pelo menos um True | `True or False` | `True` |
 | `not` | Inverte | `not True` | `False` |
-| ternario | if inline | `"sim" if True else "nao"` | `"sim"` |
+| ternário | if inline | `"sim" if True else "não"` | `"sim"` |
 
-## Exemplo pratico: validacao de formulario
+## Exemplo prático: validação de formulário
 
 ```python
 nome = input("Nome: ")
@@ -174,14 +174,14 @@ email_valido = "@" in email and "." in email
 
 tudo_ok = nome_valido and idade_valida and email_valido
 
-status = "Cadastro aprovado!" if tudo_ok else "Dados invalidos."
+status = "Cadastro aprovado!" if tudo_ok else "Dados inválidos."
 print(status)
 ```
 
-Cada validacao e uma condicao simples. O `and` combina todas no final. O ternario decide a mensagem.
+Cada validação é uma condição simples. O `and` combina todas no final. O ternário decide a mensagem.
 
-## Referencias
+## Referências
 
-- [Boolean Operations](https://docs.python.org/3/library/stdtypes.html#boolean-operations-and-or-not) -- documentacao oficial
-- [Conditional Expressions](https://docs.python.org/3/reference/expressions.html#conditional-expressions) -- operador ternario na doc oficial
+- [Boolean Operations](https://docs.python.org/3/library/stdtypes.html#boolean-operations-and-or-not) -- documentação oficial
+- [Conditional Expressions](https://docs.python.org/3/reference/expressions.html#conditional-expressions) -- operador ternário na doc oficial
 - [Curso Python #10 - Condicoes](https://www.youtube.com/watch?v=K10u3XIf1-Q) -- Curso em Video, PT-BR

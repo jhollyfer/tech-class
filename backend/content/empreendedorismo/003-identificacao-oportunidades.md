@@ -1,14 +1,14 @@
 ---
-slug: "identificacao-oportunidades"
+slug: "identificação-oportunidades"
 modulo: "Módulo 1 — Mentalidade Empreendedora"
-titulo: "Identificação de Oportunidades"
+título: "Identificação de Oportunidades"
 subtitulo: "Como enxergar negócios onde outros veem apenas problemas"
 descricao: "Desenvolva a habilidade de observação crítica do ambiente profissional e transforme problemas em oportunidades de negócio na saúde."
 ordem: 3
 proximosPassos:
-  - titulo: "Inovação em Saúde"
+  - título: "Inovação em Saúde"
     descricao: "Entenda os tipos de inovação e as tendências do setor"
-  - titulo: "Modelagem de Negócios"
+  - título: "Modelagem de Negócios"
     descricao: "Estruture sua ideia em um modelo sustentável com o Canvas"
 quiz:
   - pergunta: "Uma oportunidade de negócio existe quando há:"
@@ -33,54 +33,54 @@ quiz:
     explicacaoErrada: "A vivência prática no setor permite que técnicos identifiquem problemas reais que outros não enxergam."
 ---
 
-## O que voce vai ver aqui?
+## O que você vai ver aqui?
 
-Toda grande empresa nasceu de alguem que enxergou um problema e decidiu resolve-lo. Nesta aula voce vai aprender a observar o ambiente profissional com olhos de empreendedor e a usar ferramentas praticas para transformar problemas em oportunidades de negocio.
+Toda grande empresa nasceu de alguem que enxergou um problema e decidiu resolve-lo. Nesta aula você vai aprender a observar o ambiente profissional com olhos de empreendedor e a usar ferramentas práticas para transformar problemas em oportunidades de negócio.
 
-## O Que e Uma Oportunidade de Negocio?
+## O Que é Uma Oportunidade de Negócio?
 
-Uma oportunidade de negocio existe quando ha:
+Uma oportunidade de negócio existe quando ha:
 
 - Um **problema real** que afeta um grupo de pessoas
-- Uma **solucao possivel** que ainda nao existe ou e ineficiente
-- **Pessoas dispostas a pagar** por essa solucao
+- Uma **solução possível** que ainda não existe ou e ineficiente
+- **Pessoas dispostas a pagar** por essa solução
 - Um **momento propicio** no mercado
 
 > [!info]
 > Toda grande empresa nasceu de alguem que enxergou um problema e decidiu resolve-lo.
 
-## Problemas e Necessidades na Area da Saude
+## Problemas e Necessidades na Área da Saúde
 
-O setor de saude brasileiro apresenta lacunas significativas que geram oportunidades:
+O setor de saúde brasileiro apresenta lacunas significativas que geram oportunidades:
 
 | Problema Observado                       | Oportunidade Gerada                      |
 | ---------------------------------------- | ---------------------------------------- |
 | Tempo de espera excessivo                | Clinica com agendamento online eficiente |
 | Dificuldade de acesso em regioes remotas | Telemedicina e atendimento domiciliar    |
-| Pacientes que nao aderem ao tratamento   | Aplicativo de lembretes de medicacao     |
-| Falta de informacao sobre saude          | Canal educativo nas redes sociais        |
-| Idosos sem suporte domiciliar            | Servico de home care especializado       |
-| Cuidadores sem treinamento               | Curso de capacitacao para cuidadores     |
+| Pacientes que não aderem ao tratamento   | Aplicativo de lembretes de medicação     |
+| Falta de informação sobre saúde          | Canal educativo nas redes sociais        |
+| Idosos sem suporte domiciliar            | Serviço de home care especializado       |
+| Cuidadores sem treinamento               | Curso de capacitação para cuidadores     |
 
 ## Como Observar o Ambiente Profissional
 
-A observacao sistematica e a principal fonte de oportunidades. Pratique em:
+A observação sistemática e a principal fonte de oportunidades. Pratique em:
 
 **Hospitais e UPAs:**
 
-- Quais processos sao lentos ou ineficientes?
+- Quais processos são lentos ou ineficientes?
 - O que pacientes reclamam frequentemente?
 - Onde ocorrem erros evitaveis?
 
 **Clinicas e Consultorios:**
 
-- O que faz os pacientes nao voltarem?
-- Quais servicos complementares nao sao oferecidos?
+- O que faz os pacientes não voltarem?
+- Quais serviços complementares não são oferecidos?
 
 **Farmacias:**
 
 - Qual dificuldade os clientes tem ao buscar medicamentos?
-- Existem servicos farmaceuticos nao ofertados na regiao?
+- Existem serviços farmacêuticos não ofertados na regiao?
 
 ## Ferramentas para Identificar Oportunidades
 
@@ -88,65 +88,65 @@ A observacao sistematica e a principal fonte de oportunidades. Pratique em:
 
 | Quadrante                           | Pergunta                              |
 | ----------------------------------- | ------------------------------------- |
-| O que o paciente **pensa e sente**? | Quais sao seus medos e expectativas?  |
+| O que o paciente **pensa e sente**? | Quais são seus medos e expectativas?  |
 | O que ele **ve** ao redor?          | Que ambiente e influencias o cercam?  |
 | O que ele **ouve**?                 | O que dizem medicos, familia, amigos? |
 | O que ele **diz e faz**?            | Qual seu comportamento real?          |
-| **Dores**                           | Quais sao seus maiores problemas?     |
+| **Dores**                           | Quais são seus maiores problemas?     |
 | **Ganhos**                          | O que o tornaria feliz e satisfeito?  |
 
-### Tecnica dos 5 Porques
+### Técnica dos 5 Porques
 
 Para cada problema identificado, pergunte "Por que?" cinco vezes consecutivas para chegar a causa raiz.
 
 **Exemplo:**
 
-- Problema: Pacientes nao tomam medicamentos corretamente
+- Problema: Pacientes não tomam medicamentos corretamente
 - Por que? → Esquecem os horarios
-- Por que? → Nao tem sistema de lembrete
-- Por que? → Nenhuma farmacia oferece esse servico
-- Por que? → Nao viram essa necessidade como negocio
-- **Oportunidade:** Servico de gestao personalizada de medicamentos
+- Por que? → Não tem sistema de lembrete
+- Por que? → Nenhuma farmácia oferece esse serviço
+- Por que? → Não viram essa necessidade como negócio
+- **Oportunidade:** Serviço de gestão personalizada de medicamentos
 
 > [!sucesso]
-> Os 5 Porques sao uma ferramenta simples e poderosa. Voce pode usar em qualquer problema que observar no seu dia a dia profissional.
+> Os 5 Porques são uma ferramenta simples e poderosa. Você pode usar em qualquer problema que observar no seu dia a dia profissional.
 
-## Ideias de Negocio na Area da Saude para Tecnicos
+## Ideias de Negócio na Área da Saúde para Técnicos
 
-**Servicos Presenciais:**
+**Serviços Presenciais:**
 
-- Clinica de vacinacao privada
+- Clinica de vacinação privada
 - Atendimento domiciliar (home care)
 - Sala de curativos e procedimentos ambulatoriais
-- Consultoria para empresas (NR-32, saude ocupacional)
+- Consultoria para empresas (NR-32, saúde ocupacional)
 
-**Servicos Digitais:**
+**Serviços Digitais:**
 
-- Canal educativo de saude nas redes sociais
+- Canal educativo de saúde nas redes sociais
 - Consultoria online para cuidadores
 - Treinamento de primeiros socorros para empresas
 
 **Produtos:**
 
 - Kits de primeiros socorros personalizados
-- Materiais educativos sobre cuidados com saude
+- Materiais educativos sobre cuidados com saúde
 
-## Atividade Pratica
+## Atividade Prática
 
 **Mapa de Oportunidades**
 
 **Tempo:** 30 minutos | **Grupo:** trios
 
-1. Escolham **um ambiente de saude** (hospital, clinica, farmacia, UBS)
+1. Escolham **um ambiente de saúde** (hospital, clínica, farmácia, UBS)
 2. Listem **5 problemas reais** que observaram nesse ambiente
-3. Para cada problema, proponham **uma solucao/oportunidade**
+3. Para cada problema, proponham **uma solução/oportunidade**
 4. Escolham a melhor ideia e apresentem para a turma em 2 minutos
 
 > [!alerta]
-> Criterios de avaliacao: O problema e real e relevante? A solucao e viavel? Existe publico-alvo claramente identificado?
+> Criterios de avaliação: O problema e real e relevante? A solução e viavel? Existe público-alvo claramente identificado?
 
-## Referencias
+## Referências
 
-- GERANDO EMPREENDEDORES. _10 atividades para empreender na area da saude_. Disponivel em: https://gerandoempreendedores.com.br/10-atividades-para-empreender-na-area-da-saude/
+- GERANDO EMPREENDEDORES. _10 atividades para empreender na área da saude_. Disponivel em: https://gerandoempreendedores.com.br/10-atividades-para-empreender-na-área-da-saúde/
 - STAY CARE. _Empreendedorismo na Enfermagem_. Disponivel em: https://www.staycare.com.br/2020/09/10/empreendedorismo-na-enfermagem/
-- CONCLINICA. _Como fazer a captacao de pacientes em clinicas medicas_. Disponivel em: https://conclinica.com.br/exemplos-de-empreendedorismo-na-area-da-saude/
+- CONCLINICA. _Como fazer a captação de pacientes em clínicas medicas_. Disponivel em: https://conclinica.com.br/exemplos-de-empreendedorismo-na-área-da-saúde/

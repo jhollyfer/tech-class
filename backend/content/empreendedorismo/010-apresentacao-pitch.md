@@ -1,7 +1,7 @@
 ---
-slug: "apresentacao-pitch"
+slug: "apresentação-pitch"
 modulo: "Módulo 3 — Ética, Gestão e Pitch"
-titulo: "Apresentação de Ideias (Pitch)"
+título: "Apresentação de Ideias (Pitch)"
 subtitulo: "Construa e apresente seu pitch empreendedor"
 descricao: "Aprenda a estruturar um pitch de 3 minutos, desenvolva habilidades de comunicação oral e reflita sobre a jornada empreendedora."
 ordem: 10
@@ -34,57 +34,57 @@ quiz:
     explicacaoErrada: "Mentalidade empreendedora = proatividade + visão de oportunidades + geração de valor. Útil dentro ou fora de uma empresa."
 ---
 
-## O que voce vai ver aqui?
+## O que você vai ver aqui?
 
-Esta e a ultima aula da disciplina — e aqui tudo se conecta. Voce vai aprender a estruturar um pitch de 3 minutos para apresentar sua ideia de negocio com clareza e confianca. E tambem vai refletir sobre tudo que aprendeu ao longo dessa jornada.
+Esta e a ultima aula da disciplina — e aqui tudo se conecta. Você vai aprender a estruturar um pitch de 3 minutos para apresentar sua ideia de negócio com clareza e confiança. É também vai refletir sobre tudo que aprendeu ao longo dessa jornada.
 
-## O Que e um Pitch?
+## O Que é um Pitch?
 
-Pitch e uma **apresentacao curta e objetiva** de uma ideia de negocio com o objetivo de **convencer** alguem (investidor, parceiro, cliente) de que a ideia e valida e tem potencial.
+Pitch é uma **apresentação curta e objetiva** de uma ideia de negócio com o objetivo de **convencer** alguem (investidor, parceiro, cliente) de que a ideia e válida e tem potencial.
 
 > [!info]
-> "Se voce nao consegue explicar sua ideia em 1 minuto, voce nao a conhece bem o suficiente."
+> "Se você não consegue explicar sua ideia em 1 minuto, você não a conhece bem o suficiente."
 
 ## Estrutura do Pitch de 3 Minutos
 
 | Parte                 | Tempo  | O Que Apresentar                  |
 | --------------------- | ------ | --------------------------------- |
-| **Problema**          | 30 seg | Qual dor real voce identificou?   |
-| **Solucao**           | 45 seg | O que voce oferece para resolver? |
-| **Publico-alvo**      | 30 seg | Para quem? Com que perfil?        |
+| **Problema**          | 30 seg | Qual dor real você identificou?   |
+| **Solucao**           | 45 seg | O que você oferece para resolver? |
+| **Público-alvo**      | 30 seg | Para quem? Com que perfil?        |
 | **Diferencial**       | 30 seg | Por que te escolheriam?           |
-| **Modelo de receita** | 30 seg | Como voce ganha dinheiro?         |
-| **Pedido/Chamada**    | 15 seg | O que voce precisa? O que propoe? |
+| **Modelo de receita** | 30 seg | Como você ganha dinheiro?         |
+| **Pedido/Chamada**    | 15 seg | O que você precisa? O que propoe? |
 
 > [!sucesso]
-> Comece pelo problema — e o que prende a atencao da audiencia. Se o problema for real e relevante, as pessoas vao querer ouvir sua solucao.
+> Comece pelo problema — é o que prende a atenção da audiencia. Se o problema for real e relevante, as pessoas vao querer ouvir sua solução.
 
 ## Tecnicas de Apresentacao
 
 ### Comunicacao Verbal
 
-- Use linguagem **simples e acessivel** — evite jargoes tecnicos
+- Use linguagem **simples e acessível** — evite jargoes técnicos
 - Seja **direto e objetivo** — elimine palavras desnecessarias
 - Use **dados e exemplos** concretos para dar credibilidade
 - Faca uma **abertura impactante** (dado surpreendente, pergunta, historia curta)
 
-### Comunicacao Nao-Verbal
+### Comunicacao Não-Verbal
 
 - Mantenha **contato visual** com a audiencia
-- **Postura ereta** e aberta — transmite confianca
-- **Gestos naturais** que reforcam o que voce diz
-- **Controle a voz:** ritmo, volume e pausas estrategicas
+- **Postura ereta** e aberta — transmite confiança
+- **Gestos naturais** que reforcam o que você diz
+- **Controle a voz:** ritmo, volume e pausas estratégicas
 
 ### Erros Comuns no Pitch
 
 - Tentar explicar tudo em poucos minutos
-- Falar de costas para o publico (lendo o slide)
-- Nao ensaiar — improviso raramente funciona bem
+- Falar de costas para o público (lendo o slide)
+- Não ensaiar — improviso raramente funciona bem
 - Ser defensivo ao receber perguntas dificeis
-- Nao ter clareza sobre como o negocio gera receita
+- Não ter clareza sobre como o negócio gera receita
 
 > [!alerta]
-> Ensaie pelo menos 2 vezes em voz alta antes de apresentar. Cronometre. Se passar de 3 minutos, corte. Se faltar tempo, revise o que e mais importante.
+> Ensaie pelo menos 2 vezes em voz alta antes de apresentar. Cronometre. Se passar de 3 minutos, corte. Se faltar tempo, revise o que é mais importante.
 
 ## Como Dar e Receber Feedback
 
@@ -105,30 +105,30 @@ Use o modelo **Sanduiche**:
 
 ## Reflexao Final: Empreendedorismo na Sua Carreira
 
-Independente de abrir um negocio, a **mentalidade empreendedora** vai transformar sua carreira:
+Independente de abrir um negócio, a **mentalidade empreendedora** vai transformar sua carreira:
 
-- Voce passa a **enxergar oportunidades** onde outros veem so problemas
+- Você passa a **enxergar oportunidades** onde outros veem só problemas
 - Desenvolve **proatividade** que te destaca em qualquer emprego
-- Aprende a **gerenciar recursos** com mais eficiencia
+- Aprende a **gerenciar recursos** com mais eficiência
 - Constroi uma **rede de contatos** mais solida
-- Entrega mais **valor** para pacientes, instituicoes e comunidade
+- Entrega mais **valor** para pacientes, instituições e comunidade
 
 > [!sucesso]
-> "Empreendedorismo e sobre impacto — nao apenas sobre dinheiro. Na saude, cada solucao que voce criar vai melhorar a vida de pessoas reais."
+> "Empreendedorismo e sobre impacto — não apenas sobre dinheiro. Na saúde, cada solução que você criar vai melhorar a vida de pessoas reais."
 
 ## Roteiro do Pitch
 
 ### Estrutura da Apresentacao Final
 
-Cada grupo tem **3 minutos** de apresentacao + **2 minutos** de perguntas e feedback.
+Cada grupo tem **3 minutos** de apresentação + **2 minutos** de perguntas e feedback.
 
 **Criterios de Avaliacao:**
 
 | Criterio                             | Peso |
 | ------------------------------------ | ---- |
-| Clareza na apresentacao do problema  | 20%  |
-| Relevancia e viabilidade da solucao  | 25%  |
-| Identificacao do publico-alvo        | 15%  |
+| Clareza na apresentação do problema  | 20%  |
+| Relevancia e viabilidade da solução  | 25%  |
+| Identificacao do público-alvo        | 15%  |
 | Modelo de receita/sustentabilidade   | 20%  |
 | Apresentacao oral (postura, clareza) | 20%  |
 
@@ -138,35 +138,35 @@ Cada grupo tem **3 minutos** de apresentacao + **2 minutos** de perguntas e feed
 
 **Antes de apresentar:**
 
-1. Revise os 9 blocos do Canvas do seu negocio
+1. Revise os 9 blocos do Canvas do seu negócio
 2. Defina quem vai falar cada parte do pitch
 3. Ensaie ao menos 2 vezes em voz alta
 4. Prepare uma abertura impactante
 
-## O Que Voce Leva Desta Jornada
+## O Que Você Leva Desta Jornada
 
-Ao longo das 10 aulas, voce aprendeu a:
+Ao longo das 10 aulas, você aprendeu a:
 
-- Ver o mercado de saude com olhos empreendedores
+- Ver o mercado de saúde com olhos empreendedores
 - Identificar e transformar problemas em oportunidades
-- Estruturar ideias em modelos de negocio
+- Estruturar ideias em modelos de negócio
 - Planejar com metas claras e recursos bem organizados
 - Construir e gerenciar sua imagem profissional
-- Atuar dentro dos limites eticos e legais da profissao
-- Entregar qualidade e humanizacao no atendimento
-- Apresentar ideias com confianca e clareza
+- Atuar dentro dos limites eticos e legais da profissão
+- Entregar qualidade e humanização no atendimento
+- Apresentar ideias com confiança e clareza
 
 ### Proximos Passos Sugeridos
 
 1. **Aprofunde-se** no Canvas Business Model — leia o livro de Osterwalder
-2. **Siga empreendedores da saude** nas redes sociais para se inspirar
-3. **Conecte-se** com outros profissionais — networking vale muito na saude
+2. **Siga empreendedores da saúde** nas redes sociais para se inspirar
+3. **Conecte-se** com outros profissionais — networking vale muito na saúde
 4. **Busque o SEBRAE** da sua cidade — cursos, consultoria e credito gratuitos
-5. **Mantenha-se atualizado** — o setor de saude muda rapido
+5. **Mantenha-se atualizado** — o setor de saúde muda rápido
 
-## Referencias
+## Referências
 
 - OSTERWALDER, A.; PIGNEUR, Y. _Business Model Generation_. Alta Books.
 - SEBRAE. _Empreendedorismo na Saude_. Disponivel em: https://www.sebrae.com.br
 - BORGES, C.S. et al. _Empreendedorismo na Enfermagem_. Science and Connections, 2024.
-- MORSCH, J.A. _Empreendedorismo na Saude: dicas, oportunidades e desafios_. Disponivel em: https://telemedicinamorsch.com.br/blog/empreendedorismo-na-saude
+- MORSCH, J.A. _Empreendedorismo na Saúde: dicas, oportunidades e desafios_. Disponivel em: https://telemedicinamorsch.com.br/blog/empreendedorismo-na-saúde

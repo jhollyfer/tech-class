@@ -1,14 +1,14 @@
 ---
-slug: "planejamento-basico"
+slug: "planejamento-básico"
 modulo: "Módulo 2 — Planejamento e Inovação"
-titulo: "Planejamento Básico"
+título: "Planejamento Básico"
 subtitulo: "Do sonho ao plano de ação com metas e custos"
 descricao: "Aprenda a elaborar um plano de negócio simplificado, definir metas SMART e calcular custos iniciais e precificação."
 ordem: 6
 proximosPassos:
-  - titulo: "Marketing Pessoal e Profissional"
+  - título: "Marketing Pessoal e Profissional"
     descricao: "Construa sua marca e imagem profissional no setor de saúde"
-  - titulo: "Legislação e Ética Profissional"
+  - título: "Legislação e Ética Profissional"
     descricao: "Conheça os limites legais e éticos do empreendedorismo na saúde"
 quiz:
   - pergunta: "O que são metas SMART?"
@@ -24,7 +24,7 @@ quiz:
   - pergunta: "O pró-labore (salário do empreendedor) é considerado:"
     opcoes: ["Lucro do negócio", "Um custo do negócio", "Um investimento opcional", "Uma receita extra"]
     correta: 1
-    explicacao: "O pró-labore é um custo — deve ser incluído no cálculo antes de definir o preço e o lucro."
+    explicacao: "O pró-labore é um custo — deve ser incluído no cálculo antes de definir o preço é o lucro."
     explicacaoErrada: "O pró-labore (seu salário) é um custo do negócio, não um lucro. Deve entrar no cálculo de precificação."
   - pergunta: "Qual é a primeira seção de um plano de negócio simplificado?"
     opcoes: ["Análise financeira", "Resumo executivo", "Plano de marketing", "Lista de fornecedores"]
@@ -38,90 +38,90 @@ quiz:
     explicacaoErrada: "A fórmula é: Preço = Custo Total + Margem de Lucro. Custo Total = Fixo + Variável + Pró-labore."
 ---
 
-## O que voce vai ver aqui?
+## O que você vai ver aqui?
 
-Ter uma ideia incrivel nao basta se voce nao sabe como tira-la do papel. Nesta aula voce vai aprender a montar um plano de negocio simplificado, definir metas claras e calcular quanto custa comecar — e quanto cobrar pelo seu servico.
+Ter uma ideia incrivel não basta se você não sabe como tira-lá do papel. Nesta aula você vai aprender a montar um plano de negócio simplificado, definir metas claras e calcular quanto custa começar — e quanto cobrar pelo seu serviço.
 
 ## Por Que Planejar?
 
 > [!info]
 > "Quem falha em planejar, planeja falhar." — Benjamin Franklin
 
-O planejamento nao elimina riscos, mas **reduz surpresas** e aumenta as chances de sucesso. No setor de saude, a falta de planejamento pode gerar problemas legais, financeiros e operacionais graves.
+O planejamento não elimina riscos, mas **reduz surpresas** e aumenta as chances de sucesso. No setor de saúde, a falta de planejamento pode gerar problemas legais, financeiros e operacionais graves.
 
-## O Plano de Negocio Simplificado
+## O Plano de Negócio Simplificado
 
-Um plano de negocio completo pode ter dezenas de paginas. Para comecar, foque nos **elementos essenciais**:
+Um plano de negócio completo pode ter dezenas de páginas. Para começar, foque nos **elementos essenciais**:
 
-### Estrutura Basica
+### Estrutura Básica
 
-| Secao                   | O que descrever                                  |
+| Seção                   | O que descrever                                  |
 | ----------------------- | ------------------------------------------------ |
-| **1. Resumo executivo** | O que e o negocio, para quem, qual o diferencial |
-| **2. Produto/Servico**  | O que voce oferece com detalhes                  |
-| **3. Publico-Alvo**     | Quem vai comprar e por que                       |
-| **4. Concorrencia**     | Quem ja faz algo parecido, como me diferencio    |
+| **1. Resumo executivo** | O que é o negócio, para quem, qual o diferencial |
+| **2. Produto/Serviço**  | O que você oferece com detalhes                  |
+| **3. Público-Alvo**     | Quem vai comprar e por que                       |
+| **4. Concorrencia**     | Quem já faz algo parecido, como me diferencio    |
 | **5. Marketing**        | Como vou divulgar e atrair clientes              |
-| **6. Operacao**         | Como o servico funciona no dia a dia             |
+| **6. Operacao**         | Como o serviço funciona no dia a dia             |
 | **7. Financeiro**       | Custos, receita esperada, lucro projetado        |
 
 ## Definindo Objetivos e Metas (SMART)
 
-Metas eficazes seguem o criterio **SMART**:
+Metas eficazes seguem o critério **SMART**:
 
 | Letra              | Significado                 | Exemplo                           |
 | ------------------ | --------------------------- | --------------------------------- |
 | **S** – Especifico | O que exatamente quero?     | Atender 15 clientes de home care  |
-| **M** – Mensuravel | Como vou medir?             | Por numero de atendimentos/mes    |
-| **A** – Atingivel  | E realista?                 | Sim, com 2 tecnicos inicialmente  |
-| **R** – Relevante  | Faz sentido para o negocio? | Sim, e minha principal receita    |
-| **T** – Temporal   | Em quanto tempo?            | Nos primeiros 6 meses de operacao |
+| **M** – Mensuravel | Como vou medir?             | Por número de atendimentos/mes    |
+| **A** – Atingivel  | E realista?                 | Sim, com 2 técnicos inicialmente  |
+| **R** – Relevante  | Faz sentido para o negócio? | Sim, e minha principal receita    |
+| **T** – Temporal   | Em quanto tempo?            | Nos primeiros 6 meses de operação |
 
 > [!sucesso]
 > Uma meta SMART transforma um desejo vago ("quero ter muitos clientes") em algo concreto e mensuravel ("atender 15 clientes de home care nos primeiros 6 meses").
 
-## Organizacao de Recursos
+## Organização de Recursos
 
 ### Recursos Humanos
 
 - Quantas pessoas preciso para operar?
 - Preciso de socios? Parceiros? Fornecedores?
-- Posso comecar sozinho e contratar depois?
+- Posso começar sozinho e contratar depois?
 
 ### Recursos Materiais
 
-- Equipamentos necessarios (estetoscopio, esfigmomanometro, etc.)
-- Espaco fisico necessario (proprio, alugado, sem espaco fixo?)
+- Equipamentos necessários (estetoscopio, esfigmomanometro, etc.)
+- Espaco fisico necessário (próprio, alugado, sem espaço fixo?)
 - Materiais de consumo (insumos, EPIs, etc.)
 
 ### Recursos Financeiros
 
-- Capital proprio disponivel
+- Capital próprio disponível
 - Linhas de credito (SEBRAE, bancos, familiares)
-- Prazo para o negocio se tornar autossustentavel
+- Prazo para o negócio se tornar autossustentavel
 
-## Custos Iniciais e Precificacao Basica
+## Custos Iniciais e Precificacao Básica
 
 ### Tipos de Custos
 
-| Tipo                     | Definicao                    | Exemplo                           |
+| Tipo                     | Definição                    | Exemplo                           |
 | ------------------------ | ---------------------------- | --------------------------------- |
 | **Fixo**                 | Existem mesmo sem vender     | Aluguel, plano de telefone        |
-| **Variavel**             | Aumentam conforme a producao | Material de curativo por paciente |
-| **Investimento inicial** | Para comecar o negocio       | Equipamentos, reforma, registro   |
+| **Variável**             | Aumentam conforme a produção | Material de curativo por paciente |
+| **Investimento inicial** | Para começar o negócio       | Equipamentos, reforma, registro   |
 
-### Formula Basica de Precificacao
+### Formula Básica de Precificacao
 
 ```
 Preco = Custo Total + Margem de Lucro Desejada
 
-Custo Total = Custo Fixo + Custo Variavel + Pro-Labore (seu salario)
+Custo Total = Custo Fixo + Custo Variável + Pro-Labore (seu salário)
 ```
 
-**Exemplo pratico — Home Care:**
+**Exemplo prático — Home Care:**
 
 - Custo fixo mensal: R$ 500,00 (telefone, transporte, seguro)
-- Custo variavel por atendimento: R$ 30,00 (insumos, EPI)
+- Custo variável por atendimento: R$ 30,00 (insumos, EPI)
 - Pro-labore desejado: R$ 2.000,00/mes
 - Atendimentos planejados: 40/mes
 
@@ -132,23 +132,23 @@ Preco com 30% de lucro = R$ 92,50 x 1,30 = R$ 120,25
 ```
 
 > [!alerta]
-> Nunca defina precos "no chute". Calcule seus custos primeiro — muitos negocios quebram porque cobram menos do que gastam.
+> Nunca defina precos "no chute". Calcule seus custos primeiro — muitos negócios quebram porque cobram menos do que gastam.
 
-## Atividade Pratica
+## Atividade Prática
 
-**Elaborando o Mini Plano de Negocio**
+**Elaborando o Mini Plano de Negócio**
 
 **Tempo:** 35 minutos | **Grupos da aula anterior**
 
 Usando a ideia desenvolvida nas aulas anteriores, preencha:
 
-1. **Nome do negocio e descricao breve** (2-3 linhas)
-2. **Publico-alvo** (descricao da persona)
+1. **Nome do negócio e descrição breve** (2-3 linhas)
+2. **Público-alvo** (descrição da persona)
 3. **Tres metas SMART** para os primeiros 6 meses
 4. **Principais custos** (liste pelo menos 5)
-5. **Proposta de preco** (calculo basico)
+5. **Proposta de preco** (cálculo básico)
 
-## Referencias
+## Referências
 
-- SEBRAE. _Como elaborar um plano de negocios_. Disponivel em: https://www.sebrae.com.br/sites/PortalSebrae/artigos/como-elaborar-um-plano-de-negocios,37d2438af1c92410VgnVCM100000b272010aRCRD
-- GERANDO EMPREENDEDORES. _10 atividades para empreender na area da saude_. Disponivel em: https://gerandoempreendedores.com.br/10-atividades-para-empreender-na-area-da-saude/
+- SEBRAE. _Como elaborar um plano de negocios_. Disponivel em: https://www.sebrae.com.br/sites/PortalSebrae/artigos/como-elaborar-um-plano-de-negócios,37d2438af1c92410VgnVCM100000b272010aRCRD
+- GERANDO EMPREENDEDORES. _10 atividades para empreender na área da saude_. Disponivel em: https://gerandoempreendedores.com.br/10-atividades-para-empreender-na-área-da-saúde/

@@ -1,14 +1,14 @@
 ---
 slug: "type-hints"
 modulo: "Módulo 2 — Fundamentos da Linguagem"
-titulo: "Type Hints"
+título: "Type Hints"
 subtitulo: "Anotações de tipo para código mais claro"
 descricao: "Use type hints para documentar tipos em variáveis, parâmetros e retornos de funções."
 ordem: 4
 proximosPassos:
-  - titulo: "Operadores Aritméticos e Relacionais"
+  - título: "Operadores Aritméticos e Relacionais"
     descricao: "Faça cálculos e comparações em Python"
-  - titulo: "Operadores Lógicos e Ternário"
+  - título: "Operadores Lógicos e Ternário"
     descricao: "Combine condições com and, or, not e ternário"
 quiz:
   - pergunta: "O que acontece se atribuirmos um tipo errado a uma variável com type hint?"
@@ -19,8 +19,8 @@ quiz:
   - pergunta: "Qual é a sintaxe correta para anotar uma variável?"
     opcoes: ["nome: str = 'Ana'", "str nome = 'Ana'", "nome = str('Ana')", "var nome: string = 'Ana'"]
     correta: 0
-    explicacao: "A sintaxe é variavel: tipo = valor. O tipo vem depois dos dois-pontos."
-    explicacaoErrada: "Em Python: variavel: tipo = valor. Não é como Java ou TypeScript."
+    explicacao: "A sintaxe é variável: tipo = valor. O tipo vem depois dos dois-pontos."
+    explicacaoErrada: "Em Python: variável: tipo = valor. Não é como Java ou TypeScript."
   - pergunta: "Para que servem os type hints?"
     opcoes: ["Melhorar a performance", "Converter tipos automaticamente", "Documentar tipos esperados e ajudar ferramentas como IDEs e mypy", "Impedir que tipos errados sejam usados"]
     correta: 2
@@ -28,18 +28,18 @@ quiz:
     explicacaoErrada: "Type hints não afetam performance, não convertem tipos e não impedem erros. São para documentação e ferramentas."
 ---
 
-## O que sao type hints?
+## O que são type hints?
 
-Type hints sao etiquetas opcionais que voce coloca no codigo pra dizer qual tipo uma variavel ou funcao espera. E como rotular uma caixa: "aqui vai texto", "aqui vai numero".
+Type hints são etiquetas opcionais que você coloca no código para dizer qual tipo uma variável ou função espera. É como rotular uma caixa: "aqui vai texto", "aqui vai número".
 
-O ponto mais importante: type hints **nao mudam** como o programa funciona. Python continua dinamico. As anotacoes servem pra voce, pra sua IDE e pra ferramentas como o mypy.
+O ponto mais importante: type hints **não mudam** como o programa funciona. Python continua dinâmico. As anotações servem para você, para sua IDE e para ferramentas como o mypy.
 
 > [!info]
-> Type hints sao opcionais. Voce pode comecar sem eles e ir adicionando conforme o projeto cresce.
+> Type hints são opcionais. Você pode começar sem eles e ir adicionando conforme o projeto cresce.
 
-## Sintaxe basica em variaveis
+## Sintaxe básica em variáveis
 
-A sintaxe e simples: `variavel: tipo = valor`. O tipo vem depois dos dois-pontos:
+A sintaxe é simples: `variável: tipo = valor`. O tipo vem depois dos dois-pontos:
 
 ```python
 # Sem type hints
@@ -54,21 +54,21 @@ ativo: bool = True
 resultado: None = None
 ```
 
-Funciona igualzinho com ou sem a anotacao. A diferenca e que sua IDE agora sabe o tipo e te ajuda com autocomplete.
+Funciona igualzinho com ou sem a anotação. A diferença e que sua IDE agora sabe o tipo é te ajuda com autocomplete.
 
-## Em funcoes -- parametros e retorno
+## Em funções -- parâmetros e retorno
 
-Type hints brilham de verdade em funcoes. Voce anota os parametros e o retorno com `->`:
+Type hints brilham de verdade em funções. Você anota os parâmetros é o retorno com `->`:
 
 ```python
-def saudacao(nome: str, idade: int) -> str:
-    return f"Ola, {nome}! Voce tem {idade} anos."
+def saudação(nome: str, idade: int) -> str:
+    return f"Olá, {nome}! Você tem {idade} anos."
 
-print(saudacao("Ana", 22))
-# → Ola, Ana! Voce tem 22 anos.
+print(saudação("Ana", 22))
+# → Olá, Ana! Você tem 22 anos.
 ```
 
-Com valor padrao, o hint vem antes do `=`:
+Com valor padrão, o hint vem antes do `=`:
 
 ```python
 def configurar(host: str = "localhost", porta: int = 8080) -> str:
@@ -77,16 +77,16 @@ def configurar(host: str = "localhost", porta: int = 8080) -> str:
 print(configurar())  # → localhost:8080
 ```
 
-Funcao que nao retorna nada usa `-> None`:
+Função que não retorna nada usa `-> None`:
 
 ```python
 def exibir(texto: str) -> None:
     print(texto)
 ```
 
-## Type hints sao ignorados na execucao
+## Type hints são ignorados na execução
 
-Isso e importante: o Python **nao impede** voce de passar o tipo errado. Ele roda normalmente:
+Isso é importante: o Python **não impede** você de passar o tipo errado. Ele roda normalmente:
 
 ```python
 idade: int = "vinte e cinco"  # anotou int, mas e str
@@ -97,11 +97,11 @@ print(nome)     # → 42 (funciona!)
 ```
 
 > [!alerta]
-> Nao confie nos type hints pra evitar erros. O Python roda o codigo normalmente mesmo com tipos "errados". Use o mypy pra pegar esses problemas antes.
+> Não confie nos type hints para evitar erros. O Python roda o código normalmente mesmo com tipos "errados". Use o mypy para pegar esses problemas antes.
 
 ## Tipos para colecoes (Python 3.9+)
 
-A partir do Python 3.9, voce pode usar os tipos de colecoes diretamente:
+A partir do Python 3.9, você pode usar os tipos de colecoes diretamente:
 
 ```python
 nomes: list[str] = ["Ana", "Carlos", "Maria"]
@@ -137,17 +137,17 @@ print(resultado)  # → None
 ```
 
 > [!info]
-> Antes do Python 3.10, a sintaxe era `Optional[str]` do modulo `typing`. A partir do 3.10, `str | None` e mais limpo.
+> Antes do Python 3.10, a sintaxe era `Optional[str]` do módulo `typing`. A partir do 3.10, `str | None` é mais limpo.
 
 ## Verificacao com mypy
 
-O mypy e uma ferramenta que analisa seu codigo e encontra erros de tipo **sem precisar rodar o programa**:
+O mypy é uma ferramenta que analisa seu código e encontra erros de tipo **sem precisar rodar o programa**:
 
 ```python
-def saudacao(nome: str) -> str:
-    return f"Ola, {nome}!"
+def saudação(nome: str) -> str:
+    return f"Olá, {nome}!"
 
-resultado: int = saudacao("Ana")  # mypy aponta erro aqui
+resultado: int = saudação("Ana")  # mypy aponta erro aqui
 ```
 
 ```bash
@@ -156,9 +156,9 @@ mypy verificar.py
 ```
 
 > [!sucesso]
-> Com mypy voce encontra erros de tipo antes de rodar o programa. Instale com `pip install mypy`.
+> Com mypy você encontra erros de tipo antes de rodar o programa. Instale com `pip install mypy`.
 
-## Exemplo pratico: cadastro tipado
+## Exemplo prático: cadastro tipado
 
 ```python
 def criar_perfil(
@@ -179,10 +179,10 @@ print(perfil)
 # → {'nome': 'Ana', 'idade': 22, 'email': 'ana@email.com', 'ativo': True}
 ```
 
-Cada parametro tem seu tipo anotado. O retorno mostra que o dicionario pode ter valores `str`, `int` ou `bool`. Quem ler a funcao sabe exatamente o que ela espera.
+Cada parâmetro tem seu tipo anotado. O retorno mostra que o dicionario pode ter valores `str`, `int` ou `bool`. Quem ler a função sabe exatamente o que ela espera.
 
-## Referencias
+## Referências
 
-- [typing -- Support for type hints](https://docs.python.org/3/library/typing.html) -- documentacao oficial do modulo typing
+- [typing -- Support for type hints](https://docs.python.org/3/library/typing.html) -- documentação oficial do módulo typing
 - [Python Type Checking Guide](https://realpython.com/python-type-checking/) -- guia completo no Real Python
-- [mypy Documentation](https://mypy.readthedocs.io/) -- documentacao oficial do mypy
+- [mypy Documentation](https://mypy.readthedocs.io/) -- documentação oficial do mypy

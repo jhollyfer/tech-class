@@ -1,14 +1,14 @@
 ---
 slug: "functional-array-methods"
 modulo: "Módulo 4 — Dados e Funções"
-titulo: "Métodos de Array"
+título: "Métodos de Array"
 subtitulo: "filter, map, reduce, find, some e every"
 descricao: "Aprenda os métodos funcionais de arrays: filter filtra, map transforma, reduce acumula, find busca e some/every verificam."
 ordem: 11
 proximosPassos:
-  - titulo: "Funções"
+  - título: "Funções"
     descricao: "Crie blocos de código reutilizáveis"
-  - titulo: "Callbacks"
+  - título: "Callbacks"
     descricao: "Passe funções como argumento"
 quiz:
   - pergunta: "O que o método filter retorna?"
@@ -82,11 +82,11 @@ const notas: number[] = [8.5, 7.0, 9.5, 6.0, 5.5];
 const soma = notas.reduce((acumulador, nota) => acumulador + nota, 0);
 console.log(soma); // → 36.5
 
-const media = soma / notas.length;
-console.log(media); // → 7.3
+const média = soma / notas.length;
+console.log(média); // → 7.3
 ```
 
-Recebe dois argumentos: uma função `(acumulador, elementoAtual)` e o valor inicial (`0`).
+Recebe dois argumentos: uma função `(acumulador, elementoAtual)` é o valor inicial (`0`).
 
 ### Exemplo: contar votos
 
@@ -139,9 +139,9 @@ Ambos devolvem `true` ou `false`.
 Você pode ligar um método no outro, como peças de Lego:
 
 ```typescript
-const numeros: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const números: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-const resultado = numeros
+const resultado = números
   .filter((n) => n % 2 === 0)    // → [2, 4, 6, 8, 10]
   .map((n) => n * 3)             // → [6, 12, 18, 24, 30]
   .reduce((acc, n) => acc + n, 0); // → 90

@@ -1,14 +1,14 @@
 ---
 slug: "arrays-basics"
 modulo: "Módulo 4 — Dados e Funções"
-titulo: "Arrays"
+título: "Arrays"
 subtitulo: "Guardando vários valores em uma lista"
 descricao: "Criar, acessar, modificar e percorrer arrays em TypeScript."
 ordem: 10
 proximosPassos:
-  - titulo: "Métodos funcionais"
+  - título: "Métodos funcionais"
     descricao: "filter, map, reduce e mais"
-  - titulo: "Funções"
+  - título: "Funções"
     descricao: "Organize código em blocos reutilizáveis"
 quiz:
   - pergunta: "Qual é o índice do primeiro elemento de um array?"
@@ -23,7 +23,7 @@ quiz:
     explicacaoErrada: "✗ push = adiciona no final. pop = remove do final."
 ---
 
-## O que e um array?
+## O que é um array?
 
 Um array é uma lista ordenada. Em vez de criar 30 variáveis para 30 notas de alunos, você coloca tudo em uma lista:
 
@@ -38,7 +38,7 @@ const aprovados: boolean[] = [true, true, false, true];
 > [!info]
 > Também existe a sintaxe `Array<number>`, mas `number[]` é mais comum.
 
-## Acessando elementos (indice comeca em 0)
+## Acessando elementos (índice começa em 0)
 
 Cada item tem uma posição (índice), começando do 0:
 
@@ -100,13 +100,13 @@ cores.splice(1, 0, "roxo");   // insere "roxo" no índice 1
 // → ["vermelho", "roxo", "verde", "amarelo"]
 ```
 
-## Metodos uteis
+## Métodos úteis
 
 ```typescript
-const numeros: number[] = [3, 1, 4, 1, 5, 9];
+const números: number[] = [3, 1, 4, 1, 5, 9];
 
-numeros.includes(5);  // → true (contém 5?)
-numeros.indexOf(4);   // → 2 (em qual posição?)
+números.includes(5);  // → true (contém 5?)
+números.indexOf(4);   // → 2 (em qual posição?)
 ```
 
 ## Percorrendo arrays
@@ -150,7 +150,7 @@ for (const valor of valores) {
 console.log(maior); // → 91
 ```
 
-### Contar ocorrencias
+### Contar ocorrências
 
 ```typescript
 const votos: string[] = ["A", "B", "A", "C", "B", "A", "A"];
@@ -176,7 +176,7 @@ for (const c of celsius) {
 console.log(fahrenheit); // → [32, 68, 98.6, 212]
 ```
 
-## Exercicio pratico
+## Exercício prático
 
 Dado um array de notas:
 
@@ -191,7 +191,7 @@ const notas: number[] = [8.5, 6.0, 9.2, 4.5, 7.0, 5.5, 8.0, 3.0];
 
 // 2. Crie um novo array e use push para notas >= 7
 
-// 3. Use for para achar a maior e menor
+// 3. Use for para achar a maior é menor
 ```
 
 > [!info]

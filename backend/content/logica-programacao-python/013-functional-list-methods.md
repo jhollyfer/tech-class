@@ -1,14 +1,14 @@
 ---
 slug: "functional-list-methods"
 modulo: "Módulo 4 — Estruturas de Dados"
-titulo: "Métodos Funcionais com Listas"
+título: "Métodos Funcionais com Listas"
 subtitulo: "filter, map, sorted e funções built-in"
 descricao: "Use filter(), map(), sorted(), sum(), max() e min() para processar listas sem alterar os dados originais."
 ordem: 13
 proximosPassos:
-  - titulo: "Funções — Fundamentos"
-    descricao: "Crie funções com def, type hints e parâmetros"
-  - titulo: "Funções Avançadas"
+  - título: "Funções — Fundamentos"
+    descricao: "Crie funções com def, type hints é parâmetros"
+  - título: "Funções Avançadas"
     descricao: "Lambda, callbacks, recursão e boas práticas"
 quiz:
   - pergunta: "Qual é a diferença entre filter() e map()?"
@@ -26,31 +26,31 @@ quiz:
     correta: 1
     explicacao: "filter() e map() nunca alteram a lista original."
     explicacaoErrada: "Essas funções criam dados novos. A lista original fica intacta."
-  - pergunta: "Como somar todos os elementos de numeros = [10, 20, 30]?"
-    opcoes: ["numeros.soma()", "total(numeros)", "sum(numeros)", "numeros.sum()"]
+  - pergunta: "Como somar todos os elementos de números = [10, 20, 30]?"
+    opcoes: ["números.soma()", "total(números)", "sum(números)", "números.sum()"]
     correta: 2
     explicacao: "sum() é uma função built-in que soma todos os elementos."
-    explicacaoErrada: "Use sum(numeros). É uma função do Python, não um método da lista."
+    explicacaoErrada: "Use sum(números). É uma função do Python, não um método da lista."
 ---
 
-## O que sao metodos funcionais?
+## O que são métodos funcionais?
 
-Essas funcoes processam listas sem modificar os dados originais. Os dados entram, sao transformados ou filtrados, e saem como dados novos. A lista original fica intacta.
+Essas funções processam listas sem modificar os dados originais. Os dados entram, são transformados ou filtrados, e saem como dados novos. A lista original fica intacta.
 
-As tres principais sao: `filter()` seleciona elementos, `map()` transforma elementos e `sorted()` ordena elementos.
+As três principais são: `filter()` seleciona elementos, `map()` transforma elementos e `sorted()` ordena elementos.
 
 > [!info]
 > `filter()` e `map()` retornam objetos especiais (iteradores). Use `list()` para converter o resultado em lista.
 
 ## filter -- seleciona quem passa no teste
 
-O `filter()` recebe uma funcao e uma lista. So passam os itens que retornam `True`:
+O `filter()` recebe uma função é uma lista. Só passam os itens que retornam `True`:
 
 ```python
-numeros: list[int] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-pares: list[int] = list(filter(lambda x: x % 2 == 0, numeros))
+números: list[int] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+pares: list[int] = list(filter(lambda x: x % 2 == 0, números))
 print(pares)    # → [2, 4, 6, 8, 10]
-print(numeros)  # → [1, 2, 3, ...] (original intacta!)
+print(números)  # → [1, 2, 3, ...] (original intacta!)
 ```
 
 ```python
@@ -61,11 +61,11 @@ print(aprovados)  # → [8.5, 7.0, 9.2]
 
 ## map -- transforma cada elemento
 
-O `map()` aplica uma funcao em cada item e retorna os resultados:
+O `map()` aplica uma função em cada item e retorna os resultados:
 
 ```python
-numeros: list[int] = [1, 2, 3, 4, 5]
-dobros: list[int] = list(map(lambda x: x * 2, numeros))
+números: list[int] = [1, 2, 3, 4, 5]
+dobros: list[int] = list(map(lambda x: x * 2, números))
 print(dobros)  # → [2, 4, 6, 8, 10]
 ```
 
@@ -80,13 +80,13 @@ print(maiusculos)  # → ["ANA", "BRUNO", "CARLA"]
 Primeiro filtra, depois transforma:
 
 ```python
-numeros: list[int] = [1, 2, 3, 4, 5]
-resultado: list[int] = list(map(lambda x: x ** 2, filter(lambda x: x % 2 == 0, numeros)))
+números: list[int] = [1, 2, 3, 4, 5]
+resultado: list[int] = list(map(lambda x: x ** 2, filter(lambda x: x % 2 == 0, números)))
 print(resultado)  # → [4, 16]
 ```
 
 > [!info]
-> A leitura fica de dentro pra fora: primeiro o `filter` roda, depois o `map` transforma. Se ficar confuso, use list comprehension: `[x ** 2 for x in numeros if x % 2 == 0]`.
+> A leitura fica de dentro para fora: primeiro o `filter` roda, depois o `map` transforma. Se ficar confuso, use list comprehension: `[x ** 2 for x in números if x % 2 == 0]`.
 
 ## sorted -- ordena sem alterar o original
 
@@ -103,7 +103,7 @@ decrescente: list[float] = sorted(notas, reverse=True)
 print(decrescente)  # → [9.2, 8.5, 7.0, 4.0, 3.5]
 ```
 
-Com `key` voce define o criterio de ordenacao:
+Com `key` você define o critério de ordenação:
 
 ```python
 nomes: list[str] = ["Carlos", "ana", "Bruno"]
@@ -114,15 +114,15 @@ print(por_nome)  # → ["ana", "Bruno", "Carlos"]
 ## sort vs sorted
 
 ```python
-numeros: list[int] = [5, 2, 8, 1, 9]
-numeros.sort()       # MUDA a lista original
-print(numeros)       # → [1, 2, 5, 8, 9]
+números: list[int] = [5, 2, 8, 1, 9]
+números.sort()       # MUDA a lista original
+print(números)       # → [1, 2, 5, 8, 9]
 ```
 
 > [!alerta]
-> `sort()` muda a lista original e retorna `None`. `sorted()` cria uma lista nova. Na duvida, use `sorted()` para nao perder os dados originais.
+> `sort()` muda a lista original e retorna `None`. `sorted()` cria uma lista nova. Na duvida, use `sorted()` para não perder os dados originais.
 
-## sum, max, min -- funcoes built-in
+## sum, max, min -- funções built-in
 
 Calculos rapidos sem precisar de loop:
 
@@ -133,16 +133,16 @@ print(sum(notas))   # → 39.0
 print(max(notas))   # → 9.2
 print(min(notas))   # → 6.8
 
-media: float = sum(notas) / len(notas)
-print(f"Media: {media:.1f}")  # → Media: 7.8
+média: float = sum(notas) / len(notas)
+print(f"Media: {média:.1f}")  # → Media: 7.8
 ```
 
-## Exercicio pratico
+## Exercício prático
 
-Dada uma lista de produtos com nome e preco:
+Dada uma lista de produtos com nome é preco:
 
 1. Filtre os produtos com preco acima de 50
-2. Crie uma lista so com os nomes (use map)
+2. Crie uma lista só com os nomes (use map)
 3. Ordene por preco crescente
 
 ```python
@@ -162,10 +162,10 @@ produtos: list[tuple[str, float]] = [
 ```
 
 > [!sucesso]
-> Se voce consegue encadear `filter` e `map`, ja esta pensando de forma funcional. Na proxima aula, vamos criar funcoes proprias com `def`.
+> Se você consegue encadear `filter` e `map`, já está pensando de forma funcional. Na próxima aula, vamos criar funções próprias com `def`.
 
-## Referencias
+## Referências
 
-- [Funcoes built-in](https://docs.python.org/pt-br/3/library/functions.html) -- documentacao oficial (filter, map, sorted, sum, max, min)
+- [Funções built-in](https://docs.python.org/pt-br/3/library/functions.html) -- documentação oficial (filter, map, sorted, sum, max, min)
 - [Python's filter(): Extract Values From Iterables](https://realpython.com/python-filter-function/) -- guia completo no Real Python
-- [Curso Python #16 - Funcoes (Parte 1)](https://www.youtube.com/watch?v=ezfr9d7wd_k) -- Curso em Video
+- [Curso Python #16 - Funções (Parte 1)](https://www.youtube.com/watch?v=ezfr9d7wd_k) -- Curso em Video

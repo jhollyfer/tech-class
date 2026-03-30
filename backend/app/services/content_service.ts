@@ -7,7 +7,7 @@ import type { ICourseConfig, ILesson, IQuizDataQuestion } from '#core/entity.cor
 const COURSES: Record<string, ICourseConfig> = {
   'logica-programacao-typescript': {
     slug: 'logica-programacao-typescript',
-    dir: 'logica-proramaca-typescript',
+    dir: 'logica-programacao-typescript',
     label: 'Lógica de Programação',
     language: 'TypeScript',
   },
@@ -28,6 +28,12 @@ const COURSES: Record<string, ICourseConfig> = {
     dir: 'empreendedorismo',
     label: 'Empreendedorismo',
     language: 'Saúde',
+  },
+  'banco-de-dados': {
+    slug: 'banco-de-dados',
+    dir: 'banco-de-dados',
+    label: 'Banco de Dados',
+    language: 'SQL',
   },
 }
 

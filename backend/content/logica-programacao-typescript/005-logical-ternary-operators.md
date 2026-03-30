@@ -1,25 +1,25 @@
 ---
 slug: "logical-ternary-operators"
 modulo: "Módulo 2 — Operadores"
-titulo: "Operadores Lógicos e Ternário"
+título: "Operadores Lógicos e Ternário"
 subtitulo: "Combine condições e tome decisões rápidas"
-descricao: "Operadores && (E), || (OU), ! (NÃO) e o operador ternário pra decisões em uma linha."
+descricao: "Operadores && (E), || (OU), ! (NÃO) é o operador ternário para decisões em uma linha."
 ordem: 5
 proximosPassos:
-  - titulo: "Condicionais"
+  - título: "Condicionais"
     descricao: "Tome decisões com if/else"
-  - titulo: "Loops"
+  - título: "Loops"
     descricao: "Repita ações automaticamente"
 quiz:
   - pergunta: "O que && retorna quando uma das condições é falsa?"
     opcoes: ["true", "false", "undefined", "null"]
     correta: 1
-    explicacao: "✓ && só dá true se os DOIS lados forem true. Um false já basta pra dar false."
+    explicacao: "✓ && só dá true se os DOIS lados forem true. Um false já basta para dar false."
     explicacaoErrada: "✗ && exige ambos true. Se um for false, resultado é false."
   - pergunta: "O que || retorna quando ambas as condições são falsas?"
     opcoes: ["true", "false", "undefined", "0"]
     correta: 1
-    explicacao: "✓ || só dá false se os DOIS forem false. Basta um true pra dar true."
+    explicacao: "✓ || só dá false se os DOIS forem false. Basta um true para dar true."
     explicacaoErrada: "✗ || precisa de pelo menos um true. Dois false = false."
   - pergunta: "O que faz: const status = nota >= 7 ? 'Aprovado' : 'Reprovado'?"
     opcoes: ["Declara duas variáveis", "Atribui 'Aprovado' se nota >= 7, senão 'Reprovado'", "Dá erro de sintaxe", "Compara duas strings"]
@@ -80,7 +80,7 @@ if (!logado) {
 ```
 
 > [!info]
-> Ordem de precedência: `!` primeiro, depois `&&`, depois `||`. Use parênteses pra deixar claro: `(a && b) || c` é diferente de `a && (b || c)`.
+> Ordem de precedência: `!` primeiro, depois `&&`, depois `||`. Use parênteses para deixar claro: `(a && b) || c` é diferente de `a && (b || c)`.
 
 ## Operador ternário
 
@@ -120,7 +120,7 @@ const clima = temp > 30 ? "quente" : "agradável";
 ```
 
 > [!alerta]
-> Use ternário só pra coisas simples. Pra lógica complexa, use `if/else`. Nunca aninhe ternários (`a ? b ? c : d : e`) — fica impossível de ler.
+> Use ternário só para coisas simples. Para lógica complexa, use `if/else`. Nunca aninhe ternários (`a ? b ? c : d : e`) — fica impossível de ler.
 
 > [!sucesso]
 > `&&` e `||` combinam condições, `!` inverte, ternário é um if/else curto. Você vai usar isso em todo programa.
@@ -128,5 +128,5 @@ const clima = temp > 30 ? "quente" : "agradável";
 ## Referências
 
 - [Operadores lógicos - MDN Web Docs](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Logical_AND) — documentação dos operadores &&, || e ! com exemplos detalhados
-- [JavaScript Comparison and Logical Operators - W3Schools](https://www.w3schools.com/js/js_comparisons.asp) — tutorial sobre operadores lógicos e o operador ternário
+- [JavaScript Comparison and Logical Operators - W3Schools](https://www.w3schools.com/js/js_comparisons.asp) — tutorial sobre operadores lógicos é o operador ternário
 - [Operador Ternário em JavaScript - Código Fonte TV](https://www.youtube.com/watch?v=QhIlMb2WQHQ) — vídeo explicando operadores lógicos e ternário com exemplos práticos

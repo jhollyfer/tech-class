@@ -1,14 +1,14 @@
 ---
 slug: "even-odd-challenge"
 modulo: "Módulo 5 — Prática"
-titulo: "Desafio: Par ou Ímpar"
+título: "Desafio: Par ou Ímpar"
 subtitulo: "Classificando números com entrada do usuário"
 descricao: "Classifique números como par ou ímpar e aprenda a ler entrada do usuário no terminal com prompt-sync."
 ordem: 14
 proximosPassos:
-  - titulo: "Desafio: Tabuada"
+  - título: "Desafio: Tabuada"
     descricao: "Gere tabuadas com loops"
-  - titulo: "Desafio: Sistema de Aprovação"
+  - título: "Desafio: Sistema de Aprovação"
     descricao: "Classifique alunos por nota"
 quiz:
   - pergunta: "Como verificar se um número é par em TypeScript?"
@@ -20,12 +20,12 @@ quiz:
     opcoes: ["Exibe mensagens no terminal", "Lê entrada do usuário no terminal", "Cria arquivos", "Conecta à internet"]
     correta: 1
     explicacao: "prompt-sync lê o que o usuário digita no terminal."
-    explicacaoErrada: "prompt-sync é uma biblioteca pra ler entrada do teclado no terminal."
+    explicacaoErrada: "prompt-sync é uma biblioteca para ler entrada do teclado no terminal."
   - pergunta: "O que parseInt('42') retorna?"
     opcoes: ["'42' (string)", "42 (number)", "undefined", "NaN"]
     correta: 1
     explicacao: "parseInt() transforma texto em número inteiro. '42' vira 42."
-    explicacaoErrada: "parseInt() converte string pra número. Se não for numérica, retorna NaN."
+    explicacaoErrada: "parseInt() converte string para número. Se não for numérica, retorna NaN."
 ---
 
 ## Lendo entrada do usuário
@@ -55,7 +55,7 @@ console.log(`Você tem ${idade} anos`);
 ```
 
 > [!info]
-> `prompt()` sempre devolve uma **string**. Pra números, converta com `parseInt()` (inteiro) ou `parseFloat()` (decimal).
+> `prompt()` sempre devolve uma **string**. Para números, converta com `parseInt()` (inteiro) ou `parseFloat()` (decimal).
 
 ## O desafio
 
@@ -68,9 +68,9 @@ function parOuImpar(n: number): string {
   return n % 2 === 0 ? "par" : "ímpar";
 }
 
-const numeros = [1, 2, 3, 4, 5, 6, 7, 8];
+const números = [1, 2, 3, 4, 5, 6, 7, 8];
 
-for (const n of numeros) {
+for (const n of números) {
   console.log(`${n} é ${parOuImpar(n)}`);
 }
 
@@ -103,14 +103,14 @@ while (continuar) {
     continue;
   }
 
-  const numero = parseInt(entrada);
+  const número = parseInt(entrada);
 
-  if (isNaN(numero)) {
+  if (isNaN(número)) {
     console.log("Entrada inválida. Digite um número.");
     continue;
   }
 
-  console.log(`${numero} é ${parOuImpar(numero)}`);
+  console.log(`${número} é ${parOuImpar(número)}`);
 }
 
 console.log("Programa encerrado.");
@@ -121,7 +121,7 @@ console.log("Programa encerrado.");
 
 ## Exercício extra
 
-Modifique o programa pra contar quantos pares e ímpares o usuário digitou:
+Modifique o programa para contar quantos pares é ímpares o usuário digitou:
 
 ```typescript
 let pares = 0;

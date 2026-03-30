@@ -1,21 +1,21 @@
 ---
 slug: "functions-arrow"
 modulo: "Módulo 4 — Dados e Funções"
-titulo: "Funções e Arrow Functions"
+título: "Funções e Arrow Functions"
 subtitulo: "Blocos de código reutilizáveis"
 descricao: "Funções em TypeScript: como declarar, tipar parâmetros e retorno, usar arrow functions, valores padrão e escopo."
 ordem: 12
 proximosPassos:
-  - titulo: "Parâmetros e callbacks"
+  - título: "Parâmetros e callbacks"
     descricao: "Parâmetros opcionais, retorno e callbacks"
-  - titulo: "Desafios"
+  - título: "Desafios"
     descricao: "Coloque funções em prática"
 quiz:
   - pergunta: "O que a palavra-chave return faz em uma função?"
     opcoes: ["Imprime um valor no terminal", "Encerra a função e devolve um valor", "Declara uma variável", "Chama outra função"]
     correta: 1
-    explicacao: "return para a função na hora e devolve o valor pra quem chamou."
-    explicacaoErrada: "return não imprime nada. Ele devolve um valor. Pra imprimir, use console.log."
+    explicacao: "return para a função na hora e devolve o valor para quem chamou."
+    explicacaoErrada: "return não imprime nada. Ele devolve um valor. Para imprimir, use console.log."
   - pergunta: "O que significa o tipo void no retorno de uma função?"
     opcoes: ["Retorna zero", "Retorna uma string vazia", "Não retorna nada", "Retorna null"]
     correta: 2
@@ -38,12 +38,12 @@ quiz:
 Função é um bloco de código que você escreve uma vez e usa quantas vezes quiser. Como uma receita: anota uma vez, faz o bolo sempre que precisar.
 
 ```typescript
-function saudacao(nome: string): string {
+function saudação(nome: string): string {
   return `Olá, ${nome}!`;
 }
 
-console.log(saudacao("Maria")); // → "Olá, Maria!"
-console.log(saudacao("João"));  // → "Olá, João!"
+console.log(saudação("Maria")); // → "Olá, Maria!"
+console.log(saudação("João"));  // → "Olá, João!"
 ```
 
 > [!info]
@@ -85,7 +85,7 @@ console.log(`De R$${precoOriginal} por R$${precoFinal}`); // → "De R$120 por R
 
 ## Arrow functions
 
-Jeito mais curto de escrever funções. Perfeito pra funções simples:
+Jeito mais curto de escrever funções. Perfeito para funções simples:
 
 ```typescript
 const dobrar = (n: number): number => n * 2;
@@ -116,11 +116,11 @@ console.log(saudacaoCompleta("Ana", 15)); // → "Boa tarde, Ana!"
 Parâmetros podem ter um valor "de reserva", usado quando nada é passado:
 
 ```typescript
-function cumprimentar(nome: string, saudacao: string = "Ola"): string {
-  return `${saudacao}, ${nome}!`;
+function cumprimentar(nome: string, saudação: string = "Olá"): string {
+  return `${saudação}, ${nome}!`;
 }
 
-console.log(cumprimentar("Ana"));            // → "Ola, Ana!"
+console.log(cumprimentar("Ana"));            // → "Olá, Ana!"
 console.log(cumprimentar("Ana", "Bom dia")); // → "Bom dia, Ana!"
 ```
 
@@ -141,10 +141,10 @@ console.log(formatarPreco(49.9, "US$"));   // → "US$ 49.90"
 Variáveis criadas dentro de uma função só existem ali dentro. Pense como uma bolha:
 
 ```typescript
-const mensagem: string = "visivel em todo lugar";
+const mensagem: string = "visível em todo lugar";
 
 function exemplo(): void {
-  const local: string = "visivel so aqui dentro";
+  const local: string = "visível só aqui dentro";
   console.log(mensagem); // → funciona (vem de fora)
   console.log(local);    // → funciona (é local)
 }
@@ -153,7 +153,7 @@ exemplo();
 // console.log(local); // → ERRO! local não existe aqui fora
 ```
 
-De fora pra dentro: OK. De dentro pra fora: bloqueado.
+De fora para dentro: OK. De dentro para fora: bloqueado.
 
 ## Resumo
 
@@ -164,7 +164,7 @@ De fora pra dentro: OK. De dentro pra fora: bloqueado.
 | Valor padrão | `function f(p: tipo = valor)` | Parâmetros opcionais |
 
 > [!sucesso]
-> Funções são a base de tudo. Domine elas e o resto fica mais fácil.
+> Funções são a base de tudo. Domine elas é o resto fica mais fácil.
 
 ## Referências
 

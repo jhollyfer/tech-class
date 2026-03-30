@@ -1,14 +1,14 @@
 ---
 slug: "exercises"
 modulo: "Módulo 5 — Prática"
-titulo: "Caderno de Exercícios"
+título: "Caderno de Exercícios"
 subtitulo: "37 desafios do iniciante ao intermediário"
-descricao: "Exercícios de lógica com TypeScript: variáveis, operadores, decisão, repetição, arrays e funções — com exemplos de entrada/saída e dicas."
+descricao: "Exercícios de lógica com TypeScript: variáveis, operadores, decisão, repetição, arrays e funções — com exemplos de entrada/saída é dicas."
 ordem: 20
 proximosPassos:
-  - titulo: "Revisitar aulas anteriores"
+  - título: "Revisitar aulas anteriores"
     descricao: "Volte às lições quando precisar relembrar a teoria"
-  - titulo: "Criar seus próprios testes"
+  - título: "Criar seus próprios testes"
     descricao: "Invente casos extremos: zero, negativo, vazio, valores grandes"
 quiz:
   - pergunta: "Qual é a melhor estratégia antes de começar a escrever código para resolver um desafio?"
@@ -40,7 +40,7 @@ Declare variáveis de um aluno: nome, idade, matrícula, nota média e se está 
 // Nota Média: 8.5 | Status: Ativo
 ```
 
-> **Dica:** use `const` para dados fixos e o tipo certo para cada info.
+> **Dica:** use `const` para dados fixos é o tipo certo para cada info.
 
 ---
 
@@ -101,7 +101,7 @@ Calcule o IMC com peso e altura. Exiba com 2 casas decimais.
 
 ### Desafio 1.6 — Informações de Produto
 
-Declare dados de um produto, calcule o valor total em estoque e exiba formatado.
+Declare dados de um produto, calcule o valor total em estoque é exiba formatado.
 
 ```
 // Saída esperada:
@@ -178,7 +178,7 @@ Dados valor da compra e valor pago, calcule o troco.
 
 ### Desafio 2.5 — Verificador de Divisibilidade
 
-Use `%` pra checar se um número é divisível por 2, 3, 5 e 10.
+Use `%` para checar se um número é divisível por 2, 3, 5 e 10.
 
 ```
 // Entrada: 60
@@ -196,7 +196,7 @@ Use `%` pra checar se um número é divisível por 2, 3, 5 e 10.
 Verifique se duas senhas são iguais, se têm mais de 8 caracteres e se o cadastro pode ser liberado.
 
 ```
-// Entrada: senha = "minhasenha123", confirmacao = "minhasenha123"
+// Entrada: senha = "minhasenha123", confirmação = "minhasenha123"
 // Saída:
 // Senhas iguais:        true
 // Tamanho suficiente:   true
@@ -220,7 +220,7 @@ Classifique uma nota (0-10): Excelente (>=9), Aprovado (>=7), Recuperação (>=5
 
 ### Desafio 3.2 — Calculadora com Operação Escolhida
 
-Use `switch` pra calcular com base no símbolo (`+`, `-`, `*`, `/`). Trate divisão por zero.
+Use `switch` para calcular com base no símbolo (`+`, `-`, `*`, `/`). Trate divisão por zero.
 
 ```
 // Entrada: 10, "/", 0
@@ -281,7 +281,7 @@ Regra: divisível por 4, **exceto** por 100, **a menos que** por 400.
 
 ### Desafio 3.6 — Semáforo Inteligente
 
-Use switch pra exibir instrução e próximo estado do semáforo.
+Use switch para exibir instrução e próximo estado do semáforo.
 
 ```
 // Entrada: "verde"
@@ -311,7 +311,7 @@ Exiba a tabuada de 1 a 10 de um número usando `for`.
 
 ### Desafio 4.2 — Contagem Regressiva
 
-Use `while` pra contar de N até 0. No final: "Lançamento!".
+Use `while` para contar de N até 0. No final: "Lançamento!".
 
 ```
 // Entrada: 5
@@ -335,7 +335,7 @@ Some todos os dígitos de um número inteiro.
 // Saída: Soma dos dígitos de 4523 = 14  (4+5+2+3)
 ```
 
-> **Dica:** use `%` e `Math.floor()` ou converta pra string.
+> **Dica:** use `%` e `Math.floor()` ou converta para string.
 
 ---
 
@@ -380,7 +380,7 @@ Simule login com 3 tentativas. Acertou = "Acesso concedido". Esgotou = "Conta bl
 
 ### Desafio 4.7 — Padrão de Asteriscos
 
-Use loops aninhados pra imprimir um triângulo.
+Use loops aninhados para imprimir um triângulo.
 
 ```
 // Entrada: 5
@@ -422,7 +422,7 @@ Retorne um array só com valores únicos, na ordem original.
 // Saída:   [1, 2, 3, 4, 5]
 ```
 
-> **Dica:** use `includes()` pra checar se já foi adicionado.
+> **Dica:** use `includes()` para checar se já foi adicionado.
 
 ---
 
@@ -435,7 +435,7 @@ Inverta **sem usar `.reverse()`**.
 // Saída:   ["e", "d", "c", "b", "a"]
 ```
 
-> **Dica:** percorra de trás pra frente com `for`.
+> **Dica:** percorra de trás para frente com `for`.
 
 ---
 
@@ -500,7 +500,7 @@ Mescle dois arrays ordenados em um só, também ordenado, **sem `.sort()`**.
 
 ### Desafio 6.1 — Funções Matemáticas
 
-Crie: `somar`, `subtrair`, `multiplicar`, `dividir` e `potencia`. `dividir` deve dar erro se divisor for zero.
+Crie: `somar`, `subtrair`, `multiplicar`, `dividir` e `potência`. `dividir` deve dar erro se divisor for zero.
 
 ```typescript
 function somar(a: number, b: number): number;
@@ -542,7 +542,7 @@ console.log(saudacaoNoite("Bruno")); // → "Boa noite, Bruno!"
 
 ### Desafio 6.4 — Calculadora de Desconto
 
-Receba valor, percentual e uma função de arredondamento opcional (padrão: `Math.floor`).
+Receba valor, percentual é uma função de arredondamento opcional (padrão: `Math.floor`).
 
 ```typescript
 aplicarDesconto(100, 15); // → 85
@@ -554,7 +554,7 @@ aplicarDesconto(99.9, 10, Math.round); // → 90
 
 ### Desafio 6.5 — Pipeline de Transformação
 
-Receba um valor e um array de funções. Aplique cada uma em sequência.
+Receba um valor é um array de funções. Aplique cada uma em sequência.
 
 ```typescript
 const resultado = pipeline(5, [
@@ -622,7 +622,7 @@ O computador "sorteia" um número (1-100). O jogador tem 7 tentativas. A cada pa
 // Tentativa 3: 42 → "Acertou em 3 tentativas!"
 ```
 
-> **Dica:** use um array com tentativas pré-definidas pra testar.
+> **Dica:** use um array com tentativas pré-definidas para testar.
 
 ---
 
@@ -672,7 +672,7 @@ type Usuario = { id: number; nome: string; email: string; ativo: boolean };
 
 ### Desafio 7.6 — Calculadora de Parcelamentos
 
-Dado valor, parcelas e juros mensal, calcule cada parcela e o total com juros.
+Dado valor, parcelas e juros mensal, calcule cada parcela é o total com juros.
 
 ```
 // Entrada: valor = 1000, parcelas = 3, jurosMensal = 2%

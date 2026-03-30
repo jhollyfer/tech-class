@@ -1,12 +1,12 @@
 ---
-slug: "gestao-atendimento"
+slug: "gestão-atendimento"
 modulo: "Módulo 3 — Ética, Gestão e Pitch"
-titulo: "Gestão e Atendimento ao Cliente"
+título: "Gestão e Atendimento ao Cliente"
 subtitulo: "Qualidade, humanização e fidelização no atendimento em saúde"
 descricao: "Aprenda noções de gestão de serviços de saúde, qualidade no atendimento, humanização e estratégias de fidelização de pacientes."
 ordem: 9
 proximosPassos:
-  - titulo: "Apresentação de Ideias (Pitch)"
+  - título: "Apresentação de Ideias (Pitch)"
     descricao: "Construa e apresente seu pitch empreendedor final"
 quiz:
   - pergunta: "Quais são as quatro funções básicas do gestor-empreendedor?"
@@ -36,62 +36,62 @@ quiz:
     explicacaoErrada: "NPS = 'De 0 a 10, você nos indicaria a um amigo?' É uma das métricas mais usadas para medir satisfação."
 ---
 
-## O que voce vai ver aqui?
+## O que você vai ver aqui?
 
-Nao basta ter um bom servico — voce precisa **gerencia-lo** bem e entregar uma experiencia que faca o paciente voltar e indicar voce para outras pessoas. Nesta aula voce vai aprender nocoes praticas de gestao, qualidade e humanizacao no atendimento.
+Não basta ter um bom serviço — você precisa **gerencia-lo** bem e entregar uma experiência que faca o paciente voltar e indicar você para outras pessoas. Nesta aula você vai aprender nocoes práticas de gestão, qualidade e humanização no atendimento.
 
-## Gestao de Servicos de Saude
+## Gestão de Serviços de Saúde
 
-Gerir um servico de saude significa **coordenar pessoas, processos e recursos** para entregar cuidado com qualidade e sustentabilidade financeira.
+Gerir um serviço de saúde significa **coordenar pessoas, processos e recursos** para entregar cuidado com qualidade e sustentabilidade financeira.
 
-### Funcoes Basicas do Gestor-Empreendedor
+### Funções Basicas do Gestor-Empreendedor
 
-| Funcao        | O Que Fazer                                      |
+| Função        | O Que Fazer                                      |
 | ------------- | ------------------------------------------------ |
 | **Planejar**  | Definir metas, organizar agenda, prever demanda  |
-| **Organizar** | Distribuir tarefas, organizar materiais e espaco |
+| **Organizar** | Distribuir tarefas, organizar materiais e espaço |
 | **Dirigir**   | Liderar a equipe, motivar e comunicar            |
 | **Controlar** | Monitorar resultados, corrigir desvios           |
 
-## Qualidade no Atendimento em Saude
+## Qualidade no Atendimento em Saúde
 
-Qualidade em saude vai alem do procedimento correto — envolve **toda a experiencia do paciente**.
+Qualidade em saúde vai além do procedimento correto — envolve **toda a experiência do paciente**.
 
 ### Dimensoes da Qualidade (Donabedian)
 
-| Dimensao      | Definicao                                             |
+| Dimensao      | Definição                                             |
 | ------------- | ----------------------------------------------------- |
-| **Estrutura** | Instalacoes, equipamentos, qualificacao da equipe     |
+| **Estrutura** | Instalacoes, equipamentos, qualificação da equipe     |
 | **Processo**  | Como o cuidado e prestado (protocolos, procedimentos) |
-| **Resultado** | O que acontece com o paciente apos o atendimento      |
+| **Resultado** | O que acontece com o paciente após o atendimento      |
 
-### Indicadores de Qualidade Simples para Pequenos Negocios
+### Indicadores de Qualidade Simples para Pequenos Negócios
 
 - **Tempo de espera:** quanto tempo o cliente espera para ser atendido?
-- **Taxa de retorno:** quantos clientes voltam a usar seu servico?
-- **NPS (Net Promoter Score):** "De 0 a 10, voce nos indicaria a um amigo?"
-- **Reclamacoes:** numero e tipo de queixas recebidas
+- **Taxa de retorno:** quantos clientes voltam a usar seu serviço?
+- **NPS (Net Promoter Score):** "De 0 a 10, você nos indicaria a um amigo?"
+- **Reclamacoes:** número e tipo de queixas recebidas
 
 > [!info]
-> Voce nao precisa de software caro para medir qualidade. Uma planilha simples com esses quatro indicadores ja faz muita diferenca.
+> Você não precisa de software caro para medir qualidade. Uma planilha simples com esses quatro indicadores já faz muita diferença.
 
 ## Humanizacao no Atendimento
 
-A humanizacao e um **diferencial competitivo poderoso** na saude — e tambem uma obrigacao etica.
+A humanização é um **diferencial competitivo poderoso** na saúde — e também uma obrigação ética.
 
 ### Pilares da Humanizacao
 
 **Escuta ativa:** ouvir de verdade, sem interromper
 
 - Olhar nos olhos do paciente
-- Validar sentimentos ("Entendo que voce esta preocupado...")
+- Validar sentimentos ("Entendo que você está preocupado...")
 - Reformular o que entendeu para confirmar
 
-**Linguagem acessivel:**
+**Linguagem acessível:**
 
-- Evitar termos tecnicos excessivos com pacientes
-- Checar se o paciente entendeu a orientacao
-- Oferecer informacao por escrito quando necessario
+- Evitar termos técnicos excessivos com pacientes
+- Checar se o paciente entendeu a orientação
+- Oferecer informação por escrito quando necessário
 
 **Respeito a autonomia:**
 
@@ -106,62 +106,62 @@ A humanizacao e um **diferencial competitivo poderoso** na saude — e tambem um
 - Tratar o paciente como a um familiar querido
 
 > [!sucesso]
-> Humanizacao nao custa dinheiro — custa atencao. E o retorno em fidelizacao e indicacoes e enorme.
+> Humanizacao não custa dinheiro — custa atenção. É o retorno em fidelização e indicacoes e enorme.
 
 ## Relacionamento com o Paciente/Cliente
 
-### Jornada do Cliente na Saude
+### Jornada do Cliente na Saúde
 
 ```
 Antes          →      Durante       →       Depois
 ─────────            ─────────             ─────────
 Divulgacao           Recepcao              Follow-up
 Agendamento          Atendimento           Feedback
-1a impressao         Procedimento          Indicacao
+1a impressão         Procedimento          Indicacao
 ```
 
 ### Estrategias de Fidelizacao
 
 | Estrategia                      | Como Implementar                        |
 | ------------------------------- | --------------------------------------- |
-| **Lembrete de retorno**         | WhatsApp automatico para agendamento    |
+| **Lembrete de retorno**         | WhatsApp automático para agendamento    |
 | **Orientacoes pos-atendimento** | Cartilha ou video explicativo           |
-| **Programa de indicacao**       | Desconto para quem indicar um amigo     |
-| **Atendimento personalizado**   | Lembrar do nome e historico do paciente |
-| **Canal de comunicacao aberto** | WhatsApp para duvidas pos-atendimento   |
+| **Programa de indicação**       | Desconto para quem indicar um amigo     |
+| **Atendimento personalizado**   | Lembrar do nome é historico do paciente |
+| **Canal de comunicação aberto** | WhatsApp para duvidas pos-atendimento   |
 
 ## Lidando com Reclamacoes
 
-Uma reclamacao bem gerenciada pode **fortalecer** o relacionamento com o cliente:
+Uma reclamação bem gerenciada pode **fortalecer** o relacionamento com o cliente:
 
 1. **Ouca sem interromper** — deixe o cliente falar tudo
 2. **Agradeca o feedback** — demonstra maturidade
-3. **Peca desculpas** (mesmo que nao seja sua culpa)
-4. **Ofereca uma solucao** concreta e no prazo
+3. **Peca desculpas** (mesmo que não seja sua culpa)
+4. **Ofereca uma solução** concreta e no prazo
 5. **Acompanhe o desfecho** — verifique se o cliente ficou satisfeito
 
 > [!sucesso]
 > Um cliente que reclamou e foi bem atendido tende a ser mais leal do que um que nunca teve problemas.
 
-## Atividade Pratica
+## Atividade Prática
 
 **Role-Play: Situacoes Dificeis no Atendimento**
 
 **Tempo:** 30 minutos | **Duplas**
 
-Cada dupla recebe uma situacao e pratica o atendimento. Depois, a turma avalia:
+Cada dupla recebe uma situação e prática o atendimento. Depois, a turma avalia:
 
 **Situacao 1:** Paciente idoso chega atrasado e nervoso porque esperou 1 hora na fila
 
-**Situacao 2:** Familiar questiona agressivamente o motivo da cobranca de determinado servico
+**Situacao 2:** Familiar questiona agressivamente o motivo da cobranca de determinado serviço
 
 **Situacao 3:** Paciente se recusa a realizar o procedimento orientado pelo medico
 
 > [!info]
-> Avalie: O profissional foi empatico? Resolveu o problema? Manteve a calma e o profissionalismo?
+> Avalie: O profissional foi empatico? Resolveu o problema? Manteve a calma é o profissionalismo?
 
-## Referencias
+## Referências
 
-- MINISTERIO DA SAUDE. _Politica Nacional de Humanizacao (PNH)_. Disponivel em: https://www.gov.br/saude/pt-br/acesso-a-informacao/gestao-do-sus/humanizasus
-- CONCLINICA. _Como fazer a gestao de qualidade em saude_. Disponivel em: https://conclinica.com.br/exemplos-de-empreendedorismo-na-area-da-saude/
-- IPOG. _Gestao em Saude Publica: desafios e praticas indispensaveis_. Disponivel em: https://blog.ipog.edu.br/saude/enfermeiro-empreendedor/
+- MINISTERIO DA SAUDE. _Politica Nacional de Humanizacao (PNH)_. Disponivel em: https://www.gov.br/saúde/pt-br/acesso-a-informação/gestão-do-sus/humanizasus
+- CONCLINICA. _Como fazer a gestão de qualidade em saude_. Disponivel em: https://conclinica.com.br/exemplos-de-empreendedorismo-na-área-da-saúde/
+- IPOG. _Gestao em Saúde Publica: desafios e práticas indispensaveis_. Disponivel em: https://blog.ipog.edu.br/saúde/enfermeiro-empreendedor/

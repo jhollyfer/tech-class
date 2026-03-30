@@ -1,14 +1,14 @@
 ---
 slug: "interface-word"
 modulo: "Módulo 1 — Primeiros Passos no Word"
-titulo: "Interface do Word"
+título: "Interface do Word"
 subtitulo: "Conheça a tela do Word e prepare seu documento"
 descricao: "Aprenda a usar a interface do Word, personalize sua área de trabalho e configure o documento antes de começar."
 ordem: 1
 proximosPassos:
-  - titulo: "Fonte, Parágrafo & Estilos"
+  - título: "Fonte, Parágrafo & Estilos"
     descricao: "Formate textos e padronize documentos com estilos"
-  - titulo: "Atalhos de teclado"
+  - título: "Atalhos de teclado"
     descricao: "Atalhos essenciais para trabalhar mais rápido"
 quiz:
   - pergunta: "Qual atalho apaga uma palavra inteira à esquerda do cursor?"
@@ -43,49 +43,49 @@ quiz:
     explicacaoErrada: "Pressione e solte Alt — letras aparecem sobre as abas."
 ---
 
-## O que voce vai ver aqui?
+## O que você vai ver aqui?
 
-Antes de sair formatando qualquer coisa, voce precisa conhecer a tela do Word. Sao poucos elementos, mas cada um tem seu papel. Quando voce domina a interface, para de ficar perdido procurando botao e trabalha muito mais rapido.
+Antes de sair formatando qualquer coisa, você precisa conhecer a tela do Word. São poucos elementos, mas cada um tem seu papel. Quando você domina a interface, para de ficar perdido procurando botao e trabalha muito mais rápido.
 
-Uma dica legal pra praticar: o Word gera texto automatico. Digite `=rand(2,3)` e pressione **Enter** para texto em portugues, ou `=lorem(2,3)` para texto em latim. O primeiro numero e a quantidade de paragrafos, o segundo e a quantidade de frases por paragrafo.
+Uma dica legal para praticar: o Word gera texto automático. Digite `=rand(2,3)` e pressione **Enter** para texto em portugues, ou `=lorem(2,3)` para texto em latim. O primeiro número e a quantidade de parágrafos, o segundo e a quantidade de frases por parágrafo.
 
-## Barra de Titulo
+## Barra de Título
 
-Fica no topo da janela. Mostra o nome do seu arquivo. Se aparecer um icone de nuvem, significa que o documento esta salvo no OneDrive.
+Fica no topo da janela. Mostra o nome do seu arquivo. Se aparecer um ícone de nuvem, significa que o documento está salvo no OneDrive.
 
-Parece simples, mas preste atencao: se o titulo diz "Documento1", voce ainda nao salvou. Salve logo com `Ctrl + S` pra nao perder nada.
+Parece simples, mas preste atenção: se o título diz "Documento1", você ainda não salvou. Salve logo com `Ctrl + S` para não perder nada.
 
 ## Barra de Ferramentas de Acesso Rapido (QAT)
 
-Essa barrinha fica no canto superior esquerdo. Por padrao vem com tres botoes: **Salvar**, **Desfazer** e **Refazer**.
+Essa barrinha fica no canto superior esquerdo. Por padrão vem com três botoes: **Salvar**, **Desfazer** e **Refazer**.
 
 1. Clique na **setinha** no final da barra
-2. Marque os comandos que voce mais usa (ex: Impressao Rapida, Ortografia)
-3. Pronto — esses botoes ficam visiveis o tempo todo, nao importa em qual aba voce esteja
+2. Marque os comandos que você mais usa (ex: Impressao Rapida, Ortografia)
+3. Pronto — esses botoes ficam visiveis o tempo todo, não importa em qual aba você esteja
 
 > [!info]
-> A QAT e o seu atalho visual. Coloque ali tudo que voce usa o tempo todo. Economiza cliques demais.
+> A QAT é o seu atalho visual. Coloque ali tudo que você usa o tempo todo. Economiza cliques demais.
 
-## Faixa de Opcoes (Ribbon)
+## Faixa de Opções (Ribbon)
 
-O Ribbon e aquela area cheia de botoes organizada em abas: **Pagina Inicial**, **Inserir**, **Layout**, etc. Cada aba agrupa comandos relacionados.
+O Ribbon é aquela área cheia de botoes organizada em abas: **Página Inicial**, **Inserir**, **Layout**, etc. Cada aba agrupa comandos relacionados.
 
-Repare nas **setinhas pequenas** no canto inferior direito de cada grupo (ex: grupo Fonte, grupo Paragrafo). Elas abrem caixas de dialogo com opcoes extras que nao cabem no Ribbon.
+Repare nas **setinhas pequenas** no canto inferior direito de cada grupo (ex: grupo Fonte, grupo Parágrafo). Elas abrem caixas de diálogo com opções extras que não cabem no Ribbon.
 
 **Navegando pelo Ribbon com o teclado:**
 
 1. Pressione e solte `Alt` — letras aparecem sobre cada aba
-2. Digite a letra da aba desejada (ex: `C` para Pagina Inicial)
+2. Digite a letra da aba desejada (ex: `C` para Página Inicial)
 3. Novas letras aparecem sobre os comandos — digite para ativar
 
 > [!sucesso]
-> Use `Alt` para navegar no Ribbon sem tirar a mao do teclado. Muito mais rapido que clicar.
+> Use `Alt` para navegar no Ribbon sem tirar a mao do teclado. Muito mais rápido que clicar.
 
 ## Margens ABNT
 
-Antes de comecar a digitar, configure as margens. Se voce vai fazer um trabalho academico, o padrao ABNT e obrigatorio:
+Antes de começar a digitar, configure as margens. Se você vai fazer um trabalho acadêmico, o padrão ABNT é obrigatório:
 
-1. Va em **Layout** e clique em **Margens** e depois **Margens Personalizadas**
+1. Vá em **Layout** e clique em **Margens** e depois **Margens Personalizadas**
 2. Configure os valores:
 
 | Margem | Valor |
@@ -96,18 +96,18 @@ Antes de comecar a digitar, configure as margens. Se voce vai fazer um trabalho 
 | Direita | 2 cm |
 
 3. Tamanho do papel: **A4** (21 x 29,7 cm)
-4. Orientacao: **Retrato** (vertical)
+4. Orientação: **Retrato** (vertical)
 
 > [!alerta]
-> Margens padrao do Word nao sao ABNT. Sempre configure manualmente antes de comecar o documento.
+> Margens padrão do Word não são ABNT. Sempre configure manualmente antes de começar o documento.
 
-## Outras configuracoes uteis
+## Outras configurações úteis
 
 Antes de sair digitando, ajuste mais algumas coisas:
 
-- **Idioma:** va em **Revisao** e depois **Idioma** e selecione **Portugues (Brasil)**. Sem isso, o corretor nao funciona direito
-- **Caracteres ocultos:** pressione `Ctrl + *` para ver marcas de paragrafo, espacos e tabulacoes. Isso ajuda muito a entender a formatacao
-- **Guia Desenvolvedor:** va em **Arquivo** e depois **Opcoes** e depois **Personalizar Faixa de Opcoes** e marque **Desenvolvedor**. Nao precisa agora, mas vai usar la na frente
+- **Idioma:** vá em **Revisão** e depois **Idioma** e selecione **Português (Brasil)**. Sem isso, o corretor não funciona direito
+- **Caracteres ocultos:** pressione `Ctrl + *` para ver marcas de parágrafo, espaços e tabulações. Isso ajuda muito a entender a formatação
+- **Guia Desenvolvedor:** vá em **Arquivo** e depois **Opções** e depois **Personalizar Faixa de Opções** e marque **Desenvolvedor**. Não precisa agora, mas vai usar lá na frente
 
 ## Atalhos essenciais da interface
 
@@ -117,12 +117,12 @@ Antes de sair digitando, ajuste mais algumas coisas:
 | `Ctrl + Z` | Desfazer |
 | `Ctrl + Y` | Refazer |
 | `Ctrl + *` | Mostrar/ocultar caracteres ocultos |
-| `Alt` | Ativar navegacao por teclado no Ribbon |
+| `Alt` | Ativar navegação por teclado no Ribbon |
 | `Ctrl + F` | Localizar texto |
 | `Ctrl + H` | Localizar e substituir |
 
 ## Referências
 
-- [10 Dicas para Word 2016 (~15min)](https://www.youtube.com/watch?v=qVoiU4MMCZ8) — dicas praticas para usar o Word melhor
-- [Primeiros Passos no Word 2016 (~13min)](https://www.youtube.com/watch?v=iOlONI3F300) — tour pela interface e configuracao inicial
-- [Conheca a Faixa de Opcoes — Microsoft Support](https://support.microsoft.com/pt-br/office/conheca-a-faixa-de-op%C3%A7%C3%B5es-8bbb8e40-e658-44c8-8175-96e9b8c30a50)
+- [10 Dicas para Word 2016 (~15min)](https://www.youtube.com/watch?v=qVoiU4MMCZ8) — dicas práticas para usar o Word melhor
+- [Primeiros Passos no Word 2016 (~13min)](https://www.youtube.com/watch?v=iOlONI3F300) — tour pela interface e configuração inicial
+- [Conheca a Faixa de Opções — Microsoft Support](https://support.microsoft.com/pt-br/office/conheca-a-faixa-de-op%C3%A7%C3%B5es-8bbb8e40-e658-44c8-8175-96e9b8c30a50)

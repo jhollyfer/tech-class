@@ -6,7 +6,7 @@ export interface CourseConfig {
 
 export const courses: Record<string, CourseConfig> = {
   "logica-programacao-typescript": {
-    dir: "logica-proramaca-typescript",
+    dir: "logica-programacao-typescript",
     label: "Lógica de Programação",
     language: "TypeScript",
   },
@@ -24,6 +24,11 @@ export const courses: Record<string, CourseConfig> = {
     dir: "empreendedorismo",
     label: "Empreendedorismo",
     language: "Saúde",
+  },
+  "banco-de-dados": {
+    dir: "banco-de-dados",
+    label: "Banco de Dados",
+    language: "SQL",
   },
 };
 

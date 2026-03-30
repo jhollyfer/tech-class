@@ -1,14 +1,14 @@
 ---
 slug: "list-comprehension"
 modulo: "Módulo 3 — Estruturas de Controle"
-titulo: "List Comprehension"
+título: "List Comprehension"
 subtitulo: "Crie listas em uma linha só"
 descricao: "Aprenda a criar e filtrar listas de forma rápida usando list comprehension."
 ordem: 11
 proximosPassos:
-  - titulo: "Listas — Fundamentos"
+  - título: "Listas — Fundamentos"
     descricao: "Aprenda a criar, acessar e modificar listas"
-  - titulo: "Métodos Funcionais com Listas"
+  - título: "Métodos Funcionais com Listas"
     descricao: "Use filter, map e sorted para processar dados"
 quiz:
   - pergunta: "Qual é a sintaxe correta de list comprehension?"
@@ -33,16 +33,16 @@ quiz:
     explicacaoErrada: "Chaves {} com chave: valor = dicionário, não lista."
 ---
 
-## O que e list comprehension?
+## O que é list comprehension?
 
-List comprehension e o jeito pythonico de criar listas. Em vez de escrever um loop inteiro com append, voce faz tudo em uma linha so. A ideia e simples: a expressao vem primeiro, depois o for, e um if opcional no final pra filtrar.
+List comprehension é o jeito pythonico de criar listas. Em vez de escrever um loop inteiro com append, você faz tudo em uma linha só. A ideia é simples: a expressao vem primeiro, depois o for, é um if opcional no final para filtrar.
 
-Se voce ja sabe usar for e append, list comprehension e apenas um atalho mais limpo pra mesma coisa.
+Se você já sabe usar for e append, list comprehension e apenas um atalho mais limpo para mesma coisa.
 
 > [!info]
-> A sintaxe basica e `[expressao for variavel in iteravel]`. O if no final e opcional.
+> A sintaxe básica e `[expressao for variável in iterável]`. O if no final é opcional.
 
-## Comprehension basica
+## Comprehension básica
 
 A expressao vem primeiro, depois o `for`:
 
@@ -63,14 +63,14 @@ print(fahrenheit)  # → [32.0, 68.0, 98.6, 212.0]
 O `if` no final filtra quem entra na lista:
 
 ```python
-numeros: list[int] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-pares: list[int] = [x for x in numeros if x % 2 == 0]
+números: list[int] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+pares: list[int] = [x for x in números if x % 2 == 0]
 print(pares)  # → [2, 4, 6, 8, 10]
 ```
 
-## Comprehension com if/else (ternario)
+## Comprehension com if/else (ternário)
 
-Quando o `if/else` vem **antes** do `for`, voce escolhe entre dois valores:
+Quando o `if/else` vem **antes** do `for`, você escolhe entre dois valores:
 
 ```python
 valores: list[int] = [10, -3, 5, -7, 8]
@@ -79,7 +79,7 @@ print(positivos)  # → [10, 0, 5, 0, 8]
 ```
 
 > [!alerta]
-> `if` depois do for = filtro (so passa quem atende a condicao). `if/else` antes do for = escolha entre dois valores. Se a comprehension ficou dificil de ler, use for tradicional.
+> `if` depois do for = filtro (só passa quem atende a condição). `if/else` antes do for = escolha entre dois valores. Se a comprehension ficou dificil de ler, use for tradicional.
 
 ## For tradicional vs comprehension
 
@@ -99,7 +99,7 @@ print(resultado)  # → [4, 16, 36, 64, 100]
 
 ## Dict e set comprehension
 
-A mesma logica funciona com `{}` pra criar dicionarios e sets:
+A mesma lógica funciona com `{}` para criar dicionarios e sets:
 
 ```python
 # Dict comprehension — chave: valor
@@ -110,21 +110,21 @@ print(tamanhos)  # → {'python': 6, 'e': 1, 'incrivel': 8}
 
 ```python
 # Set comprehension — valores unicos
-numeros: list[int] = [1, 2, 2, 3, 3, 3, 4]
-unicos: set[int] = {x for x in numeros}
+números: list[int] = [1, 2, 2, 3, 3, 3, 4]
+unicos: set[int] = {x for x in números}
 print(unicos)  # → {1, 2, 3, 4}
 ```
 
-## Exercicio pratico
+## Exercício prático
 
 Dada uma lista de palavras, use list comprehension para:
 
-1. Criar uma lista so com palavras que tem mais de 4 letras
+1. Criar uma lista só com palavras que tem mais de 4 letras
 2. Criar uma lista com todas as palavras em maiusculo
 3. Criar um dicionario `{palavra: tamanho}`
 
 ```python
-palavras: list[str] = ["sol", "computador", "lua", "programacao", "py", "dados"]
+palavras: list[str] = ["sol", "computador", "lua", "programação", "py", "dados"]
 
 # 1. [p for p in palavras if len(p) > 4]
 
@@ -134,10 +134,10 @@ palavras: list[str] = ["sol", "computador", "lua", "programacao", "py", "dados"]
 ```
 
 > [!sucesso]
-> Se voce consegue transformar um `for` com `append` em uma list comprehension, ja esta pensando de forma pythonica.
+> Se você consegue transformar um `for` com `append` em uma list comprehension, já está pensando de forma pythonica.
 
-## Referencias
+## Referências
 
-- [List Comprehensions](https://docs.python.org/pt-br/3/tutorial/datastructures.html#list-comprehensions) -- documentacao oficial Python
+- [List Comprehensions](https://docs.python.org/pt-br/3/tutorial/datastructures.html#list-comprehensions) -- documentação oficial Python
 - [When to Use a List Comprehension in Python](https://realpython.com/list-comprehension-python/) -- guia completo no Real Python
 - [Curso Python #15 - Listas (Parte 2)](https://www.youtube.com/watch?v=_sREBNv0hVo) -- Curso em Video

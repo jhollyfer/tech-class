@@ -1,14 +1,14 @@
 ---
 slug: "params-return-callbacks"
 modulo: "Módulo 4 — Dados e Funções"
-titulo: "Parâmetros, Retorno e Callbacks"
+título: "Parâmetros, Retorno e Callbacks"
 subtitulo: "Opcionais, retorno tipado, callbacks e type aliases"
 descricao: "Parâmetros opcionais, retorno tipado, funções como argumento (callbacks) e type aliases em TypeScript."
 ordem: 13
 proximosPassos:
-  - titulo: "Desafio: Par ou Ímpar"
+  - título: "Desafio: Par ou Ímpar"
     descricao: "Primeiro desafio prático"
-  - titulo: "Desafio: Tabuada"
+  - título: "Desafio: Tabuada"
     descricao: "Gere tabuadas com funções"
 quiz:
   - pergunta: "O que significa o ? após um parâmetro?"
@@ -19,27 +19,27 @@ quiz:
   - pergunta: "O que é um callback?"
     opcoes: ["Um tipo de variável", "Uma função passada como argumento para outra função", "Um retorno de função", "Um loop especial"]
     correta: 1
-    explicacao: "Callback é uma função que você passa como argumento pra outra função executar."
+    explicacao: "Callback é uma função que você passa como argumento para outra função executar."
     explicacaoErrada: "Callback = função como argumento. Exemplo: array.map(callback)."
   - pergunta: "Para que serve o type alias?"
     opcoes: ["Para criar variáveis", "Para dar um nome descritivo a um tipo", "Para importar módulos", "Para criar loops"]
     correta: 1
-    explicacao: "type cria um apelido pro tipo. Exemplo: type Nota = number."
-    explicacaoErrada: "type cria um apelido pra um tipo, não cria variáveis."
+    explicacao: "type cria um apelido para o tipo. Exemplo: type Nota = number."
+    explicacaoErrada: "type cria um apelido para um tipo, não cria variáveis."
 ---
 
 ## Parâmetros opcionais e valores padrão
 
-Nem sempre você precisa de todos os parâmetros. Use `?` pra tornar opcional ou `=` pra dar um valor padrão:
+Nem sempre você precisa de todos os parâmetros. Use `?` para tornar opcional ou `=` para dar um valor padrão:
 
 ```typescript
 // Valor padrão: se não passar, usa 2
-function potencia(base: number, expoente: number = 2): number {
+function potência(base: number, expoente: number = 2): number {
   return base ** expoente;
 }
 
-console.log(potencia(3));      // → 9
-console.log(potencia(2, 10));  // → 1024
+console.log(potência(3));      // → 9
+console.log(potência(2, 10));  // → 1024
 
 // Opcional: pode ou não vir
 function criarNome(nome: string, sobrenome?: string): string {
@@ -81,14 +81,14 @@ console.log(`Resultado: ${resultado}, Resto: ${resto}`);
 
 ## Callbacks — funções como parâmetros
 
-Callback é quando você passa uma função pra outra função executar. Pense assim: você dá uma instrução e alguém executa pra você.
+Callback é quando você passa uma função para outra função executar. Pense assim: você dá uma instrução e alguém executa para você.
 
 ```typescript
 function aplicarOperacao(
-  numeros: number[],
-  operacao: (n: number) => number,
+  números: number[],
+  operação: (n: number) => number,
 ): number[] {
-  return numeros.map(operacao);
+  return números.map(operação);
 }
 
 const resultado = aplicarOperacao([1, 2, 3, 4], (n) => n * 3);
@@ -104,9 +104,9 @@ const notas = [8, 5, 9, 3, 7];
 const aprovados = notas.filter((nota) => nota >= 7);
 ```
 
-## Type aliases — apelidos pra tipos
+## Type aliases — apelidos para tipos
 
-`type` cria um nome pra um tipo. Deixa o código mais legível:
+`type` cria um nome para um tipo. Deixa o código mais legível:
 
 ```typescript
 type Aluno = {
@@ -132,8 +132,8 @@ Cada função faz **uma coisa só**. Se o nome tem "E" no meio, quebre em duas:
 ```typescript
 // Ruim — faz duas coisas
 function calcularEImprimir(notas: number[]): void {
-  const media = notas.reduce((a, b) => a + b, 0) / notas.length;
-  console.log(`Média: ${media}`);
+  const média = notas.reduce((a, b) => a + b, 0) / notas.length;
+  console.log(`Média: ${média}`);
 }
 
 // Bom — cada uma faz uma coisa

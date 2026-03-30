@@ -1,14 +1,14 @@
 ---
 slug: "first-program"
 modulo: "Módulo 1 — Começando com Python"
-titulo: "Primeiro Programa"
+título: "Primeiro Programa"
 subtitulo: "print(), input() e comentários"
 descricao: "Crie seus primeiros programas usando print(), input() e comentários."
 ordem: 2
 proximosPassos:
-  - titulo: "Variáveis e Tipos de Dados"
+  - título: "Variáveis e Tipos de Dados"
     descricao: "Guarde informações com str, int, float, bool e None"
-  - titulo: "Type Hints"
+  - título: "Type Hints"
     descricao: "Anote tipos para deixar o código mais claro"
 quiz:
   - pergunta: "Qual função exibe informações na tela?"
@@ -33,33 +33,33 @@ quiz:
     explicacaoErrada: "O comando correto é python programa.py."
 ---
 
-## O que e o Python?
+## O que é o Python?
 
-Python e uma linguagem de programacao simples e poderosa. Voce escreve instrucoes num arquivo `.py` e o computador executa linha por linha, de cima pra baixo.
+Python é uma linguagem de programação simples e poderosa. Você escreve instruções num arquivo `.py` e o computador executa linha por linha, de cima para baixo.
 
-Pra comecar, voce so precisa de tres coisas: `print()` pra mostrar algo na tela, `input()` pra ler o que o usuario digita, e `#` pra deixar comentarios no codigo.
+Para começar, você só precisa de três coisas: `print()` para mostrar algo na tela, `input()` para ler o que o usuário digita, e `#` para deixar comentários no código.
 
 > [!info]
-> Para rodar um arquivo Python, salve com extensao `.py` e execute no terminal com `python arquivo.py` (ou `python3` em alguns sistemas).
+> Para rodar um arquivo Python, salve com extensão `.py` e execute no terminal com `python arquivo.py` (ou `python3` em alguns sistemas).
 
 ## print() -- mostrando coisas na tela
 
-`print()` e a funcao mais basica do Python. Ela recebe um valor e exibe no terminal.
+`print()` é a função mais básica do Python. Ela recebe um valor e exibe no terminal.
 
 ```python
-print("Ola, mundo!")  # → Ola, mundo!
+print("Olá, mundo!")  # → Olá, mundo!
 print(42)             # → 42
 print(3.14)           # → 3.14
 ```
 
-Voce pode passar varios valores separados por virgula. O Python coloca um espaco entre eles automaticamente:
+Você pode passar vários valores separados por vírgula. O Python coloca um espaço entre eles automaticamente:
 
 ```python
 print("Nome:", "Ana", "- Idade:", 25)
 # → Nome: Ana - Idade: 25
 ```
 
-Da pra personalizar o separador e o final da linha:
+Dá para personalizar o separador e o final da linha:
 
 ```python
 print("Python", "e", "legal", sep="-")
@@ -70,38 +70,38 @@ print("Pronto!")
 # → Carregando...Pronto!
 ```
 
-| Parametro | O que faz | Padrao |
+| Parâmetro | O que faz | Padrão |
 |-----------|-----------|--------|
-| `sep` | Separador entre os valores | `" "` (espaco) |
+| `sep` | Separador entre os valores | `" "` (espaço) |
 | `end` | O que vem no final da linha | `"\n"` (quebra de linha) |
 
-## Comentarios com #
+## Comentários com #
 
-Comentarios sao anotacoes no codigo que o Python ignora completamente. Servem pra voce (e pra quem for ler depois) entender o que aquele trecho faz.
+Comentários são anotações no código que o Python ignora completamente. Servem para você (e para quem for ler depois) entender o que aquele trecho faz.
 
 ```python
-# Isto e um comentario -- Python ignora tudo depois do #
-print("Ola")  # Comentario ao lado do codigo
+# Isto é um comentário -- Python ignora tudo depois do #
+print("Olá")  # Comentario ao lado do código
 
 # Desativar uma linha temporariamente:
-# print("Esta linha nao roda")
+# print("Esta linha não roda")
 ```
 
 > [!info]
-> Use comentarios pra explicar o **porque**, nao o **o que**. O codigo ja mostra o que ele faz -- o comentario explica a intencao.
+> Use comentários para explicar o **porque**, não o **o que**. O código já mostra o que ele faz -- o comentário explica a intenção.
 
-## input() -- lendo dados do usuario
+## input() -- lendo dados do usuário
 
-`input()` pausa o programa e espera o usuario digitar algo. O que ele digitar volta como **string** (texto).
+`input()` pausa o programa e espera o usuário digitar algo. O que ele digitar volta como **string** (texto).
 
 ```python
-nome = input("Qual e o seu nome? ")
-print("Ola,", nome)
-# Qual e o seu nome? Maria
-# → Ola, Maria
+nome = input("Qual é o seu nome? ")
+print("Olá,", nome)
+# Qual é o seu nome? Maria
+# → Olá, Maria
 ```
 
-Mesmo que o usuario digite um numero, `input()` retorna texto:
+Mesmo que o usuário digite um número, `input()` retorna texto:
 
 ```python
 idade = input("Sua idade? ")
@@ -109,11 +109,11 @@ print(type(idade))  # → <class 'str'>
 ```
 
 > [!alerta]
-> `input()` **sempre** retorna string. Se voce digitar `42`, vem `"42"` (texto). Para fazer contas, converta com `int()` ou `float()`.
+> `input()` **sempre** retorna string. Se você digitar `42`, vem `"42"` (texto). Para fazer contas, converta com `int()` ou `float()`.
 
-## Convertendo a entrada do usuario
+## Convertendo a entrada do usuário
 
-Para trabalhar com numeros vindos do `input()`, voce precisa converter antes de usar:
+Para trabalhar com números vindos do `input()`, você precisa converter antes de usar:
 
 ```python
 idade = int(input("Sua idade? "))
@@ -127,21 +127,21 @@ print("Altura:", altura)
 # → Altura: 1.75
 ```
 
-## f-strings -- texto com variaveis
+## f-strings -- texto com variáveis
 
-O `f` antes das aspas cria uma **f-string**. Ela permite colocar variaveis e expressoes dentro do texto usando `{}`:
+O `f` antes das aspas cria uma **f-string**. Ela permite colocar variáveis e expressoes dentro do texto usando `{}`:
 
 ```python
 nome = "Ana"
 idade = 22
-print(f"Meu nome e {nome} e tenho {idade} anos")
-# → Meu nome e Ana e tenho 22 anos
+print(f"Meu nome é {nome} e tenho {idade} anos")
+# → Meu nome é Ana e tenho 22 anos
 ```
 
 ## Erros comuns
 
 ```python
-# Somar string com numero
+# Somar string com número
 idade = input("Idade: ")    # retorna string
 # print(idade + 1)          # TypeError!
 
@@ -149,14 +149,14 @@ idade = input("Idade: ")    # retorna string
 idade = int(input("Idade: "))
 print(idade + 1)             # → funciona!
 
-# Esquecer os parenteses
-# print "Ola"               # SyntaxError!
+# Esquecer os parênteses
+# print "Olá"               # SyntaxError!
 
-# Correto: sempre usar parenteses
-print("Ola")                 # → Ola
+# Correto: sempre usar parênteses
+print("Olá")                 # → Olá
 ```
 
-## Exemplo pratico: conversor de temperatura
+## Exemplo prático: conversor de temperatura
 
 ```python
 # conversor.py
@@ -173,8 +173,8 @@ print(f"{celsius}°C = {fahrenheit}°F")
 
 `celsius` vem do `input()` e precisa de `float()` porque temperatura pode ter decimais. A f-string monta o resultado final de forma legivel.
 
-## Referencias
+## Referências
 
-- [Built-in Functions: print()](https://docs.python.org/3/library/functions.html#print) -- documentacao oficial do print()
-- [Built-in Functions: input()](https://docs.python.org/3/library/functions.html#input) -- documentacao oficial do input()
+- [Built-in Functions: print()](https://docs.python.org/3/library/functions.html#print) -- documentação oficial do print()
+- [Built-in Functions: input()](https://docs.python.org/3/library/functions.html#input) -- documentação oficial do input()
 - [Curso Python #03 - Primeiro Programa](https://www.youtube.com/watch?v=RWRnIGo-qMc) -- Curso em Video, PT-BR

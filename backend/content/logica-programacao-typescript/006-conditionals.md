@@ -1,20 +1,20 @@
 ---
 slug: "conditionals"
 modulo: "Módulo 3 — Controle de Fluxo"
-titulo: "if/else"
+título: "if/else"
 subtitulo: "Fazendo seu código tomar decisões"
 descricao: "if, else if, else, operadores de comparação e ternário."
 ordem: 6
 proximosPassos:
-  - titulo: "switch/case"
+  - título: "switch/case"
     descricao: "Compare valores fixos de forma limpa"
-  - titulo: "Loops"
+  - título: "Loops"
     descricao: "Repita ações automaticamente"
 quiz:
   - pergunta: "Se a condição do if é falsa e não tem else, o que acontece?"
     opcoes: ["O programa dá erro", "O bloco do if executa mesmo assim", "Nada acontece, o programa segue adiante", "O programa para de executar"]
     correta: 2
-    explicacao: "✓ Sem else, o bloco do if é ignorado e o programa continua normalmente."
+    explicacao: "✓ Sem else, o bloco do if é ignorado é o programa continua normalmente."
     explicacaoErrada: "✗ Sem else, o if é simplesmente pulado. O programa segue em frente."
   - pergunta: "Qual operador verifica igualdade estrita em TypeScript?"
     opcoes: ["=", "==", "===", "!="]
@@ -28,7 +28,7 @@ quiz:
     explicacaoErrada: "✗ Isso é o ternário: condição verdadeira retorna o valor antes do :, senão o valor depois."
 ---
 
-## if e else --- a decisao basica
+## if e else --- a decisão básica
 
 Pense no `if` como uma bifurcação na estrada. Se a condição for verdadeira, vai por um caminho. Se for falsa, vai por outro.
 
@@ -55,7 +55,7 @@ if (temperatura > 30) {
 > [!info]
 > A condição do `if` sempre resulta em `true` ou `false`.
 
-## Operadores de comparacao
+## Operadores de comparação
 
 São os símbolos que comparam valores:
 
@@ -69,7 +69,7 @@ São os símbolos que comparam valores:
 | `<=`     | Menor ou igual     | `3 <= 2`  | `false`   |
 
 > [!alerta]
-> Sempre use `===` em vez de `==`. O `==` faz conversão de tipo e causa bugs. Exemplo: `"5" == 5` é `true`, mas `"5" === 5` é `false`.
+> Sempre use `===` em vez de `==`. O `==` faz conversão de tipo é causa bugs. Exemplo: `"5" == 5` é `true`, mas `"5" === 5` é `false`.
 
 ```typescript
 const nota: number = 7;
@@ -79,7 +79,7 @@ console.log(nota === 7);     // → true
 console.log(nota <= 6);      // → false
 ```
 
-## else if --- multiplas condicoes
+## else if --- multiplas condições
 
 Quando tem mais de dois caminhos, encadeie com `else if`:
 
@@ -97,7 +97,7 @@ if (nota >= 9) {
 }
 ```
 
-As condições são testadas de cima para baixo. A primeira verdadeira executa e o resto é ignorado.
+As condições são testadas de cima para baixo. A primeira verdadeira executa é o resto é ignorado.
 
 > [!alerta]
 > A ordem importa! Se colocasse `nota >= 5` antes de `nota >= 9`, uma nota 10 cairia em "Recuperação".
@@ -121,7 +121,7 @@ if (cor === "verde") {
 > [!info]
 > O `else` final é sua rede de segurança — pega qualquer caso que você não previu.
 
-## Operador ternario --- if em uma linha
+## Operador ternário --- if em uma linha
 
 Para decisões simples, o ternário é mais direto:
 
@@ -144,7 +144,7 @@ console.log(msg); // → "Saldo positivo"
 > [!alerta]
 > Use ternário só para coisas simples. Para lógica complexa, use `if/else`. Nunca aninhe ternários — vira uma bagunça.
 
-## Exercicio pratico
+## Exercício prático
 
 Classifique a faixa etária:
 

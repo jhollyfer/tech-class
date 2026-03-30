@@ -1,14 +1,14 @@
 ---
 slug: "loops"
 modulo: "Módulo 3 — Controle de Fluxo"
-titulo: "Loops (for, while, do-while)"
+título: "Loops (for, while, do-while)"
 subtitulo: "Repetindo ações automaticamente"
 descricao: "Loops for, while e do-while em TypeScript."
 ordem: 8
 proximosPassos:
-  - titulo: "for...of e break/continue"
+  - título: "for...of e break/continue"
     descricao: "Percorra arrays e controle o fluxo"
-  - titulo: "Arrays"
+  - título: "Arrays"
     descricao: "Agrupe dados em listas"
 quiz:
   - pergunta: "Quais são as três partes do loop for?"
@@ -53,7 +53,7 @@ Três partes separadas por `;`:
 2. **Condição** — `i <= 5` — testada antes de cada volta
 3. **Incremento** — `i++` — roda depois de cada volta
 
-### Somando numeros
+### Somando números
 
 ```typescript
 let soma: number = 0;
@@ -79,7 +79,7 @@ console.log("Lançamento!"); // → 10, 9, 8... 0, Lançamento!
 > [!info]
 > Use `for` quando sabe **exatamente** quantas vezes repetir.
 
-## while --- quando nao sabe quantas vezes
+## while --- quando não sabe quantas vezes
 
 O `while` repete enquanto a condição for verdadeira. É como tentar abrir uma porta — você tenta até conseguir:
 
@@ -121,12 +121,12 @@ console.log(menorDivisor(7));  // → 7 (é primo)
 O `do-while` é como o `while`, mas executa primeiro e pergunta depois:
 
 ```typescript
-let numero: number;
+let número: number;
 
 do {
-  numero = Math.floor(Math.random() * 10);
-  console.log(`Gerou: ${numero}`);
-} while (numero !== 7);
+  número = Math.floor(Math.random() * 10);
+  console.log(`Gerou: ${número}`);
+} while (número !== 7);
 
 console.log("Encontrou o 7!");
 ```
@@ -139,10 +139,10 @@ A diferença: `while` pode nunca executar. `do-while` sempre roda pelo menos uma
 ## Exemplo: tabuada
 
 ```typescript
-const numero: number = 7;
+const número: number = 7;
 
 for (let i: number = 1; i <= 10; i++) {
-  console.log(`${numero} x ${i} = ${numero * i}`);
+  console.log(`${número} x ${i} = ${número * i}`);
 }
 // → 7 x 1 = 7
 // → 7 x 2 = 14
@@ -150,7 +150,7 @@ for (let i: number = 1; i <= 10; i++) {
 // → 7 x 10 = 70
 ```
 
-## Exercicio pratico
+## Exercício prático
 
 **Desafio 1:** Calcule o fatorial (5! = 5 x 4 x 3 x 2 x 1 = 120):
 

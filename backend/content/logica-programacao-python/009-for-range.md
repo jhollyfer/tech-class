@@ -1,14 +1,14 @@
 ---
 slug: "for-range"
 modulo: "Módulo 3 — Estruturas de Controle"
-titulo: "Loop For com Range"
+título: "Loop For com Range"
 subtitulo: "Repetições controladas com for e range()"
-descricao: "Use for com range() para repetir código, contar pra frente e pra trás, e fazer loops aninhados."
+descricao: "Use for com range() para repetir código, contar para frente é para trás, e fazer loops aninhados."
 ordem: 9
 proximosPassos:
-  - titulo: "For em Sequências, Break e Continue"
+  - título: "For em Sequências, Break e Continue"
     descricao: "Percorra listas, strings e controle o loop com break e continue"
-  - titulo: "Listas e Tuplas"
+  - título: "Listas e Tuplas"
     descricao: "Trabalhe com coleções de dados"
 quiz:
   - pergunta: "O que range(5) gera?"
@@ -20,12 +20,12 @@ quiz:
     opcoes: ["range(2, 8, 2)", "range(2, 9, 2)", "range(2, 10, 2)", "range(1, 8, 2)"]
     correta: 1
     explicacao: "range(2, 9, 2): começa em 2, vai até 8 (9 fica fora), de 2 em 2."
-    explicacaoErrada: "range(inicio, fim_exclusivo, passo). Para incluir 8, o fim deve ser 9."
+    explicacaoErrada: "range(início, fim_exclusivo, passo). Para incluir 8, o fim deve ser 9."
   - pergunta: "Como contar de 5 até 1?"
     opcoes: ["range(5, 1)", "range(5, 0, -1)", "range(1, 5, -1)", "range(5, 1, 1)"]
     correta: 1
     explicacao: "range(5, 0, -1) = 5, 4, 3, 2, 1. O 0 fica de fora."
-    explicacaoErrada: "Para contar pra trás, use passo negativo: range(5, 0, -1)."
+    explicacaoErrada: "Para contar para trás, use passo negativo: range(5, 0, -1)."
   - pergunta: "O valor final do range é inclusivo ou exclusivo?"
     opcoes: ["Inclusivo", "Exclusivo", "Depende do passo", "Depende do início"]
     correta: 1
@@ -33,18 +33,18 @@ quiz:
     explicacaoErrada: "O fim é sempre exclusivo. Para incluir o 5, use range(1, 6)."
 ---
 
-## O que e o for com range?
+## O que é o for com range?
 
-O `for` repete um bloco de codigo um numero determinado de vezes. Junto com `range()`, voce controla exatamente quantas repeticoes quer, de onde comecar e de quanto em quanto pular.
+O `for` repete um bloco de código um número determinado de vezes. Junto com `range()`, você controla exatamente quantas repetições quer, de onde começar e de quanto em quanto pular.
 
-Pense no `range()` como um gerador de sequencias numericas. Voce define inicio, fim e passo, e ele entrega os numeros um por um para o `for`.
+Pense no `range()` como um gerador de sequências numericas. Você define início, fim e passo, e ele entrega os números um por um para o `for`.
 
 > [!info]
 > O fim do `range()` e sempre **exclusivo**. `range(1, 5)` gera 1, 2, 3, 4. O 5 fica de fora. Para incluir o 5, use `range(1, 6)`.
 
 ## range com um argumento
 
-Quando voce passa so um numero, o range comeca em 0 e vai ate esse numero (sem incluir ele):
+Quando você passa só um número, o range começa em 0 e vai até esse número (sem incluir ele):
 
 ```python
 for i in range(5):
@@ -52,7 +52,7 @@ for i in range(5):
 # → 0 1 2 3 4
 ```
 
-Se nao precisa da variavel do loop, use `_`:
+Se não precisa da variável do loop, use `_`:
 
 ```python
 for _ in range(3):
@@ -64,7 +64,7 @@ for _ in range(3):
 
 ## range com dois argumentos
 
-Aqui voce define o inicio e o fim. O inicio e incluso, o fim e exclusivo:
+Aqui você define o início é o fim. O início e incluso, o fim e exclusivo:
 
 ```python
 for i in range(1, 6):
@@ -72,9 +72,9 @@ for i in range(1, 6):
 # → 1 2 3 4 5
 ```
 
-## range com tres argumentos
+## range com três argumentos
 
-O terceiro argumento e o passo -- de quanto em quanto pular:
+O terceiro argumento é o passo -- de quanto em quanto pular:
 
 ```python
 # Pares de 0 a 10
@@ -90,7 +90,7 @@ for i in range(1, 11, 2):
 
 ## Contagem regressiva
 
-Com passo negativo, voce conta de tras pra frente:
+Com passo negativo, você conta de tras para frente:
 
 ```python
 for i in range(10, 0, -1):
@@ -100,11 +100,11 @@ print("Lancar!")
 ```
 
 > [!alerta]
-> Com passo negativo, o inicio deve ser maior que o fim. Senao o range nao gera nada e o loop nao executa.
+> Com passo negativo, o início deve ser maior que o fim. Senao o range não gera nada é o loop não executa.
 
 ## Acumuladores
 
-Um padrao super comum: usar uma variavel pra ir somando ou multiplicando a cada volta do loop.
+Um padrão super comum: usar uma variável para ir somando ou multiplicando a cada volta do loop.
 
 ```python
 # Somar de 1 a 100
@@ -136,7 +136,7 @@ for i in range(1, 4):
 ```
 
 ```python
-# Padrao de asteriscos
+# Padrão de asteriscos
 n: int = 5
 for i in range(1, n + 1):
     print("*" * i)
@@ -147,9 +147,9 @@ for i in range(1, n + 1):
 # → *****
 ```
 
-## While -- repeticao com condicao
+## While -- repetição com condição
 
-Diferente do `for`, o `while` repete enquanto uma condicao for verdadeira:
+Diferente do `for`, o `while` repete enquanto uma condição for verdadeira:
 
 ```python
 contador: int = 1
@@ -164,15 +164,15 @@ while contador <= 5:
 ```
 
 > [!alerta]
-> Cuidado com loop infinito! Sempre atualize a condicao dentro do while ou use `break` para sair.
+> Cuidado com loop infinito! Sempre atualize a condição dentro do while ou use `break` para sair.
 
-## Exercicio pratico
+## Exercício prático
 
 Use `for` e `range()` para:
 
 1. Imprimir todos os multiplos de 3 entre 1 e 50
-2. Calcular a soma dos numeros pares de 1 a 100
-3. Criar uma contagem regressiva de 20 ate 1 pulando de 2 em 2
+2. Calcular a soma dos números pares de 1 a 100
+3. Criar uma contagem regressiva de 20 até 1 pulando de 2 em 2
 
 ```python
 # 1. Multiplos de 3: use range(3, 51, 3)
@@ -183,10 +183,10 @@ Use `for` e `range()` para:
 ```
 
 > [!sucesso]
-> Se voce consegue montar o range certo pra cada caso, ja dominou a logica. Na proxima aula, vamos percorrer listas e strings com for.
+> Se você consegue montar o range certo para cada caso, já dominou a lógica. Na próxima aula, vamos percorrer listas e strings com for.
 
-## Referencias
+## Referências
 
-- [for Statements](https://docs.python.org/3/tutorial/controlflow.html#for-statements) -- documentacao oficial do for
-- [range()](https://docs.python.org/3/library/stdtypes.html#range) -- documentacao oficial do range
+- [for Statements](https://docs.python.org/3/tutorial/controlflow.html#for-statements) -- documentação oficial do for
+- [range()](https://docs.python.org/3/library/stdtypes.html#range) -- documentação oficial do range
 - [Curso Python #09 - Estruturas de Repeticao (for)](https://www.youtube.com/watch?v=cL4YDtFnCt4) -- Curso em Video

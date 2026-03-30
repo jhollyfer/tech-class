@@ -1,14 +1,14 @@
 ---
 slug: "first-program"
 modulo: "Módulo 1 — Começando a Programar"
-titulo: "Primeiro Programa"
+título: "Primeiro Programa"
 subtitulo: "Escreva e rode seu primeiro código em TypeScript"
-descricao: "console.log, strings, números, comentários — o básico pra começar a programar."
+descricao: "console.log, strings, números, comentários — o básico para começar a programar."
 ordem: 2
 proximosPassos:
-  - titulo: "Variáveis e tipos"
+  - título: "Variáveis e tipos"
     descricao: "Guarde dados no programa"
-  - titulo: "Operadores"
+  - título: "Operadores"
     descricao: "Some, subtraia e compare valores"
 quiz:
   - pergunta: "O que console.log faz?"
@@ -67,7 +67,7 @@ console.log("Primeira"); // → Primeira
 console.log("Segunda");  // → Segunda
 ```
 
-O código roda **de cima pra baixo**, uma linha por vez.
+O código roda **de cima para baixo**, uma linha por vez.
 
 ## Strings e números
 
