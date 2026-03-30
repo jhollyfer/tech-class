@@ -69,12 +69,12 @@ const cursos = [
     icon: TrendingUp,
   },
   {
-    id: "bd",
+    id: "banco-de-dados",
     titulo: "Banco de Dados",
-    linguagem: null as string | null,
+    linguagem: "SQL" as const,
     descricao: "Aprenda a modelar, estruturar e consultar dados com SQL.",
-    status: "em-breve" as const,
-    href: "#",
+    status: "disponivel" as const,
+    href: "/banco-de-dados/lessons",
     icon: Layers,
   },
   {
