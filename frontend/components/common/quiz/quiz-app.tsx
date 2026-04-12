@@ -48,7 +48,7 @@ function QuizAppInner(): React.JSX.Element {
       <QuizPhaseRouter />
 
       <footer className="border-t border-[var(--color-border)] py-6 text-center text-xs text-[var(--color-muted)] relative z-10">
-        <p>Tech Class &mdash; Material educacional CETAM</p>
+        <p>academy &mdash; Material educacional CETAM</p>
       </footer>
     </main>
   );

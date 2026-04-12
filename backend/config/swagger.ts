@@ -24,8 +24,8 @@ export default {
   persistAuthorization: true,
   showFullPath: false,
   info: {
-    title: 'Tech Class API',
+    title: 'academy API',
     version: '0.0.1',
-    description: 'API da plataforma Tech Class — cursos, aulas e quizzes interativos.',
+    description: 'API da plataforma academy — cursos, aulas e quizzes interativos.',
   },
 }

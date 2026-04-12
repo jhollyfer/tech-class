@@ -5,7 +5,7 @@ description: Gera aulas interativas como páginas Next.js (App Router) com React
 
 # Aula Interativa — Next.js
 
-Gera páginas de aula interativas no projeto Tech Class usando o design system `.aula-theme`, componentes React reutilizáveis e dados estruturados em TypeScript.
+Gera páginas de aula interativas no projeto academy usando o design system `.aula-theme`, componentes React reutilizáveis e dados estruturados em TypeScript.
 
 ---
 
@@ -60,11 +60,13 @@ Definido em `frontend/app/globals.css`:
 ```
 
 **Cores semânticas:**
+
 - Verde `--color-aula-success` → verdadeiro, correto
 - Vermelho `--color-aula-error` → falso, erro
 - Laranja `--color-aula-highlight` → números, atenção
 
 **Tipografia:**
+
 - Nunito (corpo) — carregada no root layout via `next/font/google`
 - Space Mono (código, badges, quiz) — carregada no aulas layout, variável `--font-mono`
 
@@ -76,20 +78,20 @@ Definido em `frontend/app/globals.css`:
 
 Todos em `frontend/components/aula/`:
 
-| Componente | Tipo | Import |
-|-----------|------|--------|
-| `AulaHeader` | Server | `aula-header.tsx` |
-| `AulaSection` | Client | `aula-section.tsx` |
-| `AulaCodeBlock` | Server | `aula-code-block.tsx` |
-| `AulaCallout` | Server | `aula-callout.tsx` |
-| `AulaTruthTable` | Server | `aula-truth-table.tsx` |
-| `AulaNextSteps` | Server | `aula-next-steps.tsx` |
-| `AulaProgressBar` | Client | `aula-progress-bar.tsx` |
-| `AulaQuiz` | Client | `aula-quiz.tsx` |
-| `AulaFlipBits` | Client | `aula-flip-bits.tsx` |
-| `AulaSimulator` | Client | `aula-simulator.tsx` |
+| Componente           | Tipo   | Import                     |
+| -------------------- | ------ | -------------------------- |
+| `AulaHeader`         | Server | `aula-header.tsx`          |
+| `AulaSection`        | Client | `aula-section.tsx`         |
+| `AulaCodeBlock`      | Server | `aula-code-block.tsx`      |
+| `AulaCallout`        | Server | `aula-callout.tsx`         |
+| `AulaTruthTable`     | Server | `aula-truth-table.tsx`     |
+| `AulaNextSteps`      | Server | `aula-next-steps.tsx`      |
+| `AulaProgressBar`    | Client | `aula-progress-bar.tsx`    |
+| `AulaQuiz`           | Client | `aula-quiz.tsx`            |
+| `AulaFlipBits`       | Client | `aula-flip-bits.tsx`       |
+| `AulaSimulator`      | Client | `aula-simulator.tsx`       |
 | `AulaExpandableCard` | Client | `aula-expandable-card.tsx` |
-| `AulaCodeToggle` | Client | `aula-code-toggle.tsx` |
+| `AulaCodeToggle`     | Client | `aula-code-toggle.tsx`     |
 
 ---
 
@@ -129,13 +131,13 @@ interface QuizQuestion {
 
 ## Interativos disponíveis
 
-| Elemento | Quando usar |
-|----------|-------------|
-| `flip-bits` | Lógica binária, booleana, estados |
-| `simulator` | Cálculo, verificação, comparação prática |
-| `truth-table` | Tabelas verdade interativas (dados via `AulaTruthTable`) |
-| `expandable-card` | Conceitos com exemplos ou detalhes extras |
-| `code-toggle` | Alternar entre código errado e correto |
+| Elemento          | Quando usar                                              |
+| ----------------- | -------------------------------------------------------- |
+| `flip-bits`       | Lógica binária, booleana, estados                        |
+| `simulator`       | Cálculo, verificação, comparação prática                 |
+| `truth-table`     | Tabelas verdade interativas (dados via `AulaTruthTable`) |
+| `expandable-card` | Conceitos com exemplos ou detalhes extras                |
+| `code-toggle`     | Alternar entre código errado e correto                   |
 
 Adicionar interativos customizados no componente `AulaInterativos` dentro de `frontend/app/aulas/[slug]/page.tsx`.
 

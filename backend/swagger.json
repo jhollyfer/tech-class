@@ -1,9 +1,9 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "Tech Class API",
+    "title": "academy API",
     "version": "0.0.1",
-    "description": "API da plataforma Tech Class — cursos, aulas e quizzes interativos."
+    "description": "API da plataforma academy — cursos, aulas e quizzes interativos."
   },
   "components": {
     "responses": {
@@ -173,9 +173,7 @@
         "summary": "Lista todos os cursos disponíveis (handle)",
         "description": "Returns **200** (OK) as **application/json**\n\n _app/resources/courses/list/list.controller.ts_ - **handle**",
         "parameters": [],
-        "tags": [
-          "COURSES"
-        ],
+        "tags": ["COURSES"],
         "responses": {
           "200": {
             "content": {
@@ -235,9 +233,7 @@
             "required": true
           }
         ],
-        "tags": [
-          "MODULES"
-        ],
+        "tags": ["MODULES"],
         "responses": {
           "200": {
             "content": {
@@ -309,9 +305,7 @@
             "required": true
           }
         ],
-        "tags": [
-          "LESSONS"
-        ],
+        "tags": ["LESSONS"],
         "responses": {
           "200": {
             "content": {
@@ -401,9 +395,7 @@
             "required": true
           }
         ],
-        "tags": [
-          "QUIZ"
-        ],
+        "tags": ["QUIZ"],
         "responses": {
           "200": {
             "content": {
@@ -448,12 +440,7 @@
                       "lessonDescricao": "Aprenda variáveis",
                       "lessonModulo": "Módulo 1",
                       "pergunta": "O que é?",
-                      "opcoes": [
-                        "A",
-                        "B",
-                        "C",
-                        "D"
-                      ],
+                      "opcoes": ["A", "B", "C", "D"],
                       "correta": 0,
                       "explicacao": "Porque...",
                       "explicacaoErrada": "Errado porque..."
@@ -510,9 +497,7 @@
             "required": true
           }
         ],
-        "tags": [
-          "LESSONS"
-        ],
+        "tags": ["LESSONS"],
         "responses": {
           "200": {
             "content": {
@@ -581,12 +566,7 @@
                     "quiz": [
                       {
                         "pergunta": "O que é uma variável?",
-                        "opcoes": [
-                          "A",
-                          "B",
-                          "C",
-                          "D"
-                        ],
+                        "opcoes": ["A", "B", "C", "D"],
                         "correta": 0,
                         "explicacao": "Explicação",
                         "explicacaoErrada": "Explicação do erro"
@@ -650,9 +630,7 @@
             "required": true
           }
         ],
-        "tags": [
-          "QUIZ"
-        ],
+        "tags": ["QUIZ"],
         "responses": {
           "200": {
             "content": {
@@ -697,12 +675,7 @@
                       "lessonDescricao": "Aprenda variáveis",
                       "lessonModulo": "Módulo 1",
                       "pergunta": "O que é?",
-                      "opcoes": [
-                        "A",
-                        "B",
-                        "C",
-                        "D"
-                      ],
+                      "opcoes": ["A", "B", "C", "D"],
                       "correta": 0,
                       "explicacao": "Porque...",
                       "explicacaoErrada": "Errado porque..."
@@ -749,9 +722,7 @@
             "required": true
           }
         ],
-        "tags": [
-          "QUIZ"
-        ],
+        "tags": ["QUIZ"],
         "responses": {
           "200": {
             "content": {
@@ -796,12 +767,7 @@
                       "lessonDescricao": "Aprenda variáveis",
                       "lessonModulo": "Módulo 1",
                       "pergunta": "O que é?",
-                      "opcoes": [
-                        "A",
-                        "B",
-                        "C",
-                        "D"
-                      ],
+                      "opcoes": ["A", "B", "C", "D"],
                       "correta": 0,
                       "explicacao": "Porque...",
                       "explicacaoErrada": "Errado porque..."

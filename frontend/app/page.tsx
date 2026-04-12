@@ -15,7 +15,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Tech Class — Aprenda programação do zero",
+  title: "academy — Aprenda programação do zero",
   description:
     "Plataforma educacional com aulas interativas de programação, banco de dados e informática. Quizzes em tempo real, exercícios práticos e conteúdo gratuito.",
 };
@@ -587,7 +587,7 @@ export default async function Home() {
             </div>
           </div>
           <div className="max-w-7xl mx-auto px-6 mt-20 pt-8 border-t border-[var(--color-border)] text-center text-[var(--color-muted)] text-sm font-medium">
-            <p>© 2025 Tech Class. Todos os direitos reservados.</p>
+            <p>© 2025 academy. Todos os direitos reservados.</p>
           </div>
         </footer>
       </main>

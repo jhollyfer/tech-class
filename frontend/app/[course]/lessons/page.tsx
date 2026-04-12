@@ -1,10 +1,16 @@
-import { notFound } from "next/navigation";
-import { getAllLessons } from "@/lib/lessons";
-import { getCourseConfig, getAllCourseKeys } from "@/lib/courses";
+import { getAllCourseKeys, getCourseConfig } from "@/lib/courses";
 import type { LessonSummary } from "@/lib/lessons";
+import { getAllLessons } from "@/lib/lessons";
+import {
+  ArrowRight,
+  BookOpen,
+  ClipboardList,
+  Infinity,
+  Layers,
+} from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BookOpen, Layers, Infinity, ArrowRight, ClipboardList } from "lucide-react";
+import { notFound } from "next/navigation";
 
 interface PageProps {
   params: Promise<{ course: string }>;
@@ -14,12 +20,14 @@ export function generateStaticParams() {
   return getAllCourseKeys().map((course) => ({ course }));
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { course } = await params;
   const config = getCourseConfig(course);
   if (!config) return { title: "Curso não encontrado" };
   return {
-    title: `Tech Class — ${config.label} com ${config.language}`,
+    title: `academy — ${config.label} com ${config.language}`,
     description: `Aulas interativas de ${config.label} com ${config.language} — quizzes e exercícios práticos.`,
   };
 }
@@ -53,9 +61,12 @@ export default async function CourseLessonsPage({ params }: PageProps) {
         <span className="inline-block px-3 py-1 text-xs font-mono font-bold tracking-widest uppercase rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] border border-[var(--color-primary)]/20 mb-6">
           {config.label} · {config.language}
         </span>
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-4">Aulas</h1>
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-4">
+          Aulas
+        </h1>
         <p className="text-[var(--color-muted)] text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-          Domine lógica de programação com aulas interativas, quizzes práticos e exercícios que constroem sua base de conhecimento.
+          Domine lógica de programação com aulas interativas, quizzes práticos e
+          exercícios que constroem sua base de conhecimento.
         </p>
 
         <div className="max-w-2xl mx-auto rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] shadow-sm p-6 sm:p-8">
@@ -95,7 +106,6 @@ export default async function CourseLessonsPage({ params }: PageProps) {
             </div>
           </div>
         </div>
-
       </header>
 
       <div className="max-w-4xl mx-auto px-6 pb-16 space-y-12 relative z-10">
@@ -107,7 +117,8 @@ export default async function CourseLessonsPage({ params }: PageProps) {
                   {modulo}
                 </h2>
                 <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-muted)]">
-                  {aulasDoModulo.length} {aulasDoModulo.length === 1 ? "aula" : "aulas"}
+                  {aulasDoModulo.length}{" "}
+                  {aulasDoModulo.length === 1 ? "aula" : "aulas"}
                 </span>
               </div>
               <Link
@@ -160,7 +171,7 @@ export default async function CourseLessonsPage({ params }: PageProps) {
       </div>
 
       <footer className="border-t border-[var(--color-border)] py-8 text-center text-xs text-[var(--color-muted)] relative z-10">
-        <p>Tech Class — Material educacional CETAM</p>
+        <p>academy — Material educacional CETAM</p>
       </footer>
     </main>
   );

@@ -13,11 +13,11 @@ const nunito = Nunito({
 });
 
 export const metadata: Metadata = {
-  title: "Tech Class — Plataforma Educacional",
+  title: "academy — Plataforma Educacional",
   description:
     "Aulas interativas de programação com quizzes, simuladores e exercícios práticos. Baseado nas aulas do professor André Noel (CETAM).",
   openGraph: {
-    title: "Tech Class — Plataforma Educacional",
+    title: "academy — Plataforma Educacional",
     description:
       "Aulas interativas de programação com quizzes, simuladores e exercícios práticos.",
     locale: "pt_BR",

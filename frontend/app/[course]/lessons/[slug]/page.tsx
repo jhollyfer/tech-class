@@ -37,7 +37,7 @@ export async function generateMetadata({
   const lesson = await getLesson(course, slug);
   if (!lesson) return { title: "Aula não encontrada" };
   return {
-    title: `${lesson.titulo} — Tech Class`,
+    title: `${lesson.titulo} — academy`,
     description: lesson.descricao,
   };
 }
