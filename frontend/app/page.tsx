@@ -173,7 +173,7 @@ export default async function Home() {
                       {"{ learn }"}{" "}
                       <span className="text-[var(--color-primary)]">from</span>{" "}
                       <span className="text-[var(--color-success)]">
-                        &quot;tech-class&quot;
+                        &quot;academy&quot;
                       </span>
                       ;
                     </p>

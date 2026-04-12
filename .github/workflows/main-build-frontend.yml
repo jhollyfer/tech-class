@@ -24,7 +24,7 @@ jobs:
       - name: Build
         working-directory: ./frontend
         env:
-          NEXT_PUBLIC_API_URL: https://api-tech-class.maiyu.com.br
+          NEXT_PUBLIC_API_URL: https://api.academy.maiyu.com.br
           NODE_OPTIONS: "--max-old-space-size=8192"
         run: npm run build
 

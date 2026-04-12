@@ -43,6 +43,6 @@ jobs:
           file: ./frontend/Dockerfile-production
           push: true
           platforms: linux/amd64,linux/arm64
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/tech-class-app:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/academy-app:latest
           cache-from: type=gha,scope=frontend
           cache-to: type=gha,mode=max,scope=frontend

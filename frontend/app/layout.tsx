@@ -1,9 +1,9 @@
+import { TechClassNavbar } from "@/components/academy-navbar";
+import { ThemeProvider } from "@/components/theme-provider";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { TechClassNavbar } from "@/components/tech-class-navbar";
 
 const nunito = Nunito({
   variable: "--font-nunito",
@@ -37,9 +37,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <head>
-        <script
-          dangerouslySetInnerHTML={{ __html: themeScript }}
-        />
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body className={`${nunito.variable} antialiased`}>
         <ThemeProvider>

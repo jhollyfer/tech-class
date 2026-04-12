@@ -1,11 +1,11 @@
 ---
 name: lesson-creator
-description: Gera aulas para o projeto tech-class como arquivos markdown com frontmatter YAML. Use esta skill sempre que o usuario pedir para criar uma aula, gerar conteudo de aula, adicionar uma licao, criar material didatico, ou mencionar "nova aula", "criar aula", "gerar conteudo", "adicionar licao" para qualquer um dos cursos (Programacao, Banco de Dados, Informatica Avancada). Tambem use quando o usuario listar topicos para virar aulas.
+description: Gera aulas para o projeto academy como arquivos markdown com frontmatter YAML. Use esta skill sempre que o usuario pedir para criar uma aula, gerar conteudo de aula, adicionar uma licao, criar material didatico, ou mencionar "nova aula", "criar aula", "gerar conteudo", "adicionar licao" para qualquer um dos cursos (Programacao, Banco de Dados, Informatica Avancada). Tambem use quando o usuario listar topicos para virar aulas.
 ---
 
 # Lesson Creator
 
-Skill para gerar aulas do projeto tech-class. Cada aula ensina **um unico conceito**, de forma simples, direta e objetiva.
+Skill para gerar aulas do projeto academy. Cada aula ensina **um unico conceito**, de forma simples, direta e objetiva.
 
 ## Antes de comecar
 
@@ -51,6 +51,7 @@ quiz:
 ```
 
 **Regras do frontmatter:**
+
 - `slug`: kebab-case, sem acentos
 - `correta`: indice 0-based da opcao correta
 - `quiz`: sempre 4-5 perguntas, sempre 4 opcoes cada
