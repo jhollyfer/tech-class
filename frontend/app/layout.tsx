@@ -1,4 +1,4 @@
-import { TechClassNavbar } from "@/components/academy-navbar";
+import { TechClassNavbar } from "@/components/tech-class-navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import type { Metadata } from "next";
